@@ -8,7 +8,8 @@ header {
     font-size: 1.5vw;
 }
 
-@media screen and (max-width: 700px) {
+/* reglas para imagenes y letras aplicados hasta dispositivos medianos */
+@media screen and (max-width: 500px) {
     header {
         height: auto;
         padding: 0 20px;
@@ -21,10 +22,22 @@ header {
     
 }
 
+/* tamaño de la imagen del logo de kaffi*/
 header #introduction img {
     width: 10vw;
     margin: 100px 0;
     margin-left: 20px;
+}
+
+/* tamaño de la imagen historia */
+section #imagen-historia img {
+    width: 50%;
+}
+
+/* tamaño de la imagen historia */
+#coffe-grains-historia {
+    width: 30%;
+    display: inline;
 }
 
 

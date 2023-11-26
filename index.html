@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,20 +72,42 @@
 
 
     <main>
+        <!--  tarjeta de historia -->
         <section id="historia" class="">
-            <div id="imagen-historia" class="col-sm-12 col-md-5 mb-3">
-                <!-- The image is placed above for small devices -->
-                <img class="img-responsive" src="./assets/images/imagen_fundador.png" alt="fundador_kaffi" />
-            </div>
-            <div id="tarjeta-historia" class="card-body text-center order-md-last">
-                <!-- The image is placed to the right for larger devices -->
-                <img id="coffe-grains-historia" class="img-responsive justify-content-center d-sm-none d-md-inline mb-3" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-        
-                <p class="card-text-historia">
-                    "Detras de cada taza en Kaffi hay una historia que contar"
-                </p>
-                <div>
-                    <button id="button-history">Conoce nuestra historia</button>
+            <!-- contenedor que despliega en fila -->
+            <div class="row">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
+                -->
+                <div id="imagen-historia" class="col-sm-12 col-md-5 order-sm-first order-md-last mb-4">
+                    <!-- The image is placed above for small devices -->
+                    <img class="img-responsive" src="./assets/images/imagen_fundador.png" alt="fundador_kaffi" />
+                </div>
+                <!--
+                row: los contenidos dentro del contendor se despliega en forma de fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <div id="tarjeta-historia" class=" row col-md-7  text-center order-sm-last order-md-first">
+                    <!-- 
+                        col-sm-12: la imagen de granos de cafe ocupa las 12 columnas de las 12 para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7)
+
+                     -->
+                    <img id="coffe-grains-historia" class="col-sm-12 mb-4" src="./assets/images/granos_cafe.png"
+                        alt="granos_cafe">
+
+                    <!-- col-sm-12: el parrafo ocupa las 12 columnas del espacio de 12 columnas disponibles para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7) -->
+                    <p class="col-sm-12 card-text-historia">
+                        "Detras de cada taza en Kaffi hay una historia que contar"
+                    </p>
+                    <!-- col-sm-12: el parrafo ocupa las 12 columnas del espacio de 12 columnas disponibles para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7) -->
+                    <div>
+                        <button id="button-history" class="col-sm-12">Conoce nuestra historia</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -237,4 +260,5 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
