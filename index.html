@@ -3,9 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="about-us.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <title>Acerca de nosotros - Kaffi</title>
 </head>
+
 <body>
-    
+    <header>
+        <!-- barra de navegacion -->
+        <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
+        <nav class="navbar navbar-expand-lg ">
+            <!-- se tiene que eliminar bg-body-tertiary de la clase para que no efecte el fondo -->
+            <div class="float-left col-3 ">
+                <!-- float-left mueve hasta la izquierda los elementos dentro del div; solo 3 columnas para dispositivos pequeños y  -->
+                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" />
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <!-- colores para el texto https://getbootstrap.com/docs/4.0/utilities/colors/ -->
+                        <a class="nav-link active text-white" aria-current="page" href="#">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#"><img
+                                src="./assets/images/icono_carrito.png" alt="carrito" /></a>
+                        <!-- poner una imagen como enlace https://www.w3schools.com/html/tryit.asp?filename=tryhtml_links_image -->
+                    </li>
+                    <li class="nav-item">
+                        <a id="enlace-login-header" class="nav-link active text-white" href="#"><img
+                                src="./assets/images/icono_login.png" alt="login" /></a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <section id="introduction">
+            <div class="d-flex justify-content-center">
+                <img class src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <p class="description text-center text-white">"Somos Kaffi. Una cafetería familiar pet-friendly, un
+                    rincón donde la
+                    calidad del café y la calidez del servicio es primero." Descubre quiénes somos y por qué amamos lo
+                    que hacemos.
+                </p>
+            </div>
+
+        </section>
+    </header>
+
+
+    <main>
+        <section id="historia" class="">
+            <div id="imagen-historia" class="col-sm-12 col-md-5 mb-3">
+                <!-- The image is placed above for small devices -->
+                <img class="img-responsive" src="./assets/images/imagen_fundador.png" alt="fundador_kaffi" />
+            </div>
+            <div id="tarjeta-historia" class="card-body text-center order-md-last">
+                <!-- The image is placed to the right for larger devices -->
+                <img id="coffe-grains-historia" class="img-responsive justify-content-center d-sm-none d-md-inline mb-3" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+        
+                <p class="card-text-historia">
+                    "Detras de cada taza en Kaffi hay una historia que contar"
+                </p>
+                <div>
+                    <button id="button-history">Conoce nuestra historia</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="mision">
+            <div class="card-mision" style="width: 18rem;">
+                <div class="card-body">
+                    <img class="coffe-grains-mision" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                    <h6>Nuestra misión es simple pero poderosa...</h6>
+                    <p class="card-text-mision">
+                        Buscamos ser la cafetería de preferencia, brindando experiencias válidas y autenticas a cada
+                        cliente, de dos y cuatro patas.
+                    </p>
+                </div>
+            </div>
+            <div id="imagen-mision">
+                <img src="./assets/images/imagen_perro.png" alt="perro observando pastel" />
+            </div>
+        </section>
+
+
+        <section id="vision">
+            <div class="card-vision" style="width: 18rem;">
+                <div class="card-body">
+                    <img class="coffe-grains-vision" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                    <h6>Nuestra visión es clara...</h6>
+                    <p class="card-text-vision">
+                        Nuestra visión es convertirnos en el corazón de la comunidad, siendo reconocidos como la
+                        cafetería preferida para familias y amantes de las mascotas. Buscamos expandir nuestra
+                        influencia positiva, ofreciendo productos excepcionales y experencias inolvidabls que
+                        fortalezcan los lazos emocionales en un entorno acogedor y pet-friendly.
+                    </p>
+                </div>
+            </div>
+            <div id="imagen-vision">
+                <img src="./assets/images/imagen_pareja.png" alt="pareja" />
+            </div>
+        </section>
+
+        <section id="valores">
+            <div class="card-historia" style="width: 18rem;">
+                <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                <div class="card-body">
+                    <h6 class="card-text-valores">
+                        Nuestros valores son la esencia de todo lo que hacemos
+                    </h6>
+                    <button class="button-history">Conoce nuestros valores</button>
+                </div>
+            </div>
+            <div id="imagen-historia">
+                <img src="./assets/images/imagen_barista.png" alt="fundador_kaffi" />
+            </div>
+        </section>
+
+        <section id="sucursales">
+            <h6 class="title-stores">Te esperamos en dos lugares impresionantes</h6>
+            <p class="description-stores">En cada sucursal de Kaffi, encontrarás el mismo compromiso con la calidad y el
+                servicio excepcional.</p>
+            <img src="./assets/images/imagen_sucursal_fcomontejo.png" alt="sucursal_kaffi_montejo" />
+            <img src="./assets/images/imagen_sucursal_caucel.png" alt="sucursal_kaffi_caucel" />
+            <p class="descrition-images-stores">Haz click en la sucursal más cercana para abrir su ubicación</p>
+            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+        </section>
+
+        <section id="developers-team">
+            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+            <p class="description-developers">"Descubre a las personas que hacen que esta página sea especial.
+            </p>
+            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+            <div id="profile-cards">
+            </div>
+        </section>
+    </main>
+
+    <!-- codigo de valdo -->
+    <footer>
+        <footer class="text-light">
+
+            <!-- Section: Social media -->
+            <section id="social-media" class="text-center p-3 border-bottom border-3">
+
+                <div class="mb-2">
+                    <span>Siguenos en nuestras redes sociales</span>
+                </div>
+
+                <div>
+                    <a href="https://www.instagram.com/kaffimerida/" target="_blank" class="me-5">
+                        <img class="social-icon" src="/assets/images/icons8-instagram-60.png"
+                            alt="El icono de Instagram"></a>
+                    <a href="https://www.facebook.com/kaffiMid/?locale=es_LA" target="_blank" class="me-5">
+                        <img class="social-icon" src="/assets/images/icons8-facebook-50 (2).png"
+                            alt="El icono de Facebook"></a>
+                    <a href="https://api.whatsapp.com/message/RMOZKTGCQLG3H1?autoload=1&app_absent=0" target="_blank">
+                        <img class="social-icon" src="/assets/images/icons8-whatsapp-50 (1).png"
+                            alt="El icono de whatssap"></a>
+                </div>
+            </section>
+
+            <!-- Section: Logo y sucursales  -->
+            <section id="sucursales" class="text-center p-3 border-bottom border-3">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row mt-3">
+
+                        <!-- Logo -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <img src="/assets/images/logo kaffi blanco.png" alt="logo de Kaffi" class="img-fluid">
+                        </div>
+
+                        <!-- Fransisco Montejo -->
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+                            <h5 class="mb-4 ">
+                                Sucursal Francisco de Montejo
+                            </h5>
+                            <p>
+                                C.41-A #441-x 58,
+                                Fransisco de Montejo,
+                                97203
+                                Mérida Ycatan
+                            </p>
+                        </div>
+
+                        <!-- Caucel -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <h5 class="mb-4">
+                                Sucursal Caucel
+                            </h5>
+                            <p>
+                                C.70 #673-x 39 A y 43,
+                                Plaza Premium Caucel local #6,
+                                Caucel, 97203,
+                                Mérida Ycatan
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Copyright -->
+            <div class="text-center p-4">
+                <p> Politica de Privacidad | Términos y Condicones de Uso | Aviso Legal</p><br>
+                <p>Copyright © [2018] [Kaffi S.A de C.V]</p>
+                <span>Todos los derechos reservados</span>
+            </div>
+        </footer>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>

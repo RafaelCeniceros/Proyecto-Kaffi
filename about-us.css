@@ -1,0 +1,55 @@
+header {
+    /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
+    width: 100%;
+    height: auto;
+    background-image: url(./assets/images/familia_tomando.png);
+    background-size: cover;
+    font-family: 'Imprima', sans-serif;
+    font-size: 1.5vw;
+}
+
+@media screen and (max-width: 700px) {
+    header {
+        height: auto;
+        padding: 0 20px;
+        font-size: 7vw;
+    }
+
+    header #introduction img {
+        width: 80%;
+    }
+    
+}
+
+header #introduction img {
+    width: 10vw;
+    margin: 100px 0;
+    margin-left: 20px;
+}
+
+
+/* estilos del footer */
+body{
+    background-color: #faf6ec;
+}
+
+footer{
+    background-color: #361c12;
+}
+
+#social-media{
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#sucursales{
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.social-icon{
+    width: 35px;
+    height: 35px;
+}
