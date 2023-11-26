@@ -70,12 +70,12 @@
         </section>
     </header>
 
-
+    <!-- seccion principal -->
     <main>
         <!--  tarjeta de historia -->
-        <section id="historia" class="">
+        <section id="historia">
             <!-- contenedor que despliega en fila -->
-            <div class="row">
+            <div class="row contenedor-tarjetas">
                 <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
                 mb-4: margin bottom de 4
                 col-md-5: ocupara 5 columnas a patir de dispositivos medianos
@@ -92,12 +92,13 @@
                 text-center: centra los textos del boton y del parrafo
                 order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
                 order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
-                <div id="tarjeta-historia" class=" row col-md-7  text-center order-sm-last order-md-first">
+                <div id="tarjeta-historia"
+                    class="tarjeta-clara row col-md-7  text-center order-sm-last order-md-first justify-content-center">
                     <!-- 
                         col-sm-12: la imagen de granos de cafe ocupa las 12 columnas de las 12 para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7)
 
                      -->
-                    <img id="coffe-grains-historia" class="col-sm-12 mb-4" src="./assets/images/granos_cafe.png"
+                    <img class="coffe-grains-cards col-sm-12 mb-4" src="./assets/images/granos_cafe.png"
                         alt="granos_cafe">
 
                     <!-- col-sm-12: el parrafo ocupa las 12 columnas del espacio de 12 columnas disponibles para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7) -->
@@ -112,29 +113,59 @@
             </div>
         </section>
 
+        <!-- tarjeta mision -->
         <section id="mision">
-            <div class="card-mision" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="coffe-grains-mision" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-                    <h6>Nuestra misión es simple pero poderosa...</h6>
-                    <p class="card-text-mision">
+            <!-- row: para desplegar los elementos dentro del contenedor en una fila -->
+            <div class="row contenedor-tarjetas">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas -->
+                <div id="imagen-mision" class="col-sm-12 col-md-5 order-sm-first order-md-last mb-4">
+                    <img src="./assets/images/imagen_perro.png" alt="perro observando pastel" />
+                </div>
+                <!-- row: los elementos h6, p e img se despligan en fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <div class="tarjeta-oscura row col-md-7 text-center order-sm-last order-md-first">
+                    <!-- col-sm-12: ocupa 12 columnas a partir de dispositivos pequeños -->
+                    <h6 class="col-sm-12 card-text-historia">Nuestra misión es simple pero poderosa...</h6>
+                    <!-- col-sm-12: ocupa 12 columnas a partir de dispositivos pequeños -->
+                    <p class="card-text-mision col-sm-12">
                         Buscamos ser la cafetería de preferencia, brindando experiencias válidas y autenticas a cada
                         cliente, de dos y cuatro patas.
                     </p>
+                    <!-- col-sm-12: ocupa 12 columnas a partir de dispositivos pequeños -->
+                    <img class="coffe-grains-cards col-sm-12 mb-4" src="./assets/images/granos_cafe.png"
+                        alt="granos_cafe">
                 </div>
-            </div>
-            <div id="imagen-mision">
-                <img src="./assets/images/imagen_perro.png" alt="perro observando pastel" />
             </div>
         </section>
 
-
+        <!-- tarjeta vision -->
         <section id="vision">
-            <div class="card-vision" style="width: 18rem;">
-                <div class="card-body">
-                    <img class="coffe-grains-vision" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-                    <h6>Nuestra visión es clara...</h6>
-                    <p class="card-text-vision">
+            <!-- row: para que los elementos dentro del contenedor se desplieguen en una fila -->
+            <div class="row contenedor-tarjetas">
+                <!-- col-md-5: a partir de dispositivos medianos ocupa 5 columnas de las 12
+                col-sm-12: para dispositivos pequeños ocupa las 12 -->
+                <div id="imagen-vision" class="col-md-5 col-sm-12">
+                    <img src="./assets/images/imagen_pareja.png" alt="pareja" />
+                </div>
+                <!-- col-md-7: para dispositivos medianos ocupa las 7 columans restantes
+                col-sm-12: para dispositivos pequeños ocupa las 12
+                text-center: centra cualquier texto -->
+                <div class="tarjeta-clara row col-md-7 col-sm-12 text-center">
+                    
+                    <!-- col-sm-12: ocupa 12 columnas a partir de dispositivos pequeños (es decir siempre) -->
+                    <h6 class="col-sm-12">Nuestra visión es clara...
+                        <!-- col-sm-1: ocupa 1 columnas a partir de dispositivos pequeños (es decir siempre) -->
+                        <img class="coffe-grains-cards col-sm-1" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                    </h6>
+                    <!-- col-sm-12: ocupa 12 columnas a partir de dispositivos pequeños (es decir siempre) -->
+                    <p class="card-text-vision col-sm-12">
                         Nuestra visión es convertirnos en el corazón de la comunidad, siendo reconocidos como la
                         cafetería preferida para familias y amantes de las mascotas. Buscamos expandir nuestra
                         influencia positiva, ofreciendo productos excepcionales y experencias inolvidabls que
@@ -142,44 +173,149 @@
                     </p>
                 </div>
             </div>
-            <div id="imagen-vision">
-                <img src="./assets/images/imagen_pareja.png" alt="pareja" />
-            </div>
         </section>
 
+        <!-- tarjeta valores -->
         <section id="valores">
-            <div class="card-historia" style="width: 18rem;">
-                <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-                <div class="card-body">
-                    <h6 class="card-text-valores">
+            <div class="row contenedor-tarjetas">
+                <div
+                    class="tarjeta-oscura row col-sm-12 col-md-7 order-md-first order-sm-last text-center justify-content-center">
+                    <img class="coffe-grains-cards col-sm-12" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                    <h6 class="col-sm-12">
                         Nuestros valores son la esencia de todo lo que hacemos
                     </h6>
-                    <button class="button-history">Conoce nuestros valores</button>
+                    <div>
+                        <button id="button-history" class="col-sm-12">
+                            Conoce nuestros valores
+                        </button>
+                    </div>
+                </div>
+                <div id="imagen-historia" class="col-md-5 col-sm-12 order-sm-first order-md-last">
+                    <img src="./assets/images/imagen_barista.png" alt="fundador_kaffi" />
                 </div>
             </div>
-            <div id="imagen-historia">
-                <img src="./assets/images/imagen_barista.png" alt="fundador_kaffi" />
-            </div>
         </section>
 
+        <!-- tarjetas sucursales -->
         <section id="sucursales">
-            <h6 class="title-stores">Te esperamos en dos lugares impresionantes</h6>
-            <p class="description-stores">En cada sucursal de Kaffi, encontrarás el mismo compromiso con la calidad y el
-                servicio excepcional.</p>
-            <img src="./assets/images/imagen_sucursal_fcomontejo.png" alt="sucursal_kaffi_montejo" />
-            <img src="./assets/images/imagen_sucursal_caucel.png" alt="sucursal_kaffi_caucel" />
-            <p class="descrition-images-stores">Haz click en la sucursal más cercana para abrir su ubicación</p>
-            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-        </section>
-
-        <section id="developers-team">
-            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-            <p class="description-developers">"Descubre a las personas que hacen que esta página sea especial.
-            </p>
-            <img class="coffe-grains-valores" src="./assets/images/granos_cafe.png" alt="granos_cafe">
-            <div id="profile-cards">
+            <div class="row contenedor-tarjetas tarjeta-clara text-center justify-content-center">
+                <h6 class="title-stores col-sm-12">Te esperamos en dos lugares impresionantes</h6>
+                <p class="description-stores col-sm-12">En cada sucursal de Kaffi, encontrarás el mismo compromiso con la calidad y el servicio excepcional.</p>
+                <img class="col-sm-6" src="./assets/images/imagen_sucursal_fcomontejo.png" alt="sucursal_kaffi_montejo" />
+                <img class="col-sm-6" src="./assets/images/imagen_sucursal_caucel.png" alt="sucursal_kaffi_caucel" />
+                <p class="descrition-images-stores row col-sm-12">
+                    <img class="coffe-grains-cards col-sm-1" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+                    Haz click en la sucursal más cercana para abrir su ubicación
+                </p>
             </div>
         </section>
+
+        <!-- codigo de Rafa (seccion equipo de desarrollo)-->
+        <h5>seccion ed</h5>
+        <section id="developers-team" class="container">
+            <!-- 
+            Se usara una fila, con 3 columnas. 1 por cada elemento que compone la sección,
+            que correspone a una imagen, una frase y otra imagen.
+            Todos los elementos dentro de la fila se alinearán horizontal y verticalmente en el centro.
+            La columna ocupara 4/12 espacios en todos los formatos.
+         -->
+
+            <div class="row justify-content-center align-items-center">
+                <!-- Contenedor para la imagen -->
+                <div class="col-sm-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="ruta-de-la-imagen.jpg" alt="Granos de cafe">
+                    </div>
+                </div>
+                <!-- Contenedor para el texto -->
+                <div class="col-sm-4 text-center">
+                    <p class="description-developers">Descubre a las personas que hacen que esta página sea especial.
+                    </p>
+                </div>
+                <!-- Contenedor para la imagen -->
+                <div class="col-sm-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="ruta-de-la-imagen.jpg" alt="Granos de cafe">
+                    </div>
+                </div>
+            </div>
+            <div id="profile-cards">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3">
+                        <div class="col">
+                            <!-- Card 1 -->
+                            <div class="card d-flex">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-md-4" id="picture-profile-card">
+                                        <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha) -->
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Card 2-->
+                            <div class="card d-flex">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-md-4" id="picture-profile-card">
+                                        <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha) -->
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Card 3-->
+                            <div class="card d-flex">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-md-4" id="picture-profile-card">
+                                        <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha) -->
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
     </main>
 
     <!-- codigo de valdo -->
@@ -260,5 +396,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
+
 
 </html>

@@ -31,15 +31,59 @@ header #introduction img {
 
 /* tamaño de la imagen historia */
 section #imagen-historia img {
+    width: 20%;
+}
+
+/* tamaño de los granos de cafe de todas las tarjetas */
+.coffe-grains-cards {
+    height: 10%;
+    width: auto;
+}
+
+.contenedor-tarjetas {
+    margin: 35px;
+}
+
+/* estilos de las tarjetas claras */
+.tarjeta-clara {
+    background-color: #F6EACC;
+}
+
+/* estilos de titulos tarjetas claras */
+.tarjeta-clara h6 {
+    font-family: 'Inter', sans-serif;
+}
+
+/* estilos de los parrafos de las tarjetas claras */
+.tarjeta-clara p {
+    font-family: 'Imprima', sans-serif;
+}
+
+/* estilos de las tarjetas oscuras */
+.tarjeta-oscura {
+    background-color: #361C12;
+}
+
+/* estilos de titulos tarjetas oscuras */
+.tarjeta-oscura h6 {
+    font-family: 'Inter', sans-serif;
+    color: #F6EACC;
+}
+
+/* estilos de los parrafos de las tarjetas claras */
+.tarjeta-oscura p {
+    font-family: 'Imprima', sans-serif;
+    color: #F6EACC;
+}
+
+
+section #imagen-mision img {
+    width:50%;
+}
+
+section #imagen-vision img {
     width: 50%;
 }
-
-/* tamaño de la imagen historia */
-#coffe-grains-historia {
-    width: 30%;
-    display: inline;
-}
-
 
 /* estilos del footer */
 body{
