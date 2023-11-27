@@ -29,24 +29,15 @@ header #introduction img {
     margin-left: 20px;
 }
 
-/* tamaño de la imagen historia */
-section #imagen-historia img {
-    width: 20%;
-}
-
-/* tamaño de los granos de cafe de todas las tarjetas */
-.coffe-grains-cards {
-    height: 10%;
-    width: auto;
-}
 
 .contenedor-tarjetas {
-    margin: 35px;
+    margin: 80px;
 }
 
 /* estilos de las tarjetas claras */
 .tarjeta-clara {
     background-color: #F6EACC;
+    padding: 10% 0;
 }
 
 /* estilos de titulos tarjetas claras */
@@ -62,6 +53,7 @@ section #imagen-historia img {
 /* estilos de las tarjetas oscuras */
 .tarjeta-oscura {
     background-color: #361C12;
+    padding: 10% 0;  /* para aumentar el espaciado arriba y abajo entre el borde de la caja y los contenidos del interior */
 }
 
 /* estilos de titulos tarjetas oscuras */
@@ -76,10 +68,37 @@ section #imagen-historia img {
     color: #F6EACC;
 }
 
-
-section #imagen-mision img {
-    width:50%;
+#coffee-grains-containter {
+    height: 50px;
 }
+
+
+/* estilos de la tarjeta historia */
+
+#imagen-historia {
+    padding: 0;
+}
+
+#imagen-historia img{
+    height: 100%;
+}
+
+/* tamaño de los granos de cafe de todas las tarjetas */
+.coffe-grains-cards {
+    height: 100%;
+}
+
+
+/* estilos de la tarjeta mision */
+
+#imagen-mision{
+    padding:0; /* necesario para el contenedor de la imagen no tenga espacio entre la imagen y el mismo */
+}
+
+#imagen-mision img {
+    height: 100%;
+}
+
 
 section #imagen-vision img {
     width: 50%;
