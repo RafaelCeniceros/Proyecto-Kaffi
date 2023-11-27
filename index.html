@@ -219,7 +219,6 @@
         </section>
 
         <!-- codigo de Rafa (seccion equipo de desarrollo)-->
-        <h5>seccion ed</h5>
         <section id="developers-team" class="container">
             <!-- 
             Se usara una fila, con 3 columnas. 1 por cada elemento que compone la sección,
@@ -228,11 +227,11 @@
             La columna ocupara 4/12 espacios en todos los formatos.
          -->
 
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center mb-5">
                 <!-- Contenedor para la imagen -->
                 <div class="col-sm-4 text-center">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="ruta-de-la-imagen.jpg" alt="Granos de cafe">
+                    <div class="d-flex justify-content-center align-items-center" id="seeds-developers-team-left">
+                        <img src="assets/images/semillas cafe varias.png" class="img-fluid" alt="Granos de cafe">
                     </div>
                 </div>
                 <!-- Contenedor para el texto -->
@@ -242,8 +241,9 @@
                 </div>
                 <!-- Contenedor para la imagen -->
                 <div class="col-sm-4 text-center">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="ruta-de-la-imagen.jpg" alt="Granos de cafe">
+                    <div class="d-flex justify-content-center align-items-center" id="seeds-developers-team-right">
+                        <img src="assets/images/semillas cafe varias.png" class="img-fluid" alt="Granos de cafe">
+                    </div>
                     </div>
                 </div>
             </div>
@@ -258,6 +258,32 @@
                                     <div class="col-md-4" id="picture-profile-card">
                                         <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid"
                                             alt="...">
+                <!--La clase row-cols-1 indica que habrá una columna por fila en pantallas pequeñas.
+                La clase row-cols-lg-2 especifica que habrá dos columnas por fila en pantallas grandes y más grandes. -->
+                <div class="row row-cols-1 row-cols-lg-2 justify-content-center text-center">
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 1 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Rafael Ceniceros</h5>
+                                        <p class="card-text">Product Owner / Developer.</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
                                     </div>
                                     <!-- Columnas del contenido (derecha) -->
                                     <div class="col-md-8">
@@ -266,9 +292,60 @@
                                             <p class="card-text">This is a wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
                                                 longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 2 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Melissa Corpus</h5>
+                                        <p class="card-text">Scrum Master / Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
                                         </div>
-                                        <div class="card-footer">
-                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 3 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Oswaldo Fonseca</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -290,9 +367,57 @@
                                             <p class="card-text">This is a wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
                                                 longer.</p>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 4 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Fernando Juarez</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
                                         </div>
-                                        <div class="card-footer">
-                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 5 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Vanesa León</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -314,16 +439,232 @@
                                             <p class="card-text">This is a wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
                                                 longer.</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 6 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Kimberly Ramoz</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 7 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Alan Villa</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 2 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Melissa Corpus</h5>
+                                        <p class="card-text">Scrum Master / Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 3 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Oswaldo Fonseca</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 4 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Fernando Juarez</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 5 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Vanesa León</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 6 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Kimberly Ramoz</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-4">
+                        <!-- Contenido de la tarjeta 7 -->
+                        <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                            <div class="row">
+                                <!-- Columna de la imagen (izquierda) -->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="picture-profile-container">
+                                <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                    <img src="/assets/images/imagen_fundador.png" class="card-img-left img-fluid" alt="...">
+                                </div>
+                                <!-- Columnas del contenido (derecha)-->
+                                <div class="col-sm-6 d-flex align-items-center justify-content-center" id="text-profile-container">
+                                <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Alan Villa</h5>
+                                        <p class="card-text">Full Stack Developer</p>
+                                        <div id="card-footer" class="mt-3">
+                                            <i class="fab fa-linkedin fa-2x mx-3"></i>
+                                            <i class="fab fa-github fa-2x mx-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
             </div>
         </section>
 
@@ -412,6 +753,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
 </body>
 
 

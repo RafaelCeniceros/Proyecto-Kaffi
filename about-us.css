@@ -129,3 +129,22 @@ footer{
     width: 35px;
     height: 35px;
 }
+
+/* semillas cafe rafa 9 */
+
+#seeds-developers-team-left{
+    transform: rotate(-18.81deg);
+}
+
+#seeds-developers-team-right{
+transform: rotate(159.85deg);
+}
+
+
+#profile-card{
+    background-color: #361c12;
+    color: #ffffff;
+}
+#card-footer{
+    color: #ffffff;
+}
