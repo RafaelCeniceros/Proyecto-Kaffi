@@ -2,7 +2,7 @@ header {
     /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
     width: 100%;
     height: auto;
-    background-image: url(./assets/images/familia_tomando.png);
+    background-image: url(../images/familia_tomando.png);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1.5vw;
