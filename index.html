@@ -17,22 +17,31 @@
     <header>
         <!-- barra de navegacion -->
         <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
-        <nav class="navbar navbar-expand-lg ">
-            <!-- se tiene que eliminar bg-body-tertiary de la clase para que no efecte el fondo -->
-            <div class="float-left col-3 ">
-                <!-- float-left mueve hasta la izquierda los elementos dentro del div; solo 3 columnas para dispositivos pequeños y  -->
-                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" />
-            </div>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <nav class="navbar navbar-expand-lg justify-content-between">
+    
+            <!-- Botón de hamburguesa visible en pantallas pequeñas -->
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
             </button>
+    
+            <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
+            <div class="d-lg-none d-flex align-items-center ms-auto">
+                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                    id="navegation-bar-logo" />
+            </div>
+    
+            <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
+            <div class="d-none d-lg-block mx-5">
+                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                    id="navegation-bar-logo" />
+            </div>
+    
+            <!-- Menú desplegable, visible en pantallas pequeñas -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <!-- colores para el texto https://getbootstrap.com/docs/4.0/utilities/colors/ -->
                         <a class="nav-link active text-white" aria-current="page" href="#">Menú</a>
                     </li>
                     <li class="nav-item">
@@ -41,32 +50,37 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#"><img
-                                src="./assets/images/icono_carrito.png" alt="carrito" /></a>
-                        <!-- poner una imagen como enlace https://www.w3schools.com/html/tryit.asp?filename=tryhtml_links_image -->
+                </ul>
+            </div>
+    
+            <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
+            <div id="iconos-carrito-y-usuario" class="ms-auto me-0">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item mx-1">
+                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#">
+                            <i class="fa-solid fa-cart-shopping" style="font-size: 24px;"></i>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a id="enlace-login-header" class="nav-link active text-white" href="#"><img
-                                src="./assets/images/icono_login.png" alt="login" /></a>
+                    <li class="nav-item mx-1">
+                        <a id="enlace-login-header" class="nav-link active text-white" href="#">
+                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
-            </div>
         </nav>
-
         <section id="introduction">
             <div class="d-flex justify-content-center">
-                <img class src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" />
+                <img class="img-fluid" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" id="img-logo-blanco" />
             </div>
             <div class="d-flex justify-content-center">
-                <p class="description text-center text-white">"Somos Kaffi. Una cafetería familiar pet-friendly, un
+                <h5 class="description text-center text-white mb-5 p-4">"Somos Kaffi. Una cafetería familiar pet-friendly, un
                     rincón donde la
                     calidad del café y la calidez del servicio es primero." Descubre quiénes somos y por qué amamos lo
                     que hacemos.
-                </p>
+                </h5>
             </div>
-
+    
         </section>
     </header>
 

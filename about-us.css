@@ -16,19 +16,8 @@ header {
         font-size: 7vw;
     }
 
-    header #introduction img {
-        width: 80%;
-    }
     
 }
-
-/* tamaño de la imagen del logo de kaffi*/
-header #introduction img {
-    width: 10vw;
-    margin: 100px 0;
-    margin-left: 20px;
-}
-
 
 .contenedor-tarjetas {
     margin: 80px;
@@ -147,4 +136,37 @@ transform: rotate(159.85deg);
 }
 #card-footer{
     color: #ffffff;
+}
+
+#navegation-bar-logo{
+max-width: 100px;
+}
+
+.custom-toggler {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.custom-toggler:active,
+.custom-toggler:focus {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+
+.show .nav-link {
+    text-decoration: none;
+    font-size: 18px; /* Tamaño predeterminado del texto del menú */
+    margin-left: 1rem;
+}
+
+.nav-link:hover {
+    text-decoration-line: underline;
+}
+
+#img-logo-blanco{
+    max-width: 30vh;
+}
+.description{
+    max-width:60vw;
 }
