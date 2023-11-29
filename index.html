@@ -88,50 +88,52 @@
 
     <!-- seccion principal -->
     <main>
-        <!--  tarjeta de historia -->
-        <section id="historia">
-            <!-- contenedor que despliega en fila -->
-            <div class="row contenedor-tarjetas">
-                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
-                mb-4: margin bottom de 4
-                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
-                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
-                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
-                -->
-                <div id="imagen-historia" class="col-sm-12 col-md-5 order-sm-first order-md-last">
-                    <!-- The image is placed above for small devices -->
-                    <img class="img-fluid" src="./assets/images/imagen_fundador.png" alt="fundador_kaffi" />
-                </div>
-                <!--
-                row: los contenidos dentro del contendor se despliega en forma de fila
-                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
-                text-center: centra los textos del boton y del parrafo
-                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
-                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
-                <div id="tarjeta-historia"
-                    class="tarjeta-clara d-flex flex-column justify-content-center col-md-7  text-center order-sm-last order-md-first justify-content-center">
-                    <!-- 
-                        col-sm-12: la imagen de granos de cafe ocupa las 12 columnas de las 12 para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7)
-
-                     -->
-                    <div id="coffee-grains-containter" class="col-sm-12">
-                        <img class="coffe-grains-cards" src="./assets/images/granos_cafe.png" alt="granos_cafe">
+        <!-- seccion de productos de oferta  -->
+        <section id="offer-products">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-7 col-sm-12 d-flex justify-content-center">
+                        <div class="col-sm-12">
+                            <p>"Explora el arte del café con nuestras promociones irresistibles. ¡Descubre tu nueva
+                                cafetería favorita a precios que te sorprenderán!"</p>
+                            <div class="col-sm-12 ">
+                                <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- col-sm-12: el parrafo ocupa las 12 columnas del espacio de 12 columnas disponibles para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7) -->
-                    <p class="col-sm-12 card-title">
-                        "Detrás de cada taza en Kaffi hay una historia que contar"
-                    </p>
-                    <!-- col-sm-12: el parrafo ocupa las 12 columnas del espacio de 12 columnas disponibles para dispositivos pequeños/ocupa las 12 columnas formadas dentro del espacio de 7 columnas disponibles a partir de dispositivos medianos (las 7 cols disponibles vienen del col-md-7) -->
-                    <div>
-                        <button id="button-history" class="col-sm-4">
-                            Conoce nuestra historia</button>
+                    <div class="col-md-5 col-sm-12">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./assets/images/imagen_barista.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/imagen_barista.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./assets/images/imagen_pareja.png" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
-                    <p id="texto-historia">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto rem tempore, inventore
-                        voluptatibus perspiciatis blanditiis explicabo facilis expedita, dolorem ea error praesentium
-                        culpa eius ratione eos. Saepe, adipisci aut!
-                    </p>
                 </div>
             </div>
         </section>
@@ -187,6 +189,8 @@
         </section>
 
     </main>
+
+
 
     <!-- codigo de valdo -->
     <footer>
@@ -261,12 +265,11 @@
         </footer>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/homepage.js"></script>
+    <script src="about-us.js"></script>
 </body>
 
 

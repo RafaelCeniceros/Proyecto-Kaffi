@@ -19,145 +19,19 @@ header {
     
 }
 
-.contenedor-tarjetas {
-    margin: 8vw;
+#offer-products.container{
+    background-color: #F6EACC ;
 }
 
-
-.card-title {  
-    padding: 0 20%; 
-    font-size: 2vw;
-
+#offer-products p{
+    font-family: "Imprima";
+    font-size: 1.5rem;
+}
+#offer-products img{
+    width: 200px;
+    height:100px;
 }
 
-#coffee-grains-containter {
-    height: 3vw;
-}
-
-/* tamaño de los granos de cafe de todas las tarjetas */
-.coffe-grains-cards {
-    height: 100%;
-}
-
-/* estilos de las tarjetas claras */
-.tarjeta-clara {
-    background-color: #F6EACC;
-    padding: 10% 0;
-}
-
-/* estilos de titulos tarjetas claras */
-.tarjeta-clara h6 {
-    font-family: 'Inter', sans-serif;
-    color: #361C12;
-}
-
-/* estilos de los parrafos de las tarjetas claras */
-.tarjeta-clara p {
-    font-family: 'Imprima', sans-serif;
-    color: #361C12;
-}
-
-/* estilos de las tarjetas oscuras */
-.tarjeta-oscura {
-    background-color: #361C12;
-    padding: 10% 0;  /* para aumentar el espaciado arriba y abajo entre el borde de la caja y los contenidos del interior */
-}
-
-/* estilos de titulos tarjetas oscuras */
-.tarjeta-oscura h6 {
-    font-family: 'Inter', sans-serif;
-    color: #F6EACC;
-}
-
-/* estilos de los parrafos de las tarjetas claras */
-.tarjeta-oscura p {
-    font-family: 'Imprima', sans-serif;
-    color: #F6EACC;
-}
-
-/* estilos de la tarjeta historia */
-
-
-#button-history {
-    background-color: #361C12;
-    font-size: 1.1vw;
-    color:#F6EACC;
-    font-family: 'Inter', sans-serif;
-    margin: 3% 0 ;
-    padding:3%
-}
-
-#imagen-historia {
-    padding: 0;
-}
-
-#imagen-historia img{
-    height: 100%;
-}
-
-#texto-historia {
-    font-family: 'Imprima', sans-serif;
-    font-size: 1.1vw;
-    display: none;
-    padding: 5%;
-}
-
-/* estilos de la tarjeta mision */
-
-#imagen-mision{
-    padding:0; /* necesario para el contenedor de la imagen no tenga espacio entre la imagen y el mismo */
-}
-
-#imagen-mision img {
-    height: 100%;
-}
-
-
-/* estilos de la tarjeta vision */
-#imagen-vision {
-    padding:0;
-}
-
-#imagen-vision img {
-    height: 100%;
-}
-
-
-/* estilos de la tarjeta valores */
-
-#texto-values {
-    font-family: 'Imprima', sans-serif;
-    font-size: 1.1vw;
-    display: none;
-    padding: 5%;
-}
-
-#imagen-valores {
-    padding:0;
-}
-
-#imagen-valores img {
-    height: 100%;
-}
-
-#button-values {
-    background-color: #F6EACC;
-    font-size: 1.1vw;
-    color: #363636;;
-    font-family: 'Inter', sans-serif;
-    margin: 3% 0 ;
-    padding:3%
-}
-
-/* estilos sucursales */
-#container-sucursales{
-    background-color: #F6EACC;
-    box-sizing: border-box;
-    width: 95%;
-    margin: 0 auto;
-    font-family: 'imprima', sans-serif;
-    color: #361C12;
-}
 
 /* estilos del footer */
 body{
