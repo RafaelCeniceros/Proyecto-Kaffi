@@ -19,6 +19,7 @@ header {
     
 }
 
+/* estilos de la seccion de productos oferta */
 #offer-products.container{
     background-color: #F6EACC ;
 }
@@ -31,6 +32,38 @@ header {
     width: 200px;
     height:100px;
 }
+
+
+
+/* estilos de la seccion de productos de temporada */
+
+#season-products {
+    background-color: #F6EACC;
+    margin: 8%;
+}
+
+#card-description img {
+    width: 50%;
+}
+
+
+#outstanding-product-1 img {
+    width: 50%;
+}
+
+#outstanding-product-2 img {
+    width: 50%;
+}
+
+#outstanding-product-3 img {
+    width: 50%;
+}
+
+#outstanding-product-4 img {
+    width: 50%;
+}
+
+
 
 
 /* estilos del footer */
