@@ -18,26 +18,41 @@
         <!-- barra de navegacion -->
         <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
         <nav class="navbar navbar-expand-lg justify-content-between">
-
+    
             <!-- Botón de hamburguesa visible en pantallas pequeñas -->
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
             </button>
-
+    
             <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
             <div class="d-lg-none d-flex align-items-center ms-auto">
                 <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
                     id="navegation-bar-logo" />
             </div>
-
+    
             <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
             <div class="d-none d-lg-block mx-5">
                 <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
                     id="navegation-bar-logo" />
             </div>
 
+            <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
+            <div id="iconos-carrito-y-usuario" class="ms-auto me-0 order-lg-last">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item mx-1">
+                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#">
+                            <i class="fa-solid fa-cart-shopping" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a id="enlace-login-header" class="nav-link active text-white" href="#">
+                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <!-- Menú desplegable, visible en pantallas pequeñas -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
@@ -52,37 +67,17 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
-            <div id="iconos-carrito-y-usuario" class="ms-auto me-0">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item mx-1">
-                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#">
-                            <i class="fa-solid fa-cart-shopping" style="font-size: 24px;"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item mx-1">
-                        <a id="enlace-login-header" class="nav-link active text-white" href="#">
-                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </nav>
-        <section id="introduction">
-            <div class="d-flex justify-content-center">
-                <img class="img-fluid" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2"
-                    id="img-logo-blanco" />
+
+        <section id="introduction" style="margin-left: 0.5em; margin-right: 0.5em; border-top: 2px; border-color: #ffffff; border-top-style:solid;">
+            <div class="d-flex justify-content-center mt-1">
+                <img class="img-fluid py-2" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" id="img-logo-blanco" />
             </div>
             <div class="d-flex justify-content-center">
-                <h5 class="description text-center text-white mb-5 p-4">"Somos Kaffi. Una cafetería familiar
-                    pet-friendly, un
-                    rincón donde la
-                    calidad del café y la calidez del servicio es primero." Descubre quiénes somos y por qué amamos lo
-                    que hacemos.
+                <h5 class="description text-center text-white mb-5 p-4">"Queremos darte la mejor experiencia con nuestros productos."
                 </h5>
             </div>
-
+    
         </section>
     </header>
 
