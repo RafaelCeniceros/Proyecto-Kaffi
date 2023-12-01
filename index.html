@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
-    <title>Contacto - Kaffi</title>
+    <title>Homepage - Kaffi</title>
 </head>
 
 <body>
@@ -20,35 +20,39 @@
         <nav class="navbar navbar-expand-lg justify-content-between">
     
             <!-- Botón de hamburguesa visible en pantallas pequeñas -->
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
-            </button>
+            <div class="py-2 ms-1 d-flex header-menu-icon">
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+                </button>
+            </div>
     
             <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
-            <div class="d-lg-none d-flex align-items-center ms-auto">
-                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
-                    id="navegation-bar-logo" />
+            <div class="d-lg-none d-flex align-items-center ms-auto ps-5">
+                <a href= index.html class="header-logo-link">
+                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" id="navegation-bar-logo" />
+                </a>
             </div>
     
             <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
-            <div class="d-none d-lg-block mx-5">
-                <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
-                    id="navegation-bar-logo" />
+            <div class="d-none d-lg-block mx-0 px-3">
+                <a href= index.html class="header-logo-link py-3">
+                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" id="navegation-bar-logo" />
+                </a>
             </div>
 
             <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
-            <div id="iconos-carrito-y-usuario" class="ms-auto me-0 order-lg-last">
+            <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
                 <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item mx-1">
-                        <a id="enlace-carrito-header" class="nav-link active text-white" href="#">
-                            <i class="fa-solid fa-cart-shopping" style="font-size: 24px;"></i>
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-carrito-header" class="nav-link active text-white px-2" href="#">
+                            <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
                         </a>
                     </li>
-                    <li class="nav-item mx-1">
-                        <a id="enlace-login-header" class="nav-link active text-white" href="#">
-                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-login-header" class="nav-link active text-white px-2" href="#">
+                            <i class="fa-solid fa-user p-2 header-icons-link"></i>
                         </a>
                     </li>
                 </ul>
@@ -69,12 +73,12 @@
             </div>
         </nav>
 
-        <section id="introduction" style="margin-left: 0.5em; margin-right: 0.5em; border-top: 2px; border-color: #ffffff; border-top-style:solid;">
+        <section id="introduction-container">
             <div class="d-flex justify-content-center mt-1">
                 <img class="img-fluid py-2" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" id="img-logo-blanco" />
             </div>
             <div class="d-flex justify-content-center">
-                <h5 class="description text-center text-white mb-5 p-4">"Queremos darte la mejor experiencia con nuestros productos."
+                <h5 class="description text-center text-white mb-2 p-4">"Queremos darte la mejor experiencia con nuestros productos."
                 </h5>
             </div>
     
@@ -84,19 +88,22 @@
     <!-- seccion principal -->
     <main>
         <!-- seccion de productos de oferta  -->
-        <section id="offer-products d-flex justify-content-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7 col-sm-12">
-                        <div class="col-sm-12 text-center">
-                            <p>"Explora el arte del café con nuestras promociones irresistibles. ¡Descubre tu nueva
-                                cafetería favorita a precios que te sorprenderán!"</p>
+        <section class="offer-products d-flex justify-content-center my-3">
+            <div class="container" id="offer-products-container">
+                <div class="row ">
+                    <!-- Columna texto -->
+                    <div class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center order-sm-last order-md-first py-5">
+                        <div class="col-sm-12 text-center" id="text-offer-container">
+                            <h3 class="text-offers py-3">"Explora el arte del café con nuestras promociones irresistibles. ¡Descubre tu nueva
+                                cafetería favorita a precios que te sorprenderán!"
+                            </h3>
                         </div>
-                        <div class="col-sm-12 d-flex justify-content-center">
+                        <div class="col-sm-12 d-flex justify-content-center" id="seeds2">
                             <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
                         </div>
                     </div>
-                    <div class="col-md-5 col-sm-12">
+                    <!-- Columna carrousel -->
+                    <div class="col-md-5 col-sm-12 order-sm-first order-md-last">
                         <div id="carouselExampleIndicators" class="carousel slide">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
@@ -106,24 +113,32 @@
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
                             </div>
-                            <div class="carousel-inner">
+                            <!-- Contenedor imagenes de carrousel -->
+                            <div class="carousel-inner container-with-height">
+                                <!-- Se definio una altura maxima del contenedor -->
                                 <div class="carousel-item active">
-                                    <img src="./assets/images/imagen_barista.png" class="d-block w-100" alt="...">
+                                    <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
+                                    <img src="./assets/images/imagen_promo_bebidas_navidad.png"
+                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="café navideño">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/images/imagen_barista.png" class="d-block w-100" alt="...">
+                                    <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
+                                    <img src="./assets/images/imagen_promo_tisana.png"
+                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="bebidas frías">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="./assets/images/imagen_pareja.png" class="d-block w-100" alt="...">
+                                    <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
+                                    <img src="./assets/images/imagen_promo_tarjetas_lealtad.png"
+                                        class="d-block w-100 img-fluid img-promo-carrousel" alt=" tarjeta de lealtad">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -199,9 +214,9 @@
         <section id="season-products">
             <div class="container">
                 <div class="row">
-                    <div id="card-description" class="d-flex flex-column col-sm-12 col-md-6">
+                    <div id="card-description" class="d-flex flex-column col-sm-12 col-md-6 order-last order-md-first">
                         <!--Columna 1-->
-                        <div class="d-flex justify-content-center col-sm-12">
+                        <div class="d-flex align-content-start justify-content-start col-sm-12 me-5">
                             <img src="./assets/images/semillas_cafe_extendidas.png" alt="semillas_de_cafe" />
                         </div>
                         <div class="d-flex justify-content-center col-sm-12">
@@ -212,18 +227,16 @@
                         </div>
                     </div>
                     <div id="card-images"
-                        class="col-sm-12 col-md-6 text-center align-items-center justify-content-center d-flex flex-column">
+                        class="col-sm-12 col-md-6 text-center align-items-center justify-content-center d-flex flex-column order-first order-md-last">
                         <!--Columna 2-->
-                        <div class="row col-sm-12">
+                        <div id="first-row" class="row col-sm-12">
                             <div class="col">
-                                <div>
                                     <div id="outstanding-product-1">
                                         <img src="./assets/images/pan_de_muerto.png" alt="pan_de_muerto">
                                     </div>
                                     <div>
                                         <p>Pan de muerto</p>
                                     </div>
-                                </div>
                             </div>
 
                             <div class="col">
@@ -236,7 +249,7 @@
                             </div>
                         </div>
 
-                        <div class="row col-sm-12">
+                        <div id="second-row" class="row col-sm-12">
                             <div class="col">
                                 <div id="outstanding-product-3">
                                     <img src="./assets/images/cafe_de_olla.png" alt="cafe_de_olla">
