@@ -123,73 +123,70 @@ header #introduction-container {
 /* Fin Seccion Carrousel */
 
 
-/* estilos de la seccion de productos de temporada */
+/* Inicio estilos de la seccion de productos de temporada */
 
 #season-products {
     background-color: #F6EACC;
     margin: 8%;
 }
 
-
-#card-description img {
+#season-products #card-description img {
     width: 50%;
 }
 
-#card-description {
+#season-products #card-description {
     margin-bottom: 50px;
     margin-top: 50px;
 }
 
-#card-description p {
+#season-products #card-description p {
     font-family: 'Imprima', sans-serif;
     color: #361c12;
     font-size: 1.1rem;
     text-align: center;
 }
 
-#card-description button {
+#season-products #card-description button {
     background-color: #361c12;
     padding: 15px;
     margin-top: 50px;
 }
 
-#card-description a {
+#season-products #card-description a {
     color: #F6EACC;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
 }
 
-#first-row {
+#season-products #first-row {
     margin-top: 50px;
 }
 
-
-
-#outstanding-product-1 img {
+#season-products #outstanding-product-1 img {
     width: 100%;
 }
 
-#outstanding-product-2 img {
+#season-products #outstanding-product-2 img {
     width: 100%;
 }
 
-#outstanding-product-3 img {
+#season-products #outstanding-product-3 img {
     width: 100%;
 }
 
-#outstanding-product-4 img {
+#season-products #outstanding-product-4 img {
     width: 100%;
 }
 
-#card-images p{
+#season-products #card-images p{
     font-family: 'Inter', sans-serif;
     color: #361c12;
 }
 
-#card-images {
+#season-products #card-images {
     align-content:center;
 }
-
+/* termina seccion de productos destacados */
 
 /* estilos del footer */
 body{
@@ -343,26 +340,7 @@ max-width: 100px;
     margin: 0.5em;
 }
 
-#card-description img {
-    width: 50%;
-}
 
-
-#outstanding-product-1 img {
-    width: 50%;
-}
-
-#outstanding-product-2 img {
-    width: 50%;
-}
-
-#outstanding-product-3 img {
-    width: 50%;
-}
-
-#outstanding-product-4 img {
-    width: 50%;
-}
 
 /* Estilos para el contenedor de la imagen de los granos de café */
 .highlight-image {
