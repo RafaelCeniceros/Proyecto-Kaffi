@@ -108,32 +108,61 @@ header #introduction-container {
 }
 
 #card-description {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 #card-description p {
     font-family: 'Imprima', sans-serif;
     color: #361c12;
     font-size: 1.1rem;
+    text-align: center;
+}
+
+#card-description button {
+    background-color: #361c12;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+#card-description a {
+    color: #F6EACC;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+#first-row {
+    margin-top: 50px;
+}
+
+#second-row {
+    margin: 15px;
 }
 
 #outstanding-product-1 img {
-    width: 50%;
+    width: 70%;
 }
 
 #outstanding-product-2 img {
-    width: 50%;
+    width: 70%;
 }
 
 #outstanding-product-3 img {
-    width: 50%;
+    width: 70%;
 }
 
 #outstanding-product-4 img {
-    width: 50%;
+    width: 70%;
 }
 
+#card-images p{
+    font-family: 'Inter', sans-serif;
+    color: #361c12;
+}
 
+#card-images {
+    justify-content: space-around;
+}
 
 
 /* estilos del footer */
