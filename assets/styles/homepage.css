@@ -143,3 +143,117 @@ max-width: 100px;
 .description{
     max-width:60vw;
 }
+
+
+/* Top Products */
+
+/* Estilos para la sección de los productos destacados */
+.top-products-section {
+    background-color: #361c12;
+    margin: 8%;
+}
+
+/* Estilos para el contenedor principal */
+.products-container {
+    background-color: #361c12;
+    color: white;
+}
+
+/* Estilos para la fila de productos */
+.products-row {
+    background-color: #361c12;
+}
+
+/* Estilos para la columna 1 */
+.column1 {
+    background-color: #361c12;
+    color: beige;
+}
+
+/* Estilos para cada fila de productos */
+.product-row {
+    background-color: #361c12;
+    margin: 0.5em;
+}
+
+/* Estilos para cada columna de producto */
+.product-col {
+    background-color: #361c12;
+    margin: 0.5em;
+}
+
+/* Estilos para la información de cada producto */
+.product-info {
+    text-align: center;
+}
+
+/* Estilos para la imagen de cada producto */
+.product-image {
+    max-width: 100%;
+    width: 140px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para el texto del nombre del producto */
+.product-name {
+    font-weight: bold;
+}
+
+/* Estilos para el texto adicional del producto */
+.product-text {
+    color: #888;
+}
+
+/* Estilos para la columna 2 */
+.column2 {
+    background-color: #361c12;
+    color: #361c12;
+}
+
+/* Estilos para la información destacada */
+.highlight-info {
+    color:  white;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+#card-description img {
+    width: 50%;
+}
+
+
+#outstanding-product-1 img {
+    width: 50%;
+}
+
+#outstanding-product-2 img {
+    width: 50%;
+}
+
+#outstanding-product-3 img {
+    width: 50%;
+}
+
+#outstanding-product-4 img {
+    width: 50%;
+}
+
+/* Estilos para el contenedor de la imagen de los granos de café */
+.highlight-image {
+    position: relative; /* Establece el posicionamiento relativo para el contenedor */
+    width: 200px; /* Ancho del contenedor */
+    height: 100px; /* Altura del contenedor */
+    margin-left: auto; /* Empuja el contenedor hacia la derecha */
+    margin-top: auto; /* Empuja el contenedor hacia abajo */
+}
+
+/* Estilos para la imagen de los granos de café */
+.highlight-image img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen al contenedor */
+    height: auto; /* Ajusta la altura automáticamente */
+    position: absolute; /* Establece el posicionamiento absoluto para la imagen */
+    bottom: 0; /* Coloca la imagen en la parte inferior del contenedor */
+    right: 0; /* Coloca la imagen en la esquina derecha del contenedor */
+    transform: rotate(180.85deg); /* Gira la imagen */
+}
