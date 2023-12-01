@@ -103,6 +103,7 @@ header #introduction-container {
     margin: 8%;
 }
 
+
 #card-description img {
     width: 50%;
 }
@@ -135,24 +136,22 @@ header #introduction-container {
     margin-top: 50px;
 }
 
-#second-row {
-    margin: 15px;
-}
+
 
 #outstanding-product-1 img {
-    width: 70%;
+    width: 100%;
 }
 
 #outstanding-product-2 img {
-    width: 70%;
+    width: 100%;
 }
 
 #outstanding-product-3 img {
-    width: 70%;
+    width: 100%;
 }
 
 #outstanding-product-4 img {
-    width: 70%;
+    width: 100%;
 }
 
 #card-images p{
@@ -161,7 +160,7 @@ header #introduction-container {
 }
 
 #card-images {
-    justify-content: space-around;
+    align-content:center;
 }
 
 
