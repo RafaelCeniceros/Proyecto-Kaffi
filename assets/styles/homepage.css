@@ -81,19 +81,46 @@ header #introduction-container {
 }
 
 /* estilos de la seccion de productos oferta */
-#offer-products.container{
-    background-color: #F6EACC ;
+/* Inicio Seccion promos Carrousel */
+#offer-products-container{
+    background-color: rgb(246, 234, 204);
 }
 
-#offer-products p{
+.text-offers{
     font-family: "Imprima";
-    font-size: 1.5rem;
 }
+
 #offer-products img{
-    width: 200px;
+    width: 100px;
     height:100px;
 }
 
+#text-offer-container{
+    width:80%;
+}
+
+#seeds2{
+   max-height: 5vh;
+   width: auto;
+}
+#seeds2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-promo-carrousel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Esto asegura que la imagen cubra completamente el contenedor sin deformarse */
+}
+
+.container-with-height {
+    max-height: 50vh;
+}
+
+/* Fin Seccion Carrousel */
 
 
 /* estilos de la seccion de productos de temporada */
