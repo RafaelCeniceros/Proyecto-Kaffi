@@ -1,3 +1,4 @@
+/* Inicio estilos para el header */
 header {
     /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
     width: 100%;
@@ -5,8 +6,68 @@ header {
     background-color: #996229;
     background-size: cover;
     font-family: 'Imprima', sans-serif;
-    font-size: 18px; /* Tamaño predeterminado del texto del menú */
+    font-size: 1em;
+    /* Tamaño predeterminado del texto del menú */
 }
+
+header #introduction-container {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-top: 2px;
+    border-color: #ffffff;
+    border-top-style: solid;
+}
+.header-logo-link:hover{
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #ffffff;
+}
+.header-icons-link{
+    font-size: 24px; 
+    border-radius: 3em;
+}
+.header-menu-icon{
+    border-radius: 1em;
+}
+.header-icons-link:hover, .header-menu-icon:hover{
+    background-color: #9c846a8e;
+}
+
+#navegation-bar-logo {
+    max-width: 100px;
+}
+
+.custom-toggler {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.custom-toggler:active,
+.custom-toggler:focus {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+.show .nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    /* Tamaño predeterminado del texto del menú */
+    margin-left: 1rem;
+}
+
+.nav-link:hover {
+    text-decoration-line: underline;
+}
+
+#img-logo-blanco {
+    max-width: 30vh;
+}
+
+.description {
+    max-width: 60vw;
+}
+
+/* Fin estilos para el header */
 
 /* reglas para imagenes y letras aplicados hasta dispositivos medianos */
 @media screen and (max-width: 500px) {
@@ -78,35 +139,3 @@ transform: rotate(159.85deg);
     color: #ffffff;
 }
 
-#navegation-bar-logo{
-max-width: 100px;
-}
-
-.custom-toggler {
-    background-color: transparent !important;
-    border: none !important;
-}
-
-.custom-toggler:active,
-.custom-toggler:focus {
-    background-color: transparent !important;
-    color: transparent !important;
-}
-
-
-.show .nav-link {
-    text-decoration: none;
-    font-size: 18px; /* Tamaño predeterminado del texto del menú */
-    margin-left: 1rem;
-}
-
-.nav-link:hover {
-    text-decoration-line: underline;
-}
-
-#img-logo-blanco{
-    max-width: 30vh;
-}
-.description{
-    max-width:60vw;
-}
