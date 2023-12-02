@@ -90,10 +90,6 @@ header #introduction-container {
     font-family: "Imprima";
 }
 
-#offer-products img{
-    width: 100px;
-    height:100px;
-}
 
 #text-offer-container{
     width:80%;
@@ -360,3 +356,4 @@ max-width: 100px;
     right: 0; /* Coloca la imagen en la esquina derecha del contenedor */
     transform: rotate(180.85deg); /* Gira la imagen */
 }
+

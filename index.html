@@ -92,22 +92,9 @@
     <!-- seccion principal -->
     <main>
         <!-- seccion de productos de oferta  -->
-        <section class="offer-products d-flex justify-content-center my-3">
+        <section class="offer-products d-flex justify-content-center m-5" style="max-width:90vw;">
             <div class="container" id="offer-products-container">
-                <div class="row ">
-                    <!-- Columna texto -->
-                    <div
-                        class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center order-sm-last order-md-first py-5">
-                        <div class="col-sm-12 text-center" id="text-offer-container">
-                            <h3 class="text-offers py-3">"Explora el arte del café con nuestras promociones
-                                irresistibles. ¡Descubre tu nueva
-                                cafetería favorita a precios que te sorprenderán!"
-                            </h3>
-                        </div>
-                        <div class="col-sm-12 d-flex justify-content-center" id="seeds2">
-                            <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
-                        </div>
-                    </div>
+                <div class="row">
                     <!-- Columna carrousel -->
                     <div class="col-md-5 col-sm-12 order-sm-first order-md-last">
                         <div id="carouselExampleIndicators" class="carousel slide">
@@ -122,34 +109,48 @@
                             <!-- Contenedor imagenes de carrousel -->
                             <div class="carousel-inner container-with-height">
                                 <!-- Se definio una altura maxima del contenedor -->
-                                <div class="carousel-item active">
+                                <div class="carousel-item active container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_bebidas_navidad.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="café navideño">
+                                        class="d-block w-100 img-promo-carrousel" alt="café navideño">
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_tisana.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="bebidas frías">
+                                        class="d-block w-100 img-promo-carrousel" alt="bebidas frías">
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_tarjetas_lealtad.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt=" tarjeta de lealtad">
+                                        class="d-block w-100 img-promo-carrousel" alt=" tarjeta de lealtad">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
                     </div>
+                    <!-- Columna texto -->
+                    <div
+                        class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center container-with-height py-3">
+                        <div class="col-sm-12 text-center" id="text-offer-container">
+                            <h5 class="text-offers py-3">"Explora el arte del café con nuestras promociones
+                                irresistibles. ¡Descubre tu nueva
+                                cafetería favorita a precios que te sorprenderán!"
+                            </h5>
+                        </div>
+                        <div class="col-sm-12 d-flex justify-content-center" id="seeds2">
+                            <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </section>
