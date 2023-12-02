@@ -18,27 +18,29 @@
         <!-- barra de navegacion -->
         <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
         <nav class="navbar navbar-expand-lg justify-content-between">
-    
+
             <!-- Botón de hamburguesa visible en pantallas pequeñas -->
             <div class="py-2 ms-1 d-flex header-menu-icon">
                 <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
                 </button>
             </div>
-    
+
             <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
             <div class="d-lg-none d-flex align-items-center ms-auto ps-5">
-                <a href= index.html class="header-logo-link">
-                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" id="navegation-bar-logo" />
+                <a href=index.html class="header-logo-link">
+                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
                 </a>
             </div>
-    
+
             <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
             <div class="d-none d-lg-block mx-0 px-3">
-                <a href= index.html class="header-logo-link py-3">
-                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi" id="navegation-bar-logo" />
+                <a href=index.html class="header-logo-link py-3">
+                    <img class="img-fluid" src="./assets/images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
                 </a>
             </div>
 
@@ -46,12 +48,12 @@
             <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
                 <ul class="navbar-nav d-flex flex-row">
                     <li class="nav-item p-0 d-flex align-items-center">
-                        <a id="enlace-carrito-header" class="nav-link active text-white px-2" href="#">
+                        <a id="enlace-carrito-header" class="nav-link active text-white px-2" href="/assets/pages/shopping-cart.html">
                             <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
                         </a>
                     </li>
                     <li class="nav-item p-0 d-flex align-items-center">
-                        <a id="enlace-login-header" class="nav-link active text-white px-2" href="#">
+                        <a id="enlace-login-header" class="nav-link active text-white px-2" href="/assets/pages/profile.html">
                             <i class="fa-solid fa-user p-2 header-icons-link"></i>
                         </a>
                     </li>
@@ -61,13 +63,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">Menú</a>
+                        <a class="nav-link active text-white" aria-current="page" href="/assets/pages/menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-white" href="#">Sobre nosotros</a>
+                        <a class="nav-link active text-white" href="/assets/pages/about_us.html">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-white" href="#">Contacto</a>
+                        <a class="nav-link active text-white" href="/assets/pages/contact.html">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -75,33 +77,24 @@
 
         <section id="introduction-container">
             <div class="d-flex justify-content-center mt-1">
-                <img class="img-fluid py-2" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2" id="img-logo-blanco" />
+                <img class="img-fluid py-2" src="assets/images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
             </div>
             <div class="d-flex justify-content-center">
-                <h5 class="description text-center text-white mb-2 p-4">"Queremos darte la mejor experiencia con nuestros productos."
+                <h5 class="description text-center text-white mb-2 p-4">"Queremos darte la mejor experiencia con
+                    nuestros productos."
                 </h5>
             </div>
-    
+
         </section>
     </header>
 
     <!-- seccion principal -->
     <main>
         <!-- seccion de productos de oferta  -->
-        <section class="offer-products d-flex justify-content-center my-3">
-            <div class="container" id="offer-products-container">
-                <div class="row ">
-                    <!-- Columna texto -->
-                    <div class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center order-sm-last order-md-first py-5">
-                        <div class="col-sm-12 text-center" id="text-offer-container">
-                            <h3 class="text-offers py-3">"Explora el arte del café con nuestras promociones irresistibles. ¡Descubre tu nueva
-                                cafetería favorita a precios que te sorprenderán!"
-                            </h3>
-                        </div>
-                        <div class="col-sm-12 d-flex justify-content-center" id="seeds2">
-                            <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
-                        </div>
-                    </div>
+        <section class="d-flex justify-content-center" id="offer-products-container">
+            <div class="container" >
+                <div class="row">
                     <!-- Columna carrousel -->
                     <div class="col-md-5 col-sm-12 order-sm-first order-md-last">
                         <div id="carouselExampleIndicators" class="carousel slide">
@@ -116,20 +109,20 @@
                             <!-- Contenedor imagenes de carrousel -->
                             <div class="carousel-inner container-with-height">
                                 <!-- Se definio una altura maxima del contenedor -->
-                                <div class="carousel-item active">
+                                <div class="carousel-item active container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_bebidas_navidad.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="café navideño">
+                                        class="d-block w-100 img-promo-carrousel" alt="café navideño">
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_tisana.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt="bebidas frías">
+                                        class="d-block w-100 img-promo-carrousel" alt="bebidas frías">
                                 </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item container-with-height">
                                     <!-- Se agregó la case img-promo-carrousel para que la imagen se ajuste al tamaño del contenedor -->
                                     <img src="./assets/images/imagen_promo_tarjetas_lealtad.png"
-                                        class="d-block w-100 img-fluid img-promo-carrousel" alt=" tarjeta de lealtad">
+                                        class="d-block w-100 img-promo-carrousel" alt=" tarjeta de lealtad">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -144,11 +137,25 @@
                             </button>
                         </div>
                     </div>
+                    <!-- Columna texto -->
+                    <div
+                        class="col-md-7 col-sm-12 d-flex flex-column align-items-center justify-content-center container-with-height py-3">
+                        <div class="col-sm-12 text-center" id="text-offer-container">
+                            <h5 class="text-offers py-3">"Explora el arte del café con nuestras promociones
+                                irresistibles. ¡Descubre tu nueva
+                                cafetería favorita a precios que te sorprenderán!"
+                            </h5>
+                        </div>
+                        <div class="col-sm-12 d-flex justify-content-center" id="seeds2">
+                            <img src="./assets/images/granos_cafe.png" alt="dibujo de granos de café">
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </section>
 
-<!-- Código Alan, Sección Productos destacados -->
+        <!-- Código Alan, Sección Productos destacados -->
 
 <section id="Top-products" class="top-products-section">
         <div class="row products-row">
@@ -205,7 +212,7 @@
 </section>
 
 
-<!-- Hasta aqui lo de Alan -->
+        <!-- Hasta aqui lo de Alan -->
 
         <!--Código Kim, sección Productos de temporada-->
 
@@ -218,7 +225,7 @@
                             <img src="./assets/images/semillas_cafe_extendidas.png" alt="semillas_de_cafe" />
                         </div>
                         <div class="d-flex justify-content-center col-sm-12">
-                            <p>"Saborea cada momento del año con nuestra colección de productos de temporada.”</p>
+                            <h5>"Saborea cada momento del año con nuestra colección de productos de temporada.”</h5>
                         </div>
                         <div class="d-flex justify-content-center col-sm-12">
                             <button><a href="#">Explorar productos</a></button>
@@ -229,12 +236,12 @@
                         <!--Columna 2-->
                         <div id="first-row" class="row col-sm-12">
                             <div class="col">
-                                    <div id="outstanding-product-1">
-                                        <img src="./assets/images/pan_de_muerto.png" alt="pan_de_muerto">
-                                    </div>
-                                    <div>
-                                        <p>Pan de muerto</p>
-                                    </div>
+                                <div id="outstanding-product-1">
+                                    <img src="./assets/images/pan_de_muerto.png" alt="pan_de_muerto">
+                                </div>
+                                <div>
+                                    <p>Pan de muerto</p>
+                                </div>
                             </div>
 
                             <div class="col">
@@ -267,8 +274,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
             </div>
         </section>
 

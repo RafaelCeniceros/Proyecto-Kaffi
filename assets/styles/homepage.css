@@ -84,32 +84,27 @@ header #introduction-container {
 /* Inicio Seccion promos Carrousel */
 #offer-products-container{
     background-color: rgb(246, 234, 204);
+    margin-right: 5%;
+    margin-left:5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .text-offers{
     font-family: "Imprima";
 }
 
-#offer-products img{
-    width: 100px;
-    height:100px;
-}
 
 #text-offer-container{
     width:80%;
 }
 
-#seeds2{
+#seeds2{  /* container img */
    max-height: 5vh;
    width: auto;
 }
-#seeds2 img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.img-promo-carrousel {
+.img-promo-carrousel, #seeds2 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -117,79 +112,75 @@ header #introduction-container {
 }
 
 .container-with-height {
-    max-height: 50vh;
+    height: 50vh;
 }
 
 /* Fin Seccion Carrousel */
 
 
-/* estilos de la seccion de productos de temporada */
+/* Inicio estilos de la seccion de productos de temporada */
 
 #season-products {
     background-color: #F6EACC;
-    margin: 8%;
+    margin: 5%;
 }
 
-
-#card-description img {
+#season-products #card-description img {
     width: 50%;
 }
 
-#card-description {
+#season-products #card-description {
     margin-bottom: 50px;
     margin-top: 50px;
 }
 
-#card-description p {
+#season-products #card-description h5 {
     font-family: 'Imprima', sans-serif;
     color: #361c12;
-    font-size: 1.1rem;
     text-align: center;
 }
 
-#card-description button {
+#season-products #card-description button {
     background-color: #361c12;
     padding: 15px;
     margin-top: 50px;
 }
 
-#card-description a {
+#season-products #card-description a {
     color: #F6EACC;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
 }
 
-#first-row {
+#season-products #first-row {
     margin-top: 50px;
 }
 
-
-
-#outstanding-product-1 img {
+#season-products #outstanding-product-1 img {
     width: 100%;
 }
 
-#outstanding-product-2 img {
+#season-products #outstanding-product-2 img {
     width: 100%;
 }
 
-#outstanding-product-3 img {
+#season-products #outstanding-product-3 img {
     width: 100%;
 }
 
-#outstanding-product-4 img {
+#season-products #outstanding-product-4 img {
     width: 100%;
 }
 
-#card-images p{
+#season-products #card-images p{
     font-family: 'Inter', sans-serif;
     color: #361c12;
 }
 
-#card-images {
+#season-products #card-images {
     align-content:center;
 }
-
+/* termina seccion de productos destacados */
 
 /* estilos del footer */
 body{
@@ -274,7 +265,7 @@ max-width: 100px;
 
 /* Estilos para el contenedor principal */
 .top-products-section {
-    margin: 8%;
+    margin: 5%;
     display:block;
     justify-content: center;
 }
