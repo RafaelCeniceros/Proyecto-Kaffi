@@ -95,6 +95,12 @@ header #introduction-container {
     font-size: 1.2rem;
 }
 
+#error-message{
+    font-family:'inter', Bold;
+    font-size: 1.3rem;
+    color: crimson;
+}
+
 .social-link {
     width: 70px;
     height: 70px;

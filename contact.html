@@ -113,7 +113,7 @@
                  <form id="contact-form" class="p-4 " action="">
                     <div class="mb-3 text-start">
                         <label for="Name-Imput" class="form-label">Nombre</label>
-                        <input type="email" class="form-control rounded-pill" id="Name-Imput" placeholder="Cosme Fulanito">
+                        <input type="text" class="form-control rounded-pill" id="Name-Imput" placeholder="Cosme Fulanito">
                     </div>
                     <div class="mb-3 text-start">
                         <label for="E-Mail-Imput" class="form-label">Correo electrónico</label>
@@ -121,11 +121,16 @@
                     </div>
                     <div class="mb-3 text-start">
                         <label for="Commentary-Imput" class="form-label">Escribe tu comentario</label>
-                        <textarea class="form-control" id="Commentary-Imput" rows="4"></textarea>
+                        <textarea type="text" class="form-control" id="Commentary-Imput" rows="4" placeholder="10 -120 caracteres"></textarea>
                     </div>
                     <div class="d-sm-flex justify-content-sm-end">
                         <button class="btn me-sm-2 rounded-pill" type="button">Registrarse</button>
-                        <button class="btn rounded-pill" type="button">Enviar</button>
+                        <button class="btn rounded-pill" type="submit">Enviar</button>
+                    </div>
+                    <div id="error-message-container" class="bg-warning mt-3 rounded">
+                        <p id="error-message" class="m-2">
+                           
+                        </p>
                     </div>
                     <div id="grains-container" class="text-start">
                         <img src="/assets/images/Contact_grains.png" alt="Granos de cafe como elemto">
