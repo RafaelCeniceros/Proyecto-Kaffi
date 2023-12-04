@@ -84,14 +84,13 @@ header #introduction-container {
 /* Inicio Seccion promos Carrousel */
 #offer-products-container{
     background-color: rgb(246, 234, 204);
-    margin-right: 5%;
-    margin-left:5%;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    width:80vw;
+
 }
 
 .text-offers{
     font-family: "Imprima";
+    color: #361c12;
 }
 
 
@@ -122,7 +121,7 @@ header #introduction-container {
 
 #season-products {
     background-color: #F6EACC;
-    margin: 5%;
+    width: 80vw;
 }
 
 #season-products #card-description img {
@@ -138,12 +137,14 @@ header #introduction-container {
     font-family: 'Imprima', sans-serif;
     color: #361c12;
     text-align: center;
+    width: 80%;
 }
 
 #season-products #card-description button {
     background-color: #361c12;
     padding: 15px;
     margin-top: 50px;
+    border: none; /* Quita el borde del botón si es necesario */
 }
 
 #season-products #card-description a {
@@ -264,69 +265,21 @@ max-width: 100px;
 /* Top Products */
 
 /* Estilos para el contenedor principal */
-.top-products-section {
-    margin: 5%;
-    display:block;
-    justify-content: center;
-}
-
-.products-container {
+#Top-products{
+    width:80vw;
     background-color: #361c12;
     color: white;
-    max-width: 1200px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centrar el contenedor */
-    padding: 20px; /* Espacio interno */
 }
 
-/* Resto de estilos mantenidos igual */
-.products-row,
-.column1,
-.product-row,
-.product-col,
-.column2,
-.highlight-info,
-.product-text,
-.product-name {
-    background-color: #361c12;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-}
+ #Top-products h5{
+    color:  #F6EACC; /* Color del texto */
+    font-family: 'Imprima', sans-serif;
+ }
 
-.highlight-info {
-    padding: 1em;
-    margin: 0.5em;
-}
-
-.product-image {
-    max-width: 400px;
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-}
-
-.column2 {
-    color: #361c12;
-}
-
-/* Estilos para el contenedor de la imagen de los granos de café */
-.highlight-image {
-    position: relative; /* Establece el posicionamiento relativo para el contenedor */
-    width: 250px; /* Ancho del contenedor */
-    height: 100px; /* Altura del contenedor */
-    margin-left: auto; /* Empuja el contenedor hacia la derecha */
-    margin-top: auto; /* Empuja el contenedor hacia abajo */
-}
-
-/* Estilos para la imagen de los granos de café */
-.highlight-image img {
-    max-width: 100%; /* Ajusta el ancho máximo de la imagen al contenedor */
-    height: auto; /* Ajusta la altura automáticamente */
-    position: absolute; /* Establece el posicionamiento absoluto para la imagen */
-    bottom: 0; /* Coloca la imagen en la parte inferior del contenedor */
-    right: 0; /* Coloca la imagen en la esquina derecha del contenedor */
-    transform: rotate(180.85deg); /* Gira la imagen */
-}
+ #Top-products p{
+    color:  #F6EACC; /* Color del texto */
+    font-family: 'inter', sans-serif;
+ }
 
 .mi-boton-1 {
     text-decoration:#361c12; /* Quita el subrayado */
