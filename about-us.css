@@ -1,12 +1,72 @@
+body{
+    background-color: #faf6ec;
+    height: 100%;
+    margin: 0;
+}
+
+/* Inicio estilos para el header */
 header {
     /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
     width: 100%;
     height: auto;
-    background-image: url(./assets/images/familia_tomando.png);
+    background-image: url(/assets/images/familia_tomando.png);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1em;
+    /* Tamaño predeterminado del texto del menú */
 }
+
+.header-logo-link:hover{
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #ffffff;
+}
+.header-icons-link{
+    font-size: 24px; 
+    border-radius: 3em;
+}
+.header-menu-icon{
+    border-radius: 1em;
+}
+.header-icons-link:hover, .header-menu-icon:hover{
+    background-color: #9c846a8e;
+}
+
+#navegation-bar-logo {
+    max-width: 100px;
+}
+
+.custom-toggler {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.custom-toggler:active,
+.custom-toggler:focus {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+.show .nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    /* Tamaño predeterminado del texto del menú */
+    margin-left: 1rem;
+}
+
+.nav-link:hover {
+    text-decoration-line: underline;
+}
+
+#img-logo-blanco {
+    max-width: 30vh;
+}
+
+.description {
+    max-width: 60vw;
+}
+
+/* Fin estilos para el header */
 
 /* reglas para imagenes y letras aplicados hasta dispositivos medianos */
 @media screen and (max-width: 500px) {
@@ -18,151 +78,200 @@ header {
 
     
 }
-
-.contenedor-tarjetas {
-    margin: 8vw;
+/* Estilos imagenes */
+.pic-container img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
 }
 
-
-.card-title {  
-    padding: 0 20%; 
-    font-size: 2vw;
-
-}
-
-#coffee-grains-containter {
-    height: 3vw;
+/* Inicio Estilos semillas de cafe */
+#coffee-grains-container {
+    height: 8vh;
 }
 
 /* tamaño de los granos de cafe de todas las tarjetas */
-.coffe-grains-cards {
+.coffe-grains-img {
     height: 100%;
 }
+/* Fin Estilos semillas de cafe */
+
 
 /* estilos de las tarjetas claras */
-.tarjeta-clara {
+.light-card {
     background-color: #F6EACC;
-    padding: 10% 0;
-}
-
-/* estilos de titulos tarjetas claras */
-.tarjeta-clara h6 {
-    font-family: 'Inter', sans-serif;
-    color: #361C12;
+    width: 80vw;
 }
 
 /* estilos de los parrafos de las tarjetas claras */
-.tarjeta-clara p {
+.light-card #history-info h5,p {
+    font-family: 'Imprima', sans-serif;
+    color: #361C12;
+}
+
+.light-card h5 {
+    font-family: 'Inter', sans-serif;
+    color: #361C12;
+}
+.light-card p {
     font-family: 'Imprima', sans-serif;
     color: #361C12;
 }
 
 /* estilos de las tarjetas oscuras */
-.tarjeta-oscura {
+.dark-card {
     background-color: #361C12;
-    padding: 10% 0;  /* para aumentar el espaciado arriba y abajo entre el borde de la caja y los contenidos del interior */
+    width: 80vw;
 }
 
 /* estilos de titulos tarjetas oscuras */
-.tarjeta-oscura h6 {
+.dark-card h5 {
     font-family: 'Inter', sans-serif;
     color: #F6EACC;
 }
 
-/* estilos de los parrafos de las tarjetas claras */
-.tarjeta-oscura p {
+.dark-card p {
     font-family: 'Imprima', sans-serif;
     color: #F6EACC;
 }
 
 /* estilos de la tarjeta historia */
 
-
 #button-history {
     background-color: #361C12;
-    font-size: 1.1vw;
     color:#F6EACC;
     font-family: 'Inter', sans-serif;
     margin: 3% 0 ;
-    padding:3%
+    padding:3%;
+    border-style: none;
 }
 
-#imagen-historia {
-    padding: 0;
-}
-
-#imagen-historia img{
-    height: 100%;
-}
-
-#texto-historia {
-    font-family: 'Imprima', sans-serif;
-    font-size: 1.1vw;
-    display: none;
-    padding: 5%;
+#history-text {
+    color: #361C12;
+    padding:3%;
+    text-align:justify;
 }
 
 /* estilos de la tarjeta mision */
-
-#imagen-mision{
-    padding:0; /* necesario para el contenedor de la imagen no tenga espacio entre la imagen y el mismo */
+#mision-text{
+    padding: 0 10%;
+    text-align:justify;
 }
 
-#imagen-mision img {
-    height: 100%;
+#mision-coffe-grains{
+/* semillas claras 1 */
+transform: rotate(-9.9deg);
 }
-
 
 /* estilos de la tarjeta vision */
-#imagen-vision {
-    padding:0;
+
+#vision-text{
+    padding: 0 10%;
+    text-align:justify;
 }
 
-#imagen-vision img {
-    height: 100%;
-}
-
+/* estilos de la tarjeta vision */
 
 /* estilos de la tarjeta valores */
-
-#texto-values {
-    font-family: 'Imprima', sans-serif;
-    font-size: 1.1vw;
-    display: none;
-    padding: 5%;
-}
-
-#imagen-valores {
-    padding:0;
-}
-
-#imagen-valores img {
-    height: 100%;
+#values-text{
+    padding: 0 10%;
+    text-align:justify;
+    color: #F6EACC;
 }
 
 #button-values {
     background-color: #F6EACC;
-    font-size: 1.1vw;
-    color: #363636;;
+    color: #361C12;
     font-family: 'Inter', sans-serif;
     margin: 3% 0 ;
-    padding:3%
+    padding:3%;
+    border-style: none;
 }
 
 /* estilos sucursales */
 #container-sucursales{
     background-color: #F6EACC;
     box-sizing: border-box;
-    width: 95%;
+    width: 80vw;
     margin: 0 auto;
     font-family: 'imprima', sans-serif;
     color: #361C12;
 }
 
-/* estilos del footer */
-body{
-    background-color: #faf6ec;
+#container-sucursales a{
+    color: white;
+    text-decoration: none;
 }
+
+#container-sucursales a:hover{
+    text-decoration: underline;
+}
+#container-sucursales h3{
+    color: white;
+}
+#container-sucursales h3:hover{
+    color: white;
+    transform: scale(1.05);
+}
+
+
+#store-montejo{
+    background-image: url('/assets/images/imagen_sucursal_fcomontejo.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border-radius: 2em;
+}
+#store-caucel{
+    background-image: url(/assets/images/imagen_sucursal_caucel.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border-radius: 2em;
+}
+
+/* Estilos Developers Section */
+
+#developers-team{
+    width: 80vw;
+}
+/* semillas cafe rafa 9 */
+#seeds-developers-team-left{
+    transform: rotate(-18.81deg);
+}
+
+#seeds-developers-team-right{
+transform: rotate(159.85deg);
+}
+
+#profile-cards{
+width: 100%;
+}
+
+#profile-card {
+    background-color: #F6EACC;
+    color:#361c12;
+    cursor: pointer;
+}
+#profile-card a {
+    color:#361c12;
+    text-decoration: none;
+}
+
+#profile-card:hover {
+    background-color: #361c12;
+    color: #F6EACC;
+}
+
+#profile-card:hover .card-text,#profile-card:hover a {
+    color: #F6EACC; 
+}
+
+#profile-card a:hover{
+    color: white; 
+}
+
+/* estilos del footer */
 
 footer{
     background-color: #361c12;
@@ -183,56 +292,4 @@ footer{
 .social-icon{
     width: 35px;
     height: 35px;
-}
-
-/* semillas cafe rafa 9 */
-
-#seeds-developers-team-left{
-    transform: rotate(-18.81deg);
-}
-
-#seeds-developers-team-right{
-transform: rotate(159.85deg);
-}
-
-
-#profile-card{
-    background-color: #361c12;
-    color: #ffffff;
-}
-#card-footer{
-    color: #ffffff;
-}
-
-#navegation-bar-logo{
-max-width: 100px;
-}
-
-.custom-toggler {
-    background-color: transparent !important;
-    border: none !important;
-}
-
-.custom-toggler:active,
-.custom-toggler:focus {
-    background-color: transparent !important;
-    color: transparent !important;
-}
-
-
-.show .nav-link {
-    text-decoration: none;
-    font-size: 18px; /* Tamaño predeterminado del texto del menú */
-    margin-left: 1rem;
-}
-
-.nav-link:hover {
-    text-decoration-line: underline;
-}
-
-#img-logo-blanco{
-    max-width: 30vh;
-}
-.description{
-    max-width:60vw;
 }
