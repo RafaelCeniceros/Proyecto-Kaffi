@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/about-us.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <title>Acerca de nosotros - Kaffi</title>
+</head>
+
+<body>
+    <header>
+        <!-- barra de navegacion -->
+        <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
+        <nav class="navbar navbar-expand-lg justify-content-between">
+
+            <!-- Botón de hamburguesa visible en pantallas pequeñas -->
+            <div class="py-2 ms-1 d-flex header-menu-icon">
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+                </button>
+            </div>
+
+            <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
+            <div class="d-lg-none d-flex align-items-center ms-auto ps-5">
+                <a href=index.html class="header-logo-link">
+                    <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
+                </a>
+            </div>
+
+            <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
+            <div class="d-none d-lg-block mx-0 px-3">
+                <a href=index.html class="header-logo-link py-3">
+                    <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
+                </a>
+            </div>
+
+            <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
+            <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-carrito-header" class="nav-link active text-white px-2"
+                            href="../pages/shopping-cart.html">
+                            <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-login-header" class="nav-link active text-white px-2"
+                            href="../pages/profile.html">
+                            <i class="fa-solid fa-user p-2 header-icons-link"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Menú desplegable, visible en pantallas pequeñas -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="../pages/menu.html">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="../pages/contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="introduction-container">
+            <div class="d-flex justify-content-center my-3">
+                <img class="img-fluid py-2" src="../images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
+            </div>
+            <div class="d-flex justify-content-center mb-3">
+                <h5 class="description text-center text-white mb-2 p-4">"Somos Kaffi. Una cafetería familiar pet
+                    friendly, un rincón donde la calidad del café y la calidez del servicio es primero. “
+                    Descubre quiénes somos y por qué amamos lo que hacemos."
+                </h5>
+            </div>
+
+        </section>
+    </header>
+
+    <!-- seccion principal -->
+    <main class="container">
+        <!--  tarjeta de historia -->
+        <section id="history">
+            <!-- contenedor que despliega en fila -->
+            <div class="row d-flex align-items-center justify-content-center text-center light-card mx-auto my-3">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
+                -->
+                <!-- Columna de la imagen -->
+                <div id="history-pic-container" class="col-sm-12 col-md-5 order-sm-first order-md-last pic-container">
+                    <!-- The image is placed above for small devices -->
+                    <img src="../images/imagen_fundador.png" alt="fundador_kaffi" />
+                </div>
+                <!--
+                row: los contenidos dentro del contendor se despliega en forma de fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <!-- Columna del texto -->
+                <div id="history-info" class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-center">
+
+                    <div id="coffee-grains-container" class="my-2">
+                        <img class="coffe-grains-img" src="../images/granos_cafe.png" alt="granos_cafe">
+                    </div>
+                    <h5 class="py-3">
+                        <strong> "Detrás de cada taza en Kaffi hay una historia que contar"</strong>
+                    </h5>
+                    <div>
+                        <button id="button-history">Conoce nuestra historia</button>
+                    </div>
+                    <p id="history-text">
+                        "Kaffi" nació en 2018 como un proyecto de un universitario, nuestro fundador Axel Polanco, quien
+                        buscaba compartir el
+                        auténtico sabor del café. Inicialmente un pequeño carrito, se transformó en un punto de
+                        encuentro para amantes del
+                        café y amigos, creciendo con un compromiso hacia la calidad y autenticidad. Cada taza de café
+                        lleva consigo la
+                        historia de esos primeros días y la dedicación del equipo. "Kaffi" ha creado una comunidad unida
+                        por el amor al café
+                        y la conexión humana. Únete a nuestra historia en constante evolución en "Kaffi", donde cada
+                        cliente es parte de
+                        nuestro emocionante viaje desde el inicio hasta el futuro. ¡Bienvenido/a a "Kaffi"!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- tarjeta mision -->
+        <section id="mision">
+            <!-- contenedor que despliega en fila -->
+            <div class="row d-flex align-items-center justify-content-center text-center dark-card mx-auto my-3">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
+                -->
+                <!-- Columna de la imagen -->
+                <div id="mision-pic-container" class="col-sm-12 col-md-5 order-sm-first order-md-last pic-container">
+                    <!-- The image is placed above for small devices -->
+                    <img src="../images/imagen_perro.png" alt="perrito" />
+                </div>
+                <!--
+                row: los contenidos dentro del contendor se despliega en forma de fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <!-- Columna del texto -->
+                <div id="mision-info"
+                    class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-center position-relative">
+                    <h5 class="py-3">
+                        Nuestra misión es simple pero poderosa...
+                    </h5>
+                    <p id="mision-text">
+                        Buscamos ser la cafetería de preferencia, brindando experiencias válidas y auténticas a cada
+                        cliente, de dos y
+                        cuatro patas.
+                    </p>
+                    <div id="coffee-grains-container" class="d-flex justify-content-end mb-3 mb-md-0">
+                        <img class="coffe-grains-img" src="../images/semillas claras.png"
+                            alt="granos_cafe" id="mision-coffe-grains">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- tarjeta vision -->
+        <section id="vision">
+            <!-- contenedor que despliega en fila -->
+            <div class="row d-flex align-items-center justify-content-center text-center light-card mx-auto my-3">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
+                -->
+                <!-- Columna de la imagen -->
+                <div id="vision-pic-container" class="col-sm-12 col-md-5 order-sm-first pic-container">
+                    <!-- The image is placed above for small devices -->
+                    <img src="../images/imagen_pareja.png" alt="fundador_kaffi" />
+                </div>
+                <!--
+                row: los contenidos dentro del contendor se despliega en forma de fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <!-- Columna del texto -->
+                <div id="vision-info" class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-center">
+                    <div id="coffee-grains-container" class="d-flex justify-content-center justify-content-md-end my-1">
+                        <img class="coffe-grains-img" src="../images/granos_cafe.png" alt="granos_cafe">
+                    </div>
+                    <h5 class="py-3">
+                        Nuestra visión es clara...
+                    </h5>
+                    <p id="vision-text">
+                        Nuestra visión es convertirnos en el corazón de la comunidad, siendo reconocidos como la
+                        cafetería preferida para
+                        familias y amantes de las mascotas. Buscamos expandir nuestra influencia positiva, ofreciendo
+                        productos
+                        excepcionales y experiencias inolvidables que fortalezcan los lazos emocionales en un entorno
+                        acogedor y
+                        pet-friendly.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- tarjeta valores -->
+        <section id="values">
+            <!-- contenedor que despliega en fila -->
+            <div class="row d-flex align-items-center justify-content-center text-center dark-card mx-auto my-3">
+                <!-- col-sm-12: el contenedor de la imagen ocupara 12 columnas para dispositivos pequeños
+                mb-4: margin bottom de 4
+                col-md-5: ocupara 5 columnas a patir de dispositivos medianos
+                order-sm-first: el contendor se ubicara a mano izquierda del contenedor de la tarjeta en dispositivos pequeños, de modo que en conjunto con com-sm-12, hara que la imagen ocupe una fila entera
+                order-md-last: se ubicara a mano derecha del contenedor de la tarjeta a partir de dispositivos medianos, de modo que junto con col-md-5, permite que se ubique a mano derecha de la tarjeta y solo ocupe 5 columnas.
+                -->
+                <!-- Columna de la imagen -->
+                <div id="values-pic-container" class="col-sm-12 col-md-5 order-sm-first order-md-last pic-container">
+                    <!-- The image is placed above for small devices -->
+                    <img src="../images/imagen_barista.png" alt="fundador_kaffi" />
+                </div>
+                <!--
+                row: los contenidos dentro del contendor se despliega en forma de fila
+                col-md-7: permite que tenga un despliegue de 7 columnas a partir de dispositivos medianos
+                text-center: centra los textos del boton y del parrafo
+                order-sm-last: pasara abajo de la imagen en dispositivos pequeños 
+                order-md-first: la tarjeta pasa a mano izquierda con dispositivos medianos y grandes-->
+                <!-- Columna del texto -->
+                <div id="values-info" class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-center">
+
+                    <div id="coffee-grains-container" class="my-3">
+                        <img class="coffe-grains-img" src="../images/semillas claras.png" alt="granos_cafe">
+                    </div>
+                    <h5 class="py-3">
+                        "Nuestros valores son la esencia de todo lo que hacemos"
+                    </h5>
+                    <div>
+                        <button id="button-values">Conoce nuestros valores</button>
+                    </div>
+                    <ul id="values-text">
+                        <li><strong>Calidad: </strong>Compromiso con ofrecer productos de alta calidad para satisfacer las expectativas de
+                            los clientes.</li>
+                        <li><strong>Servicio al Cliente:</strong> Priorización de la satisfacción y comodidad de los clientes, brindando un
+                            servicio personalizado y atento.</li>
+                        <li><strong>Innovación Tecnológica:</strong> Utilización de tecnología para mejorar la experiencia de compra en línea
+                            y mantener una plataforma eficiente.</li>
+                        <li><strong>Ética Empresarial:</strong> Actuación con integridad, transparencia y responsabilidad en todas las
+                            operaciones y relaciones comerciales.</li>
+                        <li><strong>Hospitalidad Inclusiva:</strong> Fomentamos un ambiente acogedor y familiar, donde todas las personas y
+                            sus mascotas se sientan bienvenidas, celebrando la diversidad y la conexión entre clientes de
+                            todas las edades y especies.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- tarjetas sucursales -->
+        <section id="container-sucursales">
+            <div class="row text-center justify-content-center p-4 mb-3">
+        
+                <h4 class="col-sm-12"><strong>Te esperamos en dos lugares impresionantes</strong></h4>
+                <p class="col-sm-12 pt-2">
+                    En cada sucursal de Kaffi, encontrarás el mismo compromiso con
+                    la calidad y el servicio excepcional.
+                </p>
+                <!-- Columna Sucursal Montejo -->
+                <div class="col-sm-12 col-md-5 d-flex justify-content-center align-items-center py-5 mx-auto my-3" id="store-montejo">
+                    <a href="https://www.google.com/maps/place/Kaffi+Francisco+de+Montejo/@21.040908,-89.6479862,17z/data=!3m1!4b1!4m6!3m5!1s0x8f5675e31ecfcb3f:0xea36fcd46ce87065!8m2!3d21.040908!4d-89.6479862!16s%2Fg%2F11gh_f9x4x?entry=ttu"
+                        target="_blank" class="d-flex align-items-center">
+                        <img src="../images/logo kaffi blanco.png" class="img-fluid w-25 mx-auto">
+                        <h3 class="mx-auto">Sucursal Fco. Montejo</h3>
+                    </a>
+                </div>
+        
+                <!-- Columna Sucursal Caucel -->
+                <div class="col-sm-12 col-md-5 d-flex justify-content-center align-items-center py-5 mx-auto my-3" id="store-caucel">
+                    <a href="https://www.google.com/maps/place/Kaffi+Caucel/@21.0012267,-89.6945523,15z/data=!4m6!3m5!1s0x8f567540283836c9:0xaf074051fcc0b371!8m2!3d21.0012267!4d-89.6945523!16s%2Fg%2F11jt1qp6px?sa=X&ved=2ahUKEwivvtnpmOOCAxV0LkQIHRCvCecQ_BJ6BAhTEAA&entry=tts"
+                        target="_blank" class="d-flex align-items-center">
+                        <img src="../images/logo kaffi blanco.png" class="img-fluid w-25 mx-auto">
+                        <h3 class="mx-auto">Sucursal Caucel</h3>
+                    </a>
+                </div>
+        
+                <p class="col-sm-12 p-4 justify-content-center">
+                    Haz click en la sucursal más cercana para abrir su ubicación
+                </p>
+        
+            </div>
+        </section>
+
+        <!-- codigo de Rafa (seccion equipo de desarrollo)-->
+        <section id="developers-team" class="container">
+            <!-- 
+            Se usara una fila, con 3 columnas. 1 por cada elemento que compone la sección,
+            que correspone a una imagen, una frase y otra imagen.
+            Todos los elementos dentro de la fila se alinearán horizontal y verticalmente en el centro.
+            La columna ocupara 4/12 espacios en todos los formatos.
+         -->
+
+            <div class="row justify-content-center align-items-center mb-5">
+                <!-- Contenedor para la imagen -->
+                <div class="col-sm-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center" id="seeds-developers-team-left">
+                        <img src="../images/semillas cafe varias.png" class="img-fluid" alt="Granos de cafe">
+                    </div>
+                </div>
+                <!-- Contenedor para el texto -->
+                <div class="col-sm-4 text-center">
+                    <p class="description-developers">Descubre a las personas que hacen que esta página sea especial.
+                    </p>
+                </div>
+                <!-- Contenedor para la imagen -->
+                <div class="col-sm-4 text-center">
+                    <div class="d-flex justify-content-center align-items-center" id="seeds-developers-team-right">
+                        <img src="../images/semillas cafe varias.png" class="img-fluid" alt="Granos de cafe">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="profile-cards">
+                <div class="container">
+                    <!--La clase row-cols-1 indica que habrá una columna por fila en pantallas pequeñas.
+                La clase row-cols-lg-2 especifica que habrá dos columnas por fila en pantallas grandes y más grandes. -->
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center text-center">
+                        <div class="col mb-4 mx-auto">
+                            <!-- Contenido de la tarjeta 1 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex justify-content-center align-items-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/rafa.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex justify-content-center align-items-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Rafael Ceniceros</h5>
+                                            <p class="card-text">Product Owner / Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/rafael-ceniceros-ceballos/" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/RafaelCeniceros" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <!-- Contenido de la tarjeta 2 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/valdo.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Oswaldo Fonseca</h5>
+                                            <p class="card-text">Full Stack Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/oswaldo-fonseca/" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/oswaldofonseca08" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <!-- Contenido de la tarjeta 3 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/fer.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Fernando Juárez</h5>
+                                            <p class="card-text">Scrum Master/ Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/fernando-ju%C3%A1rez-s%C3%A1nchez-0609a0200/" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/fernandoj0" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <!-- Contenido de la tarjeta 4 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/vane.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Vanesa León</h5>
+                                            <p class="card-text">Full Stack Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/jazm%C3%ADn-l-11106b1b5//" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/vanejaz" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <!-- Contenido de la tarjeta 5 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/kim.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Kimberly Ramos</h5>
+                                            <p class="card-text">Full Stack Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/kimberlyjramosm/" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/kijomera" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-4">
+                            <!-- Contenido de la tarjeta 6 -->
+                            <div class="card d-flex align-items-center justify-content-center h-100" id="profile-card">
+                                <div class="row">
+                                    <!-- Columna de la imagen (izquierda) -->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="picture-profile-container">
+                                        <!-- El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor picture-profile-container.-->
+                                        <img src="../images/alan.png" class="card-img-left img-fluid rounded-circle ms-md-5"
+                                            alt="...">
+                                    </div>
+                                    <!-- Columnas del contenido (derecha)-->
+                                    <div class="col-sm-6 d-flex align-items-center justify-content-center"
+                                        id="text-profile-container">
+                                        <!--  El contenedor es un elemento flexible (d-flex) que ocupa 6 de las 12 columnas en pantallas pequeñas
+                                 (col-sm-6). Este elemento tendrá su contenido centrado tanto vertical como horizontalmente en 
+                                 relación con el contenedor text-profile-container. -->
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Alan Villa</h5>
+                                            <p class="card-text">Full Stack Developer</p>
+                                            <div id="card-footer" class="mt-3">
+                                                <a href="https://www.linkedin.com/in/alan-villa-25066b291/" title="Linked-in">
+                                                    <i class="fab fa-linkedin fa-2x me-1"></i>
+                                                </a>
+                                                <a href="https://github.com/AReaver" title="Github">
+                                                    <i class="fab fa-github fa-2x mx-0"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- codigo de valdo -->
+    <footer>
+        <footer class="text-light">
+
+            <!-- Section: Social media -->
+            <section id="social-media" class="text-center p-3 border-bottom border-3">
+
+                <div class="mb-2">
+                    <span>Siguenos en nuestras redes sociales</span>
+                </div>
+
+                <div>
+                    <a href="https://www.instagram.com/kaffimerida/" target="_blank" class="me-5">
+                        <img class="social-icon" src="../images/icons8-instagram-60.png"
+                            alt="El icono de Instagram"></a>
+                    <a href="https://www.facebook.com/kaffiMid/?locale=es_LA" target="_blank" class="me-5">
+                        <img class="social-icon" src="../images/icons8-facebook-50 (2).png"
+                            alt="El icono de Facebook"></a>
+                    <a href="https://api.whatsapp.com/message/RMOZKTGCQLG3H1?autoload=1&app_absent=0" target="_blank">
+                        <img class="social-icon" src="../images/icons8-whatsapp-50 (1).png"
+                            alt="El icono de whatssap"></a>
+                </div>
+            </section>
+
+            <!-- Section: Logo y sucursales  -->
+            <section id="sucursales" class="text-center p-3 border-bottom border-3">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row mt-3">
+
+                        <!-- Logo -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <img src="../images/logo kaffi blanco.png" alt="logo de Kaffi" class="img-fluid w-50">
+                        </div>
+
+                        <!-- Fransisco Montejo -->
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+                            <h5 class="mb-4 ">
+                                Sucursal Francisco de Montejo
+                            </h5>
+                            <p class="text-light">
+                                C.41-A #441-x 58,
+                                Fransisco de Montejo,
+                                97203
+                                Mérida Ycatan
+                            </p>
+                        </div>
+
+                        <!-- Caucel -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <h5 class="mb-4">
+                                Sucursal Caucel
+                            </h5>
+                            <p class="text-light">
+                                C.70 #673-x 39 A y 43,
+                                Plaza Premium Caucel local #6,
+                                Caucel, 97203,
+                                Mérida Ycatan
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Copyright -->
+            <div class="text-light text-center p-4">
+                <p class="text-light"> Politica de Privacidad | Términos y Condicones de Uso | Aviso Legal</p><br>
+                <p class="text-light">Copyright © [2018] [Kaffi S.A de C.V]</p>
+                <span>Todos los derechos reservados</span>
+            </div>
+        </footer>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
+    <script src="../js/about-us.js"></script>
+</body>
+
+
+</html>

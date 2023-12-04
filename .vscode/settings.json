@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "liveServer.settings.port": 5502
+=======
+    "livePreview.defaultPreviewPath": "/index.html"
+>>>>>>> about_us_page
 }
