@@ -25,19 +25,19 @@ const dataCheckout = (user) =>{
     const regex2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
     
     if(user.name === ""){
-        errorMessage("Introdusca un nombre valido");
+        errorMessage("Introduzca un nombre válido*");
         response = false;
     } else if (user.name.length > 25 || user.name.length < 2 ){
-        errorMessage("Su nombre debe tener entre 2 y 25 caracteres");
+        errorMessage("Su nombre debe tener entre 2 y 25 caracteres*");
         response = false;
     } else if (!regex.test(user.name)){
-        errorMessage("Tu nombre solo puede contener letras y espacios");
+        errorMessage("Tu nombre solo puede contener letras y espacios*");
         response = false;
     } else if (!regex2.test(user.email)){
-        errorMessage("introdusca un correo electronico valido");
+        errorMessage("Introduzca un correo electrónico válido*");
         response = false;
     } else if (user.commentary.length < 10 || user.commentary.length > 120 ){
-        errorMessage("Tu comentario deve tener entre 10 y 120 caracteres");
+        errorMessage("Tu comentario debe tener entre 10 y 120 caracteres*");
         response = false;
     } else {
         errorMessage("");

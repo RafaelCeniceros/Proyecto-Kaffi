@@ -98,7 +98,12 @@ header #introduction-container {
 #error-message{
     font-family:'inter', Bold;
     font-size: 1.3rem;
-    color: crimson;
+    font-weight: bold;
+    color: hsl(0, 81%, 23%);
+}
+
+.contact-buttons{
+    max-width: 12em;
 }
 
 .social-link {
