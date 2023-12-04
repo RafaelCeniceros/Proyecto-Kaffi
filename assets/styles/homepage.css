@@ -142,6 +142,7 @@ header #introduction-container {
 
 #season-products #card-description button {
     background-color: #361c12;
+    color: #F6EACC;
     padding: 15px;
     margin-top: 50px;
     border: none; /* Quita el borde del botón si es necesario */
