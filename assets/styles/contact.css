@@ -80,7 +80,7 @@ header #introduction-container {
 #contact-container{
     background-color: #F6EACC;
     box-sizing: border-box;
-    width: 95%;
+    width: 80vw;
     margin: 0 auto;
     font-family: 'Imprima', sans-serif;
     font-size: 1.3rem;
