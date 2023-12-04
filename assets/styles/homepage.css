@@ -263,83 +263,56 @@ max-width: 100px;
 
 /* Top Products */
 
-/* Estilos para la sección de los productos destacados */
+/* Estilos para el contenedor principal */
 .top-products-section {
-    background-color: #361c12;
     margin: 5%;
+    display:block;
+    justify-content: center;
 }
 
-/* Estilos para el contenedor principal */
 .products-container {
     background-color: #361c12;
     color: white;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px; /* Espacio interno */
 }
 
-/* Estilos para la fila de productos */
-.products-row {
-    background-color: #361c12;
-}
-
-/* Estilos para la columna 1 */
-.column1 {
-    background-color: #361c12;
-    color: beige;
-}
-
-/* Estilos para cada fila de productos */
-.product-row {
-    background-color: #361c12;
-    margin: 0.5em;
-}
-
-/* Estilos para cada columna de producto */
-.product-col {
-    background-color: #361c12;
-    margin: 0.5em;
-}
-
-/* Estilos para la información de cada producto */
-.product-info {
-    text-align: center;
-}
-
-/* Estilos para la imagen de cada producto */
-.product-image {
-    max-width: 100%;
-    width: 140px;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Estilos para el texto del nombre del producto */
+/* Resto de estilos mantenidos igual */
+.products-row,
+.column1,
+.product-row,
+.product-col,
+.column2,
+.highlight-info,
+.product-text,
 .product-name {
+    background-color: #361c12;
+    color: white;
+    text-align: center;
     font-weight: bold;
 }
 
-/* Estilos para el texto adicional del producto */
-.product-text {
-    color: #888;
-}
-
-/* Estilos para la columna 2 */
-.column2 {
-    background-color: #361c12;
-    color: #361c12;
-}
-
-/* Estilos para la información destacada */
 .highlight-info {
-    color:  white;
     padding: 1em;
     margin: 0.5em;
 }
 
+.product-image {
+    max-width: 400px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
 
+.column2 {
+    color: #361c12;
+}
 
 /* Estilos para el contenedor de la imagen de los granos de café */
 .highlight-image {
     position: relative; /* Establece el posicionamiento relativo para el contenedor */
-    width: 200px; /* Ancho del contenedor */
+    width: 250px; /* Ancho del contenedor */
     height: 100px; /* Altura del contenedor */
     margin-left: auto; /* Empuja el contenedor hacia la derecha */
     margin-top: auto; /* Empuja el contenedor hacia abajo */
@@ -354,4 +327,19 @@ max-width: 100px;
     right: 0; /* Coloca la imagen en la esquina derecha del contenedor */
     transform: rotate(180.85deg); /* Gira la imagen */
 }
+
+.mi-boton-1 {
+    text-decoration:#361c12; /* Quita el subrayado */
+    border: none; /* Quita el borde del botón si es necesario */
+    background-color: #F6EACC; /* Color de fondo */
+    color: #361c12; /* Color del texto */
+    padding: 10px 20px; /* Ajusta el espaciado interno */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+
+
 
