@@ -9,7 +9,7 @@ header {
     /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
     width: 100%;
     height: auto;
-    background-image: url(./assets/images/familia_tomando.png);
+    background-image: url(../images/familia_tomando.png);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
@@ -216,14 +216,14 @@ transform: rotate(-9.9deg);
 
 
 #store-montejo{
-    background-image: url(./assets/images/imagen_sucursal_fcomontejo.png);
+    background-image: url(../images/imagen_sucursal_fcomontejo.png);
     background-size: cover;
     background-position: center;
     height: 100%;
     border-radius: 2em;
 }
 #store-caucel{
-    background-image: url(./assets/images/imagen_sucursal_caucel.png);
+    background-image: url(../images/imagen_sucursal_caucel.png);
     background-size: cover;
     background-position: center;
     height: 100%;
