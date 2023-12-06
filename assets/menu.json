@@ -1,0 +1,237 @@
+{
+    "menu": [
+      {
+        "categoria": "COFFEE",
+        "productos": [
+          {
+            "nombre": "Café Americano",
+            "precio": 2.50,
+            "imagen": "imagen_cafe_americano.jpg"
+          },
+          {
+            "nombre": "Espresso",
+            "precio": 3.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Doble",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Café latte",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Capuccino",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Café de olla",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Mocha",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Mocha blanco",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Nutellate",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Dirty chai",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Affogato",
+            "precio": 2.00,
+            "imagen": ""
+          }
+    
+        ]
+      },
+      {
+        "categoria": "Bebidas",
+        "productos": [
+          {
+            "nombre": "Matcha latte",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chai latte",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chocolate",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Smoothie (mango/fresa)",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Licuado de frutos rojos",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Curacao azul",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Soda italiana",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Tisanas",
+            "precio": 3.50,
+            "imagen": ""
+          }
+
+        ]
+      },
+      {
+        "categoria": "Frappes",
+        "productos": [
+          {
+            "nombre": "Café",
+            "precio": 2.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Oreo",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Mocha",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Mocha blanco",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chai cream",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Irlandés",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Nuez",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Caramelo",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "",
+            "precio": 2.50,
+            "imagen": "imagen_bagel.jpg"
+          },
+          {
+            "nombre": "Kinder bueno",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Nutella",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chocoberry",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Fresas con crema",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chocomenta",
+            "precio": 2.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Green matcha",
+            "precio": 2.50,
+            "imagen": ""
+          }
+
+
+
+        ]
+      },
+      {
+        "categoria": "Especialidades",
+        "productos": [
+          {
+            "nombre": "Sea Salt Caramel",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Dark horchata ice",
+            "precio": 2.80,
+            "imagen": ""
+          },
+          {
+            "nombre": "Tonicoffee",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Chocolate bomb",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Vainilla Macchiato",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Cinnamon Latte",
+            "precio": 3.50,
+            "imagen": ""
+          }
+          
+        ]
+      }
+      
+    ]
+  }
+  
