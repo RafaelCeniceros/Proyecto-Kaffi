@@ -65,41 +65,57 @@
         "productos": [
           {
             "nombre": "Matcha latte",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor Matcha",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Chai latte",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor chai",
             "precio": 4.00,
             "imagen": ""
           },
           {
             "nombre": "Chocolate",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor chocolate",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Smoothie (mango/fresa)",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor mango o fresa",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Licuado de frutos rojos",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor frutos rojos, fresa, frambuesa y arándano",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Curacao azul",
+            "categoria": "Bebida",
+            "descripcion": "Bebida con alcohol de cáscaras de naranja amarga con jarabe de azúcar refinada",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Soda italiana",
+            "categoria": "Bebida",
+            "descripcion": "Bebida con agua gasificada y jarabe de fruta natural",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Tisanas",
+            "categoria": "Bebida",
+            "descripcion": "Bebida sabor frutas deshidratadas",
             "precio": 3.50,
             "imagen": ""
           }
@@ -199,38 +215,213 @@
         "productos": [
           {
             "nombre": "Sea Salt Caramel",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Dark horchata ice",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 2.80,
             "imagen": ""
           },
           {
             "nombre": "Tonicoffee",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Chocolate bomb",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Vainilla Macchiato",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 3.50,
             "imagen": ""
           },
           {
             "nombre": "Cinnamon Latte",
+            "categoria": "Especialidad",
+            "descripcion": "",
             "precio": 3.50,
             "imagen": ""
           }
           
         ]
+      },
+      {
+        "categoria": "Bagels",
+        "productos": [
+          {
+            "nombre": "Bagel clásico",
+            "categoria": "Bagel",
+            "descripcion": "Bagel tostado con jamón, queso, lechuga, tomate y aderezada con mayonesa",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Bagel serrano",
+            "categoria": "Bagel",
+            "descripcion": "Bagel tostado de parmesano con jamón serrano, queso manchego, tomate cherry, arúgula y aceite balsámico",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Bagel dulce/salado",
+            "categoria": "Bagel",
+            "descripcion": "Bagel tostado con queso crema y mermelada de fresa",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Bagel pizza",
+            "categoria": "Bagel",
+            "descripcion": "Bagel tostado con salsa de tomate, peperoni, salami, queso mozzarella y orégano",
+            "precio": 3.50,
+            "imagen": ""
+          }
+
+        ]
+      },
+      {
+        "categoria": "Paninis",
+        "productos": [
+          {
+            "nombre": "Panini italiano",
+            "categoria": "Panini",
+            "descripcion": "Pan artesanal con salami, queso, lechuga, tomate, aderezo, con mayonesa y aceite balsámico",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Pizanini",
+            "categoria": "Panini",
+            "descripcion": "Pan artesanal con salsa de tomate peperoni, salami, queso mozzarella y una pisca de orégano",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Panini vegetariano",
+            "categoria": "Panini",
+            "descripcion": "Pan artesanal con lechuga, espinaca, tomate, champiñones, y aderezado con mayonesa de aguacate",
+            "precio": 3.50,
+            "imagen": ""
+          }
+
+        ]
+      },
+      {
+        "categoria": "Cuernitos",
+        "productos": [
+          {
+            "nombre": "Cuernito clásico",
+            "categoria": "Cuernito",
+            "descripcion": "Croissant hojaldrado con jamón, queso, alfalfa, aderezado con mayonesa",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Cuernito italiano",
+            "categoria": "Cuernito",
+            "descripcion": "Croissant hojaldrado con jamón, queso, lechuga, tomate y aderezado con mayonesa",
+            "precio": 4.00,
+            "imagen": ""
+          }
+
+        ]
+      },
+      {
+        "categoria": "Waffles",
+        "productos": [
+          {
+            "nombre": "Waffle tradicional",
+            "categoria": "Waffle",
+            "descripcion": "Waffle con nuez, chocolate liquido, y crema batida",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Waffle con helado o fresas",
+            "categoria": "Waffle",
+            "descripcion": "Waffle con nuez, chocolate liquido helado de vainilla o fresas",
+            "precio": 4.00,
+            "imagen": ""
+          }
+
+        ]
+      },
+      {
+        "categoria": "Panes",
+        "productos": [
+          {
+            "nombre": "Brownie",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 3.50,
+            "imagen": ""
+          },
+          {
+            "nombre": "Rol de canela",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Pan de zanahoria",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Pan de elote",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Galleta de chispas",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Galleta de M&M´s",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Croissant",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          },
+          {
+            "nombre": "Brownie con helado",
+            "categoria": "Panes",
+            "descripcion": "",
+            "precio": 4.00,
+            "imagen": ""
+          }
+
+        ]
       }
-      
+    
     ]
 
   
