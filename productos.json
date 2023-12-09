@@ -1,5 +1,4 @@
-{
-    "menu": [
+[
       {
         "categoria": "COFFEE",
         "productos": [
@@ -233,5 +232,5 @@
       }
       
     ]
-  }
+
   
