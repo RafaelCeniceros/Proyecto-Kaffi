@@ -70,6 +70,10 @@ header {
 
 
 /*================================== Menu styles ==================================*/
+html{
+    scroll-behavior: smooth;
+}
+
 #logo-container {
     box-sizing: border-box;
     width: 90%;
@@ -82,7 +86,12 @@ header {
     align-items: center;
 }
 
-/* Estilos opcionales para el menú */
+#logo-container h5{
+    font-family: 'Imprima', sans-serif;
+    color: #361c12;
+    font-size: 1.8rem;
+}
+
 #menu-container nav{
     background-color:  #faf6ec;
 }
@@ -100,26 +109,74 @@ header {
     float: left;
 }
 
+#menu-container button {
+    background-color: #361c12;
+    color: #ffffff;
+    font-size: 7rem;
+}
+
 #menu-container li a {
     display: block;
-    color: #333;
     text-align: center;
     padding: 12px 15px;
     text-decoration: none;
+    font-family: 'Imprima', sans-serif;
+    color: #361c12;
+    font-size: 1rem;
 }
 
 @media only screen and (max-width: 767px) {
-    li a:hover {
-        background-color: #ddd;
+    #menu-container li a {
+        background-color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #menu-container li a:hover {
+        background-color: #e7d39e;
     }
 }
 
 @media only screen and (min-width: 767px) {
-    li a:hover {
+    #menu-container li a:hover {
         border-bottom: 3.5px solid #361c12;
     }
 }
 
+@media only screen and (max-width: 767px) {
+    #menu-container nav {
+        border: 2.5px solid #361c12;
+        background-color: #F6EACC;
+    }
+}
+
+#products {
+    font-size: 1rem;
+}
+
+#products .product-cards{
+    border: 1.2px solid #361c12;
+    background-color: #F6EACC;
+}
+
+#products .product-cards p{
+    font-family: 'Imprima', sans-serif;
+    color: #361c12;
+    font-size: 0.8rem;
+}
+
+#products button{
+    background-color: #361c12;
+    border: #361c12;
+    color: #ffffff;
+}
+
+#products img{
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
 
 
 /*================================ Footer Styles ================================*/
@@ -149,58 +206,5 @@ footer {
 .social-icon:hover {
     transform: scale(1.2);
     transition: 1s;
-}/* Estilos para los productos */
-.productos-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
-.producto {
-  background-color: rgb(246, 234, 204);
-  border-radius: 25px;
-  padding: 10px;
-  width: 300px;
-  text-align: center;
-}
-
-.producto img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  border-radius: 25px;
-  max-height: 200px; /* Ajusta el tamaño máximo que desees para las imágenes */
-}
-
-/* Barra de menu*/
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.horizontal-menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  background-color: #f2f2f2;
-  display: flex;
-}
-
-.horizontal-menu li {
-  padding: 15px;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.horizontal-menu li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  display: block;
-}
-
-.horizontal-menu li:hover {
-  background-color: #F6EACC;
-}

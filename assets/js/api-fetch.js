@@ -1,5 +1,5 @@
 import Producto from "./product-class.js";
-import Card from "./card-class.js";
+import Card from "./menu-card-class.js";
 
 
 const url = '../../productos-menu.json';

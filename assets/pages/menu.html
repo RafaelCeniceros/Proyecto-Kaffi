@@ -106,38 +106,41 @@
 
         <section id="menu-container">
 
-            <nav class="container navbar navbar-expand-md bg-body-tertiary">
+            <nav class="container navbar navbar-expand-md">
                 <div class="container-fluid">
-                    <a class="navbar-brand d-md-none">Menu</a>
+                    <a class="navbar-brand d-md-none">Menú</a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
-                        <span class="accordion-button"></span>
+                        <span class="accordion-button">▽</span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <ul id="menu" class="navbar-nav container mt-3">
-                            <li><a href="#" onclick="changeContent('cafes')">Cafés</a></li>
-                            <li><a href="#" onclick="changeContent('bebidas')">Bebidas</a></li>
-                            <li><a href="#" onclick="changeContent('frapes')">Frappes</a></li>
-                            <li><a href="#" onclick="changeContent('especialidades')">Especialidades</a></li>
-                            <li><a href="#" onclick="changeContent('bagets')">Bagets</a></li>
-                            <li><a href="#" onclick="changeContent('paninis')">Paninis</a></li>
-                            <li><a href="#" onclick="changeContent('cuernitos')">Cuernitos</a></li>
-                            <li><a href="#" onclick="changeContent('waffles')">Waffles</a></li>
-                            <li><a href="#" onclick="changeContent('panes')">Panes</a></li>
+                            <li><a href="#products" id="cafes">Cafés</a></li>
+                            <li><a href="#products" id="bebidas">Bebidas</a></li>
+                            <li><a href="#products" id="frapes">Frappes</a></li>
+                            <li><a href="#products" id="especialidades">Especialidades</a></li>
+                            <li><a href="#products" id="bagels">Bagels</a></li>
+                            <li><a href="#products" id="paninis">Paninis</a></li>
+                            <li><a href="#products" id="cuernitos">Cuernitos</a></li>
+                            <li><a href="#products" id="waffles">Waffles</a></li>
+                            <li><a href="#products" id="panes">Panes</a></li>
                         </ul>
                     </div>
 
                 </div>
             </nav>
+        </section>
 
-            <!-- Contenido dinámico -->
-            <div id="products" class="container">
-                <p>Selecciona una opción del menú para ver el contenido correspondiente.</p>
+            <!-- Contenido dinámico de tarjetas de productos -->
+        <section id="products-container">
+            <div class="container my-5">
+                <div id="products" class="row">
+
+                </div>
             </div>
-
         </section>
 
     </main>
@@ -216,6 +219,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
+    <script type="module" src="/assets/js/menu-api-fetch.js"></script>
 </body>
 
 
