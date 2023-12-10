@@ -367,56 +367,56 @@
             "categoria": "Panes",
             "descripcion": "",
             "precio": 3.50,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/panes_brownie.jpg"
           },
           {
             "nombre": "Rol de canela",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/pan_rolcanela.jpg"
           },
           {
             "nombre": "Pan de zanahoria",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/pan_zanahoria.jpg"
           },
           {
             "nombre": "Pan de elote",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/pan_elote.jpg"
           },
           {
             "nombre": "Galleta de chispas",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/galleta-de-chispas.png"
           },
           {
             "nombre": "Galleta de M&M´s",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/galletas-m&m's.png"
           },
           {
             "nombre": "Croissant",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/croissants.png"
           },
           {
             "nombre": "Brownie con helado",
             "categoria": "Panes",
             "descripcion": "",
             "precio": 4.00,
-            "imagen": ""
+            "imagen": "../assets/images/imagenes-menu/Panes/brownie-con-helado.png"
           }
 
         ]
