@@ -1,0 +1,93 @@
+{
+    "coffee": [
+        {
+            "id": 1,
+            "nombre": "Café Americano",
+            "categoria": "cafe",
+            "precio": 2.50,
+            "descripcion": "Café espresso mezclado con agua caliente",
+            "imagen": "../images/productos_menu/cafes/cafe_americano.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Espresso",
+            "categoria": "cafe",
+            "precio": 3.00,
+            "descripcion": "Un tiro de café concentrado",
+            "imagen": "../images/productos_menu/cafes/cafe_espresso.jpg"
+        },
+        {
+            "id": 3,
+            "nombre": "Doble",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Doble tiro de café espresso",
+            "imagen": "#"
+        },
+        {
+            "id": 4,
+            "nombre": "Café latte",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Café espresso con una generosa cantidad de leche vaporizada",
+            "imagen": "#"
+        },
+        {
+            "id": 5,
+            "nombre": "Capuccino",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Mezcla equilibrada de café espresso, leche vaporizada y espuma de leche",
+            "imagen": "#"
+        },
+        {
+            "id": 6,
+            "nombre": "Café de olla",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Café infusionado con especias y piloncillo",
+            "imagen": "#"
+        },
+        {
+            "id": 7,
+            "nombre": "Mocha",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Café espresso con jarabe de chocolate y leche vaporizada",
+            "imagen": "#"
+        },
+        {
+            "id": 8,
+            "nombre": "Mocha blanco",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Café espresso con jarabe de vainilla, chocolate blanco y leche vaporizada",
+            "imagen": "#"
+        },
+        {
+            "id": 9,
+            "nombre": "Nutellate",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Café con leche infusionado con deliciosa crema de avellanas Nutella",
+            "imagen": "#"
+        },
+        {
+            "id": 10,
+            "nombre": "Dirty chai",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Chai latte con un toque de espresso",
+            "imagen": "#"
+        },
+        {
+            "id": 11,
+            "nombre": "Affogato",
+            "categoria": "cafe",
+            "precio": 2.00,
+            "descripcion": "Bola de helado cubierta con un shot caliente de espresso",
+            "imagen": "#"
+        }
+    ],
+    "frappe": []
+}
