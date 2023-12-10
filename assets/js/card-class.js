@@ -50,23 +50,25 @@ class Card {
 
     kaffiCard() {
         return  `
-        <div class="row">
-            <div class="col-12 col-md-3">
-                <!-- card -->
-                <div class="card border-light">
-                    <img src=${this.#image} alt="product-image">
-                    <div class="card-footer border-top border-light p-4">
-                        <a href="#" class="h5">${this.#name}</a>
-                        <h6 class="font-weight-light text-gray mt-2">${this.#description}</h6>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="h5 mb-0 text-gray">${this.#price}</span>
-                            <a class="btn btn-xs btn-primary" href="#">
-                                <span class="fas fa-cart-plus mr-2"></span> Add to cart
-                            </a>
+        <div class="container">
+            <div class="row flex">
+                <div class="col-sm-6 col-md-3 >
+                    <!-- card -->
+                    <div class="card border-light">
+                        <img src=${this.#image} alt="product-image">
+                        <div class="card-footer border-top border-light p-4">
+                            <a href="#" class="h5">${this.#name}</a>
+                            <h6 class="font-weight-light text-gray mt-2">${this.#description}</h6>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-gray">${this.#price}</span>
+                                <a class="btn btn-xs btn-primary" href="#">
+                                    <span class="fas fa-cart-plus mr-2"></span> Add to cart
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <!-- card -->
                 </div>
-                <!-- card -->
             </div>
         </div>
         `
