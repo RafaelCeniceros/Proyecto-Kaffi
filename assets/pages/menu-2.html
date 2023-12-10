@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../images/icono-kaffi.png">
-    <link rel="stylesheet" href="../styles/menu.css">
+    <link rel="stylesheet" href="../styles/about-us.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +19,6 @@
         <!-- barra de navegacion -->
         <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
         <nav class="navbar navbar-expand-lg justify-content-between">
-
             <!-- Botón de hamburguesa visible en pantallas pequeñas -->
             <div class="py-2 ms-1 d-flex header-menu-icon">
                 <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
@@ -78,74 +77,72 @@
             </div>
         </nav>
 
+        <section id="introduction-container">
+            <div class="d-flex justify-content-center mt-1">
+                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <h5 class="description text-center text-white mb-2 p-4">"Queremos darte la mejor experiencia con
+                    nuestros productos."
+                </h5>
+            </div>
+
         </section>
     </header>
 
     <!-- seccion principal -->
     <main>
-        <section id="logo-container">
+        <div class="container d-flex align-items-center text-center justify-content-center">
+            <h1>Menu</h1>
+        </div>
 
-            <div class="container">
-                <div class="row text-center p-0">
-                    <div class="col-5 p-0">
-                        <img class="img-fluid" src="../images/menu_grains1.png" alt="Granos de cafe decorativos">
-                    </div>
-                    <div class="col-2 p-0">
-                        <img class="img-fluid" src="../images/menu_logo.png" alt="Logo de kaffi en color cafe">
-                    </div>
-                    <div class="col-5 p-0">
-                        <img class="img-fluid" src="../images/menu_grains2.png" alt="Granos de cafe decorativos">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h5>"Conoce nuestro menú"</h5>
-            </div>
 
-        </section>
+        <!-- codigo de Alan-->
+        <nav class="horizontal-menu">
+            <ul>
+                <li><a class="anchor-coffee" href="#">Cafés</a></li>
+                <li><a class="anchor-drinks" href="#">Bebidas</a></li>
+                <li><a class="anchor-frappes" href="#">Frappes</a></li>
+                <li><a class="anchor-specialties" href="#">Especialidades</a></li>
+                <li><a class="anchor-bagels" href="#">Bagels</a></li>
+                <li><a class="anchor-paninis" href="#">Paninis</a></li>
+                <li><a class="anchor-cuernitos" href="#">Cuernitos</a></li>
+                <li><a class="anchor-waffles" href="#">Waffles</a></li>
+                <li><a class="anchor-breads" href="#">Panes</a></li>
+            </ul>
+        </nav>
 
-        <section id="menu-container">
+        <!-- navbar para sipositivos pequeños -->
 
-            <nav class="container navbar navbar-expand-md bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand d-md-none">Menu</a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="anchor-coffee dropdown-item" href="#">Cafés</a></li>
+                <li><a class="anchor-drinks dropdown-item" href="#">Bebidas</a></li>
+                <li><a class="anchor-frappes dropdown-item" href="#">Frappes</a></li>
+                <li><a class="anchor-specialties dropdown-item" href="#">Especialidades</a></li>
+                <li><a class="anchor-bagels dropdown-item" href="#">Bagels</a></li>
+                <li><a class="anchor-paninis dropdown-item" href="#">Paninis</a></li>
+                <li><a class="anchor-cuernitos dropdown-item" href="#">Cuernitos</a></li>
+                <li><a class="anchor-waffles dropdown-item" href="#">Waffles</a></li>
+                <li><a class="anchor-breads dropdown-item" href="#">Panes</a></li>
+            </ul>
+        </div>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="accordion-button"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <ul id="menu" class="navbar-nav container mt-3">
-                            <li><a href="#" onclick="changeContent('cafes')">Cafés</a></li>
-                            <li><a href="#" onclick="changeContent('bebidas')">Bebidas</a></li>
-                            <li><a href="#" onclick="changeContent('frapes')">Frappes</a></li>
-                            <li><a href="#" onclick="changeContent('especialidades')">Especialidades</a></li>
-                            <li><a href="#" onclick="changeContent('bagets')">Bagets</a></li>
-                            <li><a href="#" onclick="changeContent('paninis')">Paninis</a></li>
-                            <li><a href="#" onclick="changeContent('cuernitos')">Cuernitos</a></li>
-                            <li><a href="#" onclick="changeContent('waffles')">Waffles</a></li>
-                            <li><a href="#" onclick="changeContent('panes')">Panes</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-
-            <!-- Contenido dinámico -->
-            <div id="products" class="container">
-                <p>Selecciona una opción del menú para ver el contenido correspondiente.</p>
-            </div>
+        <!-- seccion de tarjetitas -->
+        <section id="products-container" class="row">
 
         </section>
+        <!-- seccion de tarjetitas -->
 
     </main>
 
-
     <!-- codigo de valdo -->
     <footer class="text-light">
-        <!-- Footer section -->
 
         <!-- Section: Social media -->
         <section id="social-media" class="text-center p-3 border-bottom border-3">
@@ -216,6 +213,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/api-fetch.js"></script>
 </body>
 
 
