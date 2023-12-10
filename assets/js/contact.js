@@ -1,67 +1,129 @@
-console.log("contact page");
+const nameInput = document.getElementById("Name-Input");
+const emailInput = document.getElementById("E-Mail-Input");
+const commentInput = document.getElementById("Commentary-Input");
+const successMessageContainer = document.getElementById("success-message-container");
+const invalidNameSign = document.getElementById("invalid-name-sign");
+const invalidEmailSign = document.getElementById("invalid-email-sign");
+const invalidCommentSign = document.getElementById("invalid-comment-sign");
+
+// Función principal para validar el formulario
+const dataCheckout = (user) => {
+
+    resetValues();
+    const isNameValid = validateName(user.name, nameInput, invalidNameSign);
+    const isEmailValid = validateEmail(user.email, emailInput, invalidEmailSign);
+    const isCommentValid = validateComment(user.commentary, commentInput, invalidCommentSign);
+
+    return isNameValid && isEmailValid && isCommentValid;
+};
+
+// Función para validar el nombre
+const validateName = (name, nameInput, invalidNameSign) => {
+    const regex = /^[a-zA-Z\s]+$/;
+    if (name === "" || name.length > 25 || name.length < 2 || !regex.test(name)) {
+        errorMessage("Introduzca un nombre válido", errorMessageName);
+        nameInput.classList.add("invalid");
+        invalidNameSign.style.display = "block";
+        return false;
+    } else {
+        errorMessage("", errorMessageName);
+        nameInput.classList.remove("invalid");
+        invalidNameSign.style.display = "none";
+        return true;
+    }
+};
+
+// Función para validar el correo electrónico
+const validateEmail = (email, emailInput, invalidEmailSign) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!regex.test(email)) {
+        errorMessage("Introduzca un correo electrónico válido", errorMessageEmail);
+        emailInput.classList.add("invalid");
+        invalidEmailSign.style.display = "block";
+        return false;
+    } else {
+        errorMessage("", errorMessageEmail);
+        emailInput.classList.remove("invalid");
+        invalidEmailSign.style.display = "none";
+        return true;
+    }
+};
+
+// Función para validar el comentario
+const validateComment = (comment, commentInput, invalidCommentSign) => {
+    if (comment.length < 10 || comment.length > 120) {
+        errorMessage("Tu comentario debe tener entre 10 y 120 caracteres", errorMessageComment);
+        commentInput.classList.add("invalid");
+        invalidCommentSign.style.display = "block";
+        return false;
+    } else {
+        errorMessage("", errorMessageComment);
+        commentInput.classList.remove("invalid");
+        invalidCommentSign.style.display = "none";
+        return true;
+    }
+};
+
+//Imprimir mensaje de error en DOM
+const errorMessage = (message, messageContainer) => {
+    messageContainer.innerHTML = message;
+
+    if (message === "") {
+        messageContainer.style.display = "none";
+    } else {
+        messageContainer.style.display = "block"; // Mostrar el contenedor de mensaje de error si hay un mensaje
+    }
+};
 
 //Referencia del formulario de contacto
 const contactForm = document.forms["contact-form"];
+const errorMessageName = document.getElementById("error-message-name");
+const errorMessageEmail = document.getElementById("error-message-email");
+const errorMessageComment = document.getElementById("error-message-comment");
 
-contactForm.addEventListener ("submit",(event) =>{
+contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(event);
-
     const user = {
-        name : contactForm.elements["Name-Imput"].value,
-        email : contactForm.elements["E-Mail-Imput"].value,
-        commentary : contactForm.elements["Commentary-Imput"].value
+        name: contactForm.elements["Name-Input"].value,
+        email: contactForm.elements["E-Mail-Input"].value,
+        commentary: contactForm.elements["Commentary-Input"].value
     };
 
-    if (dataCheckout(user)) {
+    // Validar el formulario
+    const isFormValid = dataCheckout(user);
+
+    // Enviar datos solo si el formulario es válido
+    if (isFormValid) {
+        nameInput.classList.add("valid");
+        emailInput.classList.add("valid");
+        commentInput.classList.add("valid");
         sendData(user);
-    };
-});  
-
-//Validacion de formulario
-const dataCheckout = (user) =>{
-    let response = true;
-    const regex = /^[a-zA-Z\s]+$/;
-    const regex2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
-    
-    if(user.name === ""){
-        errorMessage("Introduzca un nombre válido*");
-        response = false;
-    } else if (user.name.length > 25 || user.name.length < 2 ){
-        errorMessage("Su nombre debe tener entre 2 y 25 caracteres*");
-        response = false;
-    } else if (!regex.test(user.name)){
-        errorMessage("Tu nombre solo puede contener letras y espacios*");
-        response = false;
-    } else if (!regex2.test(user.email)){
-        errorMessage("Introduzca un correo electrónico válido*");
-        response = false;
-    } else if (user.commentary.length < 10 || user.commentary.length > 120 ){
-        errorMessage("Tu comentario debe tener entre 10 y 120 caracteres*");
-        response = false;
-    } else {
-        errorMessage("");
     }
-
-    return response;
-};
-
-
-//Imprimir mensaje de error en DOM
-const errorMessage = (message) => {
-    console.log(message);
-    const errorMessage = document.getElementById("error-message");
-    const errorMessageContainer = document.getElementById ("error-message-container");
-
-    errorMessage.innerHTML = message;
-    if (message === ""){
-        errorMessageContainer.style.display = "none";   
-    }else { errorMessageContainer.style.display = "block";
-    }
-};
-
+});
 
 //Envio de datos a correo electronico o a API
-const sendData = ( user ) => {
-    console.table(user);
+const sendData = (user) => {
+    // Simulación de envío exitoso (puedes reemplazar esto con tu lógica real de envío)
+    setTimeout(() => {
+        console.table(user);
+        // Mostrar el mensaje de éxito después de un tiempo (por ejemplo, 2 segundos)
+        showSuccessMessage();
+    }, 1500);
 };
+
+const showSuccessMessage = () => {
+    successMessageContainer.style.display = "flex"; // Mostrar el contenedor de mensaje de éxito
+};
+
+const resetValues =()=>{
+    successMessageContainer.style.display = "none";
+    nameInput.classList.remove("invalid");
+    emailInput.classList.remove("invalid");
+    commentInput.classList.remove("invalid");
+    invalidNameSign.style.display = "none";
+    invalidEmailSign.style.display = "none";
+    invalidCommentSign.style.display = "none";
+    nameInput.classList.remove("valid");
+    emailInput.classList.remove("valid");
+    commentInput.classList.remove("valid");
+}

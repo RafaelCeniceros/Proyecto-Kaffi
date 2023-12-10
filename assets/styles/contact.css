@@ -95,15 +95,18 @@ header #introduction-container {
     font-size: 1.2rem;
 }
 
-#error-message{
+.error-message{
     font-family:'inter', Bold;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: hsl(0, 81%, 23%);
+    font-size: 0.6em;
+    color: rgb(219, 34, 34);
 }
 
 .contact-buttons{
     max-width: 12em;
+}
+
+ button:hover{
+    transform: scale(1.1);
 }
 
 .social-link {
@@ -161,4 +164,22 @@ footer{
 .social-icon:hover{
     transform: scale(1.2);
     transition: 1s;
+}
+
+#Name-Input.invalid, #E-Mail-Input.invalid, #Commentary-Input.invalid{
+border-color: lightcoral;
+}
+
+#Name-Input.valid, #E-Mail-Input.valid, #Commentary-Input.valid{
+    border-color: lightgreen;
+    }
+
+#invalid-name-sign, #invalid-email-sign, #invalid-comment-sign{
+    display: none;
+    color: red;
+}
+
+#success-message-container{
+    display: none;
+    color: #361C12;
 }
