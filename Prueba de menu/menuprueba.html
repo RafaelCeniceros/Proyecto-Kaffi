@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú de Productos</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <select id="categorias" onchange="mostrarProductos()">
+    <option value="" disabled selected>¿Qué se le ofrece el día de hoy?</option>
+  </select>
+  <div id="productos-container" class="productos-container"></div>
+
+  <script src="productos.json"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* Estilos para los productos */
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.producto {
+  background-color: rgb(246, 234, 204);
+  border-radius: 25px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.producto img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  max-height: 200px; /* Ajusta el tamaño máximo que desees para las imágenes */
+}
+
+/* Barra de menu*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.horizontal-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f2f2f2;
+  display: flex;
+}
+
+.horizontal-menu li {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.horizontal-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.horizontal-menu li:hover {
+  background-color: #F6EACC;
+}
