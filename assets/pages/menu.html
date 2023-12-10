@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../images/icono-kaffi.png">
+    <link rel="stylesheet" href="../images/imagenes-menu/">
+    <link rel="stylesheet" href="../styles/menu.css">
     <link rel="stylesheet" href="../styles/about-us.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,31 +97,16 @@
     <!-- seccion principal -->
     <main>
         <div class="container d-flex align-items-center text-center justify-content-center">
-            <h1>Menu</h1>
+            <h1>Menú</h1>
         </div>
     </main>
-<<<<<<< HEAD
 
     <!-- codigo de Alan-->
 
-=======
-    
-    <!-- codigo de menu productos Alan-->
-    
->>>>>>> refs/remotes/origin/dev
-    <nav class="horizontal-menu">
-        <ul>
-            <li><a href="#">Cafés</a></li>
-            <li><a href="#">Bebidas</a></li>
-            <li><a href="#">Frappes</a></li>
-            <li><a href="#">Especialidades</a></li>
-            <li><a href="#">Bagels</a></li>
-            <li><a href="#">Paninis</a></li>
-            <li><a href="#">Cuernitos</a></li>
-            <li><a href="#">Waffles</a></li>
-            <li><a href="#">Panes</a></li>
-        </ul>
-    </nav>
+        <select id="categorias" onchange="mostrarProductos()">
+          <option value="" disabled selected>¿Qué se le ofrece el día de hoy?</option>
+        </select>
+        <div id="productos-container" class="productos-container"></div>
 
     <!-- seccion de tarjetitas -->
     <section id="products-container">
@@ -198,7 +185,9 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/api-fetch.js" ></script>
+    
+    <script src="/assets/pages/productos.json"></script>
+    <script src="/assets/js/menu.js"></script>
 </body>
 
 
