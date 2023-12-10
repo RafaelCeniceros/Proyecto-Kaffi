@@ -50,9 +50,9 @@ class Card {
 
     kaffiCard() {
         return  `
-        <div class="container">
+        <div class="container col-sm-6 col-md-3">
             <div class="row flex">
-                <div class="col-sm-6 col-md-3 >
+                <div class=>
                     <!-- card -->
                     <div class="card border-light">
                         <img src=${this.#image} alt="product-image">
