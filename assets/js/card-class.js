@@ -4,7 +4,7 @@ class Card {
     #description
     #image
 
-    constructor(name,price,description,image) {
+    constructor(name, price, description, image) {
         this.#name = name;
         this.#price = price;
         this.#description = description;
@@ -49,12 +49,9 @@ class Card {
 
 
     kaffiCard() {
-        return  `
-        <div class="container col-sm-6 col-md-3">
-            <div class="row flex">
-                <div class=>
+        return `
                     <!-- card -->
-                    <div class="card border-light">
+                    <div class="card border-light col-6 col-md-3">
                         <img src=${this.#image} alt="product-image">
                         <div class="card-footer border-top border-light p-4">
                             <a href="#" class="h5">${this.#name}</a>
@@ -68,9 +65,7 @@ class Card {
                         </div>
                     </div>
                     <!-- card -->
-                </div>
-            </div>
-        </div>
+        
         `
     }
 }
