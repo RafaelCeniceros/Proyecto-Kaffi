@@ -3,6 +3,10 @@ const productsButton = document.getElementById('option-products-button');
 const ordersButton = document.getElementById('option-orders-button');
 const commentsButton = document.getElementById('option-comments-button');
 
+const productsButtonLateralMenu = document.getElementById('option-products-button-lg');
+const ordersButtonLateralMenu = document.getElementById('option-orders-button-lg');
+const commentsButtonLateralMenu = document.getElementById('option-comments-button-lg');
+
 const productsContainer = document.getElementById('container-products');
 const ordersContainer = document.getElementById('container-orders');
 const commentsContainer = document.getElementById('container-comments');
@@ -34,6 +38,23 @@ commentsButton.addEventListener('click', () =>{
     hideAllContainers();
     commentsContainer.style.display = 'flex';
 });
+
+// Agregar eventos de clic a los botones del menu lateral
+productsButtonLateralMenu.addEventListener('click', () => {
+    hideAllContainers();
+    productsContainer.style.display = 'flex';
+});
+
+ordersButtonLateralMenu.addEventListener('click', () => {
+    hideAllContainers();
+    ordersContainer.style.display = 'flex';
+});
+
+commentsButtonLateralMenu.addEventListener('click', () =>{
+    hideAllContainers();
+    commentsContainer.style.display = 'flex';
+});
+
 
 
 /* -------------------- Codigo obtencion de productos API  ------------------- */

@@ -80,19 +80,33 @@ body{
 }
 
 /* Botones */
-#option-products-button, #option-orders-button, #option-comments-button {
+
+.option-button {
+    background-color: rgb(246, 234, 204);
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    min-height: 10vh;
+    cursor: pointer;
+}
+.option-button button{
     background-color: rgb(246, 234, 204);
     border-color: none;
     border-style: none;
-    min-height: 10vh;
+}
+.option-button button:hover{
+    text-decoration: underline;
 }
 /* Contenedores opciones */
-#option-products-container, #option-orders-container, #option-comments-container, #option-logo, #container-products .col-lg-8, #container-orders .col-lg-8, #container-comments .col-lg-8 {
+#option-logo, #container-products .col-md-10, #container-orders .col-md-10, #container-comments .col-md-10 {
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
 }
 
+.product-form-input{
+    border-style: none;
+    border-radius: 0.5em;
+}
 .product-form-button{
     background-color: #361c12; 
     border-radius: 2em; 
@@ -114,6 +128,7 @@ body{
     border-radius: 2em; 
     border-style: none;
     color: #F6EACC;
+    cursor: pointer;
 }
 
 #product-img-container{
@@ -128,7 +143,9 @@ body{
     /* Esto asegura que la imagen cubra completamente el contenedor sin deformarse */
 }
 
-
+#options-lateral-menu{
+    display: none;
+}
 /* estilos del footer */
 
 footer{
