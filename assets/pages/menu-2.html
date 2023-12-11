@@ -7,11 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../images/icono-kaffi.png">
-    <link rel="stylesheet" href="../styles/profile.css">
+    <link rel="stylesheet" href="../styles/about-us.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
-    <title>Mi Perfil - Kaffi</title>
+    <title>Nuestro menú - Kaffi</title>
 </head>
 
 <body>
@@ -19,7 +19,6 @@
         <!-- barra de navegacion -->
         <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
         <nav class="navbar navbar-expand-lg justify-content-between">
-
             <!-- Botón de hamburguesa visible en pantallas pequeñas -->
             <div class="py-2 ms-1 d-flex header-menu-icon">
                 <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
@@ -66,8 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page"
-                        href="../pages/menu.html">Menú</a>
+                        <a class="nav-link active text-white" aria-current="page" href="../pages/menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
@@ -79,101 +77,71 @@
             </div>
         </nav>
 
-        <section id="introduction-container" class="row d-flex align-items-center justify-content-center p-2">
-            <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center">
-                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2" id="img-logo-blanco" />
+        <section id="introduction-container">
+            <div class="d-flex justify-content-center mt-1">
+                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
             </div>
-            <div class="col-12 col-md-6 d-flex justify-content-md-start justify-content-center">
-                <h3 class="description text-center text-white">"Hola, Administrador."</h3>
+            <div class="d-flex justify-content-center">
+                <h5 class="description text-center text-white mb-2 p-4">"Queremos darte la mejor experiencia con
+                    nuestros productos."
+                </h5>
             </div>
-        </section>
-        
 
+        </section>
     </header>
 
     <!-- seccion principal -->
     <main>
         <div class="container d-flex align-items-center text-center justify-content-center">
-            <h1>Mi Perfil</h1>
+            <h1>Menu</h1>
         </div>
+
+
+        <!-- codigo de Alan-->
+        <nav class="horizontal-menu">
+            <ul>
+                <li><a class="anchor-coffee" href="#">Cafés</a></li>
+                <li><a class="anchor-drinks" href="#">Bebidas</a></li>
+                <li><a class="anchor-frappes" href="#">Frappes</a></li>
+                <li><a class="anchor-specialties" href="#">Especialidades</a></li>
+                <li><a class="anchor-bagels" href="#">Bagels</a></li>
+                <li><a class="anchor-paninis" href="#">Paninis</a></li>
+                <li><a class="anchor-cuernitos" href="#">Cuernitos</a></li>
+                <li><a class="anchor-waffles" href="#">Waffles</a></li>
+                <li><a class="anchor-breads" href="#">Panes</a></li>
+            </ul>
+        </nav>
+
+        <!-- navbar para sipositivos pequeños -->
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="anchor-coffee dropdown-item" href="#">Cafés</a></li>
+                <li><a class="anchor-drinks dropdown-item" href="#">Bebidas</a></li>
+                <li><a class="anchor-frappes dropdown-item" href="#">Frappes</a></li>
+                <li><a class="anchor-specialties dropdown-item" href="#">Especialidades</a></li>
+                <li><a class="anchor-bagels dropdown-item" href="#">Bagels</a></li>
+                <li><a class="anchor-paninis dropdown-item" href="#">Paninis</a></li>
+                <li><a class="anchor-cuernitos dropdown-item" href="#">Cuernitos</a></li>
+                <li><a class="anchor-waffles dropdown-item" href="#">Waffles</a></li>
+                <li><a class="anchor-breads dropdown-item" href="#">Panes</a></li>
+            </ul>
+        </div>
+
+        <!-- seccion de tarjetitas -->
+        <section id="products-container" class="row">
+
+        </section>
+        <!-- seccion de tarjetitas -->
+
     </main>
 
-
-<section section class="d-flex justify-content-center mx-auto my-3" id="season-products">
-    <div class="container ">
-        <div class="row">
-            <div id="card-description" class="d-flex flex-column col-sm-12 col-md-6 order-last order-md-first">
-                <!--Columna 1-->
-                <div class="d-flex align-content-center justify-content-center col-sm-12">
-                    <img src="../images/logo kaffi colores 2.png" alt="semillas_de_cafe" />
-                </div>
-                <div class="d-flex justify-content-center col-sm-12">
-                    <h5> Productos </h5>
-                </div>
-                <div class="d-flex justify-content-center col-sm-12">
-                    <h6> Pedidos </h6>
-                </div>
-                <div class="d-flex justify-content-center col-sm-12">
-                    <h7> Comentarios </h7>
-                </div>
-            </div>
-            <div id="card-images"
-            class="col-sm-12 col-md-6 text-center align-items-center justify-content-center d-flex flex-column order-first order-md-last">
-            <!--Columna 2-->
-            <div class="d-flex justify-content-center col-sm-12">
-                <h8> Productos </h8>
-                    <button>ID del producto</button>
-                </a>
-            </div>
-            <div id="first-row" class="row col-sm-12">
-                    <div class="col">
-                        <div id="outstanding-product-1">
-                            <h8> Productos </h8>
-                <a href="./assets/pages/menu.html" title="Conoce nuestro Menu">
-                    <button>ID del producto</button>
-                </a>
-                    </div>
-                    
-                    <div class="col">
-                        <div id="outstanding-product-2">
-                            <h8> Productos </h8>
-                <a href="./assets/pages/menu.html" title="Conoce nuestro Menu">
-                    <button>ID del producto</button>
-                </a>
-            </div>
-                    </div>
-                </div>
-                
-                <div id="second-row" class="row col-sm-12">
-                    <div class="col">
-                        <div id="outstanding-product-3">
-                            <h8> Productos </h8>
-                <a href="./assets/pages/menu.html" title="Conoce nuestro Menu">
-                    <button>ID del producto</button>
-                </a>
-                    </div>
-                    <div class="col">
-                        <div id="outstanding-product-4">
-                            <h8> Productos </h8>
-                <a href="./assets/pages/menu.html" title="Conoce nuestro Menu">
-                    <button>ID del producto</button>
-                </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="d-flex align-content-center justify-content-center col-sm-12">
-    <img src="../images/smillas cafe menos 6.png" alt="semillas_de_cafe" />
-    <img src="../images/smillas cafe menos 6.png" alt="semillas_de_cafe" />
-    <img src="../images/smillas cafe menos 6.png" alt="semillas_de_cafe" />
-    <img src="../images/smillas cafe menos 6.png" alt="semillas_de_cafe" />
-    <img src="../images/smillas cafe menos 6.png" alt="semillas_de_cafe" />
-</div>
-<!--Fin Kim-->
-
-    <!-- codigo de valdo (footer)-->
+    <!-- codigo de valdo -->
     <footer class="text-light">
 
         <!-- Section: Social media -->
@@ -245,7 +213,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script src="../js/profile.js"></script>
+    <script type="module" src="../js/api-fetch.js"></script>
 </body>
 
 

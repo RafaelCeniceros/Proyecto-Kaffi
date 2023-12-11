@@ -293,3 +293,37 @@ footer{
     width: 35px;
     height: 35px;
 }
+
+
+/* Barra de menu de los productos */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .horizontal-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+    display: flex;
+  }
+  
+  .horizontal-menu li {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .horizontal-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .horizontal-menu li:hover {
+    background-color: #F6EACC;
+  }
+  

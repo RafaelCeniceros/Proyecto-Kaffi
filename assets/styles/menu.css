@@ -1,0 +1,206 @@
+/*================================= body Styles =================================*/
+body {
+    background-color: #faf6ec;
+    height: 100%;
+    margin: 0;
+}
+
+/*================================ Header Styles ================================*/
+header {
+    /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
+    background-color: #996229;
+    font-family: 'Imprima', sans-serif;
+    font-size: 1em;
+    /* Tamaño predeterminado del texto del menú */
+}
+
+.header-logo-link:hover {
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: #ffffff;
+}
+
+.header-icons-link {
+    font-size: 24px;
+    border-radius: 3em;
+}
+
+.header-menu-icon {
+    border-radius: 1em;
+}
+
+.header-icons-link:hover,
+.header-menu-icon:hover {
+    background-color: #9c846a8e;
+}
+
+#navegation-bar-logo {
+    max-width: 100px;
+}
+
+.custom-toggler {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.custom-toggler:active,
+.custom-toggler:focus {
+    background-color: transparent !important;
+    color: transparent !important;
+}
+
+.show .nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    /* Tamaño predeterminado del texto del menú */
+    margin-left: 1rem;
+}
+
+.nav-link:hover {
+    text-decoration-line: underline;
+}
+
+#img-logo-blanco {
+    max-width: 30vh;
+}
+
+.description {
+    max-width: 60vw;
+}
+
+
+/*================================== Menu styles ==================================*/
+#logo-container {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#logo-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos opcionales para el menú */
+#menu-container nav{
+    background-color:  #faf6ec;
+}
+
+#menu-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu-container li {
+    float: left;
+}
+
+#menu-container li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 12px 15px;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+    li a:hover {
+        background-color: #ddd;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    li a:hover {
+        border-bottom: 3.5px solid #361c12;
+    }
+}
+
+
+
+/*================================ Footer Styles ================================*/
+footer {
+    background-color: #361c12;
+}
+
+#social-media {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#sucursales {
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    transition: 1s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    transition: 1s;
+}/* Estilos para los productos */
+.productos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.producto {
+  background-color: rgb(246, 234, 204);
+  border-radius: 25px;
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.producto img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  max-height: 200px; /* Ajusta el tamaño máximo que desees para las imágenes */
+}
+
+/* Barra de menu*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.horizontal-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f2f2f2;
+  display: flex;
+}
+
+.horizontal-menu li {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.horizontal-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+.horizontal-menu li:hover {
+  background-color: #F6EACC;
+}

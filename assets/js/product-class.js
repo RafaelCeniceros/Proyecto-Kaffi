@@ -1,29 +1,3 @@
-const getProductsUsingFetch = async (url) => {
-    await fetch(url)
-        .then((response) => { 
-            return response.json();
-        })
-        .then(products => products.map((element,index,array) => {
-            const objeto = new Producto(
-            element.id,
-            element.nombre,
-            element.categoria,
-            element.precio,
-            element.descripcion,
-            element.imagen
-            )
-            objeto.name = "Cambio de nombre de producto " + index;  // se realiza con setter
-            console.log(objeto.name); // se obtiene con getter
-            })
-        )
-        .catch((error) => {
-            console.log(error);
-
-        })
-} 
-
-getProductsUsingFetch('./lista-productos.json');
-
 class Producto {
     #id;
     #name;
@@ -87,5 +61,7 @@ class Producto {
         this.#image = newImage;
     }
 
+    
 }
 
+export default Producto;
