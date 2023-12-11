@@ -66,8 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page"
-                            href="../pages/menu.html">Menú</a>
+                        <a class="nav-link active text-white" aria-current="page" href="../pages/menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
@@ -81,7 +80,8 @@
 
         <section id="introduction-container" class="row d-flex align-items-center justify-content-center p-2">
             <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center">
-                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2" id="img-logo-blanco" />
+                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-md-start justify-content-center">
                 <h3 class="description text-center text-white">"Hola, Administrador."</h3>
@@ -96,7 +96,7 @@
                 <div id="option-logo" class="col-md-6 d-flex justify-content-center">
                     <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
                 </div>
-            </div> 
+            </div>
             <div class="row d-flex align-items-center justify-content-center">
                 <!-- columna para boton  -->
                 <div id="option-products-container" class="col-md-6 d-flex justify-content-center m-2">
@@ -107,29 +107,67 @@
                 <!-- columna para contenedor  -->
                 <div class="col-md-6 d-flex justify-content-center m-2 p-5">
                     <form id="product-form">
-                        <div>
-                            <img id="product-img" src="../images/imagen desconocida producto.png" class="img-fluid w-50 rounded-circle">
+                        <button class="p-2 product-form-button">
+                            <i class="fa-solid fa-plus fa-xl"></i>
+                        </button>
+                        <button class="p-2 product-form-button">
+                            <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                        </button>
+                        <button class="p-2 product-form-button">
+                            <i class="fa-solid fa-floppy-disk fa-xl"></i>
+                        </button>
+                        <button class="p-2 product-form-button">
+                            <i class="fa-solid fa-trash fa-xl"></i>
+                        </button>
+                        <!-- Contenedor Imagen -->
+                        <div class="d-flex flex-column justify-content-center align-items-center" style="background-color: lightskyblue;">
+                            <div id="product-img-container">
+                                <img id="product-img" src="../images/imagen desconocida producto.png" class="img-fluid w-100 rounded-circle">
+                            </div>
+                            <button class="p-2 product-form-button"> Cambiar Imagen </button>
                         </div>
-                        <div>
-                            <label for="product-ID">ID</label>
-                            <input id="product-ID" type="number" placeholder="ID">
-                            <button type="button" onclick="fetchProduct()">Obtener Producto</button>
+                        <!-- Contenedor Producto ID -->
+                        <div class="d-flex flex-column" style="background-color: lightblue;">
+                            <label for="product-ID">ID Producto:</label>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col d-flex align-items-center justify-content-center">
+                                    <button class="py-1 px-2 product-form-button">
+                                        <i class="fa-solid fa-arrow-left fa-lg"></i>
+                                    </button>
+                                </div>
+                                <div class="col d-flex align-items-center justify-content-center"> 
+                                    <input id="product-ID" type="number" placeholder="ID" class="mx-2">
+                                    <button class="py-1 px-2 product-form-button" type="button" onclick="fetchProduct()">
+                                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                                    </button> 
+                                </div>
+                                <div class="col d-flex align-items-center justify-content-center">
+                                    <button class="py-1 px-2 product-form-button">
+                                        <i class="fa-solid fa-arrow-right fa-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <label for="product-category">Categoría</label>
-                            <input id="product-category" type="text" placeholder="Categoría">
+                        <!-- Contenedor categorias -->
+                        <div class="d-flex flex-column" style="background-color: lightcoral;">
+                            <label for="product-category" class="my-1">Categoría:</label>
+                            <input class="my-1" id="product-category" type="text" placeholder="Categoría">
                         </div>
-                        <div>
-                            <label for="product-price">Precio</label>
-                            <input id="product-price" type="number" placeholder="Precio">
+                        <!-- Contenedor precio -->
+                        <div class="d-flex flex-column" style="background-color: lightgreen;">
+                            <label class="my-1" for="product-price">Precio:</label>
+                            <input class="my-1" id="product-price" type="number" placeholder="Precio">
                         </div>
-                        <div>
-                            <label for="product-name">Nombre</label>
-                            <input id="product-name" type="text" placeholder="Nombre">
+                        <!-- Contenedor Nombre -->
+                        <div class="d-flex flex-column" style="background-color: lightyellow;">
+                            <label class="my-1" for="product-name">Nombre del producto:</label>
+                            <input class="my-1" id="product-name" type="text" placeholder="Nombre">
                         </div>
-                        <div>
-                            <label for="product-description">Descripción</label>
-                            <textarea type="text" class="form-control" id="product-description" rows="2" placeholder="Descripción"></textarea>
+                        <!-- Contenedor Descripcion -->
+                        <div class="d-flex flex-column" style="background-color: lightpink;">
+                            <label class="my-1" for="product-description">Descripción del producto:</label>
+                            <textarea type="text" class="my-1" id="product-description" rows="2"
+                                placeholder="Descripción"></textarea>
                         </div>
                     </form>
                 </div>
@@ -143,11 +181,11 @@
             </div>
             <div id="container-orders" class="row align-items-center justify-content-center">
                 <!-- columna para contenedor  -->
-                <div class="col-md-6 d-flex justify-content-center m-2" >
+                <div class="col-md-6 d-flex justify-content-center m-2">
                     Contenedor Pedidos
                 </div>
             </div>
-            <!-- Seccion Comentarios --> 
+            <!-- Seccion Comentarios -->
             <div class="row d-flex align-items-center justify-content-center">
                 <!-- columna para boton  -->
                 <div id="option-comments-container" class="col-md-6 d-flex justify-content-center m-2">
@@ -156,15 +194,15 @@
             </div>
             <div id="container-comments" class="row align-items-center justify-content-center">
                 <!-- columna para contenedor  -->
-                <div class="col-md-6 d-flex justify-content-center m-2" >
+                <div class="col-md-6 d-flex justify-content-center m-2">
                     Contenedor Comentarios
                 </div>
-            </div>  
+            </div>
 
 
         </section>
-        
-    
+
+
     </main>
 
 
