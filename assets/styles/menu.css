@@ -155,8 +155,9 @@ html{
 }
 
 #products .product-cards{
-    border: 1.2px solid #361c12;
+    /* border: 1.2px solid #361c12; */
     background-color: #F6EACC;
+    min-height: 20vh;
 }
 
 #products .product-cards p{
