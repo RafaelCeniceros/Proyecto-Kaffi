@@ -1,7 +1,7 @@
 console.log("menu.js");
 
-import Producto from "./product-class.js";
-import MenuCard from "./menu-card-class.js";
+import Producto from "../js/product-class.js";
+import MenuCard from "../js/menu-card-class.js";
 
 const url = '../../productos-menu.json';
 
