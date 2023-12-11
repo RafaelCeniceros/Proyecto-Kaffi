@@ -94,6 +94,7 @@ html{
 
 #menu-container nav{
     background-color:  #faf6ec;
+    width: 80vw;
 }
 
 #menu-container ul {
@@ -118,22 +119,17 @@ html{
 #menu-container li a {
     display: block;
     text-align: center;
-    padding: 12px 15px;
     text-decoration: none;
     font-family: 'Imprima', sans-serif;
     color: #361c12;
     font-size: 1rem;
 }
 
-@media only screen and (max-width: 767px) {
-    #menu-container li a {
-        background-color: #ffffff;
-    }
-}
 
 @media only screen and (max-width: 767px) {
     #menu-container li a:hover {
-        background-color: #e7d39e;
+        text-decoration: underline;
+        transform: scale(1.1);
     }
 }
 
@@ -145,11 +141,17 @@ html{
 
 @media only screen and (max-width: 767px) {
     #menu-container nav {
-        border: 2.5px solid #361c12;
         background-color: #F6EACC;
+        border-radius: 0.5em;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 }
 
+#products-container{
+    max-width: 80vw;
+}
 #products {
     font-size: 1rem;
 }
@@ -158,6 +160,8 @@ html{
     /* border: 1.2px solid #361c12; */
     background-color: #F6EACC;
     min-height: 20vh;
+    max-width:80vw ;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #products .product-cards p{

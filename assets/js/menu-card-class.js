@@ -52,16 +52,16 @@ class MenuCard {
         return `
                     <!-- card -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <div class="product-cards rounded-4 row cad g-0 me-0 me-md-2 my-3 text-center">
-                            <div class="col-4 p-1">
-                                <img class="rounded-4 img-fluid" src=${this.#image} alt="product-image">
+                        <div class="product-cards rounded-4 row mx-auto my-3 text-center">
+                            <div class="col-4 p-1 d-flex align-items-center justify-content-center">
+                                <img class="rounded-4 img-fluid w-100" src=${this.#image} alt="product-image">
                             </div>
 
-                            <div class="col-8 p-1">
+                            <div class="col-8 p-1 d-flex align-items-center justify-content-between">
                                 <div class="card-body">
                                     <h6>${this.#name}</h6>
 
-                                    <p class="font-weight-light text-gray mt-2">${this.#description}</p>
+                                    <p class="font-weight-light text-gray">${this.#description}</p>
 
                                     <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
                                     <button type="button" class="btn rounded-start-pill">-</button>
