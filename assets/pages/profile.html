@@ -91,14 +91,84 @@
 
     <!-- seccion principal -->
     <main>
-        <div class="container d-flex align-items-center text-center justify-content-center">
-            <h1>Mi Perfil</h1>
-        </div>
+        <section class="d-flex flex-column mx-auto my-3" id="profile-section-container">
+            <div class="row d-flex align-items-center justify-content-center my-2">
+                <div id="option-logo" class="col-md-6 d-flex justify-content-center">
+                    <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
+                </div>
+            </div> 
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-products-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-products-button">Opcion Producto</button>
+                </div>
+            </div>
+            <div id="container-products" class="row align-items-center justify-content-center">
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2 p-5">
+                    <form id="product-form">
+                        <div>
+                            <img id="product-img" src="../images/imagen desconocida producto.png" class="img-fluid w-50 rounded-circle">
+                        </div>
+                        <div>
+                            <label for="product-ID">ID</label>
+                            <input id="product-ID" type="number" placeholder="ID">
+                            <button type="button" onclick="fetchProduct()">Obtener Producto</button>
+                        </div>
+                        <div>
+                            <label for="product-category">Categoría</label>
+                            <input id="product-category" type="text" placeholder="Categoría">
+                        </div>
+                        <div>
+                            <label for="product-price">Precio</label>
+                            <input id="product-price" type="number" placeholder="Precio">
+                        </div>
+                        <div>
+                            <label for="product-name">Nombre</label>
+                            <input id="product-name" type="text" placeholder="Nombre">
+                        </div>
+                        <div>
+                            <label for="product-description">Descripción</label>
+                            <textarea type="text" class="form-control" id="product-description" rows="2" placeholder="Descripción"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Seccion Pedidos -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-orders-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-orders-button">Opcion Pedidos</button>
+                </div>
+            </div>
+            <div id="container-orders" class="row align-items-center justify-content-center">
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2" >
+                    Contenedor Pedidos
+                </div>
+            </div>
+            <!-- Seccion Comentarios --> 
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-comments-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-comments-button">Opcion Comentarios</button>
+                </div>
+            </div>
+            <div id="container-comments" class="row align-items-center justify-content-center">
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2" >
+                    Contenedor Comentarios
+                </div>
+            </div>  
+
+
+        </section>
+        
+    
     </main>
 
 
 
-    <!-- codigo de valdo (footer)-->
     <footer class="text-light">
 
         <!-- Section: Social media -->
@@ -170,6 +240,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 
