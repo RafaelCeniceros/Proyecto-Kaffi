@@ -11,11 +11,17 @@ header {
 }
 
 header #introduction-container {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    border-top: 2px;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-top: 4px;
     border-color: #ffffff;
     border-top-style: solid;
+}
+header .icon-container {
+    margin-left: 3em;
+    margin-right: 3em;
+    border-top: 10px;
+    text-align: justify;
 }
 .header-logo-link:hover{
     border-bottom: 2px;
@@ -60,11 +66,20 @@ header #introduction-container {
 }
 
 #img-logo-blanco {
-    max-width: 30vh;
+    max-width: 10vh;
 }
 
 .description {
     max-width: 60vw;
+}
+
+
+.greeting-container {
+    font-size: 20px;
+}
+
+section .card-description {
+    width: 20px;
 }
 
 /* Fin estilos para el header */
