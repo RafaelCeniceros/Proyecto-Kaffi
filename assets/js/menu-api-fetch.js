@@ -1,7 +1,7 @@
 console.log("menu.js");
 
-import Producto from "../js/product-class.js";
-import MenuCard from "../js/menu-card-class.js";
+import Producto from "./product-class.js";
+import MenuCard from "./menu-card-class.js";
 
 const url = '../../productos-menu.json';
 
@@ -20,50 +20,50 @@ const anchorPanes = document.getElementById("panes");
 
 anchorCoffee.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'coffee');
+  getProductsUsingFetch(url, 'Cafes');
 });
 
 anchorDrinks.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'bebidas');
+  getProductsUsingFetch(url, 'Bebidas');
 });
 
 anchorFrappes.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'frappes');
+  getProductsUsingFetch(url, 'Frappes');
 });
 
 anchorEspecialidades.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'especialidades');
+  getProductsUsingFetch(url, 'Especialidades');
 });
 
 anchorBagels.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'bagels');
+  getProductsUsingFetch(url, 'Bagels');
 });
 
 anchorPaninis.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'paninis');
+  getProductsUsingFetch(url, 'Paninis');
 });
 
 anchorCuernitos.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'cuernitos');
+  getProductsUsingFetch(url, 'Cuernitos');
 });
 
 anchorWaffles.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'waffles');
+  getProductsUsingFetch(url, 'Waffles');
 });
 
 anchorPanes.addEventListener('click', function (event) {
   event.preventDefault();
-  getProductsUsingFetch(url, 'panes');
+  getProductsUsingFetch(url, 'Panes');
 });
 
-getProductsUsingFetch(url, 'coffee');
+getProductsUsingFetch(url, 'Cafes');
 
 
 async function getProductsUsingFetch(url, category) {
@@ -72,7 +72,7 @@ async function getProductsUsingFetch(url, category) {
       return response.json();
     })
     .then(function mostrarObjetos(products) {
-
+       
       const arrayProductsObj = products[category].map(element =>
         new Producto(
           element.id,
@@ -81,10 +81,9 @@ async function getProductsUsingFetch(url, category) {
           element.precio,
           element.descripcion,
           element.imagen
-        )
-      );
+        ));
       imprimirEnDOM(arrayProductsObj);
-    })
+        })
     .catch((error) => {
       console.log(error);
 
