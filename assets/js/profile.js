@@ -62,7 +62,15 @@ commentsButtonLateralMenu.addEventListener('click', () =>{
 const editButton = document.getElementById('edit-product-button');
 const inputElements = document.querySelectorAll('#product-form input, #product-form textarea');
 const changeImagesButtons = document.getElementById('change-img-container');
+// Obtener referencia al botón de guardar
+const saveProductButton = document.getElementById('save-product-button');
+// Obtener referencia al botón de eliminar
+const deleteProductButton = document.getElementById('delete-product-button');
+
 changeImagesButtons.style.display = 'none';
+saveProductButton.style.display = 'none';
+deleteProductButton.style.display = 'none';
+
 // Agrega un evento al botón de edición para manejar el cambio de estado de los elementos de entrada
 editButton.addEventListener('click', function (event) {
     // Previene el comportamiento predeterminado del botón (enviar el formulario)
@@ -75,6 +83,18 @@ editButton.addEventListener('click', function (event) {
         changeImagesButtons.style.display = 'flex';
     } else {
         changeImagesButtons.style.display = 'none';
+    }
+
+    if (saveProductButton.style.display == 'none') {
+        saveProductButton.style.display = 'flex';
+    } else {
+        saveProductButton.style.display = 'none';
+    }
+
+    if (deleteProductButton.style.display == 'none') {
+        deleteProductButton.style.display = 'flex';
+    } else {
+        deleteProductButton.style.display = 'none';
     }
 });
 
@@ -116,29 +136,55 @@ previousProductButton.addEventListener('click', event => {
 /* Al cargar la página se mostrará el producto con ID 1 */
 fetchProduct(1);
 /* -------------------- Codigo obtencion de productos API  ------------------- */
+// Función para obtener la información del producto (desde JSON o localStorage)
 function fetchProduct(productId) {
-    // Obtener el ID del producto
-    // Hacer una solicitud a la API con el ID del producto
+    // Intentar obtener la información del localStorage
+    const storedProducts = JSON.parse(localStorage.getItem('productosMenu'));
+
+    if (storedProducts) {
+        // Si hay información en localStorage, buscar el producto allí
+        const productoEncontrado = findProductInLocalStorage(productId, storedProducts);
+        
+        if (productoEncontrado) {
+            console.log("Producto encontrado en localStorage:", productoEncontrado);
+            actualizarFormulario(productoEncontrado);
+            return;
+        }
+    }
+
+    // Si no hay información en localStorage o no se encontró el producto, hacer la solicitud a la API
     fetch(productsURL)
         .then(response => response.json())
         .then(menu => {
-            for (const categoria in menu) {
-                const productosDeCategoria = menu[categoria];
+            // Guardar la información en localStorage
+            localStorage.setItem('productosMenu', JSON.stringify(menu));
 
-                // Buscar el producto por su ID dentro de la categoría
-                const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+            // Buscar el producto en la información recién obtenida
+            const productoEncontrado = findProductInLocalStorage(productId, menu);
 
-                if (productoEncontrado) {
-                    // Aquí puedes hacer algo con el producto encontrado
-                    console.log("Categoría:", categoria);
-                    console.log("Producto encontrado:", productoEncontrado);
-                    // También puedes actualizar tu formulario con la información del producto
-                    actualizarFormulario(productoEncontrado);
-                }
+            if (productoEncontrado) {
+                console.log("Producto encontrado en JSON:", productoEncontrado);
+                actualizarFormulario(productoEncontrado);
+            } else {
+                console.error("Producto no encontrado.");
             }
         })
         .catch(error => console.error('Error fetching product:', error));
 }
+
+// Función para buscar un producto en la información (ya sea JSON o localStorage)
+function findProductInLocalStorage(productId, productsInfo) {
+    for (const categoria in productsInfo) {
+        const productosDeCategoria = productsInfo[categoria];
+        const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+
+        if (productoEncontrado) {
+            return productoEncontrado;
+        }
+    }
+    return null;
+}
+
 
 function actualizarFormulario(producto) {
     // Aquí puedes actualizar los campos del formulario con la información del producto
@@ -163,59 +209,34 @@ const productCategoryInput = document.getElementById('product-category');
 const productPriceInput = document.getElementById('product-price');
 const productDescriptionInput = document.getElementById('product-description');
 
-// Obtener referencia al botón de guardar
-const saveProductButton = document.getElementById('save-product-button');
 
-// Manejador de evento para el botón de guardar
+
+// Evento de clic para el botón de guardar
 saveProductButton.addEventListener('click', event => {
     event.preventDefault();
-    // Obtener el ID del producto a actualizar
+    // Obtener la información actual del localStorage
+    const storedProducts = JSON.parse(localStorage.getItem('productosMenu')) || {};
+
+    // Obtener el ID del producto
     const productId = productIdInput.value;
 
-    // Validar que se haya ingresado un ID
-    if (!productId) {
-        console.error('Ingrese un ID de producto válido.');
-        return;
+    // Buscar el producto en la información almacenada localmente
+    for (const categoria in storedProducts) {
+        const productosDeCategoria = storedProducts[categoria];
+        const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+
+        if (productoEncontrado) {
+            // Actualizar la información del producto con los valores de los inputs
+            productoEncontrado.nombre = productNameInput.value;
+            productoEncontrado.categoria = productCategoryInput.value;
+            productoEncontrado.precio = parseFloat(productPriceInput.value);
+            productoEncontrado.descripcion = productDescriptionInput.value;
+
+            // Guardar la información actualizada en el localStorage
+            localStorage.setItem('productosMenu', JSON.stringify(storedProducts));
+
+            console.log('Producto actualizado en localStorage:', productoEncontrado);
+            break; // Terminar el bucle una vez que se encuentra el producto.
+        }
     }
-
-    // Obtener la información ingresada en los inputs
-    const productName = productNameInput.value;
-    const productCategory = productCategoryInput.value;
-    const productPrice = productPriceInput.value;
-    const productDescription = productDescriptionInput.value;
-
-    // Actualizar el JSON con la información ingresada
-    // (Aquí deberías tener la lógica específica para actualizar el JSON)
-    actualizarJSON(productId, productName, productCategory, productPrice, productDescription);
-
-    // Puedes agregar una lógica adicional si es necesario, como limpiar los campos o mostrar un mensaje de éxito.
 });
-
-// Función para actualizar el JSON (ejemplo)
-function actualizarJSON(productId, productName, productCategory, productPrice, productDescription) {
-    // Hacer una solicitud a la API con el ID del producto
-    fetch(productsURL)
-        .then(response => response.json())
-        .then(menu => {
-            for (const categoria in menu) {
-                const productosDeCategoria = menu[categoria];
-                
-                // Buscar el producto por su ID dentro de la categoría
-                const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
-            
-                if (productoEncontrado) {
-                    productoEncontrado.nombre = productName;
-                    productoEncontrado.categoria = productCategory;
-                    productoEncontrado.precio = productPrice;
-                    productoEncontrado.descripcion = productDescription;
-            
-                    console.log('Producto actualizado:', productoEncontrado);
-                    break; // Termina el bucle una vez que se encuentra el producto.
-                }
-            }
-        })
-        .catch(error => console.error('Error fetching product:', error));
-
-}
-
-
