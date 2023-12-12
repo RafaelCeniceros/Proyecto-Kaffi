@@ -69,10 +69,85 @@ header #introduction-container {
 
 /* Fin estilos para el header */
 
-/* estilos del footer */
+#profile-section-container{
+    width:80vw;
+}
+
 body{
     background-color: #faf6ec;
+    font-family: 'Imprima', sans-serif;
+    font-size: 1em;
 }
+
+/* Botones */
+
+.option-button {
+    background-color: rgb(246, 234, 204);
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    min-height: 10vh;
+    cursor: pointer;
+}
+.option-button button{
+    background-color: rgb(246, 234, 204);
+    border-color: none;
+    border-style: none;
+}
+.option-button button:hover{
+    text-decoration: underline;
+}
+
+/* Contenedores opciones */
+#option-logo, #container-products .col-md-10, #container-orders .col-md-10, #container-comments .col-md-10 {
+    background-color: rgb(246, 234, 204);
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.product-form-input{
+    border-style: none;
+    border-radius: 0.5em;
+}
+.product-form-button{
+    background-color: #361c12; 
+    border-radius: 2em; 
+    border-style: none;
+    color: #F6EACC;
+    max-width: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-form-button i.fa-sm{
+    padding: 1em;
+}
+.product-form-button i.fa-xl{
+    padding: 0.7em 1em;
+}
+.change-img-button{
+    background-color: #361c12; 
+    border-radius: 2em; 
+    border-style: none;
+    color: #F6EACC;
+    cursor: pointer;
+}
+
+#product-img-container{
+    height: 100px;
+    width: 100px;
+}
+
+#product-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Esto asegura que la imagen cubra completamente el contenedor sin deformarse */
+}
+
+#options-lateral-menu{
+    display: none;
+}
+/* estilos del footer */
 
 footer{
     background-color: #361c12;
@@ -93,4 +168,11 @@ footer{
 .social-icon{
     width: 35px;
     height: 35px;
+    margin: auto;
+    transition: 1s;
+}
+
+.social-icon:hover{
+    transform: scale(1.2);
+    transition: 1s;
 }
