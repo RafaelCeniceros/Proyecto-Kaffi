@@ -159,6 +159,7 @@
         {
             "id": 19,
             "nombre": "Café",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a café",
             "imagen": "../images/imagenes-menu/Frappes/Cafe.png"
@@ -166,6 +167,7 @@
         {
             "id": 20,
             "nombre": "Oreo",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe hecho con un rico sabor a chocolate, un toque de café y trozos de galleta oreo",
             "imagen": "../images/imagenes-menu/Frappes/frappes_oreo.jpg"
@@ -173,6 +175,7 @@
         {
             "id": 21,
             "nombre": "Mocha",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a chocolate y café",
             "imagen": "../images/imagenes-menu/Frappes/frappes_mocha.jpg"
@@ -180,6 +183,7 @@
         {
             "id": 22,
             "nombre": "Mocha blanco",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a chocolate blanco y café",
             "imagen": "../images/imagenes-menu/Frappes/frappes_mochablanco.jpg"
@@ -187,6 +191,7 @@
         {
             "id": 23,
             "nombre": "Chai cream",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a chai y crema",
             "imagen": "../images/imagenes-menu/Frappes/Chai-cream.png"
@@ -194,6 +199,7 @@
         {
             "id": 24,
             "nombre": "Irlandés",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con un toque irlandés y café",
             "imagen": "../images/imagenes-menu/Frappes/Irlandes.png"
@@ -201,6 +207,7 @@
         {
             "id": 25,
             "nombre": "Nuez",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a nuez",
             "imagen": "../images/imagenes-menu/Frappes/frappes_nuez.jpg"
@@ -208,6 +215,7 @@
         {
             "id": 26,
             "nombre": "Caramelo",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a caramelo",
             "imagen": "../images/imagenes-menu/Frappes/frappes_caramelo.jpg"
@@ -215,6 +223,7 @@
         {
             "id": 27,
             "nombre": "Kinder bueno",
+            "categoria": "frappe",
             "precio": 70,
             "descripcion": "Frappe con sabor a Kinder Bueno",
             "imagen": "../images/imagenes-menu/Frappes/frappes_kinderbueno.jpg"
@@ -222,6 +231,7 @@
         {
             "id": 28,
             "nombre": "Nutella",
+            "categoria": "frappe",
             "precio": 70,
             "descripcion": "Frappe con sabor a Nutella",
             "imagen": "../images/imagenes-menu/Frappes/Nutella.png"
@@ -229,6 +239,7 @@
         {
             "id": 29,
             "nombre": "Chocoberry",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a chocolate y bayas",
             "imagen": "../images/imagenes-menu/Frappes/frappes_chocoberry.jpg"
@@ -236,6 +247,7 @@
         {
             "id": 30,
             "nombre": "Fresas con crema",
+            "categoria": "frappe",
             "precio": 70,
             "descripcion": "Frappe con sabor a fresas y crema",
             "imagen": "../images/imagenes-menu/Frappes/Fresas-con-crema.png"
@@ -243,6 +255,7 @@
         {
             "id": 31,
             "nombre": "Chocomenta",
+            "categoria": "frappe",
             "precio": 70,
             "descripcion": "Frappe con sabor a chocolate y menta",
             "imagen": "../images/imagenes-menu/Frappes/frappes_chocomenta.jpg"
@@ -250,6 +263,7 @@
         {
             "id": 32,
             "nombre": "Green matcha",
+            "categoria": "frappe",
             "precio": 65,
             "descripcion": "Frappe con sabor a matcha verde",
             "imagen": "../images/imagenes-menu/Frappes/Green.matcha.png"
