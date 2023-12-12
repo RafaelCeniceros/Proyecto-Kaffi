@@ -66,10 +66,16 @@ const changeImagesButtons = document.getElementById('change-img-container');
 const saveProductButton = document.getElementById('save-product-button');
 // Obtener referencia al botón de eliminar
 const deleteProductButton = document.getElementById('delete-product-button');
+// Obtener referencia al selector de categorias
+const productCategorySelect = document.getElementById('product-category-selector');
+// Obetner referncia al input de categorias
+const productCategoryInput = document.getElementById('product-category');
 
+productCategorySelect.style.display = 'none';
 changeImagesButtons.style.display = 'none';
 saveProductButton.style.display = 'none';
 deleteProductButton.style.display = 'none';
+productCategoryInput.style.display = 'flex';
 
 // Agrega un evento al botón de edición para manejar el cambio de estado de los elementos de entrada
 editButton.addEventListener('click', function (event) {
@@ -77,6 +83,10 @@ editButton.addEventListener('click', function (event) {
     event.preventDefault();
     disableAndHideElements();
 });
+
+
+
+
 
 function disableAndHideElements(){
         // Itera sobre todos los elementos de entrada y cambia su estado de deshabilitado según el estado actual
@@ -99,6 +109,18 @@ function disableAndHideElements(){
             deleteProductButton.style.display = 'flex';
         } else {
             deleteProductButton.style.display = 'none';
+        }
+
+        if (productCategorySelect.style.display == 'none') {
+            productCategorySelect.style.display = 'flex';
+        } else {
+            productCategorySelect.style.display = 'none';
+        }
+
+        if (productCategoryInput.style.display == 'none') {
+            productCategoryInput.style.display = 'flex';
+        } else {
+            productCategoryInput.style.display = 'none';
         }
 }
 
@@ -152,6 +174,7 @@ function fetchProduct(productId) {
         if (productoEncontrado) {
             console.log("Producto encontrado en localStorage:", productoEncontrado);
             actualizarFormulario(productoEncontrado);
+            actualizarListaDesplegable(storedProducts);
             return;
         }
     }
@@ -169,6 +192,7 @@ function fetchProduct(productId) {
             if (productoEncontrado) {
                 console.log("Producto encontrado en JSON:", productoEncontrado);
                 actualizarFormulario(productoEncontrado);
+                actualizarListaDesplegable(menu);
             } else {
                 console.error("Producto no encontrado.");
             }
@@ -204,15 +228,32 @@ function actualizarFormulario(producto) {
     }
 }
 
+// Función para actualizar la lista desplegable con las categorías disponibles
+function actualizarListaDesplegable(productsInfo) {
+    const productCategorySelect = document.getElementById('product-category-selector');
+    
+    // Limpiar las opciones actuales
+    productCategorySelect.innerHTML = '';
+
+    // Obtener todas las categorías únicas
+    const categoriasUnicas = [...new Set(Object.keys(productsInfo))];
+
+    // Llenar la lista desplegable con las categorías
+    categoriasUnicas.forEach(categoria => {
+        const option = document.createElement('option');
+        option.value = categoria;
+        option.textContent = categoria;
+        productCategorySelect.appendChild(option);
+    });
+}
+
 /* Actualizar JSON  */
 
 // Obtener referencias a los inputs del formulario
 const productIdInput = document.getElementById('product-ID');
 const productNameInput = document.getElementById('product-name');
-const productCategoryInput = document.getElementById('product-category');
 const productPriceInput = document.getElementById('product-price');
 const productDescriptionInput = document.getElementById('product-description');
-
 
 
 // Evento de clic para el botón de guardar
@@ -232,7 +273,7 @@ saveProductButton.addEventListener('click', event => {
         if (productoEncontrado) {
             // Actualizar la información del producto con los valores de los inputs
             productoEncontrado.nombre = productNameInput.value;
-            productoEncontrado.categoria = productCategoryInput.value;
+            productoEncontrado.categoria = productCategorySelect.value;
             productoEncontrado.precio = parseFloat(productPriceInput.value);
             productoEncontrado.descripcion = productDescriptionInput.value;
 
@@ -244,10 +285,12 @@ saveProductButton.addEventListener('click', event => {
         }
     }
     disableAndHideElements();
+    fetchProduct(productId);
 });
 
 // Obtener referencia al botón de nuevo producto
 const newProductButton = document.getElementById('new-product-button');
+
 
 // Evento de clic para el botón de nuevo producto
 newProductButton.addEventListener('click', event => {
@@ -275,6 +318,9 @@ newProductButton.addEventListener('click', event => {
     // También puedes limpiar los demás campos del formulario si es necesario
     document.getElementById('product-name').value = '';
     document.getElementById('product-category').value = '';
+
+
+
     document.getElementById('product-price').value = '';
     document.getElementById('product-description').value = '';
     document.getElementById('product-img').src = "../images/imagen desconocida producto.png";
