@@ -1,3 +1,5 @@
+const productsURL = "../../productos-menu.json";
+
 // Obtener botones y contenedores
 const productsButton = document.getElementById('option-products-button');
 const ordersButton = document.getElementById('option-orders-button');
@@ -59,7 +61,8 @@ commentsButtonLateralMenu.addEventListener('click', () =>{
 // Obtén una referencia al botón de edición y a todos los elementos de entrada del formulario
 const editButton = document.getElementById('edit-product-button');
 const inputElements = document.querySelectorAll('#product-form input, #product-form textarea');
-
+const changeImagesButtons = document.getElementById('change-img-container');
+changeImagesButtons.style.display = 'none';
 // Agrega un evento al botón de edición para manejar el cambio de estado de los elementos de entrada
 editButton.addEventListener('click', function (event) {
     // Previene el comportamiento predeterminado del botón (enviar el formulario)
@@ -68,9 +71,14 @@ editButton.addEventListener('click', function (event) {
     inputElements.forEach(function (input) {
         input.disabled = !input.disabled;
     });
+    if (changeImagesButtons.style.display == 'none') {
+        changeImagesButtons.style.display = 'flex';
+    } else {
+        changeImagesButtons.style.display = 'none';
+    }
 });
 
-
+/* Buscar Producto con ID */
 const searchProductButton = document.getElementById('search-product-button');
 searchProductButton.addEventListener('click', event => {
     event.preventDefault();
@@ -84,6 +92,7 @@ searchProductButton.addEventListener('click', event => {
     fetchProduct(productId);
 });
 
+/* Buscar siguiente producto */
 const nextProductButton = document.getElementById('next-product-button');
 nextProductButton.addEventListener('click', event => {
     event.preventDefault();
@@ -91,6 +100,7 @@ nextProductButton.addEventListener('click', event => {
     fetchProduct(productId);
 });
 
+/* Buscar producto anterior */
 const previousProductButton = document.getElementById('previous-product-button');
 previousProductButton.addEventListener('click', event => {
     event.preventDefault();
@@ -108,8 +118,6 @@ fetchProduct(1);
 /* -------------------- Codigo obtencion de productos API  ------------------- */
 function fetchProduct(productId) {
     // Obtener el ID del producto
-    var productsURL = "../../productos-menu.json";
-
     // Hacer una solicitud a la API con el ID del producto
     fetch(productsURL)
         .then(response => response.json())
@@ -145,3 +153,69 @@ function actualizarFormulario(producto) {
         document.getElementById('product-img').src = producto.imagen;
     }
 }
+
+/* Actualizar JSON  */
+
+// Obtener referencias a los inputs del formulario
+const productIdInput = document.getElementById('product-ID');
+const productNameInput = document.getElementById('product-name');
+const productCategoryInput = document.getElementById('product-category');
+const productPriceInput = document.getElementById('product-price');
+const productDescriptionInput = document.getElementById('product-description');
+
+// Obtener referencia al botón de guardar
+const saveProductButton = document.getElementById('save-product-button');
+
+// Manejador de evento para el botón de guardar
+saveProductButton.addEventListener('click', event => {
+    event.preventDefault();
+    // Obtener el ID del producto a actualizar
+    const productId = productIdInput.value;
+
+    // Validar que se haya ingresado un ID
+    if (!productId) {
+        console.error('Ingrese un ID de producto válido.');
+        return;
+    }
+
+    // Obtener la información ingresada en los inputs
+    const productName = productNameInput.value;
+    const productCategory = productCategoryInput.value;
+    const productPrice = productPriceInput.value;
+    const productDescription = productDescriptionInput.value;
+
+    // Actualizar el JSON con la información ingresada
+    // (Aquí deberías tener la lógica específica para actualizar el JSON)
+    actualizarJSON(productId, productName, productCategory, productPrice, productDescription);
+
+    // Puedes agregar una lógica adicional si es necesario, como limpiar los campos o mostrar un mensaje de éxito.
+});
+
+// Función para actualizar el JSON (ejemplo)
+function actualizarJSON(productId, productName, productCategory, productPrice, productDescription) {
+    // Hacer una solicitud a la API con el ID del producto
+    fetch(productsURL)
+        .then(response => response.json())
+        .then(menu => {
+            for (const categoria in menu) {
+                const productosDeCategoria = menu[categoria];
+                
+                // Buscar el producto por su ID dentro de la categoría
+                const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+            
+                if (productoEncontrado) {
+                    productoEncontrado.nombre = productName;
+                    productoEncontrado.categoria = productCategory;
+                    productoEncontrado.precio = productPrice;
+                    productoEncontrado.descripcion = productDescription;
+            
+                    console.log('Producto actualizado:', productoEncontrado);
+                    break; // Termina el bucle una vez que se encuentra el producto.
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching product:', error));
+
+}
+
+

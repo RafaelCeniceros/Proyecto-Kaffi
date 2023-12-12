@@ -96,6 +96,7 @@ body{
 .option-button button:hover{
     text-decoration: underline;
 }
+
 /* Contenedores opciones */
 #option-logo, #container-products .col-md-10, #container-orders .col-md-10, #container-comments .col-md-10 {
     background-color: rgb(246, 234, 204);
