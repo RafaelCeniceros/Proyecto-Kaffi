@@ -164,13 +164,11 @@ fetchProduct(1);
 /* -------------------- Codigo obtencion de productos API  ------------------- */
 // Función para obtener la información del producto (desde JSON o localStorage)
 function fetchProduct(productId) {
-    // Intentar obtener la información del localStorage
     const storedProducts = JSON.parse(localStorage.getItem('productosMenu'));
 
     if (storedProducts) {
-        // Si hay información en localStorage, buscar el producto allí
         const productoEncontrado = findProductInLocalStorage(productId, storedProducts);
-        
+
         if (productoEncontrado) {
             console.log("Producto encontrado en localStorage:", productoEncontrado);
             actualizarFormulario(productoEncontrado);
@@ -179,20 +177,20 @@ function fetchProduct(productId) {
         }
     }
 
-    // Si no hay información en localStorage o no se encontró el producto, hacer la solicitud a la API
     fetch(productsURL)
         .then(response => response.json())
         .then(menu => {
-            // Guardar la información en localStorage
-            localStorage.setItem('productosMenu', JSON.stringify(menu));
-
-            // Buscar el producto en la información recién obtenida
             const productoEncontrado = findProductInLocalStorage(productId, menu);
 
             if (productoEncontrado) {
                 console.log("Producto encontrado en JSON:", productoEncontrado);
                 actualizarFormulario(productoEncontrado);
                 actualizarListaDesplegable(menu);
+
+                // Almacena en localStorage solo si no había información previa
+                if (!storedProducts) {
+                    localStorage.setItem('productosMenu', JSON.stringify(menu));
+                }
             } else {
                 console.error("Producto no encontrado.");
             }
@@ -225,6 +223,9 @@ function actualizarFormulario(producto) {
     // Cambiar la imagen del producto si está disponible
     if (producto.imagen) {
         document.getElementById('product-img').src = producto.imagen;
+    }
+    else{
+        document.getElementById('product-img').src ="../images/imagen desconocida producto.png";
     }
 }
 
@@ -291,7 +292,6 @@ saveProductButton.addEventListener('click', event => {
             categoria: selectedCategory,
             precio: parseFloat(productPriceInput.value),
             descripcion: productDescriptionInput.value,
-            imagen:"../images/imagen desconocida producto.png"
         };
 
         productosDeCategoria.push(nuevoProducto);
