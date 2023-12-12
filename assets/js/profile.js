@@ -85,9 +85,6 @@ editButton.addEventListener('click', function (event) {
 });
 
 
-
-
-
 function disableAndHideElements(){
         // Itera sobre todos los elementos de entrada y cambia su estado de deshabilitado según el estado actual
         inputElements.forEach(function (input) {
@@ -164,13 +161,11 @@ fetchProduct(1);
 /* -------------------- Codigo obtencion de productos API  ------------------- */
 // Función para obtener la información del producto (desde JSON o localStorage)
 function fetchProduct(productId) {
-    // Intentar obtener la información del localStorage
     const storedProducts = JSON.parse(localStorage.getItem('productosMenu'));
 
     if (storedProducts) {
-        // Si hay información en localStorage, buscar el producto allí
         const productoEncontrado = findProductInLocalStorage(productId, storedProducts);
-        
+
         if (productoEncontrado) {
             console.log("Producto encontrado en localStorage:", productoEncontrado);
             actualizarFormulario(productoEncontrado);
@@ -179,20 +174,20 @@ function fetchProduct(productId) {
         }
     }
 
-    // Si no hay información en localStorage o no se encontró el producto, hacer la solicitud a la API
     fetch(productsURL)
         .then(response => response.json())
         .then(menu => {
-            // Guardar la información en localStorage
-            localStorage.setItem('productosMenu', JSON.stringify(menu));
-
-            // Buscar el producto en la información recién obtenida
             const productoEncontrado = findProductInLocalStorage(productId, menu);
 
             if (productoEncontrado) {
                 console.log("Producto encontrado en JSON:", productoEncontrado);
                 actualizarFormulario(productoEncontrado);
                 actualizarListaDesplegable(menu);
+
+                // Almacena en localStorage solo si no había información previa
+                if (!storedProducts) {
+                    localStorage.setItem('productosMenu', JSON.stringify(menu));
+                }
             } else {
                 console.error("Producto no encontrado.");
             }
@@ -226,6 +221,9 @@ function actualizarFormulario(producto) {
     if (producto.imagen) {
         document.getElementById('product-img').src = producto.imagen;
     }
+    else{
+        document.getElementById('product-img').src ="../images/imagen desconocida producto.png";
+    }
 }
 
 // Función para actualizar la lista desplegable con las categorías disponibles
@@ -257,6 +255,7 @@ const productDescriptionInput = document.getElementById('product-description');
 
 
 // Evento de clic para el botón de guardar
+// Evento de clic para el botón de guardar
 saveProductButton.addEventListener('click', event => {
     event.preventDefault();
     // Obtener la información actual del localStorage
@@ -267,6 +266,9 @@ saveProductButton.addEventListener('click', event => {
 
     // Obtener la categoría seleccionada
     const selectedCategory = productCategorySelect.value;
+
+    // Actualizar el valor del input con la categoría seleccionada
+    productCategoryInput.value = selectedCategory;
 
     // Verificar si la categoría existe en el localStorage
     if (!storedProducts[selectedCategory]) {
@@ -291,7 +293,6 @@ saveProductButton.addEventListener('click', event => {
             categoria: selectedCategory,
             precio: parseFloat(productPriceInput.value),
             descripcion: productDescriptionInput.value,
-            imagen:"../images/imagen desconocida producto.png"
         };
 
         productosDeCategoria.push(nuevoProducto);
@@ -303,14 +304,14 @@ saveProductButton.addEventListener('click', event => {
     // Desactivar y ocultar elementos
     disableAndHideElements();
 
-    // Volver a cargar el producto actualizado
-    fetchProduct(productId);
 });
+
 
 // Obtener referencia al botón de nuevo producto
 const newProductButton = document.getElementById('new-product-button');
 
 
+// Evento de clic para el botón de nuevo producto
 // Evento de clic para el botón de nuevo producto
 newProductButton.addEventListener('click', event => {
     event.preventDefault();
@@ -337,13 +338,13 @@ newProductButton.addEventListener('click', event => {
     // También puedes limpiar los demás campos del formulario si es necesario
     document.getElementById('product-name').value = '';
     document.getElementById('product-category').value = '';
-
-
-
     document.getElementById('product-price').value = '';
     document.getElementById('product-description').value = '';
     document.getElementById('product-img').src = "../images/imagen desconocida producto.png";
     disableAndHideElements();
+
+    // Actualizar la lista desplegable después de establecer el nuevo ID
+    actualizarListaDesplegable(storedProducts);
 });
 
 // Evento de clic para el botón de eliminar
@@ -373,4 +374,36 @@ deleteProductButton.addEventListener('click', event => {
     // Desactivar y ocultar elementos
     disableAndHideElements();
     fetchProduct(productIdToDelete-1);
+});
+
+// Agregar evento de cambio al selector de categorías
+productCategorySelect.addEventListener('change', function () {
+    // Actualizar el valor del input con la categoría seleccionada
+    productCategoryInput.value = this.value;
+});
+
+// Obtener referencia al botón de cambiar imagen por su ID
+const changeImgButton = document.getElementById('change-img-button');
+
+// Agregar un evento de clic al botón
+changeImgButton.addEventListener('click', event => {
+    event.preventDefault();
+    // Obtener el elemento del archivo por su ID
+    const inputArchivo = document.getElementById('fileUpload');
+
+    // Verificar si se seleccionó al menos un archivo
+    if (inputArchivo.files.length > 0) {
+        // Obtener la ubicación del primer archivo seleccionado
+        const ubicacionArchivo = inputArchivo.files[0].name;
+
+        // Imprimir la ubicación en la consola (puedes hacer lo que desees con la ubicación)
+        console.log('Ubicación del archivo seleccionado:', ubicacionArchivo);
+
+        // O almacenar la ubicación en una variable
+        var ubicacionEnVariable = ubicacionArchivo;
+        console.log('Ubicación almacenada en variable:', ubicacionEnVariable);
+    } else {
+        console.log('Ningún archivo seleccionado');
+    }
+
 });

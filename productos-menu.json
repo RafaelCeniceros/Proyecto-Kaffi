@@ -1,5 +1,5 @@
 {
-    "coffee": [
+    "Cafes": [
         {
             "id": 1,
             "nombre": "Café Americano",
@@ -89,7 +89,7 @@
             "imagen": "../images/imagenes-menu/Cafes/cafe_affogato.jpg"
         }
     ],
-    "bebidas": [
+    "Bebidas": [
         {
             "id": 11,
             "nombre": "Matcha latte",
@@ -155,7 +155,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/bebidas_tisana.jpg"
         }
     ],
-    "frappes" : [
+    "Frappes" : [
         {
             "id": 19,
             "nombre": "Café",
@@ -269,7 +269,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Green.matcha.png"
         }
     ],
-    "especialidades": [
+    "Especialidades": [
         {
             "id": 33,
             "nombre": "Sea Salt Caramel",
@@ -319,7 +319,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/Cinnamon-latte.png"
         }
     ],
-    "bagels": [
+    "Bagels": [
         {
             "id": 39,
             "nombre": "Bagel clásico",
@@ -353,7 +353,7 @@
             "imagen": "../images/imagenes-menu/Bagels/pizza.png"
         }
     ],
-    "paninis": [
+    "Paninis": [
         {
             "id": 43,
             "nombre": "Panini italiano",
@@ -379,7 +379,7 @@
             "imagen": "../images/imagenes-menu/Paninis/panini_vegetariano.jpg"
         }
     ],
-    "cuernitos": [
+    "Cuernitos": [
         {
             "id": 46,
             "nombre": "Cuernito clásico",
@@ -397,7 +397,7 @@
             "imagen": "../images/imagenes-menu/Cuernitos/cuernito_italiano.jpg"
         }
     ],
-    "waffles": [
+    "Waffles": [
         {
             "id": 48,
             "nombre": "Waffle tradicional",
@@ -415,7 +415,7 @@
             "imagen": "../images/imagenes-menu/Waffles/waffle-con-helado-o-fresas.png"
         }
     ],
-    "panes": [
+    "Panes": [
         {
             "id": 50,
             "nombre": "Brownie",
