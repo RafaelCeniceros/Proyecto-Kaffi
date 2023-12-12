@@ -55,12 +55,59 @@ commentsButtonLateralMenu.addEventListener('click', () =>{
     commentsContainer.style.display = 'flex';
 });
 
+/* Deshabilitar/Habilitar inputs */
+// Obtén una referencia al botón de edición y a todos los elementos de entrada del formulario
+const editButton = document.getElementById('edit-product-button');
+const inputElements = document.querySelectorAll('#product-form input, #product-form textarea');
+
+// Agrega un evento al botón de edición para manejar el cambio de estado de los elementos de entrada
+editButton.addEventListener('click', function (event) {
+    // Previene el comportamiento predeterminado del botón (enviar el formulario)
+    event.preventDefault();
+    // Itera sobre todos los elementos de entrada y cambia su estado de deshabilitado según el estado actual
+    inputElements.forEach(function (input) {
+        input.disabled = !input.disabled;
+    });
+});
 
 
+const searchProductButton = document.getElementById('search-product-button');
+searchProductButton.addEventListener('click', event => {
+    event.preventDefault();
+    const productId = document.getElementById('product-ID').value;
+
+    if (!productId) {
+        console.error('Ingrese un ID de producto válido.');
+        return;
+    }
+
+    fetchProduct(productId);
+});
+
+const nextProductButton = document.getElementById('next-product-button');
+nextProductButton.addEventListener('click', event => {
+    event.preventDefault();
+    const productId = parseInt(document.getElementById('product-ID').value) + 1;
+    fetchProduct(productId);
+});
+
+const previousProductButton = document.getElementById('previous-product-button');
+previousProductButton.addEventListener('click', event => {
+    event.preventDefault();
+    const productId = parseInt(document.getElementById('product-ID').value) - 1;
+    if(productId != 0){
+        fetchProduct(productId);
+    }
+    else{
+        fetchProduct(1);
+    }
+});
+
+/* Al cargar la página se mostrará el producto con ID 1 */
+fetchProduct(1);
 /* -------------------- Codigo obtencion de productos API  ------------------- */
-function fetchProduct() {
+function fetchProduct(productId) {
     // Obtener el ID del producto
-    var productId = document.getElementById('product-ID').value;
     var productsURL = "../../productos-menu.json";
 
     // Hacer una solicitud a la API con el ID del producto
@@ -91,10 +138,9 @@ function actualizarFormulario(producto) {
     document.getElementById('product-category').value = producto.categoria;
     document.getElementById('product-price').value = producto.precio;
     document.getElementById('product-description').value = producto.descripcion;
-    // Puedes hacer lo mismo con otros campos del formulario
-    // ...
-
-    // Además, puedes cambiar la imagen del producto si está disponible
+    document.getElementById('product-ID').value = producto.id;
+    
+    // Cambiar la imagen del producto si está disponible
     if (producto.imagen) {
         document.getElementById('product-img').src = producto.imagen;
     }
