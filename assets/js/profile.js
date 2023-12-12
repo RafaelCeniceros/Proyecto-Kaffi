@@ -75,28 +75,32 @@ deleteProductButton.style.display = 'none';
 editButton.addEventListener('click', function (event) {
     // Previene el comportamiento predeterminado del botón (enviar el formulario)
     event.preventDefault();
-    // Itera sobre todos los elementos de entrada y cambia su estado de deshabilitado según el estado actual
-    inputElements.forEach(function (input) {
-        input.disabled = !input.disabled;
-    });
-    if (changeImagesButtons.style.display == 'none') {
-        changeImagesButtons.style.display = 'flex';
-    } else {
-        changeImagesButtons.style.display = 'none';
-    }
-
-    if (saveProductButton.style.display == 'none') {
-        saveProductButton.style.display = 'flex';
-    } else {
-        saveProductButton.style.display = 'none';
-    }
-
-    if (deleteProductButton.style.display == 'none') {
-        deleteProductButton.style.display = 'flex';
-    } else {
-        deleteProductButton.style.display = 'none';
-    }
+    disableAndHideElements();
 });
+
+function disableAndHideElements(){
+        // Itera sobre todos los elementos de entrada y cambia su estado de deshabilitado según el estado actual
+        inputElements.forEach(function (input) {
+            input.disabled = !input.disabled;
+        });
+        if (changeImagesButtons.style.display == 'none') {
+            changeImagesButtons.style.display = 'flex';
+        } else {
+            changeImagesButtons.style.display = 'none';
+        }
+    
+        if (saveProductButton.style.display == 'none') {
+            saveProductButton.style.display = 'flex';
+        } else {
+            saveProductButton.style.display = 'none';
+        }
+    
+        if (deleteProductButton.style.display == 'none') {
+            deleteProductButton.style.display = 'flex';
+        } else {
+            deleteProductButton.style.display = 'none';
+        }
+}
 
 /* Buscar Producto con ID */
 const searchProductButton = document.getElementById('search-product-button');
@@ -239,4 +243,40 @@ saveProductButton.addEventListener('click', event => {
             break; // Terminar el bucle una vez que se encuentra el producto.
         }
     }
+    disableAndHideElements();
+});
+
+// Obtener referencia al botón de nuevo producto
+const newProductButton = document.getElementById('new-product-button');
+
+// Evento de clic para el botón de nuevo producto
+newProductButton.addEventListener('click', event => {
+    event.preventDefault();
+    // Obtener la información actual del localStorage
+    const storedProducts = JSON.parse(localStorage.getItem('productosMenu')) || {};
+
+    // Encontrar el último ID
+    let lastId = 0;
+    for (const categoria in storedProducts) {
+        const productosDeCategoria = storedProducts[categoria];
+        for (const producto of productosDeCategoria) {
+            if (producto.id > lastId) {
+                lastId = producto.id;
+            }
+        }
+    }
+
+    // Incrementar el último ID para obtener uno nuevo
+    const newProductId = lastId + 1;
+
+    // Establecer el nuevo ID como el valor del product-ID input
+    document.getElementById('product-ID').value = newProductId;
+
+    // También puedes limpiar los demás campos del formulario si es necesario
+    document.getElementById('product-name').value = '';
+    document.getElementById('product-category').value = '';
+    document.getElementById('product-price').value = '';
+    document.getElementById('product-description').value = '';
+    document.getElementById('product-img').src = "../images/imagen desconocida producto.png";
+    disableAndHideElements();
 });
