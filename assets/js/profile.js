@@ -291,6 +291,7 @@ saveProductButton.addEventListener('click', event => {
             categoria: selectedCategory,
             precio: parseFloat(productPriceInput.value),
             descripcion: productDescriptionInput.value,
+            imagen:"../images/imagen desconocida producto.png"
         };
 
         productosDeCategoria.push(nuevoProducto);
@@ -343,4 +344,33 @@ newProductButton.addEventListener('click', event => {
     document.getElementById('product-description').value = '';
     document.getElementById('product-img').src = "../images/imagen desconocida producto.png";
     disableAndHideElements();
+});
+
+// Evento de clic para el botón de eliminar
+deleteProductButton.addEventListener('click', event => {
+    event.preventDefault();
+
+    // Obtener el ID del producto a eliminar
+    const productIdToDelete = productIdInput.value;
+
+    // Obtener la información actual del localStorage
+    const storedProducts = JSON.parse(localStorage.getItem('productosMenu')) || {};
+
+    // Iterar sobre las categorías en el localStorage
+    for (const categoria in storedProducts) {
+        const productosDeCategoria = storedProducts[categoria];
+
+        // Filtrar los productos para excluir el producto a eliminar
+        const productosFiltrados = productosDeCategoria.filter(producto => producto.id !== parseInt(productIdToDelete));
+
+        // Actualizar los productos de la categoría en el localStorage
+        storedProducts[categoria] = productosFiltrados;
+    }
+
+    // Guardar la información actualizada en el localStorage
+    localStorage.setItem('productosMenu', JSON.stringify(storedProducts));
+
+    // Desactivar y ocultar elementos
+    disableAndHideElements();
+    fetchProduct(productIdToDelete-1);
 });
