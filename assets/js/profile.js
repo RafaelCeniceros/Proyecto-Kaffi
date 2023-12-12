@@ -265,26 +265,44 @@ saveProductButton.addEventListener('click', event => {
     // Obtener el ID del producto
     const productId = productIdInput.value;
 
-    // Buscar el producto en la información almacenada localmente
-    for (const categoria in storedProducts) {
-        const productosDeCategoria = storedProducts[categoria];
-        const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+    // Obtener la categoría seleccionada
+    const selectedCategory = productCategorySelect.value;
 
-        if (productoEncontrado) {
-            // Actualizar la información del producto con los valores de los inputs
-            productoEncontrado.nombre = productNameInput.value;
-            productoEncontrado.categoria = productCategorySelect.value;
-            productoEncontrado.precio = parseFloat(productPriceInput.value);
-            productoEncontrado.descripcion = productDescriptionInput.value;
-
-            // Guardar la información actualizada en el localStorage
-            localStorage.setItem('productosMenu', JSON.stringify(storedProducts));
-
-            console.log('Producto actualizado en localStorage:', productoEncontrado);
-            break; // Terminar el bucle una vez que se encuentra el producto.
-        }
+    // Verificar si la categoría existe en el localStorage
+    if (!storedProducts[selectedCategory]) {
+        // Si no existe, crear un array vacío para esa categoría
+        storedProducts[selectedCategory] = [];
     }
+
+    // Buscar el producto en la información almacenada localmente
+    const productosDeCategoria = storedProducts[selectedCategory];
+    const productoEncontrado = productosDeCategoria.find(producto => producto.id === parseInt(productId));
+
+    if (productoEncontrado) {
+        // Actualizar la información del producto con los valores de los inputs
+        productoEncontrado.nombre = productNameInput.value;
+        productoEncontrado.precio = parseFloat(productPriceInput.value);
+        productoEncontrado.descripcion = productDescriptionInput.value;
+    } else {
+        // Si no se encuentra el producto, crear uno nuevo y agregarlo a la categoría
+        const nuevoProducto = {
+            id: parseInt(productId),
+            nombre: productNameInput.value,
+            categoria: selectedCategory,
+            precio: parseFloat(productPriceInput.value),
+            descripcion: productDescriptionInput.value,
+        };
+
+        productosDeCategoria.push(nuevoProducto);
+    }
+
+    // Guardar la información actualizada en el localStorage
+    localStorage.setItem('productosMenu', JSON.stringify(storedProducts));
+
+    // Desactivar y ocultar elementos
     disableAndHideElements();
+
+    // Volver a cargar el producto actualizado
     fetchProduct(productId);
 });
 
