@@ -158,107 +158,121 @@
                     </div>
                     <div id="container-products" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
-                        <div class="col-md-10 d-flex justify-content-center p-3">
-                            <form id="product-form">
-                                <div class="row my-2">
-                                    <!-- Titulo Formulario -->
-                                    <div class="col-10">
-                                        <h4>Productos</h4>
-                                    </div>
-                                    <!-- Boton Añadir Producto -->
-                                    <div class="col-2 order-sm-last d-flex align-items-start justify-content-center">
-                                        <button id="new-product-button" class="product-form-button">
-                                            <i class="fa-solid fa-plus fa-xl"></i>
-                                        </button>
-                                    </div>
+                        <div class="col-12">
+                            <!-- Search bar -->
+                            <nav class="navbar bg-body-tertiary">
+                                <div class="container-fluid">
+                                  <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-product-input">
+                                    <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+                                  </form>
                                 </div>
-                                <div class="row">
-                                    <!-- ID Producto, Categoria, Precio -->
-                                    <div class="col-6">
-                                        <!-- Contenedor Producto ID -->
-                                        <div class="d-flex flex-column justify-content-center align-items-start">
-                                            <label for="product-ID">ID Producto:</label>
-                                            <div class="row d-flex align-items-center justify-content-center">
-                                                <button id="previous-product-button" class="col-2 product-form-button mx-auto">
-                                                    <i class="fa-solid fa-arrow-left fa-sm"></i>
-                                                </button>
-                                                <input id="product-ID" type="number" placeholder="ID" class="product-form-input col-4 mx-auto">
-                                                <button id="next-product-button" class="col-2 product-form-button mx-auto">
-                                                    <i class="fa-solid fa-arrow-right fa-sm"></i>
-                                                </button>
-                                                <button id="search-product-button" class="col-2 product-form-button mx-auto" type="button">
-                                                    <i class="fa-solid fa-magnifying-glass fa-sm"></i>
-                                                </button>
-                                            </div>
+                              </nav>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-md-10 d-flex justify-content-center p-3">
+                                <form id="product-form">
+                                    <div class="row my-2">
+                                        <!-- Titulo Formulario -->
+                                        <div class="col-10">
+                                            <h4>Productos</h4>
                                         </div>
-                                        <!-- Contenedor categorias -->
-                                        <div class="d-flex flex-column">
-                                            <label for="product-category" class="my-1">Categoría:</label>
-                                            <input disabled class="my-1 product-form-input" id="product-category" type="text" placeholder="Categoría">
-                                            <select class="my-1 product-form-input" id="product-category-selector">
-                                                <!-- Las opciones se llenarán dinámicamente con JavaScript -->
-                                            </select>
-                                        </div>
-                                        <!-- Contenedor precio -->
-                                        <div class="d-flex flex-column">
-                                            <label class="my-1" for="product-price">Precio:</label>
-                                            <input disabled class="my-1 product-form-input" id="product-price" type="number" placeholder="Precio">
+                                        <!-- Boton Añadir Producto -->
+                                        <div class="col-2 order-sm-last d-flex align-items-start justify-content-center">
+                                            <button id="new-product-button" class="product-form-button">
+                                                <i class="fa-solid fa-plus fa-xl"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <!-- Imagen Producto, Boton cambiar imagen -->
-                                    <div class="col-4">
-                                        <!-- Contenedor Imagen -->
-                                        <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <div id="product-img-container">
-                                                <img id="product-img" src="../images/imagen desconocida producto.png"
-                                                    class="img-fluid w-100 rounded-circle">
+                                    <div class="row">
+                                        <!-- ID Producto, Categoria, Precio -->
+                                        <div class="col-6">
+                                            <!-- Contenedor Producto ID -->
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <label for="product-ID">ID Producto:</label>
+                                                <div class="row d-flex align-items-center justify-content-center">
+                                                    <button id="previous-product-button" class="col-2 product-form-button mx-auto">
+                                                        <i class="fa-solid fa-arrow-left fa-sm"></i>
+                                                    </button>
+                                                    <input id="product-ID" type="number" placeholder="ID" class="product-form-input col-4 mx-auto">
+                                                    <button id="next-product-button" class="col-2 product-form-button mx-auto">
+                                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                                                    </button>
+                                                    <button id="search-product-button" class="col-2 product-form-button mx-auto" type="button">
+                                                        <i class="fa-solid fa-magnifying-glass fa-sm"></i>
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="row mt-2" id="change-img-container">
-                                                <div class="col d-flex flex-column">
-                                                    <label for="fileUpload">
-                                                    <p class="change-img-button text-center p-1">Agregar Archivo</p>
-                                                    <input disabled type="file" id="fileUpload" class="d-none">
-                                                    </label>
-                                                    <button id="change-img-button" class="change-img-button">Cambiar Imagen</button>
+                                            <!-- Contenedor categorias -->
+                                            <div class="d-flex flex-column">
+                                                <label for="product-category" class="my-1">Categoría:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-category" type="text" placeholder="Categoría">
+                                                <select class="my-1 product-form-input" id="product-category-selector">
+                                                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+                                                </select>
+                                            </div>
+                                            <!-- Contenedor precio -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-price">Precio:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-price" type="number" placeholder="Precio">
+                                            </div>
+                                        </div>
+                                        <!-- Imagen Producto, Boton cambiar imagen -->
+                                        <div class="col-4">
+                                            <!-- Contenedor Imagen -->
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <div id="product-img-container">
+                                                    <img id="product-img" src="../images/imagen desconocida producto.png"
+                                                        class="img-fluid w-100 rounded-circle">
+                                                </div>
+                                                <div class="row mt-2" id="change-img-container">
+                                                    <div class="col d-flex flex-column">
+                                                        <label for="fileUpload">
+                                                        <p class="change-img-button text-center p-1">Agregar Archivo</p>
+                                                        <input disabled type="file" id="fileUpload" class="d-none">
+                                                        </label>
+                                                        <button id="change-img-button" class="change-img-button">Cambiar Imagen</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Boton Editar y Guardar Producto -->
-                                    <div
-                                        class="col-2 d-flex flex-column order-sm-last align-items-center justify-content-start">
-                                        <button id="edit-product-button" class="product-form-button type="button"">
-                                            <i class="fa-solid fa-pen-to-square fa-xl"></i>
-                                        </button>
-                                        <button id="save-product-button" class="product-form-button my-2">
-                                            <i class="fa-solid fa-floppy-disk fa-xl"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="row my-2">
-                                    <!-- Nombre y descripcion de producto -->
-                                    <div class="col-10">
-                                        <!-- Contenedor Nombre -->
-                                        <div class="d-flex flex-column">
-                                            <label class="my-1" for="product-name">Nombre del producto:</label>
-                                            <input disabled class="my-1 product-form-input" id="product-name" type="text" placeholder="Nombre">
-                                        </div>
-                                        <!-- Contenedor Descripcion -->
-                                        <div class="d-flex flex-column">
-                                            <label class="my-1" for="product-description">Descripción del producto:</label>
-                                            <textarea disabled type="text" class="my-1 product-form-input" id="product-description" rows="2"
-                                                placeholder="Descripción"></textarea>
+                                        <!-- Boton Editar y Guardar Producto -->
+                                        <div
+                                            class="col-2 d-flex flex-column order-sm-last align-items-center justify-content-start">
+                                            <button id="edit-product-button" class="product-form-button type="button"">
+                                                <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                                            </button>
+                                            <button id="save-product-button" class="product-form-button my-2">
+                                                <i class="fa-solid fa-floppy-disk fa-xl"></i>
+                                            </button>
                                         </div>
                                     </div>
-                                    <!-- Boton Eliminar Producto -->
-                                    <div class="col-2 order-sm-last d-flex align-items-end justify-content-center">
-                                        <button id="delete-product-button" class="product-form-button">
-                                            <i class="fa-solid fa-trash fa-xl"></i>
-                                        </button>
+                                    <div class="row my-2">
+                                        <!-- Nombre y descripcion de producto -->
+                                        <div class="col-10">
+                                            <!-- Contenedor Nombre -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-name">Nombre del producto:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-name" type="text" placeholder="Nombre">
+                                            </div>
+                                            <!-- Contenedor Descripcion -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-description">Descripción del producto:</label>
+                                                <textarea disabled type="text" class="my-1 product-form-input" id="product-description" rows="2"
+                                                    placeholder="Descripción"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- Boton Eliminar Producto -->
+                                        <div class="col-2 order-sm-last d-flex align-items-end justify-content-center">
+                                            <button id="delete-product-button" class="product-form-button">
+                                                <i class="fa-solid fa-trash fa-xl"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
+
                     </div>
                     <!-- Seccion Pedidos -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
@@ -379,7 +393,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script src="../js/profile.js"></script>
+    <script src="../js/admin-profile.js"></script>
 </body>
 
 

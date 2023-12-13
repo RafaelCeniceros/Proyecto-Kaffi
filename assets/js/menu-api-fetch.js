@@ -78,7 +78,7 @@ const saveProductsInLocalStorage = async (url) => {
 
       const objectToJSON = {}
       for (const key in products) {
-        const porductsObjectArray = products[key].map(element =>
+        const productsObjectArray = products[key].map(element =>
           new Producto(
             element.id,
             element.nombre,
@@ -88,7 +88,7 @@ const saveProductsInLocalStorage = async (url) => {
             element.imagen
           )
         );
-        objectToJSON[key] = porductsObjectArray;
+        objectToJSON[key] = productsObjectArray;
       }
 
       localStorage.setItem("fileJsonToLocalStorage", JSON.stringify(objectToJSON));
@@ -110,7 +110,7 @@ function showProductsFromLocalStorage(nameOfItemInLocalStorage, category) {
 
 }
 
-saveProductsInLocalStorage(url);
+await saveProductsInLocalStorage(url);
 
 showProductsFromLocalStorage("fileJsonToLocalStorage","Cafes");
 
@@ -123,3 +123,5 @@ function imprimirEnDOM(products) {
 
   productsContainer.innerHTML = productsTitle.join("");
 }
+
+export default saveProductsInLocalStorage;

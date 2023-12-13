@@ -158,6 +158,7 @@ previousProductButton.addEventListener('click', event => {
 
 /* Al cargar la página se mostrará el producto con ID 1 */
 fetchProduct(1);
+
 /* -------------------- Codigo obtencion de productos API  ------------------- */
 // Función para obtener la información del producto (desde JSON o localStorage)
 function fetchProduct(productId) {
