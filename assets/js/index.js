@@ -1,5 +1,8 @@
 import Producto from "./product-class.js";
 
+const url = '../../productos-menu.json';
+
+
 const saveProductsInLocalStorage = async (url) => {
     await fetch(url)
       .then((response) => {
