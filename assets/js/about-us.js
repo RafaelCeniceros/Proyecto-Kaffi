@@ -3,6 +3,10 @@ const botonValores = document.getElementById("button-values");
 const textoHistoria = document.getElementById("history-text");
 const textoValores = document.getElementById("values-text");
 
+import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
+const url = '../../productos-menu.json';
+await saveProductsInLocalStorage(url);
+
 // Ocultar el texto al principio
 textoHistoria.style.display = "none";
 textoValores.style.display = "none";

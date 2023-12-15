@@ -6,6 +6,10 @@ const invalidNameSign = document.getElementById("invalid-name-sign");
 const invalidEmailSign = document.getElementById("invalid-email-sign");
 const invalidCommentSign = document.getElementById("invalid-comment-sign");
 
+import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
+const url = '../../productos-menu.json';
+await saveProductsInLocalStorage(url);
+
 // Función principal para validar el formulario
 const dataCheckout = (user) => {
 

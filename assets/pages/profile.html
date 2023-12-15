@@ -194,12 +194,9 @@
                                                     <button id="previous-product-button" class="col-2 product-form-button mx-auto">
                                                         <i class="fa-solid fa-arrow-left fa-sm"></i>
                                                     </button>
-                                                    <input id="product-ID" type="number" placeholder="ID" class="product-form-input col-4 mx-auto">
+                                                    <input disabled id="product-ID" type="number" placeholder="ID" class="product-form-input col-8 mx-auto">
                                                     <button id="next-product-button" class="col-2 product-form-button mx-auto">
                                                         <i class="fa-solid fa-arrow-right fa-sm"></i>
-                                                    </button>
-                                                    <button id="search-product-button" class="col-2 product-form-button mx-auto" type="button">
-                                                        <i class="fa-solid fa-magnifying-glass fa-sm"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -207,14 +204,14 @@
                                             <div class="d-flex flex-column">
                                                 <label for="product-category" class="my-1">Categoría:</label>
                                                 <input disabled class="my-1 product-form-input" id="product-category" type="text" placeholder="Categoría">
-                                                <select class="my-1 product-form-input" id="product-category-selector">
+                                                <select disabled class="my-1 product-form-input" id="product-category-selector">
                                                     <!-- Las opciones se llenarán dinámicamente con JavaScript -->
                                                 </select>
                                             </div>
                                             <!-- Contenedor precio -->
                                             <div class="d-flex flex-column">
                                                 <label class="my-1" for="product-price">Precio:</label>
-                                                <input disabled class="my-1 product-form-input" id="product-price" type="number" placeholder="Precio">
+                                                <input disabled class="my-1 product-form-input changable" id="product-price" type="number" placeholder="Precio">
                                             </div>
                                         </div>
                                         <!-- Imagen Producto, Boton cambiar imagen -->
@@ -253,12 +250,12 @@
                                             <!-- Contenedor Nombre -->
                                             <div class="d-flex flex-column">
                                                 <label class="my-1" for="product-name">Nombre del producto:</label>
-                                                <input disabled class="my-1 product-form-input" id="product-name" type="text" placeholder="Nombre">
+                                                <input disabled class="my-1 product-form-input changable" id="product-name" type="text" placeholder="Nombre">
                                             </div>
                                             <!-- Contenedor Descripcion -->
                                             <div class="d-flex flex-column">
                                                 <label class="my-1" for="product-description">Descripción del producto:</label>
-                                                <textarea disabled type="text" class="my-1 product-form-input" id="product-description" rows="2"
+                                                <textarea disabled type="text" class="my-1 product-form-input changable" id="product-description" rows="2"
                                                     placeholder="Descripción"></textarea>
                                             </div>
                                         </div>
@@ -393,6 +390,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/admin-profile-form-functions.js"></script>
     <script src="../js/admin-profile.js"></script>
 </body>
 
