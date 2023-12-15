@@ -30,19 +30,31 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     }
   
     // Obtiene datos almacenados del Local Storage
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('userData');
     if (storedUser) {
-      const userData = JSON.parse(storedUser);
+      const userDataJS = JSON.parse(storedUser);
       // Verifica datos de inicio de sesión
-      if (username === userData.username && password === userData.password) {
-        // Redireccionar a la página de inicio después del inicio de sesión exitoso
-        window.location.href = 'pagina_de_inicio.html';
-        return;
-      }
-    }
-  
-    // Si los datos son inválidos, muestra un mensaje de error
-    document.getElementById('error').innerText = 'Nombre de usuario o contraseña incorrectos.';
+      console.log(userDataJS);
+      // itera sobre todo el arreglo en busca de alguna coincidencia con el usuario 
+      // que la persona ingresó
+      for(let i=0; i < userDataJS.usuarios.length; i++) {
+        // si encontró el usuario entonces checar si la contraseña que ingresó la persona es la misma que la contraseña correspondiente al indice  del usuario
+        if (username === userDataJS.usuarios[i]) {
+          // si ingresó correctamente su contrasena, logearlo
+          if (password === userDataJS.contrasenas[i]) {
+             // Redireccionar a la página de inicio después del inicio de sesión exitoso
+             window.location.href = '../../index.html';
+             return;
+             // en caso contrario 
+          } else {
+            document.getElementById('error').innerText = 'Nombre de usuario o contraseña incorrectos.';
+          }
+        } else {
+          // Si los datos son inválidos, muestra un mensaje de error
+          document.getElementById('error').innerText = 'Nombre de usuario o contraseña incorrectos.';
+        }
+      }       
+    }     
   });
   
 

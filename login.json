@@ -1,5 +1,4 @@
 {
-    "usuarios":["Alan", "Rafa"],
-    "contraseñas":["123","456"]
+    "usuarios":["Alan", "Rafa", "Kim", "Valdo", "Fer"],
+    "contrasenas":["123","456", "789", "perro", "gato"]
 }
-  
