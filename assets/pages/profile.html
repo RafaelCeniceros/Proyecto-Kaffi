@@ -66,8 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page"
-                            href="../pages/menu.html">Menú</a>
+                        <a class="nav-link active text-white" aria-current="page" href="../pages/menu.html">Menú</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
@@ -81,7 +80,8 @@
 
         <section id="introduction-container" class="row d-flex align-items-center justify-content-center p-2">
             <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center">
-                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2" id="img-logo-blanco" />
+                <img class="img-fluid py-2" src="../images/logo kaffi blanco.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-md-start justify-content-center">
                 <h3 class="description text-center text-white">"Hola, Administrador."</h3>
@@ -92,6 +92,7 @@
     <!-- seccion principal -->
     <main>
         <section class="d-flex flex-column mx-auto my-3" id="profile-section-container">
+<<<<<<< HEAD
             <div class="row d-flex align-items-center justify-content-center my-2">
                 <div id="option-logo" class="col-md-6 d-flex justify-content-center">
                     <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
@@ -200,9 +201,53 @@
                                     </div>
                                 </div>
                             </div>
+=======
+            <div class="row">
+                <!-- Menu lateral Opciones (pantallas grandes) -->
+                <div id="options-lateral-menu"class="col-md-4 d-md-flex flex-column justify-content-center align-items-center">
+                    <!-- Contenedor Imagen -->
+                    <div class="row d-flex align-items-center justify-content-center my-2">
+                        <div id="option-logo" class="col d-flex justify-content-center">
+                            <img src="../images/logo kaffi colores.png" class="img-fluid w-50 my-2">
                         </div>
-                    </form>
+                    </div>
+                    <!-- Seccion Productos -->
+                    <div class="option-button row d-flex align-items-center justify-content-center my-2 w-100">
+                        <!-- columna para boton  -->
+                        <div class="col-2 d-flex justify-content-center ms-3">
+                            <i class="fa-solid fa-mug-saucer fa-xl"></i>
+                        </div>
+                        <div id="option-products-container" class="mx-0 col d-flex justify-content-start m-2">
+                            
+                            <button id="option-products-button-lg">Productos</button>
+                        </div>
+                    </div>
+                    <!-- Seccion Pedidos -->
+                    <div class="option-button row d-flex align-items-center justify-content-center my-2 w-100">
+                        <!-- columna para boton  -->
+                        <div class="col-2 d-flex justify-content-center ms-3">
+                            <i class="fa-solid fa-bag-shopping fa-xl"></i>
+                        </div>
+                        <div id="option-orders-container" class="mx-0 col d-flex justify-content-start m-2 ">
+                            <button id="option-orders-button-lg">Pedidos</button>
+                        </div>
+                    </div>
+                    <!-- Seccion Comentarios -->
+                    <div class="option-button row d-flex align-items-center justify-content-center my-2 w-100">
+                        <!-- columna para boton  -->
+                        <div class="col-2 d-flex justify-content-center ms-3">
+                            <i class="fa-solid fa-comments fa-xl"></i>
+>>>>>>> cdaad0f6bc6cc9ac2e2830051640a34d4e0975bd
+                        </div>
+                        <div id="option-comments-container" class="mx-0 col d-flex justify-content-start m-2">
+                            <button id="option-comments-button-lg">Comentarios</button>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <img src="../images/profile-coffe-grains2.png" class="img-fluid">
+                    </div>
                 </div>
+<<<<<<< HEAD
             </div>
             <!-- Seccion Pedidos -->
             <div class="row d-flex align-items-center justify-content-center">
@@ -233,8 +278,190 @@
         
         
         </section>
+=======
+                <!-- Columna Contenedores (pantallas grandes) y opcs+cont(pantallas pequeñas) -->
+                <div class="col-md-8">
+                    <!-- Contenedor Imagen -->
+                    <div class="row d-flex align-items-center justify-content-center my-2 d-md-none">
+                        <div id="option-logo" class="col-md-10 d-flex justify-content-center">
+                            <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
+                        </div>
+                    </div>
+                    <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
+                        <!-- columna para boton  -->
+                        <div class="col-4 d-flex justify-content-center">
+                            <i class="fa-solid fa-mug-saucer fa-xl"></i>
+                        </div>
+                        <div id="option-products-container" class="col-4 d-flex justify-content-center">
+                            <button id="option-products-button">Productos</button>
+                        </div>
+                        <div class="col-4  d-flex justify-content-center">
+                            <i class="fa-solid fa-caret-down fa-xl"></i>
+                        </div>
+                    </div>
+                    <div id="container-products" class="row align-items-center justify-content-center">
+                        <!-- columna para contenedor  -->
+                        <div class="col-12">
+                            <!-- Search bar -->
+                            <nav class="navbar bg-body-tertiary">
+                                <div class="container-fluid">
+                                  <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-product-input">
+                                    <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+                                  </form>
+                                </div>
+                              </nav>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-md-10 d-flex justify-content-center p-3">
+                                <form id="product-form">
+                                    <div class="row my-2">
+                                        <!-- Titulo Formulario -->
+                                        <div class="col-10">
+                                            <h4>Productos</h4>
+                                        </div>
+                                        <!-- Boton Añadir Producto -->
+                                        <div class="col-2 order-sm-last d-flex align-items-start justify-content-center">
+                                            <button id="new-product-button" class="product-form-button">
+                                                <i class="fa-solid fa-plus fa-xl"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!-- ID Producto, Categoria, Precio -->
+                                        <div class="col-6">
+                                            <!-- Contenedor Producto ID -->
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <label for="product-ID">ID Producto:</label>
+                                                <div class="row d-flex align-items-center justify-content-center">
+                                                    <button id="previous-product-button" class="col-2 product-form-button mx-auto">
+                                                        <i class="fa-solid fa-arrow-left fa-sm"></i>
+                                                    </button>
+                                                    <input id="product-ID" type="number" placeholder="ID" class="product-form-input col-4 mx-auto">
+                                                    <button id="next-product-button" class="col-2 product-form-button mx-auto">
+                                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
+                                                    </button>
+                                                    <button id="search-product-button" class="col-2 product-form-button mx-auto" type="button">
+                                                        <i class="fa-solid fa-magnifying-glass fa-sm"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Contenedor categorias -->
+                                            <div class="d-flex flex-column">
+                                                <label for="product-category" class="my-1">Categoría:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-category" type="text" placeholder="Categoría">
+                                                <select class="my-1 product-form-input" id="product-category-selector">
+                                                    <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+                                                </select>
+                                            </div>
+                                            <!-- Contenedor precio -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-price">Precio:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-price" type="number" placeholder="Precio">
+                                            </div>
+                                        </div>
+                                        <!-- Imagen Producto, Boton cambiar imagen -->
+                                        <div class="col-4">
+                                            <!-- Contenedor Imagen -->
+                                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                                <div id="product-img-container">
+                                                    <img id="product-img" src="../images/imagen desconocida producto.png"
+                                                        class="img-fluid w-100 rounded-circle">
+                                                </div>
+                                                <div class="row mt-2" id="change-img-container">
+                                                    <div class="col d-flex flex-column">
+                                                        <label for="fileUpload">
+                                                        <p class="change-img-button text-center p-1">Agregar Archivo</p>
+                                                        <input disabled type="file" id="fileUpload" class="d-none">
+                                                        </label>
+                                                        <button id="change-img-button" class="change-img-button">Cambiar Imagen</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Boton Editar y Guardar Producto -->
+                                        <div
+                                            class="col-2 d-flex flex-column order-sm-last align-items-center justify-content-start">
+                                            <button id="edit-product-button" class="product-form-button type="button"">
+                                                <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                                            </button>
+                                            <button id="save-product-button" class="product-form-button my-2">
+                                                <i class="fa-solid fa-floppy-disk fa-xl"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row my-2">
+                                        <!-- Nombre y descripcion de producto -->
+                                        <div class="col-10">
+                                            <!-- Contenedor Nombre -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-name">Nombre del producto:</label>
+                                                <input disabled class="my-1 product-form-input" id="product-name" type="text" placeholder="Nombre">
+                                            </div>
+                                            <!-- Contenedor Descripcion -->
+                                            <div class="d-flex flex-column">
+                                                <label class="my-1" for="product-description">Descripción del producto:</label>
+                                                <textarea disabled type="text" class="my-1 product-form-input" id="product-description" rows="2"
+                                                    placeholder="Descripción"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- Boton Eliminar Producto -->
+                                        <div class="col-2 order-sm-last d-flex align-items-end justify-content-center">
+                                            <button id="delete-product-button" class="product-form-button">
+                                                <i class="fa-solid fa-trash fa-xl"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Seccion Pedidos -->
+                    <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
+                        <!-- columna para boton  -->
+                        <div class="col-4 d-flex justify-content-center">
+                            <i class="fa-solid fa-bag-shopping fa-xl"></i>
+                        </div>
+                        <div id="option-orders-container" class="col-4 d-flex justify-content-center">
+                            <button id="option-orders-button">Pedidos</button>
+                        </div>
+                        <div class="col-4  d-flex justify-content-center">
+                            <i class="fa-solid fa-caret-down fa-xl"></i>
+                        </div>
+                    </div>
+                    <div id="container-orders" class="row align-items-center justify-content-center">
+                        <!-- columna para contenedor  -->
+                        <div class="col-md-10 d-flex justify-content-center m-2">
+                            Contenedor Pedidos
+                        </div>
+                    </div>
+                    <!-- Seccion Comentarios -->
+                    <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
+                        <!-- columna para boton  -->
+                        <div class="col-4 d-flex justify-content-center">
+                            <i class="fa-solid fa-comments fa-xl"></i>
+                        </div>
+                        <div id="option-comments-container" class="col-4 d-flex justify-content-start">
+                            <button id="option-comments-button">Comentarios</button>
+                        </div>
+                        <div class="col-4  d-flex justify-content-center">
+                            <i class="fa-solid fa-caret-down fa-xl"></i>
+                        </div>
+                    </div>
+                    <div id="container-comments" class="row align-items-center justify-content-center">
+                        <!-- columna para contenedor  -->
+                        <div class="col-md-10 d-flex justify-content-center m-2">
+                            Contenedor Comentarios
+                        </div>
+                    </div>
+                </div>
+            </div>
+>>>>>>> cdaad0f6bc6cc9ac2e2830051640a34d4e0975bd
         
-    
+        </section>
+
+
     </main>
 
 
@@ -309,7 +536,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script src="../js/profile.js"></script>
+    <script src="../js/admin-profile.js"></script>
 </body>
 
 
