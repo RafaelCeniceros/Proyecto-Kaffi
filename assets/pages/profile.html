@@ -92,6 +92,116 @@
     <!-- seccion principal -->
     <main>
         <section class="d-flex flex-column mx-auto my-3" id="profile-section-container">
+<<<<<<< HEAD
+            <div class="row d-flex align-items-center justify-content-center my-2">
+                <div id="option-logo" class="col-md-6 d-flex justify-content-center">
+                    <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
+                </div>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-products-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-products-button">Opcion Producto</button>
+                </div>
+            </div>
+            <div id="container-products" class="row align-items-center justify-content-center" style="background-color: lightcoral">>
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2 p-5" style="background-color: lightsalmon">
+                    <form id="product-form">
+                        
+                        
+                        
+                        
+        
+                        <div class="row" style="background-color: lightgoldenrodyellow;">
+                            <!-- Columna 1 -->
+                            <div class="col-10">
+                                <div class="row"> 
+                                    Fila 1
+                                    <!-- Titulo formulario -->
+                                    <h3>Productos</h3>
+                                </div>
+                                <div class ="row d-flex"> 
+                                    Fila 2
+                                    <!-- ID Producto, Categoria y Precio -->
+                                    <div class="col-8">
+                                        <div class="row d-flex">
+                                            <div class="col">
+                                                <label for="product-ID">ID</label>
+                                            </div>
+                                            <div class="col">
+                                                <i class="fa-solid fa-arrow-left fa-xl"></i>
+                                                <div class="d-flex">
+                                                    <input id="product-ID" type="number" placeholder="ID">
+                                                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                                                </div>
+                                                
+                                                <i class="fa-solid fa-arrow-right fa-xl"></i>
+                                            </div>
+                                            <button type="button" onclick="fetchProduct()">Obtener Producto</button>
+                                        </div>
+                                        <div class="row d-flex">
+                                            <label for="product-category">Categoría</label>
+                                            <input id="product-category" type="text" placeholder="Categoría">
+                                        </div>
+                                        <div class="row d-flex">
+                                            <label for="product-price">Precio</label>
+                                            <input id="product-price" type="number" placeholder="Precio">
+                                        </div>
+                                    </div>
+                                    <!-- Imagen -->
+                                    <div class="col-4"> 
+                                        <div class="row">
+                                            <img id="product-img" src="../images/imagen desconocida producto.png"
+                                            class="img-fluid w-50 rounded-circle">
+                                        </div>
+                                        <div class="row">
+                                            <button> Cambiar Imagen</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    Fila 3
+                                    <!-- Nombre Producto -->
+                                    <div>
+                                        <label for="product-name">Nombre</label>
+                                        <input id="product-name" type="text" placeholder="Nombre">
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    Fila 4
+                                    <!-- Descripcion Producto -->
+                                    <div>
+                                        <label for="product-description">Descripción</label>
+                                        <textarea type="text" class="form-control" id="product-description" rows="2"
+                                            placeholder="Descripción"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Columna 2 -->
+                            <div class="col-2">
+                                <div class="row">
+                                    <div> 
+                                        <!-- Icono Agregar -->
+                                        <i class="fa-solid fa-plus fa-xl"></i>
+                                    </div>
+                                    <div>
+                                        <!-- Icono Editar -->
+                                        <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                                    </div>
+                                    <div>
+                                        <!-- Icono Guardar -->
+                                        <i class="fa-solid fa-floppy-disk fa-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div> 
+                                        <!-- Icono Borrar -->
+                                        <i class="fa-solid fa-trash fa-xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+=======
             <div class="row">
                 <!-- Menu lateral Opciones (pantallas grandes) -->
                 <div id="options-lateral-menu"class="col-md-4 d-md-flex flex-column justify-content-center align-items-center">
@@ -127,6 +237,7 @@
                         <!-- columna para boton  -->
                         <div class="col-2 d-flex justify-content-center ms-3">
                             <i class="fa-solid fa-comments fa-xl"></i>
+>>>>>>> cdaad0f6bc6cc9ac2e2830051640a34d4e0975bd
                         </div>
                         <div id="option-comments-container" class="mx-0 col d-flex justify-content-start m-2">
                             <button id="option-comments-button-lg">Comentarios</button>
@@ -136,6 +247,38 @@
                         <img src="../images/profile-coffe-grains2.png" class="img-fluid">
                     </div>
                 </div>
+<<<<<<< HEAD
+            </div>
+            <!-- Seccion Pedidos -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-orders-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-orders-button">Opcion Pedidos</button>
+                </div>
+            </div>
+            <div id="container-orders" class="row align-items-center justify-content-center">
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2">
+                    Contenedor Pedidos
+                </div>
+            </div>
+            <!-- Seccion Comentarios -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <!-- columna para boton  -->
+                <div id="option-comments-container" class="col-md-6 d-flex justify-content-center m-2">
+                    <button id="option-comments-button">Opcion Comentarios</button>
+                </div>
+            </div>
+            <div id="container-comments" class="row align-items-center justify-content-center">
+                <!-- columna para contenedor  -->
+                <div class="col-md-6 d-flex justify-content-center m-2">
+                    Contenedor Comentarios
+                </div>
+            </div>
+        
+        
+        </section>
+=======
                 <!-- Columna Contenedores (pantallas grandes) y opcs+cont(pantallas pequeñas) -->
                 <div class="col-md-8">
                     <!-- Contenedor Imagen -->
@@ -311,12 +454,12 @@
                     </div>
                 </div>
             </div>
+>>>>>>> cdaad0f6bc6cc9ac2e2830051640a34d4e0975bd
         
         </section>
 
 
     </main>
-
 
 
     <footer class="text-light">

@@ -85,6 +85,8 @@ body{
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+<<<<<<< HEAD
+=======
     min-height: 10vh;
     cursor: pointer;
 }
@@ -95,6 +97,7 @@ body{
 }
 .option-button button:hover{
     text-decoration: underline;
+>>>>>>> cdaad0f6bc6cc9ac2e2830051640a34d4e0975bd
 }
 
 /* Contenedores opciones */
