@@ -1,3 +1,22 @@
+const url = '../../login.json';
+
+const saveUsersLocalStorage = async (url) => {
+  // fetch: promesa de recuperar la info de la url
+  await fetch(url)
+  .then((response) => {
+    return response.json(); // response.json(): promesa de convertir la info devuelta por fetch en un objeto JS
+  })
+  .then((infoLogin) => {
+    console.log(infoLogin); // se imprime en console
+    localStorage.setItem("userData", JSON.stringify(infoLogin));
+    })
+  .catch(error => {
+    console.log(error);
+  })
+}
+
+saveUsersLocalStorage(url);
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
   
@@ -26,7 +45,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     document.getElementById('error').innerText = 'Nombre de usuario o contraseña incorrectos.';
   });
   
-  // Almacena datos de usuario de prueba en el Local Storage
-  const userTestData = { username: 'usuario_prueba', password: 'contraseña123' };
-  localStorage.setItem('user', JSON.stringify(userTestData));
+
   
