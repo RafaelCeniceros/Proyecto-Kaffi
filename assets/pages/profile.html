@@ -108,7 +108,6 @@
                             <i class="fa-solid fa-mug-saucer fa-xl"></i>
                         </div>
                         <div id="option-products-container" class="mx-0 col d-flex justify-content-start m-2">
-                            
                             <button id="option-products-button-lg">Productos</button>
                         </div>
                     </div>
@@ -158,18 +157,21 @@
                     </div>
                     <div id="container-products" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
-                        <div class="col-12">
+                        <div class="row justify-content-center align-items-center">
                             <!-- Search bar -->
-                            <nav class="navbar bg-body-tertiary">
-                                <div class="container-fluid">
-                                  <form class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-product-input">
-                                    <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
-                                  </form>
-                                </div>
-                              </nav>
+                            <nav class="col-md-10 d-flex align-items-center justify-content-center" id="search-bar-container">
+                                <form class="d-flex flex-column align-items-center py-2" role="search">
+                                    <label for="search-product-input">ID/Nombre del Producto:</label>
+                                    <div class="d-flex searchbar">
+                                        <input class="px-5" type="search" placeholder="Buscar" id="search-product-input">
+                                        <button class="product-form-button ms-2" type="submit" id="search-button">
+                                            <i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-lg"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </nav>
                         </div>
-                        <div class="col-12">
+                        <div class="row d-flex justify-content-center align-items-center my-2">
                             <div class="col-md-10 d-flex justify-content-center p-3">
                                 <form id="product-form">
                                     <div class="row my-2">

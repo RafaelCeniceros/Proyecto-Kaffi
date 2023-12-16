@@ -4,18 +4,25 @@ body{
     margin: 0;
 }
 
-/* Inicio estilos para el header */
+/*================================ Header Styles ================================*/
 header {
-    /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
+    /*https://stackoverflow.com/questions/12609110/responsive-css-background-images*/
     width: 100%;
     height: auto;
     background-image: url(../images/familia_tomando.png);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
-    /* Tamaño predeterminado del texto del menú */
 }
 
+
+header #introduction-container {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-top: 2px;
+    border-color: #ffffff;
+    border-top-style: solid;
+}
 .header-logo-link:hover{
     border-bottom: 2px;
     border-bottom-style: solid;
@@ -87,7 +94,7 @@ header {
 
 /* Inicio Estilos semillas de cafe */
 #coffee-grains-container {
-    height: 8vh;
+    height: 6vh;
 }
 
 /* tamaño de los granos de cafe de todas las tarjetas */
@@ -100,7 +107,7 @@ header {
 /* estilos de las tarjetas claras */
 .light-card {
     background-color: #F6EACC;
-    width: 80vw;
+    max-width: 80vw;
 }
 
 /* estilos de los parrafos de las tarjetas claras */
@@ -121,7 +128,7 @@ header {
 /* estilos de las tarjetas oscuras */
 .dark-card {
     background-color: #361C12;
-    width: 80vw;
+    max-width: 80vw;
 }
 
 /* estilos de titulos tarjetas oscuras */
@@ -192,7 +199,7 @@ transform: rotate(-9.9deg);
 #container-sucursales{
     background-color: #F6EACC;
     box-sizing: border-box;
-    width: 80vw;
+    max-width: 80vw;
     margin: 0 auto;
     font-family: 'imprima', sans-serif;
     color: #361C12;
@@ -233,7 +240,7 @@ transform: rotate(-9.9deg);
 /* Estilos Developers Section */
 
 #developers-team{
-    width: 80vw;
+    max-width: 80vw;
 }
 /* semillas cafe rafa 9 */
 #seeds-developers-team-left{
@@ -271,8 +278,7 @@ width: 100%;
     color: white; 
 }
 
-/* estilos del footer */
-
+/*================================ Footer Styles ================================*/
 footer{
     background-color: #361c12;
 }
@@ -292,6 +298,13 @@ footer{
 .social-icon{
     width: 35px;
     height: 35px;
+    margin: auto;
+    transition: 1s;
+}
+
+.social-icon:hover{
+    transform: scale(1.2);
+    transition: 1s;
 }
 
 

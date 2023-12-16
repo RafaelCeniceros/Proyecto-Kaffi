@@ -10,7 +10,7 @@ header {
     /*https://stackoverflow.com/questions/12609110/responsive-css-background-images*/
     width: 100%;
     height: auto;
-    background-image: url(../images/contactpage_fondoheader.png);
+    background-image: url(../images/ContactPageHeader.jpg);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;

@@ -1,13 +1,13 @@
 /* Inicio estilos para el header */
 header {
-    /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
+    /*https://stackoverflow.com/questions/12609110/responsive-css-background-images*/
     width: 100%;
     height: auto;
-    background-color: #996229;
+    background-image: url(../images/contactpage_fondoheader.png);
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
-    /* Tamaño predeterminado del texto del menú */
+    min-height: 80vh;
 }
 
 header #introduction-container {
@@ -184,11 +184,7 @@ header #introduction-container {
 }
 /* termina seccion de productos destacados */
 
-/* estilos del footer */
-body{
-    background-color: #faf6ec;
-}
-
+/*================================ Footer Styles ================================*/
 footer{
     background-color: #361c12;
 }
@@ -208,6 +204,13 @@ footer{
 .social-icon{
     width: 35px;
     height: 35px;
+    margin: auto;
+    transition: 1s;
+}
+
+.social-icon:hover{
+    transform: scale(1.2);
+    transition: 1s;
 }
 
 /* semillas cafe rafa 9 */
