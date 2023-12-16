@@ -91,7 +91,7 @@
     ],
     "Bebidas": [
         {
-            "id": 11,
+            "id": 12,
             "nombre": "Matcha latte",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor Matcha",
@@ -99,7 +99,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/matcha_latte.png"
         },
         {
-            "id": 12,
+            "id": 13,
             "nombre": "Chai latte",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor chai",
@@ -107,7 +107,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/chai-latte.png"
         },
         {
-            "id": 13,
+            "id": 14,
             "nombre": "Chocolate",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor chocolate",
@@ -115,7 +115,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/bebidas_chocolate.jpg"
         },
         {
-            "id": 14,
+            "id": 15,
             "nombre": "Smoothie (mango/fresa)",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor mango o fresa",
@@ -123,7 +123,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/bebidas_smoothiemango.jpg"
         },
         {
-            "id": 15,
+            "id": 16,
             "nombre": "Licuado de frutos rojos",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor frutos rojos, fresa, frambuesa y arándano",
@@ -131,7 +131,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/bebidas_licuado.jpg"
         },
         {
-            "id": 16,
+            "id": 17,
             "nombre": "Curacao azul",
             "categoria": "Bebidas",
             "descripcion": "Bebida con alcohol de cáscaras de naranja amarga con jarabe de azúcar refinada",
@@ -139,7 +139,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/bebidas_curacaoazul.jpg"
         },
         {
-            "id": 17,
+            "id": 18,
             "nombre": "Soda italiana",
             "categoria": "Bebidas",
             "descripcion": "Bebida con agua gasificada y jarabe de fruta natural",
@@ -147,7 +147,7 @@
             "imagen": "../images/imagenes-menu/Bebidas/Soda-italiana.png"
         },
         {
-            "id": 18,
+            "id": 19,
             "nombre": "Tisanas",
             "categoria": "Bebidas",
             "descripcion": "Bebida sabor frutas deshidratadas",
@@ -157,7 +157,7 @@
     ],
     "Frappes": [
         {
-            "id": 19,
+            "id": 20,
             "nombre": "Café",
             "categoria": "Frappes",
             "precio": 65,
@@ -165,7 +165,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Cafe.png"
         },
         {
-            "id": 20,
+            "id": 21,
             "nombre": "Oreo",
             "categoria": "Frappes",
             "precio": 65,
@@ -173,7 +173,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_oreo.jpg"
         },
         {
-            "id": 21,
+            "id": 22,
             "nombre": "Mocha",
             "categoria": "Frappes",
             "precio": 65,
@@ -181,7 +181,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_mocha.jpg"
         },
         {
-            "id": 22,
+            "id": 23,
             "nombre": "Mocha blanco",
             "categoria": "Frappes",
             "precio": 65,
@@ -189,7 +189,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_mochablanco.jpg"
         },
         {
-            "id": 23,
+            "id": 24,
             "nombre": "Chai cream",
             "categoria": "Frappes",
             "precio": 65,
@@ -197,7 +197,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Chai-cream.png"
         },
         {
-            "id": 24,
+            "id": 25,
             "nombre": "Irlandés",
             "categoria": "Frappes",
             "precio": 65,
@@ -205,7 +205,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Irlandes.png"
         },
         {
-            "id": 25,
+            "id": 26,
             "nombre": "Nuez",
             "categoria": "Frappes",
             "precio": 65,
@@ -213,7 +213,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_nuez.jpg"
         },
         {
-            "id": 26,
+            "id": 27,
             "nombre": "Caramelo",
             "categoria": "Frappes",
             "precio": 65,
@@ -221,7 +221,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_caramelo.jpg"
         },
         {
-            "id": 27,
+            "id": 28,
             "nombre": "Kinder bueno",
             "categoria": "Frappes",
             "precio": 70,
@@ -229,7 +229,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_kinderbueno.jpg"
         },
         {
-            "id": 28,
+            "id": 29,
             "nombre": "Nutella",
             "categoria": "Frappes",
             "precio": 70,
@@ -237,7 +237,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Nutella.png"
         },
         {
-            "id": 29,
+            "id": 30,
             "nombre": "Chocoberry",
             "categoria": "Frappes",
             "precio": 65,
@@ -245,7 +245,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_chocoberry.jpg"
         },
         {
-            "id": 30,
+            "id": 31,
             "nombre": "Fresas con crema",
             "categoria": "Frappes",
             "precio": 70,
@@ -253,7 +253,7 @@
             "imagen": "../images/imagenes-menu/Frappes/Fresas-con-crema.png"
         },
         {
-            "id": 31,
+            "id": 32,
             "nombre": "Chocomenta",
             "categoria": "Frappes",
             "precio": 70,
@@ -261,7 +261,7 @@
             "imagen": "../images/imagenes-menu/Frappes/frappes_chocomenta.jpg"
         },
         {
-            "id": 32,
+            "id": 33,
             "nombre": "Green matcha",
             "categoria": "Frappes",
             "precio": 65,
@@ -271,7 +271,7 @@
     ],
     "Especialidades": [
         {
-            "id": 33,
+            "id": 34,
             "nombre": "Sea Salt Caramel",
             "categoria": "Especialidades",
             "descripcion": "Delicioso dulce de caramelo con chocolate con un toque de sal",
@@ -279,7 +279,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/Sea-salt-caramel.png"
         },
         {
-            "id": 34,
+            "id": 35,
             "nombre": "Dark horchata ice",
             "categoria": "Especialidades",
             "descripcion": "Horchata con trozos de canela y un toque de café",
@@ -287,7 +287,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/Dark-horchata-ice.png"
         },
         {
-            "id": 35,
+            "id": 36,
             "nombre": "Tonicoffee",
             "categoria": "Especialidades",
             "descripcion": "Una capa de café y agua con una temperatura fría",
@@ -295,7 +295,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/tonicoffee.png"
         },
         {
-            "id": 36,
+            "id": 37,
             "nombre": "Chocolate bomb",
             "categoria": "Especialidades",
             "descripcion": "Bomba de chocolate con explosión de sabor",
@@ -303,7 +303,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/Chocolate-bomb.png"
         },
         {
-            "id": 37,
+            "id": 38,
             "nombre": "Vainilla Macchiato",
             "categoria": "Especialidades",
             "descripcion": "Café con leche y un toque de vainilla",
@@ -311,7 +311,7 @@
             "imagen": "../images/imagenes-menu/Especialidades/Vainilla-macchiato.png"
         },
         {
-            "id": 38,
+            "id": 39,
             "nombre": "Cinnamon Latte",
             "categoria": "Especialidades",
             "descripcion": "Café con leche y canela para un toque especiado",
@@ -321,7 +321,7 @@
     ],
     "Bagels": [
         {
-            "id": 39,
+            "id": 40,
             "nombre": "Bagel clásico",
             "categoria": "Bagels",
             "descripcion": "Bagel tostado con jamón, queso, lechuga, tomate y aderezada con mayonesa",
@@ -329,7 +329,7 @@
             "imagen": "../images/imagenes-menu/Bagels/clasico.jpg"
         },
         {
-            "id": 40,
+            "id": 41,
             "nombre": "Bagel serrano",
             "categoria": "Bagels",
             "descripcion": "Bagel tostado de parmesano con jamón serrano, queso manchego, tomate cherry, arúgula y aceite balsámico",
@@ -337,7 +337,7 @@
             "imagen": "../images/imagenes-menu/Bagels/serrano.png"
         },
         {
-            "id": 41,
+            "id": 42,
             "nombre": "Bagel dulce/salado",
             "categoria": "Bagels",
             "descripcion": "Bagel tostado con queso crema y mermelada de fresa",
@@ -345,7 +345,7 @@
             "imagen": "../images/imagenes-menu/Bagels/dulce-salado.png"
         },
         {
-            "id": 42,
+            "id": 43,
             "nombre": "Bagel pizza",
             "categoria": "Bagels",
             "descripcion": "Bagel tostado con salsa de tomate, peperoni, salami, queso mozzarella y orégano",
@@ -355,7 +355,7 @@
     ],
     "Paninis": [
         {
-            "id": 43,
+            "id": 44,
             "nombre": "Panini italiano",
             "categoria": "Paninis",
             "descripcion": "Pan artesanal con salami, queso, lechuga, tomate, aderezo, con mayonesa y aceite balsámico",
@@ -363,7 +363,7 @@
             "imagen": "../images/imagenes-menu/Paninis/panini_italiano.jpg"
         },
         {
-            "id": 44,
+            "id": 45,
             "nombre": "Pizanini",
             "categoria": "Paninis",
             "descripcion": "Pan artesanal con salsa de tomate, peperoni, salami, queso mozzarella y una pisca de orégano",
@@ -371,7 +371,7 @@
             "imagen": "../images/imagenes-menu/Paninis/paninis_pizzanini.jpg"
         },
         {
-            "id": 45,
+            "id": 46,
             "nombre": "Panini vegetariano",
             "categoria": "Paninis",
             "descripcion": "Pan artesanal con lechuga, espinaca, tomate, champiñones, y aderezado con mayonesa de aguacate",
@@ -381,7 +381,7 @@
     ],
     "Cuernitos": [
         {
-            "id": 46,
+            "id": 47,
             "nombre": "Cuernito clásico",
             "categoria": "Cuernitos",
             "descripcion": "Croissant hojaldrado con jamón, queso, alfalfa, aderezado con mayonesa",
@@ -389,7 +389,7 @@
             "imagen": "../images/imagenes-menu/Cuernitos/cuernitos_clasico.jpg"
         },
         {
-            "id": 47,
+            "id": 48,
             "nombre": "Cuernito italiano",
             "categoria": "Cuernitos",
             "descripcion": "Croissant hojaldrado con jamón, queso, lechuga, tomate y aderezado con mayonesa",
@@ -399,7 +399,7 @@
     ],
     "Waffles": [
         {
-            "id": 48,
+            "id": 49,
             "nombre": "Waffle tradicional",
             "categoria": "Waffles",
             "descripcion": "Waffle con nuez, chocolate líquido y crema batida",
@@ -407,7 +407,7 @@
             "imagen": "../images/imagenes-menu/Waffles/waffle-tradicional.png"
         },
         {
-            "id": 49,
+            "id": 50,
             "nombre": "Waffle con helado o fresas",
             "categoria": "Waffles",
             "descripcion": "Waffle con nuez, chocolate líquido, helado de vainilla o fresas",
@@ -417,7 +417,7 @@
     ],
     "Panes": [
         {
-            "id": 50,
+            "id": 51,
             "nombre": "Brownie",
             "categoria": "Panes",
             "descripcion": "Bizcocho de chocolate pequeño con nueces",
@@ -425,7 +425,7 @@
             "imagen": "../images/imagenes-menu/Panes/panes_brownie.jpg"
         },
         {
-            "id": 51,
+            "id": 52,
             "nombre": "Rol de canela",
             "categoria": "Panes",
             "descripcion": "Delicioso rollo de masa con canela y glaseado",
@@ -433,7 +433,7 @@
             "imagen": "../images/imagenes-menu/Panes/pan_rolcanela.jpg"
         },
         {
-            "id": 52,
+            "id": 53,
             "nombre": "Pan de zanahoria",
             "categoria": "Panes",
             "descripcion": "Pan esponjoso con zanahoria rallada y nueces",
@@ -441,7 +441,7 @@
             "imagen": "../images/imagenes-menu/Panes/pan_zanahoria.jpg"
         },
         {
-            "id": 53,
+            "id": 54,
             "nombre": "Pan de elote",
             "categoria": "Panes",
             "descripcion": "Pan suave y esponjoso con granos de elote",
@@ -449,7 +449,7 @@
             "imagen": "../images/imagenes-menu/Panes/pan_elote.jpg"
         },
         {
-            "id": 54,
+            "id": 55,
             "nombre": "Galleta de chispas",
             "categoria": "Panes",
             "descripcion": "Galleta crujiente con deliciosas chispas de chocolate",
@@ -457,7 +457,7 @@
             "imagen": "../images/imagenes-menu/Panes/galleta-de-chispas.png"
         },
         {
-            "id": 55,
+            "id": 56,
             "nombre": "Galleta de M&M's",
             "categoria": "Panes",
             "descripcion": "Galleta con coloridas y sabrosas M&M's",
@@ -465,7 +465,7 @@
             "imagen": "../images/imagenes-menu/Panes/galletas-m&m's.png"
         },
         {
-            "id": 56,
+            "id": 57,
             "nombre": "Croissant",
             "categoria": "Panes",
             "descripcion": "Clásico croissant hojaldrado y delicioso",
@@ -473,7 +473,7 @@
             "imagen": "../images/imagenes-menu/Panes/croissants.png"
         },
         {
-            "id": 57,
+            "id": 58,
             "nombre": "Brownie con helado",
             "categoria": "Panes",
             "descripcion": "Brownie acompañado de una bola de helado",

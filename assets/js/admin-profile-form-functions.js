@@ -380,4 +380,4 @@ changeImgButton.addEventListener('click', event => {
 
 });
 
-showProductFromLocalStorageWithID(getSortedProductIDs()[0]);
+showProductFromLocalStorageWithID(getSortedProductIDs()[getSortedProductIDs().length-1]);

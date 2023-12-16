@@ -94,7 +94,7 @@
         <section class="d-flex flex-column mx-auto my-3" id="profile-section-container">
             <div class="row">
                 <!-- Menu lateral Opciones (pantallas grandes) -->
-                <div id="options-lateral-menu"class="col-md-4 d-md-flex flex-column justify-content-center align-items-center">
+                <div id="options-lateral-menu" class="col-md-4 d-md-flex flex-column justify-content-center align-items-center">
                     <!-- Contenedor Imagen -->
                     <div class="row d-flex align-items-center justify-content-center my-2">
                         <div id="option-logo" class="col d-flex justify-content-center">
@@ -131,9 +131,7 @@
                             <button id="option-comments-button-lg">Comentarios</button>
                         </div>
                     </div>
-                    <div class="row d-flex justify-content-center">
-                        <img src="../images/profile-coffe-grains2.png" class="img-fluid">
-                    </div>
+
                 </div>
                 <!-- Columna Contenedores (pantallas grandes) y opcs+cont(pantallas pequeñas) -->
                 <div class="col-md-8">
@@ -162,10 +160,18 @@
                             <nav class="col-md-10 d-flex align-items-center justify-content-center" id="search-bar-container">
                                 <form class="d-flex flex-column align-items-center py-2" role="search">
                                     <label for="search-product-input">ID/Nombre del Producto:</label>
-                                    <div class="d-flex searchbar">
-                                        <input class="px-5" type="search" placeholder="Buscar" id="search-product-input">
-                                        <button class="product-form-button ms-2" type="submit" id="search-button">
-                                            <i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-lg"></i>
+                                    <div class="d-flex justify-content-between text-center">
+                                        <button id="previous-product-button" class="product-form-button mx-2">
+                                            <i class="fa-solid fa-arrow-left fa-sm"></i>
+                                        </button>
+                                        <div class="d-flex searchbar">
+                                            <input class="px-5" type="search" placeholder="Buscar" id="search-product-input">
+                                            <button class="product-form-button ms-2" type="submit" id="search-button">
+                                                <i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-lg"></i>
+                                            </button>
+                                        </div>
+                                        <button id="next-product-button" class="product-form-button mx-2">
+                                            <i class="fa-solid fa-arrow-right fa-sm"></i>
                                         </button>
                                     </div>
                                 </form>
@@ -192,15 +198,7 @@
                                             <!-- Contenedor Producto ID -->
                                             <div class="d-flex flex-column justify-content-center align-items-start">
                                                 <label for="product-ID">ID Producto:</label>
-                                                <div class="row d-flex align-items-center justify-content-center">
-                                                    <button id="previous-product-button" class="col-2 product-form-button mx-auto">
-                                                        <i class="fa-solid fa-arrow-left fa-sm"></i>
-                                                    </button>
-                                                    <input disabled id="product-ID" type="number" placeholder="ID" class="product-form-input col-8 mx-auto">
-                                                    <button id="next-product-button" class="col-2 product-form-button mx-auto">
-                                                        <i class="fa-solid fa-arrow-right fa-sm"></i>
-                                                    </button>
-                                                </div>
+                                                <input disabled id="product-ID" type="number" placeholder="ID" class="product-form-input">
                                             </div>
                                             <!-- Contenedor categorias -->
                                             <div class="d-flex flex-column">
