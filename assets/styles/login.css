@@ -87,11 +87,13 @@ body{
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenedores opciones */
-#option-logo, #container-products .col-md-10, #container-orders .col-md-10, #container-comments .col-md-10 {
+/* Contenedor login */
+#login-form {
     background-color: rgb(246, 234, 204);
-    border-radius: 0.5em;
+    border-style: solid  rgb(246, 234, 204);
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .product-form-input{

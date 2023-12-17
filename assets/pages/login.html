@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -10,166 +11,173 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
-    <title>Mi Perfil - Kaffi</title>
+    <title>Inicio de sesion - Kaffi</title>
 </head>
+
 <body>
-  <header>
-    <!-- barra de navegacion -->
-    <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
-    <nav class="navbar navbar-expand-lg justify-content-between">
+    <header>
+        <!-- barra de navegacion -->
+        <!-- diseño obtenido de https://getbootstrap.com/docs/5.3/components/navbar/ -->
+        <nav class="navbar navbar-expand-lg justify-content-between">
 
-        <!-- Botón de hamburguesa visible en pantallas pequeñas -->
-        <div class="py-2 ms-1 d-flex header-menu-icon">
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
-            </button>
-        </div>
+            <!-- Botón de hamburguesa visible en pantallas pequeñas -->
+            <div class="py-2 ms-1 d-flex header-menu-icon">
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+                </button>
+            </div>
 
-        <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
-        <div class="d-lg-none d-flex align-items-center ms-auto ps-5">
-            <a href="../../index.html" class="header-logo-link">
-                <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
-                    id="navegation-bar-logo" />
-            </a>
-        </div>
+            <!-- Contenedor del logo centrado, visible en pantallas pequeñas -->
+            <div class="d-lg-none d-flex align-items-center ms-auto ps-5">
+                <a href="../../index.html" class="header-logo-link">
+                    <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
+                </a>
+            </div>
 
-        <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
-        <div class="d-none d-lg-block mx-0 px-3">
-            <a href="../../index.html" class="header-logo-link py-3">
-                <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
-                    id="navegation-bar-logo" />
-            </a>
-        </div>
+            <!-- Contenedor del logo a la izquierda, visible en pantallas grandes -->
+            <div class="d-none d-lg-block mx-0 px-3">
+                <a href="../../index.html" class="header-logo-link py-3">
+                    <img class="img-fluid" src="../images/imagen_nombre_kaffi.png" alt="imagen_de_nombre_kaffi"
+                        id="navegation-bar-logo" />
+                </a>
+            </div>
 
-        <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
-        <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
-            <ul class="navbar-nav d-flex flex-row">
-                <li class="nav-item p-0 d-flex align-items-center">
-                    <a id="enlace-carrito-header" class="nav-link active text-white px-2"
-                        href="../pages/shopping-cart.html">
-                        <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
-                    </a>
-                </li>
-                <li class="nav-item p-0 d-flex align-items-center">
-                    <a id="enlace-login-header" class="nav-link active text-white px-2"
-                        href="../pages/profile.html">
-                        <i class="fa-solid fa-user p-2 header-icons-link"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- Menú desplegable, visible en pantallas pequeñas -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="../pages/menu.html">Menú</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="../pages/contact.html">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
+            <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-carrito-header" class="nav-link active text-white px-2"
+                            href="../pages/shopping-cart.html">
+                            <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item p-0 d-flex align-items-center">
+                        <a id="enlace-login-header" class="nav-link active text-white px-2"
+                            href="../pages/profile.html">
+                            <i class="fa-solid fa-user p-2 header-icons-link"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Menú desplegable, visible en pantallas pequeñas -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="../pages/menu.html">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="../pages/about_us.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="../pages/contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <section id="introduction-container" class="row d-flex align-items-center justify-content-center p-2">
-        <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center">
-            <img class="img-fluid py-2" src="../images/KAFFI NOMBRE 1.png" alt="logo_kaffi_nombre"
-                id="img-logo-letras" />
+
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="row d-flex align-items-center justify-content-center my-2">
+                    <div id="option-logo" class="col d-flex justify-content-center">
+                        <img src="../images/logo kaffi cafe 1.png" class="img-fluid w-50 my-2">
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center ms-3">
+                        <div id="login-form">
+                            <h2>Inicio de Sesión</h2>
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="email">Email*</label> <!-- Cambio de 'username' a 'email' -->
+                                    <input type="text" class="form-control" id="email" name="email" required>
+                                    <!-- Cambio de 'username' a 'email' -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña*</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                <p id="error" class="text-danger mt-2"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-</header>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2>Inicio de Sesión</h2>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="email">Email*</label> <!-- Cambio de 'username' a 'email' -->
-            <input type="text" class="form-control" id="email" name="email" required> <!-- Cambio de 'username' a 'email' -->
-          </div>
-          <div class="form-group">
-            <label for="password">Contraseña*</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-          <p id="error" class="text-danger mt-2"></p>
-        </form>
-      </div>
     </div>
-  </div>
 
-  <script src="../js/login.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 <footer class="text-light">
 
-  <!-- Section: Social media -->
-  <section id="social-media" class="text-center p-3 border-bottom border-3">
+    <!-- Section: Social media -->
+    <section id="social-media" class="text-center p-3 border-bottom border-3">
 
-      <div class="mb-2">
-          <span>Siguenos en nuestras redes sociales</span>
-      </div>
+        <div class="mb-2">
+            <span>Siguenos en nuestras redes sociales</span>
+        </div>
 
-      <div>
-          <a href="https://www.instagram.com/kaffimerida/" target="_blank" class="me-5">
-              <img class="social-icon" src="../images/icons8-instagram-60.png" alt="El icono de Instagram"></a>
-          <a href="https://www.facebook.com/kaffiMid/?locale=es_LA" target="_blank" class="me-5">
-              <img class="social-icon" src="../images/icons8-facebook-50 (2).png" alt="El icono de Facebook"></a>
-          <a href="https://api.whatsapp.com/message/RMOZKTGCQLG3H1?autoload=1&app_absent=0" target="_blank">
-              <img class="social-icon" src="../images/icons8-whatsapp-50 (1).png" alt="El icono de whatssap"></a>
-      </div>
-  </section>
+        <div>
+            <a href="https://www.instagram.com/kaffimerida/" target="_blank" class="me-5">
+                <img class="social-icon" src="../images/icons8-instagram-60.png" alt="El icono de Instagram"></a>
+            <a href="https://www.facebook.com/kaffiMid/?locale=es_LA" target="_blank" class="me-5">
+                <img class="social-icon" src="../images/icons8-facebook-50 (2).png" alt="El icono de Facebook"></a>
+            <a href="https://api.whatsapp.com/message/RMOZKTGCQLG3H1?autoload=1&app_absent=0" target="_blank">
+                <img class="social-icon" src="../images/icons8-whatsapp-50 (1).png" alt="El icono de whatssap"></a>
+        </div>
+    </section>
 
-  <!-- Section: Logo y sucursales  -->
-  <section id="sucursales" class="text-center p-3 border-bottom border-3">
-      <div class="container text-center text-md-start mt-5">
-          <div class="row mt-3">
+    <!-- Section: Logo y sucursales  -->
+    <section id="sucursales" class="text-center p-3 border-bottom border-3">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
 
-              <!-- Logo -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <img src="../images/logo kaffi blanco.png" alt="logo de Kaffi" class="img-fluid w-50">
-              </div>
+                <!-- Logo -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <img src="../images/logo kaffi blanco.png" alt="logo de Kaffi" class="img-fluid w-50">
+                </div>
 
-              <!-- Fransisco Montejo -->
-              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                  <h5 class="mb-4 ">
-                      Sucursal Francisco de Montejo
-                  </h5>
-                  <p class="text-light">
-                      C.41-A #441-x 58,
-                      Fransisco de Montejo,
-                      97203
-                      Mérida Ycatan
-                  </p>
-              </div>
+                <!-- Fransisco Montejo -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+                    <h5 class="mb-4 ">
+                        Sucursal Francisco de Montejo
+                    </h5>
+                    <p class="text-light">
+                        C.41-A #441-x 58,
+                        Fransisco de Montejo,
+                        97203
+                        Mérida, Yucatán
+                    </p>
+                </div>
 
-              <!-- Caucel -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  <h5 class="mb-4">
-                      Sucursal Caucel
-                  </h5>
-                  <p class="text-light">
-                      C.70 #673-x 39 A y 43,
-                      Plaza Premium Caucel local #6,
-                      Caucel, 97203,
-                      Mérida Yucatán
-                  </p>
-              </div>
+                <!-- Caucel -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h5 class="mb-4">
+                        Sucursal Caucel
+                    </h5>
+                    <p class="text-light">
+                        C.70 #673-x 39 A y 43,
+                        Plaza Premium Caucel local #6,
+                        Caucel, 97203,
+                        Mérida, Yucatán
+                    </p>
+                </div>
 
-          </div>
-      </div>
-  </section>
+            </div>
+        </div>
+    </section>
 
-  <!-- Copyright -->
-  <div class="text-light text-center p-4">
-      <p class="text-light"> Politica de Privacidad | Términos y Condicones de Uso | Aviso Legal</p><br>
-      <p class="text-light">Copyright © [2018] [Kaffi S.A de C.V]</p>
-      <span>Todos los derechos reservados</span>
-  </div>
+    <!-- Copyright -->
+    <div class="text-light text-center p-4">
+        <p class="text-light"> Politica de Privacidad | Términos y Condicones de Uso | Aviso Legal</p><br>
+        <p class="text-light">Copyright © [2018] [Kaffi S.A de C.V]</p>
+        <span>Todos los derechos reservados</span>
+    </div>
 </footer>
+
 </html>
