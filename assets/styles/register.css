@@ -10,7 +10,7 @@ header {
     /*https://stackoverflow.com/questions/12609110/responsive-css-background-images*/
     width: 100%;
     height: auto;
-    background-image: url(../images/ContactPageHeader.jpg);
+    background-color: #996229;
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
@@ -76,22 +76,16 @@ header #introduction-container {
 
 /* Fin estilos para el header */
 
-/*================================ Contact Styles ================================*/
-#contact-container{
-    background-color: #F6EACC;
+/*================================ Register Styles ================================*/
+.container-fluid{
+    width:100%;
     box-sizing: border-box;
-    width: 80vw;
     margin: 0 auto;
     font-family: 'Imprima', sans-serif;
     font-size: 1.3rem;
 }
 
-#contact-container h4{
-    font-family: 'inter', Bold;
-    font-size: 1.4rem;
-}
-
-#contact-form label{
+#register-form label{
     font-size: 1.2rem;
 }
 
@@ -109,37 +103,72 @@ header #introduction-container {
     transform: scale(1.1);
 }
 
-.social-link {
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    transition: 1s;
-}
-
-.social-link:hover{
-    transform: scale(1.2);
-    transition: 1s;
-}
-
-.phone-icon{
-    height: 20px;
-    width: auto;
-}
-
-#contact-container button{
+#register-container button{
     background-color: #361C12;
     color: #F6EACC;
 }
 
-#grains-container img{
-    width: 100px;
-    height: auto;
+@media only screen and (min-width: 767px) {
+    #register-logo{
+        background-image: url(../images/Register_bg_lg.png);
+        background-size:cover;
+    }
+    
+    #register-logo img{
+        max-width: 200px;
+        height: auto;
+    }
+
+    #register-form{
+        background-color: #F6EACC;
+        box-sizing: border-box;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #register-logo{
+        background-image: url(../images/Register_bg_sm.png);
+        background-size:cover;
+    }
+    
+    #register-logo img{
+        max-width: 200px;
+        height: auto;
+    }
+
+    #register-form{
+        background-color: #F6EACC;
+        box-sizing: border-box;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+#Name-Input.invalid,#LastName-Input.invalid,#E-Mail-Input.invalid,#Password-Input.invalid,#Check-Pasword-Input.invalid {
+border-color: lightcoral;
+}
+
+#Name-Input.valid,#LastName-Input.valid,#E-Mail-Input.valid,#Password-Input.valid,#Check-Pasword-Input.valid {
+    border-color: lightgreen;
+}
+
+#invalid-name-sign,#invalid-lastName-sign, #invalid-email-sign, #invalid-password-sign,#invalid-check-password-sign{
+    display: none;
+    color: red;
+}
+
+#success-message-container{
+    display: none;
+    color: #361C12;
 }
 
 
 /*================================ Footer Styles ================================*/
 footer{
     background-color: #361c12;
+    width: 100%;
 }
 
 #social-media{
@@ -164,22 +193,4 @@ footer{
 .social-icon:hover{
     transform: scale(1.2);
     transition: 1s;
-}
-
-#Name-Input.invalid, #E-Mail-Input.invalid, #Commentary-Input.invalid{
-border-color: lightcoral;
-}
-
-#Name-Input.valid, #E-Mail-Input.valid, #Commentary-Input.valid{
-    border-color: lightgreen;
-    }
-
-#invalid-name-sign, #invalid-email-sign, #invalid-comment-sign{
-    display: none;
-    color: red;
-}
-
-#success-message-container{
-    display: none;
-    color: #361C12;
 }

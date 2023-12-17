@@ -7,11 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../images/icono-kaffi.png">
-    <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Inter:wght@700&display=swap" rel="stylesheet">
-    <title>Contacto - Kaffi</title>
+    <title>Registro - Kaffi</title>
 </head>
 
 <body>
@@ -78,121 +78,100 @@
                 </ul>
             </div>
         </nav>
-
-        <section id="introduction-container">
-            <div class="d-flex justify-content-center mt-1">
-                <img class="img-fluid py-5" src="../images/logo_kaffi_blanco_1.png" alt="logo_kaffi_2"
-                    id="img-logo-blanco" />
-            </div>
-            <div class="d-flex justify-content-center">
-                <h5 class="description text-center text-white mb-5 p-4">"¿Tienes alguna pregunta o sugerencia? Estamos
-                    listos para escucharte. Ponte en contacto con nosotros y permítenos hacer de tu experiencia en Kaffi
-                    algo extraordinario."</h5>
-            </div>
-
-        </section>
     </header>
 
     <!-- Main secction -->
     <main>
 
-        <!--  Tarjeta de contacto -->
-        <section id="contact-container">
-            <div class="row my-5">
+        <!--  Tarjeta de Registro -->
+        <section id="register-container" class="container-fluid">
+            <div class="row">
 
-                <!-- Primer columna -->
-                <div class="col-sm-12 col-md-6 text-center mt-5">
-                    <h4 class="p-4">¡Síguenos y contáctanos a través de nuestras redes sociales!</h4>
-
-                    <div>
-                        <a class="me-3 me-sm-5" href="https://www.facebook.com/kaffiMid/?locale=es_LA" target="_blank">
-                            <img class="social-link" src="../images/Contact_icon01.png"
-                                alt="Enlace a facebook oficial Kaffi"></a>
-                        <a class="me-3 me-sm-5" href="https://www.instagram.com/kaffimerida/" target="_blank">
-                            <img class="social-link" src="../images/Contact_icon02.png"
-                                alt="Enlace a instagram oficial Kaffi"></a>
-                        <a href="https://api.whatsapp.com/message/RMOZKTGCQLG3H1?autoload=1&app_absent=0"
-                            target="_blank">
-                            <img class="social-link" src="../images/Contact_icon03.png"
-                                alt="Enlace a canal de whatsapp oficial Kaffi"></a>
+                <!-- Primer Columna -->
+                <div id="register-logo" class="d-flex flex-column justify-content-center col-sm-12 col-md-5 text-center">
+                    <div class="d-sm-flex justify-content-sm-center py-5 py-md-0">
+                        <img src="../images/logo_kaffi_blanco_1.png" alt="Logo blanco de Kaffi">
                     </div>
+                </div>
 
-                    <p class="pt-4 px-4">Déjanos un comentario ¡Tu retroalimentación nos ayuda a mejorar!</p>
+                <!-- Segunda columna -->
+                <div class="col-sm-12 col-md-7 text-center mt-5">
+
+                    <h3 class="py-4" style="font-weight:bolder; color: #361C12;">Registro</h3>
 
                     <!-- Formulario -->
-                    <form id="contact-form" class="p-4 " action="">
-                        <div id="success-message-container" class="mt-3 rounded align-items-center justify-content-center">
-                            <i class="fa-solid fa-envelope-circle-check fa-bounce fa-2xl"></i>
-                            <h5 id="success-message" class="m-2"> Gracias por tu comentario</h5>
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="Name-Input" class="form-label">Nombre</label>
-                            <p id="error-message-name" class="error-message"> </p>
-                            <div class="input-container d-flex align-items-center justify-content-center">
-                                <input type="text" class="form-control rounded-pill" id="Name-Input" placeholder="Cosme Fulanito">
-                                <i id="invalid-name-sign"class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
-                            </div>
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="E-Mail-Input" class="form-label">Correo electrónico</label>
-                            <p id="error-message-email" class="error-message"> </p>
-                            <div class="input-container d-flex align-items-center justify-content-center">
-                                <input type="email" class="form-control rounded-pill" id="E-Mail-Input" placeholder="nombre@gmail.com">
-                                <i id="invalid-email-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
-                            </div>
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="Commentary-Input" class="form-label">Escribe tu comentario</label>
-                            <p id="error-message-comment" class="error-message">  </p>
-                            <div class="input-container d-flex align-items-center justify-content-center">
-                                <textarea type="text" class="form-control" id="Commentary-Input" rows="4"
-                                    placeholder="10 -120 caracteres"></textarea>
-                                <i id="invalid-comment-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
-                            </div>
-                        </div>
-                        <div class="d-sm-flex justify-content-sm-end">
-                            <button class="btn me-sm-2 rounded-pill" type="button">Registrarse</button>
-                            <button class="btn rounded-pill" type="submit">Enviar</button>
-                        </div>
-                        <div id="grains-container" class="text-start">
-                            <img src="../images/Contact_grains.png" alt="Granos de cafe como elemto">
-                        </div>
-                    </form>
-                </div>
+                    <div>
+                        <form id="register-form" class="p-4 rounded-5" action="">
 
-                <!-- Segunda Columna -->
-                <div class="d-flex flex-column justify-content-center col-sm-12 col-md-6 text-center">
-                    <h4 class="pb-4">Encuéntranos en Acción</h4>
-                    <div class="mt-sm-4">
-                        <a href="https://www.google.com/maps/place/Kaffi+Francisco+de+Montejo/@21.040908,-89.6479862,17z/data=!3m1!4b1!4m6!3m5!1s0x8f5675e31ecfcb3f:0xea36fcd46ce87065!8m2!3d21.040908!4d-89.6479862!16s%2Fg%2F11gh_f9x4x?entry=ttu"
-                            target="_blank">
-                            <button type="button" class="contact-buttons btn btn-lg">Ubicación y horarios Fco de Montejo</button></a>
+                            <div id="success-message-container" class="mt-3 rounded align-items-center justify-content-center">
+                                <i class="fa-solid fa-user fa-bounce fa-2xl"></i>
+                                <h5 id="success-message" class="m-2">Registro completo</h5>
+                            </div>
 
-                        <div class="d-sm-flex justify-content-sm-center pt-4">
-                            <img class="phone-icon pe-3" src="../images/Contact_icon04.png" alt="icono de telefono">
-                            <p>999-588-2553</p>
+                            <div class="mb-3 text-start">
+                                <label for="Name-Input" class="form-label">Nombre</label>
+                                <p id="error-message-name" class="error-message"> </p>
+                                <div class="input-container d-flex align-items-center justify-content-center">
+                                    <input type="text" class="form-control rounded-pill" id="Name-Input" placeholder="Cosme">
+                                    <i id="invalid-name-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 text-start">
+                                <label for="LastName-Input" class="form-label">Apellido</label>
+                                <p id="error-message-lastName" class="error-message"> </p>
+                                <div class="input-container d-flex align-items-center justify-content-center">
+                                    <input type="text" class="form-control rounded-pill" id="LastName-Input" placeholder="Fulanito">
+                                    <i id="invalid-lastName-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 text-start">
+                                <label for="E-Mail-Input" class="form-label">Correo electrónico</label>
+                                <p id="error-message-email" class="error-message"> </p>
+                                <div class="input-container d-flex align-items-center justify-content-center">
+                                    <input type="email" class="form-control rounded-pill" id="E-Mail-Input" placeholder="nombre@gmail.com">
+                                    <i id="invalid-email-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 text-start">
+                                <label for="Password-Input" class="form-label">Contraseña</label>
+                                <p id="error-message-password" class="error-message"> </p>
+                                <div class="input-container d-flex align-items-center justify-content-center">
+                                    <input type="password" class="form-control rounded-pill" id="Password-Input" placeholder="Nombre123">
+                                    <i id="invalid-password-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 text-start">
+                                <label for="Check-Password-Input" class="form-label">Confirmar contraseña</label>
+                                <p id="error-message-check-password" class="error-message"> </p>
+                                <div class="input-container d-flex align-items-center justify-content-center">
+                                    <input type="password" class="form-control rounded-pill" id="Check-Password-Input" placeholder="Nombre123">
+                                    <i id="invalid-check-password-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-sm-flex justify-content-center py-3">
+                                <button class="btn rounded-pill" type="submit">Registrarse</button>
+                            </div>
+
+                        </form>
+
+                        <div class="m-5">
+                            <p>¿Ya tienes una cuenta? Inicia sesión ahora.</p>
+                            <a href="../pages/login.html"><button class="btn me-sm-2 rounded-pill" type="button">iniciar sesión</button></a>
                         </div>
+
                     </div>
-                    <div class="mt-sm-4">
-                        <a href="https://www.google.com/maps/place/Kaffi+Caucel/@21.0012267,-89.6945523,15z/data=!4m6!3m5!1s0x8f567540283836c9:0xaf074051fcc0b371!8m2!3d21.0012267!4d-89.6945523!16s%2Fg%2F11jt1qp6px?sa=X&ved=2ahUKEwivvtnpmOOCAxV0LkQIHRCvCecQ_BJ6BAhTEAA&entry=tts"
-                            target="_blank">
-                            <button type="button" class="contact-buttons btn btn-lg">Ubicación y horarios Caucel</button></a>
 
-                        <div class="d-sm-flex justify-content-sm-center pt-4">
-                            <img class="phone-icon pe-3" src="../images/Contact_icon04.png" alt="icono de telefono">
-                            <p>999-780-9404</p>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
         </section>
 
     </main>
 
     <!-- Foother Section -->
-    <!-- codigo de valdo -->
-
     <footer class="text-light">
 
         <!-- Section: Social media -->
@@ -265,7 +244,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/contact.js"></script>
+    <script src="../js/register.js"></script>
 
 </body>
 

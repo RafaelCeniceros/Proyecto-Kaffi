@@ -1,87 +1,56 @@
+// Obtener botones y contenedores
+const productsButton = document.getElementById('option-products-button');
+const ordersButton = document.getElementById('option-orders-button');
+const commentsButton = document.getElementById('option-comments-button');
 
-const searchButton = document.getElementById("search-button");
-const nameOfItemInLocalStorage = "fileJsonToLocalStorage";
+const productsButtonLateralMenu = document.getElementById('option-products-button-lg');
+const ordersButtonLateralMenu = document.getElementById('option-orders-button-lg');
+const commentsButtonLateralMenu = document.getElementById('option-comments-button-lg');
 
-searchButton.addEventListener('click', event => {
-    event.preventDefault();
-    const searchProductInput = document.getElementById("search-product-input");
-    const productSearched = searchProductInput.value;
-    const isNumber = /^\d+$/.test(productSearched);
+const productsContainer = document.getElementById('container-products');
+const ordersContainer = document.getElementById('container-orders');
+const commentsContainer = document.getElementById('container-comments');
 
-    if(isNumber){
-        showProductFromLocalStorageWithID(parseInt(productSearched));
-    }
-    else{
-        showProductFromLocalStorageWithName(productSearched);
-    }
-})
+// Mostrar por defecto el contenedor de productos
+productsContainer.style.display = 'flex';
+ordersContainer.style.display = 'none';
+commentsContainer.style.display = 'none';
 
-
-/* Funcion para mostrar el producto con el nombre */
-function showProductFromLocalStorageWithName(productName) {
-
-    const productsInLocalStorageJSON = localStorage.getItem(nameOfItemInLocalStorage);
-    const objectProductsJS = JSON.parse(productsInLocalStorageJSON);
-
-    console.log(objectProductsJS);
-    const productFinded = findProductNameInLocalStorage(productName, objectProductsJS);
-    updateForm(productFinded);
+// Función para ocultar todos los contenedores
+function hideAllContainers() {
+    productsContainer.style.display = 'none';
+    ordersContainer.style.display = 'none';
+    commentsContainer.style.display = 'none';
 }
 
-/* Funcion para encontrar el producto con el nombre */
-function findProductNameInLocalStorage(productName, objectProductsJS) {
-    for (const categoria in objectProductsJS) {
-        const productosDeCategoria = objectProductsJS[categoria];
-        const productoEncontrado = productosDeCategoria.find(product => product.name.toLowerCase() === productName.toLowerCase());
+// Agregar eventos de clic a los botones
+productsButton.addEventListener('click', () => {
+    hideAllContainers();
+    productsContainer.style.display = 'flex';
+});
 
-        if (productoEncontrado) {
-            return productoEncontrado;
-        }
-    }
-    return null;
-}
+ordersButton.addEventListener('click', () => {
+    hideAllContainers();
+    ordersContainer.style.display = 'flex';
+});
 
-/* Funcion para mostrar el producto con el ID */
-function showProductFromLocalStorageWithID(productId) {
+commentsButton.addEventListener('click', () =>{
+    hideAllContainers();
+    commentsContainer.style.display = 'flex';
+});
 
-    const productsInLocalStorageJSON = localStorage.getItem(nameOfItemInLocalStorage);
-    const objectProductsJS = JSON.parse(productsInLocalStorageJSON);
+// Agregar eventos de clic a los botones del menu lateral
+productsButtonLateralMenu.addEventListener('click', () => {
+    hideAllContainers();
+    productsContainer.style.display = 'flex';
+});
 
-    console.log(objectProductsJS);
-    const productFinded = findProductIDInLocalStorage(productId, objectProductsJS);
-    updateForm(productFinded);
-}
+ordersButtonLateralMenu.addEventListener('click', () => {
+    hideAllContainers();
+    ordersContainer.style.display = 'flex';
+});
 
-/* Funcion para encontrar el producto con el ID */
-function findProductIDInLocalStorage(productId, objectProductsJS) {
-    for (const categoria in objectProductsJS) {
-        const productosDeCategoria = objectProductsJS[categoria];
-        const productoEncontrado = productosDeCategoria.find(product => product.id === parseInt(productId));
-
-        if (productoEncontrado) {
-            return productoEncontrado;
-        }
-    }
-    return null;
-}
-
-function updateForm(product) {
-    // Aquí puedes actualizar los campos del formulario con la información del producto
-    document.getElementById('product-name').value = product.name;
-    document.getElementById('product-category').value = product.category;
-    document.getElementById('product-price').value = product.price;
-    document.getElementById('product-description').value = product.description;
-    document.getElementById('product-ID').value = product.id;
-    
-    // Cambiar la imagen del producto si está disponible
-    if (product.image) {
-        document.getElementById('product-img').src = product.image;
-    }
-    else{
-        document.getElementById('product-img').src ="../images/imagen desconocida producto.png";
-    }
-}
-
-/* showProductFromLocalStorageWithID(1); */
-
-/* showProductFromLocalStorageWithName("Capuccino"); */
+commentsButtonLateralMenu.addEventListener('click', () =>{
+    hideAllContainers();
+    commentsContainer.style.display = 'flex';
+});
