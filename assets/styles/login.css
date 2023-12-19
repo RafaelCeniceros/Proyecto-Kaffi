@@ -1,14 +1,20 @@
-/* Inicio estilos para el header */
+/*================================= body Styles =================================*/
+body{
+    background-color:#faf6ec ;
+}
+
+
+/*================================ Header Styles ================================*/
 header {
-    /* https://stackoverflow.com/questions/12609110/responsive-css-background-images */
+    /*https://stackoverflow.com/questions/12609110/responsive-css-background-images*/
     width: 100%;
     height: auto;
     background-color: #996229;
     background-size: cover;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
-    /* Tamaño predeterminado del texto del menú */
 }
+
 
 header #introduction-container {
     margin-left: 0.5em;
@@ -69,14 +75,11 @@ header #introduction-container {
 
 /* Fin estilos para el header */
 
+
+/*================================ Login Styles ================================*/
+
 #profile-section-container{
     width:80vw;
-}
-
-body{
-    background-color: #faf6ec;
-    font-family: 'Imprima', sans-serif;
-    font-size: 1em;
 }
 
 /* Botones */
@@ -147,10 +150,13 @@ body{
 #options-lateral-menu{
     display: none;
 }
-/* estilos del footer */
 
+
+
+/*================================ Footer Styles ================================*/
 footer{
     background-color: #361c12;
+    width: 100%;
 }
 
 #social-media{
