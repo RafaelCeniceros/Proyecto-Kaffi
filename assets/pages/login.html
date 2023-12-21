@@ -81,32 +81,61 @@
     </header>
 
     <main>
-        <div class="container mt-5">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div id="option-logo" class="col-md-6 d-flex justify-content-center align-items-center">
-                    <img src="../images/logo kaffi cafe 1.png"
-                        class="img-fluid w-50 d-flex justify-content-center align-items-center">
-                </div>
-                <div class="col-md-6 d-flex justify-content-center my-5">
-                    <div id="login-form" class="p-5 d-flex flex-column justify-content-center align-items-center">
-                        <h2>Inicio de Sesión</h2>
-                        <form id="loginForm" class="d-flex flex-column">
-                            <div class="form-group my-2">
-                                <label for="email">Email*</label> <!-- Cambio de 'username' a 'email' -->
-                                <input type="text" class="form-control" id="email" name="email" required>
-                                <!-- Cambio de 'username' a 'email' -->
-                            </div>
-                            <div class="form-group my-2">
-                                <label for="password">Contraseña*</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <button type="submit" class="btn my-2 mx-5" id="login-button">Iniciar Sesión</button>
-                            <p id="error" class="text-danger mt-2"></p>
+
+        <section id="login-container">
+            <div class="container my-5">
+                <div class="row d-flex justify-content-center align-items-center">
+        
+                    <!-- Logotipo -->
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <img src="../images/logo kaffi cafe 1.png" class="img-fluid w-50 d-flex" alt="Logo de Kaffi Cafe">
                     </div>
-                    </form>
+        
+                    <!-- Formulario de inicio de sesión -->
+                    <div class="col-md-6 justify-content-center my-3">
+                        <h2 class="mb-3 text-center py-4" style="font-weight: bold; color: #361C12;">Iniciar de Sesión</h2>
+        
+                        <div id="login-form" class="p-4 p-md-5">
+                            <form id="loginForm">
+                                <div class="form-group my-2">
+                                    <label for="email">Email*</label>
+                                    <input type="text" class="form-control" id="email" name="email" required>
+                                </div>
+        
+                                <div class="form-group my-2">
+                                    <label for="password">Contraseña*</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+
+                                <!-- Mensaje de recuperacion-->
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="">
+                                        <p id="enlace-recuperacion">¿Olvidaste tu contraseña?</p>
+                                    </a>
+                                </div>
+
+                                <!-- Boton de inicio de secion -->
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" class="btn rounded-pill" id="login-button">Iniciar Sesión</button>
+                                    <p id="error" class="text-danger mt-2"></p>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <!-- Enlace de registro -->
+                        <div class="my-5 text-center">
+                            <p>Si aún no tienes una cuenta, regístrate hoy mismo</p>
+                            <a href="../pages/register.html">
+                                <button class="btn me-sm-2 rounded-pill" type="button">Regístrate</button>
+                            </a>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
-        </div>
+        </section>
+
     </main>
 
 
@@ -184,4 +213,5 @@
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
     <script src="../js/login.js"></script>
 </body>
+
 </html>

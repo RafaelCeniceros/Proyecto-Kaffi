@@ -95,11 +95,7 @@ header #introduction-container {
     color: rgb(219, 34, 34);
 }
 
-.contact-buttons{
-    max-width: 12em;
-}
-
- button:hover{
+button:hover{
     transform: scale(1.1);
 }
 
@@ -115,7 +111,7 @@ header #introduction-container {
     }
     
     #register-logo img{
-        max-width: 200px;
+        max-width: 280px;
         height: auto;
     }
 

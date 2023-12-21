@@ -78,22 +78,21 @@ header #introduction-container {
 
 /*================================ Login Styles ================================*/
 
-#profile-section-container{
-    width:80vw;
+#login-container{
+    width:100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: 'Imprima', sans-serif;
+    font-size: 1.3rem;
 }
 
-/* Botones */
-
-#login-button{
+#login-container button{
     background-color: #361c12;
     color: white;
-    
 }
 
-.option-button {
-    background-color: rgb(246, 234, 204);
-    border-radius: 0.5em;
-    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+#login-container button:hover{
+    transform: scale(1.1);
 }
 
 /* Contenedor login */
@@ -102,53 +101,18 @@ header #introduction-container {
     border-style: none;
     border-radius: 2em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    min-width: 30vw;
+    box-sizing: border-box;
+    margin: 0 auto; 
+    max-width: 400px; 
 }
 
-.product-form-input{
-    border-style: none;
-    border-radius: 0.5em;
-}
-.product-form-button{
-    background-color: #361c12; 
-    border-radius: 2em; 
-    border-style: none;
-    color: #F6EACC;
-    max-width: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.product-form-button i.fa-sm{
-    padding: 1em;
-}
-.product-form-button i.fa-xl{
-    padding: 0.7em 1em;
-}
-.change-img-button{
-    background-color: #361c12; 
-    border-radius: 2em; 
-    border-style: none;
-    color: #F6EACC;
-    cursor: pointer;
+#enlace-recuperacion{
+    color: #361c12;
+    text-decoration: underline;
 }
 
-#product-img-container{
-    height: 100px;
-    width: 100px;
-}
-
-#product-img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Esto asegura que la imagen cubra completamente el contenedor sin deformarse */
-}
-
-#options-lateral-menu{
-    display: none;
+#enlace-recuperacion:hover{
+    color: blue;
 }
 
 
