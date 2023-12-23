@@ -5,14 +5,12 @@ import ShoppingCard from "./shopping-cart-card.js";
 
 
 
-function showProductsToBuyFromLocalStorage() {
-    showProductsFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
-}
-showProductsToBuyFromLocalStorage();
+showProductsToBuyFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
 
-
-
-function showProductsFromLocalStorage(nameOfListOfProductsToBuy, nameOfItemOfProducts) {
+// funcion que crea un arreglo de objetos de los productos (objetos de la clase producto 
+// con un atributo adicional llamado quantity) a comprar, obtenidos del item listOfProdcuts
+// y muestra cada producto con una tarjeta
+function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, nameOfItemOfProducts) {
     // obtenemos del local storage el objeto listOfProducts que contiene los id's como atributos y 
     // la cantidad de éstos para comprar, 
     // lo convertimos a un objeto JS con parse y lo guardamos en la variable productsToBuy
@@ -55,9 +53,9 @@ function showProductsFromLocalStorage(nameOfListOfProductsToBuy, nameOfItemOfPro
     
   }
 
-// incrementa o decrementa en una unidad la cantidad asociado a un producto en el
-// objeto productsToBuy al pulsar sobre el boton +/-
-// Además, muestra en en el header la cantidad total de items que se quieren comprar
+// itera sobre cada objeto producto del arreglo arrayOfProductsObjectsToBuy 
+// para checar en cuál se hace click y así actualizar la cantidad de productos a 
+// comprar en el local storage
 function updateListOfProducts(arrayOfProductsObjectsToBuy) {
     arrayOfProductsObjectsToBuy.forEach(element => {
         addOneProductToListOfProducts(element);
@@ -66,7 +64,8 @@ function updateListOfProducts(arrayOfProductsObjectsToBuy) {
   }
 
 
-  // funcion para incrementar en el local storage, en uno la cantidad del producto 
+  // funcion para incrementar en el local storage, en uno la cantidad del producto al hacer click 
+  // en el boton + de la tarjeta creada por .showShoppingCard
 function addOneProductToListOfProducts(element) {
     // variable que obtiene la referencia del boton + creado por ShoppingCard.showShoppingCard()
     let buttonAdd = document.getElementById(`btn-add-product-${element.id}`);
@@ -83,7 +82,7 @@ function addOneProductToListOfProducts(element) {
         quantity += 1; 
         productsToBuy[element.id] = quantity;
         localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
-        showProductsFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
+        showProductsToBuyFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
         // en caso de que si exista un item llamado listOfProducts en el local storage
         // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
         // en una variable llamda listOfProductsJS
@@ -99,12 +98,13 @@ function addOneProductToListOfProducts(element) {
         quantity += 1; 
         listOfProductsJS[element.id] = quantity;
         localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
-        showProductsFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
+        showProductsToBuyFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
       }
     });
   }
 
   // funcion para restar en el local storage, en uno la cantidad del producto 
+  // en el boton - de la tarjeta creada por .showShoppingCard
 function deleteOneProductOfListOfProducts(element) {
     // variable que obtiene la referencia del boton - creado por ShoppingCard.showShoppingCard()
     let buttonDel = document.getElementById(`btn-del-product-${element.id}`);
@@ -121,7 +121,7 @@ function deleteOneProductOfListOfProducts(element) {
         quantity > 0 ? quantity -= 1 : quantity -= 0;
         productsToBuy[element.id] = quantity;
         localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
-        showProductsFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
+        showProductsToBuyFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
         // en caso de que si exista un item llamado listOfProducts en el local storage
         // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
         // en una variable llamda listOfProductsJS
@@ -137,13 +137,16 @@ function deleteOneProductOfListOfProducts(element) {
         quantity > 0 ? quantity -= 1 : quantity = 0;
         listOfProductsJS[element.id] = quantity;
         localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
-        showProductsFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
+        showProductsToBuyFromLocalStorage("listOfProducts","fileJsonToLocalStorage");
       }
     });
   }
   
-  
 
+// muestra en el dom, en el div con id products-to-buy, los elementos de un arreglo dado. 
+// En nuestro caso, ese arreglo será arrayOfProductsObjectsToBuy,que contendrá los objetos de la clase
+// producto con un atributo adicional llamado quantity
+// dicho arreglo arrayOfProductsObjectsToBuy es creado en la funcion showProductsFromLocalStorage
 function showInDOM(products) {
     const productsContainer = document.getElementById("products-to-buy");
   
@@ -154,22 +157,28 @@ function showInDOM(products) {
     productsContainer.innerHTML = productsTitle.join("");
 }
 
+
+// funcion para encontrar el objeto de la clase producto cuyo atributo id sea el mismo que nosotros
+// buscamos
 function findObjectById(jsonData, itemId) {
-    // Loop through each category in the JSON
+    // por cada categoria en el item del local storage donde tenemos almacenados los objetos de 
     for (const categoryKey in jsonData) {
+    //obtenemos el arreglo de los productos asociados a esa categoria y lo almacenamos
+    // en la variable categoryItems
         if (jsonData.hasOwnProperty(categoryKey)) {
             const categoryItems = jsonData[categoryKey];
 
-            // Find the item in the current category based on the id
+            // itera sobre el arreglo en busca del objeto con el item igual al itemId que nosotros 
+            // buscamos
             const foundItem = categoryItems.find(item => item.id === itemId);
 
-            // If the item is found, return it
+            // retorna el objeto de la clase producto si es encontrado
             if (foundItem) {
                 return foundItem;
             }
         }
     }
 
-    // Return null if the item is not found in any category
+    // de lo contrario retornamos null
     return null;
 }
