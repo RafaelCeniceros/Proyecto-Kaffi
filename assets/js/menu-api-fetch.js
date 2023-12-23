@@ -115,36 +115,88 @@ function showQuantityOfItems() {
 // Además, muestra en en el header la cantidad total de items que se quieren comprar
 function addAndDeleteShoppingCartProduct(arrayOfObjectsProducts,category) {
   arrayOfObjectsProducts[category].forEach(element => {
-    // variable que almacena la cantidad de productos y que cambia cuando se hace click en el boton + o -
-    let quantity = 0;
-    // variable que obtiene la referencia del boton + creado por MenuCard.kaffiCard()
-    let buttonAdd = document.getElementById(`btn-add-product-${element.id}`);
-    // evento asociado al click en el boton de +.
-    // Incrementa en una unidad cada vez que se pulsa y guarda en el local
+    addProductsToShoppingCart(element);
+    showQuantityOfItems();
+    deleteProductsOfShoppingCart(element);
+    showQuantityOfItems();
+    
+  })
+}
+
+function addProductsToShoppingCart(element) {
+  // variable que obtiene la referencia del boton + creado por MenuCard.kaffiCard()
+  let buttonAdd = document.getElementById(`btn-add-product-${element.id}`);
+  // evento asociado al click en el boton de +.
+  buttonAdd.addEventListener("click",function(event) {
+    event.preventDefault();
+    // Si no hay un item llamado listOfProducts en el local storage
+    // declara una variable llamada quantity y la iguala a 0
+    // Incrementa en una unidad a quantity cada vez que se pulsa y guarda en el local
     // storage el objeto productsToBuy
     // muestra el total de items que se registra en el producto
-    buttonAdd.addEventListener("click",function(event) {
-      event.preventDefault();
+    if (localStorage.getItem("listOfProducts") == null) {
+      let quantity = 0;
       quantity += 1; 
       productsToBuy[element.id] = quantity;
       localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
       showQuantityOfItems();
-    });
-    // variable que obtiene la referencia del boton - creado por MenuCard.kaffiCard()
-    let buttonDel = document.getElementById(`btn-del-product-${element.id}`);
-    // evento asociado al click en el boton de -
-    // Resta en una unidad cada vez que se pulsa y guarda en el local
-    // storage el objeto productsToBuy
+      // en caso de que si exista un item llamado listOfProducts en el local storage
+      // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
+      // en una variable llamda listOfProductsJS
+     // declara la variable quantity como el número que está asociado 
+      // al id igual a element.id (el producto que se cliqueo)
+      // se le suma uno a quantity
+      // y vuelve a establecer en el localStorage el objeto listOfProductsJS actualizado
+      // con el nombre de listOfProducts
+    } else {
+      const listOfProductsJSON = localStorage.getItem("listOfProducts");
+      const listOfProductsJS = JSON.parse(listOfProductsJSON);
+      let quantity = listOfProductsJS[element.id];
+      quantity += 1; 
+      listOfProductsJS[element.id] = quantity;
+      localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+      showQuantityOfItems();
+    }
+  });
+}
+
+
+function deleteProductsOfShoppingCart(element) {
+  // variable que obtiene la referencia del boton - creado por MenuCard.kaffiCard()
+  let buttonDel = document.getElementById(`btn-del-product-${element.id}`);
+  // evento asociado al click en el boton de -
+  buttonDel.addEventListener("click",function(event) {
+    // Si no hay un item llamado listOfProducts en el local storage
+    // declara una variable llamada quantity y la iguala a 0
+    // Resta en una unidad a quantity cada vez que se pulsa el botón y guarda 
+    // en el local storage el objeto productsToBuy,
     // muestra el total de items que se registra en el producto
-    buttonDel.addEventListener("click",function(event) {
-      event.preventDefault();
+    event.preventDefault();
+    if (localStorage.getItem("listOfProducts") == null) {
+      let quantity = 0;
       quantity > 0 ? quantity -= 1 : quantity -= 0;
       productsToBuy[element.id] = quantity;
       localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
       showQuantityOfItems();
-    });
-    
-  })
+      
+      // en caso de que si exista un item llamado listOfProducts en el local storage
+      // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
+      // en una variable llamda listOfProductsJS
+      // declara la variable quantity como el número que está asociado 
+      // al id igual a element.id (el producto que se cliqueo)
+      // se le resta uno a quantity en caso de que la cantidad sea mayor a 0
+      // y vuelve a establecer en el localStorage el objeto listOfProductsJS actualizado
+      // con el nombre de listOfProducts
+    } else {
+      const listOfProductsJSON = localStorage.getItem("listOfProducts");
+      const listOfProductsJS = JSON.parse(listOfProductsJSON);
+      let quantity = listOfProductsJS[element.id];
+      quantity > 0 ? quantity -= 1 : quantity = 0;
+      listOfProductsJS[element.id] = quantity;
+      localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+      showQuantityOfItems();
+    }
+  });
 }
 
 
