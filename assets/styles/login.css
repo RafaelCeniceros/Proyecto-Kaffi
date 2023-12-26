@@ -79,7 +79,7 @@ header #introduction-container {
 /*================================ Login Styles ================================*/
 
 #login-container{
-    width:100%;
+    width:80vw;
     box-sizing: border-box;
     margin: 0 auto;
     font-family: 'Imprima', sans-serif;
