@@ -106,13 +106,17 @@ header #introduction-container {
     max-width: 400px; 
 }
 
-#enlace-recuperacion{
+#enlace-recuperacion {
     color: #361c12;
-    text-decoration: underline;
+}
+
+#login-form a{
+    text-decoration: none;
 }
 
 #enlace-recuperacion:hover{
-    color: blue;
+    color: #361c12;
+    text-decoration: underline;
 }
 
 
