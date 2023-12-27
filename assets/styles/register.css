@@ -104,9 +104,6 @@ button:hover{
     color: #F6EACC;
 }
 
-#register-container{
-    /* max-height: 100vh; */
-}
 
 @media only screen and (min-width: 767px) {
     #register-logo{
