@@ -67,10 +67,10 @@ class ShoppingCard {
     showShoppingCard() {
         return `
                 <!-- card -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12" style="max-width:80vw";>
                     <div class="product-cards rounded-4 row mx-auto my-3 text-center">
                         <div class="col-4 p-1 d-flex align-items-center justify-content-center">
-                            <img class="rounded-4 img-fluid w-100" src=${this.#image} alt="product-image">
+                            <img class="img-fluid" src=${this.#image} alt="product-image">
                         </div>
 
                          <div class="col-8 p-1 d-flex align-items-center justify-content-between">
@@ -78,10 +78,9 @@ class ShoppingCard {
                                 <h6>${this.#name}</h6>
 
                                 <p class="font-weight-light text-gray">${this.#description}</p>
-                                <p>Catindad:${this.#quantity}</p>
                                 <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
                                     <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill">-</button>
-                                    <button type="button" class="btn ">Agregar</button>
+                                    <span>${this.#quantity}</span>
                                     <button id="btn-add-product-${this.#id}" type="button" class="btn ">+</button>
                                     <button type="button" class="btn rounded-end-pill">$ ${this.price}</button>
                                 </div>
