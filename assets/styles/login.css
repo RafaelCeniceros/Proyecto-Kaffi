@@ -79,11 +79,11 @@ header #introduction-container {
 /*================================ Login Styles ================================*/
 
 #login-container{
-    width:80vw;
     box-sizing: border-box;
     margin: 0 auto;
     font-family: 'Imprima', sans-serif;
     font-size: 1.3rem;
+    width: 100%;
 }
 
 #login-container button{
@@ -119,8 +119,38 @@ header #introduction-container {
     text-decoration: underline;
 }
 
+@media only screen and (min-width: 767px) {
+    #image-login-container{
+        background-image: url(../images/login_bg_lg.png);
+        background-size:cover;
+        background-position: center;
+        height: 100vh;
+    }
+    
+    #image-login-container img{
+        max-width: 20vw;
+        min-width: 18vw;
+        height: auto;
+    }
+}
 
+@media only screen and (max-width: 767px) {
+    #image-login-container{
+        background-image: url(../images/login_bg_sm.png);
+        background-size:cover;
+        background-position: center;
+    }
+    
+    #image-login-container img{
+        max-width: 30vw;
+        min-width: 28vw;
+        height: auto;
+    }
+}
 
+#register-now-text{
+    max-width: 80vw;
+}
 /*================================ Footer Styles ================================*/
 footer{
     background-color: #361c12;

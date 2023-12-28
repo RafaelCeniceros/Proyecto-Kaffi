@@ -109,10 +109,11 @@ button:hover{
     #register-logo{
         background-image: url(../images/Register_bg_lg.png);
         background-size:cover;
+        background-position: center;
     }
     
     #register-logo img{
-        max-width: 280px;
+        max-width: 35vw;
         height: auto;
     }
 
@@ -129,10 +130,11 @@ button:hover{
     #register-logo{
         background-image: url(../images/Register_bg_sm.png);
         background-size:cover;
+        background-position: center;
     }
     
     #register-logo img{
-        max-width: 200px;
+        max-width: 50vw;
         height: auto;
     }
 
