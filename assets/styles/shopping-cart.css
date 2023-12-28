@@ -151,6 +151,18 @@ header nav{
     padding: 0 0.5em;
     max-width: 75px;
 }
+#product-subtotal{
+    font-family: 'Inter', 'sans-serif';
+    text-align: end;
+}
+button#delete-product{
+    background-color: #361c12;
+    color: #F6EACC;
+    border-radius: 1em;
+    text-align: center;
+    border: none;
+    max-width: 100px;
+}
 /*================================ Footer Styles ================================*/
 footer {
     background-color: #361c12;
