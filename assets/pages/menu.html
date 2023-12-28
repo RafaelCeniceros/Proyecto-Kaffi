@@ -48,19 +48,17 @@
             <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
             <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
                 <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item p-0 d-flex align-items-center">
-                        <a id="enlace-carrito-header" class="nav-link active text-white px-2"
-                            href="../pages/shopping-cart.html">
+                    <li class="nav-item p-0 d-flex align-items-center" id="shopping-cart">
+                        <a id="enlace-carrito-header" class="nav-link active text-white px-2" href="../pages/shopping-cart.html">
+                            <!-- Icono Carrito -->
+                            <i id="cart-icon" class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link d-flex align-items-center justify-content-center"></i>
                             <!-- inicia icono de numero de productos -->
-                            <div class="container mt-5">
-                                <div class="d-flex justify-content-center align-items-center">
-                                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div id="cart-counter"class="rounded-circle d-flex align-items-center justify-content-center">
                                     <span id="total-number-items">0</span>
-                                  </div>
                                 </div>
                             </div>
                             <!-- termina icono de numero -->
-                            <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
                         </a>
                     </li>
                     <li class="nav-item p-0 d-flex align-items-center">
