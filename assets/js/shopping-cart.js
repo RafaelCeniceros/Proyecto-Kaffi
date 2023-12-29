@@ -48,7 +48,7 @@ function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, nameOfItem
         showInDOM(arrayOfProductsObjectsToBuy);
         updateListOfProducts(arrayOfProductsObjectsToBuy);
     } else {
-        // CODIGO PARA DECIR QUE EL CARRITO ESTA VACIO
+      document.getElementById('img-empty-car').style.display = "flex";
     }
     
   }
