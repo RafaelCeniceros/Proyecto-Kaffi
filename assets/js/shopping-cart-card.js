@@ -67,26 +67,44 @@ class ShoppingCard {
     showShoppingCard() {
         return `
                 <!-- card -->
-                <div class="col-12" style="max-width:80vw";>
-                    <div class="product-cards rounded-4 row mx-auto my-3 text-center">
-                        <div class="col-4 p-1 d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" src=${this.#image} alt="product-image">
+                <div class="product-card col-12 d-flex justify-content-center align-items-center flex-column my-2">
+                    <div class="row d-flex justify-content-center align-items-center w-100">
+                        <div class="col-4 flex-grow-1" id="img-pic-container">
+                            <img class="d-flex img-fluid" src=${this.#image}>
                         </div>
-
-                         <div class="col-8 p-1 d-flex align-items-center justify-content-between">
-                            <div class="card-body">
-                                <h6>${this.#name}</h6>
-
-                                <p class="font-weight-light text-gray">${this.#description}</p>
-                                <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
-                                    <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill">-</button>
-                                    <span>${this.#quantity}</span>
-                                    <button id="btn-add-product-${this.#id}" type="button" class="btn ">+</button>
-                                    <button type="button" class="btn rounded-end-pill">$ ${this.price}</button>
+                        <div class="col-4 d-flex flex-column align-items-start justify-content-center flex-grow-1">
+                            <h6>Producto:</h6>
+                            <h6 id="product-name">${this.#name}</h6>
+                        </div>
+                        <div class="col-4 d-flex flex-column align-items-start justify-content-center flex-grow-1 h-100">
+                            <div id="cantity-container" class="row d-flex align-items-center justify-content-center w-100 py-1">
+                                <h6 class="col-md-6 d-flex justify-content-center align-items-start">Cantidad:</h6>
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <button id="btn-add-product-${this.#id}" class="cantity-control">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                    <span class="d-flex"> ${this.#quantity} </span>
+                                    <button id="btn-del-product-${this.#id}" class="cantity-control">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button> 
                                 </div>
                             </div>
+                            <div id="price-container" class="row d-flex align-items-center justify-content-center w-100">
+                                <h6 class="col-md-6 d-flex justify-content-center align-items-start">Precio:</h6>
+                                <div class="col-md-6 d-flex w-50 align-items-center justify-content-center">
+                                    <h6 id="product-price" class="d-flex align-items-center justify-content-center w-100">
+                                    ${this.price}
+                                    </h6>
+                                </div>
+                            </div>
+                            <div id="delete-all-products-container"class="row d-flex justify-content-center align-items-center w-100 py-md-3">
+                                <button id="delete-all-products-id-${this.#id}">Eliminar</button>
+                            </div>
                         </div>
-                    </div>    
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center w-100 pt-3 pt-md-0">
+                        <h6 id="product-subtotal">Subtotal(${this.#quantity} ) Producto(s) : $ ${this.price * this.#quantity}</h6>
+                    </div>
                 </div>
                 <!-- card -->
         `

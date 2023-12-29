@@ -118,10 +118,6 @@ header nav{
     text-align: start;
 }
 
-.product-card #cantity-controller{
-    background-color: white;
-}
-
 .product-card i {
     color: white;
     background-color: #361c12;
@@ -141,21 +137,32 @@ header nav{
 #img-pic-container img {
     border-radius: 1em;
     width: 100%;
-    max-height:30vh ;
+    /* max-height:40vh; */
 }
+
 
 #product-price{
     font-family: 'Inter', 'sans-serif';
     height: 26px;
     background-color: #ffffff;
     padding: 0 0.5em;
-    max-width: 75px;
+    min-width: 75px;
+    max-width: 76px;
 }
 #product-subtotal{
     font-family: 'Inter', 'sans-serif';
     text-align: end;
 }
-button#delete-product{
+
+button.cantity-control{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 26px;
+}
+
+#delete-all-products-container button{
     background-color: #361c12;
     color: #F6EACC;
     border-radius: 1em;
