@@ -80,6 +80,29 @@ body{
 }
 
 
+.searchbar{
+    background-color: white;
+    border-radius: 2em;
+}
+
+.searchbar input{
+    background-color: white;
+    border-style: none;
+    border-radius: 2em;
+    text-align: center;
+}
+
+.searchbar input:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* Botones */
+.searchbar input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-clear-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 .option-button {
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
@@ -97,10 +120,50 @@ body{
 }
 
 /* Contenedores opciones */
-.container-forms {
+#option-logo, #container-products .col-md-10, #container-orders .col-md-10, #container-comments .col-md-10 {
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.product-form-input{
+    border-style: none;
+    border-radius: 0.5em;
+}
+.product-form-button{
+    background-color: #361c12; 
+    border-radius: 2em; 
+    border-style: none;
+    color: #F6EACC;
+    max-width: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-form-button i.fa-sm{
+    padding: 1em;
+}
+.product-form-button i.fa-xl{
+    padding: 0.7em 1em;
+}
+.change-img-button{
+    background-color: #361c12; 
+    border-radius: 2em; 
+    border-style: none;
+    color: #F6EACC;
+    cursor: pointer;
+}
+
+#product-img-container{
+    height: 100px;
+    width: 100px;
+}
+
+#product-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Esto asegura que la imagen cubra completamente el contenedor sin deformarse */
 }
 
 #options-lateral-menu{

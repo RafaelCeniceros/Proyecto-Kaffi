@@ -137,6 +137,7 @@ header nav{
 #img-pic-container img {
     border-radius: 1em;
     width: 100%;
+    height: auto;
     /* max-height:40vh; */
 }
 
@@ -169,6 +170,10 @@ button.cantity-control{
     text-align: center;
     border: none;
     max-width: 100px;
+}
+
+#img-empty-car{
+    display: none;
 }
 /*================================ Footer Styles ================================*/
 footer {

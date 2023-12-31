@@ -82,11 +82,10 @@ header #introduction-container {
     box-sizing: border-box;
     margin: 0 auto;
     font-family: 'Imprima', sans-serif;
-    font-size: 1.3rem;
 }
 
 #register-form label{
-    font-size: 1.2rem;
+    font-size: 1em;
 }
 
 .error-message{
