@@ -40,6 +40,7 @@ class Producto {
         return this.#image;
     }
 
+
     // ---------------- setters ------------------------------
     set name(newName) {
         this.#name = newName;
@@ -62,6 +63,7 @@ class Producto {
     }
 
 
+
     toJSON() {
         return {
           id: this.#id,
@@ -69,7 +71,7 @@ class Producto {
           category: this.#category,
           price: this.#price,
           description: this.#description,
-          image: this.#image
+          image: this.#image,
         };
       }
 

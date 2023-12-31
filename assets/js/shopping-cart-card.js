@@ -64,9 +64,10 @@ class ShoppingCard {
     }
 
 
-    showShoppingCard() {
+   showShoppingCard() {
         return `
-                <!-- card -->
+                <!-- card beggining-->
+                <div id="card-of-element-${this.#id}">
                 <div class="product-card col-12 d-flex justify-content-center align-items-center flex-column my-2">
                     <div class="row d-flex justify-content-center align-items-center w-100">
                         <div class="col-4 flex-grow-1" id="img-pic-container">
@@ -83,7 +84,7 @@ class ShoppingCard {
                                     <button id="btn-add-product-${this.#id}" class="cantity-control">
                                         <i class="fa-solid fa-plus"></i>
                                     </button>
-                                    <span class="d-flex"> ${this.#quantity} </span>
+                                    <span id="span-with-product-quantity-${this.#id}" class="d-flex"> ${this.#quantity} </span>
                                     <button id="btn-del-product-${this.#id}" class="cantity-control">
                                         <i class="fa-solid fa-minus"></i>
                                     </button> 
@@ -103,8 +104,9 @@ class ShoppingCard {
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center align-items-center w-100 pt-3 pt-md-0">
-                        <h6 id="product-subtotal">Subtotal(${this.#quantity} ) Producto(s) : $ ${this.price * this.#quantity}</h6>
+                        <h6 id="product-subtotal-${this.#id}">Subtotal(${this.#quantity} ) Producto(s) : $ ${this.price * this.#quantity}</h6>
                     </div>
+                </div>
                 </div>
                 <!-- card -->
         `
