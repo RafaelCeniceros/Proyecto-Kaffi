@@ -90,12 +90,8 @@ export async function deleteProductsOfShoppingCart(element) {
     let buttonDel = document.getElementById(`btn-del-product-${element.id}`);
     // evento asociado al click en el boton de -
     buttonDel.addEventListener("click", function (event) {
-        // Si no hay un item llamado listOfProducts en el local storage
-        // declara una variable llamada quantity y la iguala a 0
-        // Resta en una unidad a quantity cada vez que se pulsa el botón y guarda 
-        // en el local storage el objeto productsToBuy,
-        // muestra el total de items que se registra en el producto
         event.preventDefault();
+        // Si no hay un item llamado listOfProducts en el local storage o es un objeto vacío
         if (localStorage.getItem("listOfProducts") == null || JSON.parse(localStorage.getItem("listOfProducts")) == {}) {
             showQuantityOfItems();
             // en caso de que si exista un item llamado listOfProducts en el local storage
@@ -123,11 +119,19 @@ export async function deleteProductsOfShoppingCart(element) {
                     if (document.getElementById(`card-of-element-${element.id}`) != null) {
                         const cardOfProductToDelete = document.getElementById(`card-of-element-${element.id}`);
                         cardOfProductToDelete.style.display = 'none';
+                        delete listOfProductsJS[element.id];
+                        // CODIGO PARA MOSTRAR QUE EL CARRITO ESTA VACÍO SI DESPUES DE PULSAR EL 
+                        // BOTON DE - YA NO QUEDÓ NINGÚN ID CON CANTIDAD
+                        if (Object.keys(listOfProductsJS).length == 0) {
+                            console.log("carrito vacio");
+                        }
+                    } else {
+                        delete listOfProductsJS[element.id];
                     }
-                    delete listOfProductsJS[element.id];
                 }
 
                 localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+
                 showQuantityOfItems();
             }
         }
@@ -145,6 +149,7 @@ export async function deleteProductsOfShoppingCart(element) {
             console.log("entre aqui");
             const arrayOfProductObjectsToBuyWithQuantity = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
             updateQuantityAndSubtotalInnerHtml(arrayOfProductObjectsToBuyWithQuantity, element);
+
         }
     });
 }
@@ -158,6 +163,7 @@ export function deleteAllItemsOfProductClickedFromShoppingCart(element) {
     // variable que obtiene la referencia del boton Eliminar creado por showShoppingCard()
     let buttonClearOut = document.getElementById(`delete-all-products-id-${element.id}`);
     buttonClearOut.addEventListener("click", function (event) {
+        event.preventDefault();
         // Obtiene el item llamado listOfProducts en el local storage
         // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
         // en una variable llamda listOfProductsJS
@@ -166,6 +172,11 @@ export function deleteAllItemsOfProductClickedFromShoppingCart(element) {
         // al ser quantity igual a cero, borra toda la propiedad del objeto y su valor asociado de
         // lisOfProducts
         delete listOfProductsJS[element.id];
+        // CODIGO PARA MOSTRAR QUE EL CARRITO ESTA VACÍO SI DESPUES DE PULSAR EL 
+        // BOTON DE ELIMINAR YA NO QUEDÓ NINGÚN ID CON CANTIDAD
+        if (Object.keys(listOfProductsJS).length == 0) {
+            console.log("carrito vacio");
+        }
         // guarda el item en el local storage como "listOfProducts"
         localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
         // Obtiene la referencia de la tarjeta del producto en la página del carrito y establece su estilo 
