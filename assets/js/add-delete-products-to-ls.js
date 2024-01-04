@@ -124,6 +124,9 @@ export async function deleteProductsOfShoppingCart(element) {
                         // BOTON DE - YA NO QUEDÓ NINGÚN ID CON CANTIDAD
                         if (Object.keys(listOfProductsJS).length == 0) {
                             console.log("carrito vacio");
+                            if(document.getElementById("img-empty-car")){
+                            document.getElementById("img-empty-car").style.display="flex";
+                            }
                         }
                     } else {
                         delete listOfProductsJS[element.id];
@@ -176,6 +179,9 @@ export function deleteAllItemsOfProductClickedFromShoppingCart(element) {
         // BOTON DE ELIMINAR YA NO QUEDÓ NINGÚN ID CON CANTIDAD
         if (Object.keys(listOfProductsJS).length == 0) {
             console.log("carrito vacio");
+            if(document.getElementById("img-empty-car")){
+                document.getElementById("img-empty-car").style.display="flex";
+            }
         }
         // guarda el item en el local storage como "listOfProducts"
         localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));

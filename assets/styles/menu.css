@@ -196,6 +196,10 @@ html{
     color: #ffffff;
 }
 
+#products button.quantity-control:hover{
+    background-color: #361c12cc;
+}
+
 #products img{
     width: 120px;
     height: 120px;

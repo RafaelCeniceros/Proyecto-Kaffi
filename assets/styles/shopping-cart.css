@@ -174,7 +174,22 @@ button.cantity-control{
 
 #img-empty-car{
     display: none;
+    color: #361c12;
+    font-family: 'Imprima', sans-serif;
+    font-size: 1em;
 }
+#img-empty-car h3{
+    color: #361c12;
+    font-weight: bold;
+}
+#img-empty-car button{
+    background-color: #361c12;
+    color:#faf6ec;
+    text-align: center;
+    border: none;
+    padding: 0.5em 0.5em;
+}
+
 /*================================ Footer Styles ================================*/
 footer {
     background-color: #361c12;

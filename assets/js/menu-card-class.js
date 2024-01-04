@@ -70,9 +70,9 @@ class MenuCard {
                                 <p class="font-weight-light text-gray">${this.#description}</p>
 
                                 <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
-                                    <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill">-</button>
+                                    <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill quantity-control">-</button>
                                     <button type="button" class="btn ">Agregar</button>
-                                    <button id="btn-add-product-${this.#id}" type="button" class="btn ">+</button>
+                                    <button id="btn-add-product-${this.#id}" type="button" class="btn quantity-control">+</button>
                                     <button type="button" class="btn rounded-end-pill">$ ${this.price}</button>
                                 </div>
                             </div>
