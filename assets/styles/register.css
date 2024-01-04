@@ -77,6 +77,11 @@ header #introduction-container {
 /* Fin estilos para el header */
 
 /*================================ Register Styles ================================*/
+
+#register-title{
+    font-weight:bolder; 
+    color: #361C12;
+}
 .container-fluid{
     width:100%;
     box-sizing: border-box;
@@ -90,7 +95,7 @@ header #introduction-container {
 
 .error-message{
     font-family:'inter', Bold;
-    font-size: 0.6em;
+    font-size: 0.8em;
     color: rgb(219, 34, 34);
 }
 

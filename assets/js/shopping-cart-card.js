@@ -81,13 +81,13 @@ class ShoppingCard {
                             <div id="cantity-container" class="row d-flex align-items-center justify-content-center w-100 py-1">
                                 <h6 class="col-md-6 d-flex justify-content-center align-items-start">Cantidad:</h6>
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                    <button id="btn-add-product-${this.#id}" class="cantity-control">
-                                        <i class="fa-solid fa-plus"></i>
+                                    <button id="btn-del-product-${this.#id}" class="cantity-control">
+                                    <i class="fa-solid fa-minus"></i>
                                     </button>
                                     <span id="span-with-product-quantity-${this.#id}" class="d-flex"> ${this.#quantity} </span>
-                                    <button id="btn-del-product-${this.#id}" class="cantity-control">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button> 
+                                    <button id="btn-add-product-${this.#id}" class="cantity-control">
+                                    <i class="fa-solid fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                             <div id="price-container" class="row d-flex align-items-center justify-content-center w-100">
@@ -104,7 +104,7 @@ class ShoppingCard {
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center align-items-center w-100 pt-3 pt-md-0">
-                        <h6 id="product-subtotal-${this.#id}">Subtotal(${this.#quantity} ) Producto(s) : $ ${this.price * this.#quantity}</h6>
+                        <h6 class="product-subtotal" id="product-subtotal-${this.#id}">Subtotal: (${this.#quantity}) Producto(s) : $${this.price * this.#quantity}</h6>
                     </div>
                 </div>
                 </div>

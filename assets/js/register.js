@@ -16,6 +16,12 @@ const errorMessageEmail = document.getElementById("error-message-email");
 const errorMessagePassword = document.getElementById("error-message-password");
 const errorMessageCheckPassword = document.getElementById("error-message-check-password");
 
+errorMessageName.style.display="none";
+errorMessageLastName.style.display="none";
+errorMessageEmail.style.display="none";
+errorMessagePassword.style.display="none";
+errorMessageCheckPassword.style.display="none";
+
 const successMessageContainer = document.getElementById("success-message-container");
 
 
@@ -36,11 +42,13 @@ const dataCheckout = (user) => {
 const validateName = (name, nameInput, invalidNameSign) => {
     const regex = /^[a-zA-Z\s]+$/;
     if (name === "" || name.length > 25 || name.length < 2 || !regex.test(name)) {
+        errorMessageName.style.display="block";
         errorMessage("Introduzca un nombre válido", errorMessageName);
         nameInput.classList.add("invalid");
         invalidNameSign.style.display = "block";
         return false;
     } else {
+        errorMessageName.style.display="none";
         errorMessage("", errorMessageName);
         nameInput.classList.remove("invalid");
         invalidNameSign.style.display = "none";
@@ -51,11 +59,13 @@ const validateName = (name, nameInput, invalidNameSign) => {
 const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
     const regex = /^[a-zA-Z\s]+$/;
     if (lastName === "" || lastName.length > 25 || lastName.length < 2 || !regex.test(lastName)) {
+        errorMessageLastName.style.display="block";
         errorMessage("Introduzca un apellido válido", errorMessageLastName);
         lastNameInput.classList.add("invalid");
         invalidLastNameSign.style.display = "block";
         return false;
     } else {
+        errorMessageLastName.style.display="none";
         errorMessage("", errorMessageLastName);
         lastNameInput.classList.remove("invalid");
         invalidLastNameSign.style.display = "none";
@@ -66,11 +76,13 @@ const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
 const validateEmail = (email, emailInput, invalidEmailSign) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!regex.test(email)) {
+        errorMessageEmail.style.display="block";
         errorMessage("Introduzca un correo electrónico válido", errorMessageEmail);
         emailInput.classList.add("invalid");
         invalidEmailSign.style.display = "block";
         return false;
     } else {
+        errorMessageEmail.style.display="none";
         errorMessage("", errorMessageEmail);
         emailInput.classList.remove("invalid");
         invalidEmailSign.style.display = "none";
@@ -84,11 +96,13 @@ const validatePassword = (password, passwordInput, invalidPasswordSign) => {
     const hasNumber = /\d/;
 
     if (!(hasUppercase.test(password) && hasLowercase.test(password) && hasNumber.test(password) && password.length >= 8)) {
+        errorMessagePassword.style.display="block";
         errorMessage("La contraseña debe tener al menos una mayúscula, una minúscula, un número y ser de al menos 8 caracteres de longitud", errorMessagePassword);
         passwordInput.classList.add("invalid");
         invalidPasswordSign.style.display = "block";
         return false;
     } else {
+        errorMessagePassword.style.display="none";
         errorMessage("", errorMessagePassword);
         passwordInput.classList.remove("invalid");
         invalidPasswordSign.style.display = "none";
@@ -98,11 +112,13 @@ const validatePassword = (password, passwordInput, invalidPasswordSign) => {
 
 const validateCheckPassword = (password, checkPassword, checkPasswordInput, invalidCheckPasswordSign) => {
     if (password !== checkPassword) {
+        errorMessageCheckPassword.style.display="block";
         errorMessage("Las contraseñas no coinciden", errorMessageCheckPassword);
         checkPasswordInput.classList.add("invalid");
         invalidCheckPasswordSign.style.display = "block";
         return false;
     } else {
+        errorMessageCheckPassword.style.display="none";
         errorMessage("", errorMessageCheckPassword);
         checkPasswordInput.classList.remove("invalid");
         invalidCheckPasswordSign.style.display = "none";
@@ -154,14 +170,7 @@ const errorMessage = (message, messageContainer) => {
 };
 
 
-const showSuccessMessage = () => {
-    successMessageContainer.style.display = "flex"; // Mostrar el contenedor de mensaje de éxito
-};
-
-
 const resetValues =()=>{
-    successMessageContainer.style.display = "none";
-    
     nameInput.classList.remove("invalid");
     lastNameInput.classList.remove("invalid");
     emailInput.classList.remove("invalid");
@@ -184,15 +193,15 @@ const resetValues =()=>{
 
 const sendData = (user) => {
     //Gurdado de datos de usuario en localstorage (Se reemplazara el codigo para questos sean enviados a una api en un futuro)
-    setTimeout(() => {
-        console.table(user);
 
-        // Convertir el objeto user a una cadena JSON
-        const userJSON = JSON.stringify(user);
+    console.table(user);
 
-        // Guardar en el localStorage
-        localStorage.setItem("userData", userJSON);
+    // Convertir el objeto user a una cadena JSON
+    const userJSON = JSON.stringify(user);
 
-        showSuccessMessage();
-    }, 1500);
+    // Guardar en el localStorage
+    localStorage.setItem("userData", userJSON);
+
+    window.location.href = "../pages/login.html#login-title"
+
 };

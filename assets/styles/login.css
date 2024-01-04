@@ -77,6 +77,10 @@ header #introduction-container {
 
 
 /*================================ Login Styles ================================*/
+#login-title{
+    font-weight: bold; 
+    color: #361C12;
+}
 
 #login-container{
     box-sizing: border-box;

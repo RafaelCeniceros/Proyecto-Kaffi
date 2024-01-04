@@ -157,6 +157,7 @@ header #introduction-container {
     color: #361C12;
     padding:3%;
     text-align:justify;
+    display: none;
 }
 
 /* estilos de la tarjeta mision */
@@ -184,6 +185,7 @@ transform: rotate(-9.9deg);
     padding: 0 10%;
     text-align:justify;
     color: #F6EACC;
+    display: none;
 }
 
 #button-values {

@@ -150,7 +150,7 @@ header nav{
     min-width: 75px;
     max-width: 76px;
 }
-#product-subtotal{
+.product-subtotal{
     font-family: 'Inter', 'sans-serif';
     text-align: end;
 }

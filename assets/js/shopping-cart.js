@@ -7,6 +7,8 @@ import { productsToBuy } from "./products-to-buy-object.js";
 
 await showProductsToBuyFromLocalStorage("listOfProducts", "fileJsonToLocalStorage");
 
+
+
 /**
  * Muestra en el HTML las tarjetas con los productos que seleccionó en el Menú.
  * Adicionalmente, puede agregar o eliminar cantidad de cada producto o eliminarlo completamente
@@ -15,7 +17,9 @@ await showProductsToBuyFromLocalStorage("listOfProducts", "fileJsonToLocalStorag
  */
 async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, nameOfItemOfProducts) {
   // si existe listOfProducts en el localStorage y además no es un objeto vacío
-  if (JSON.parse(localStorage.getItem("listOfProducts")) != {} && localStorage.getItem("listOfProducts") != null) {
+  const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
+  if (listOfProducts && Object.keys(listOfProducts).length > 0) {
+    document.getElementById("img-empty-car").style.display="none";
     // obtenemos un arreglo con todos los productos a comprar y su cantidad y con dicho arreglo, 
     // mostramos las trajetas en el HTML
     const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart(nameOfListOfProductsToBuy, nameOfItemOfProducts);
@@ -29,7 +33,7 @@ async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, name
       deleteAllItemsOfProductClickedFromShoppingCart(element);
     });
   } else {
-    // CODIGO PARA DECIR QUE EL CARRITO ESTA VACIO
+    document.getElementById("img-empty-car").style.display="flex";
   }
 };
 
