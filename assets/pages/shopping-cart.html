@@ -108,12 +108,30 @@
             class="container d-flex align-items-center text-center justify-content-center">
             
             <div class="row d-flex align-items-start justify-content-center">
-                <div id="totals-container" class="col-sm-12 col-md-4 my-2 ">
-                    <div class="row py-3">
-                        <h6 id="total-products-car" class="col-8 col-md-12">Total : (0 Productos)</h6>
-                        <h6 id="total-price-car" class="col-4 col-md-12">$0.00</h6>
+                <div class="col-sm-12 col-md-4 my-2 d-flex flex-column justify-content-center align-items-center">
+                    <div id="totals-container" class="d-flex flex-column justify-content-center align-items-center w-100">
+                        <div class="row py-3 d-flex">
+                            <h6 id="total-products-car" class="col-8 col-md-12">Total : (0 Productos)</h6>
+                            <h6 id="total-price-car" class="col-4 col-md-12">$0.00</h6>
+                        </div>
+                        <button class="mb-3"> Proceder a Pagar </button>
                     </div>
-                    <button class="mb-3"> Proceder a Pagar </button>
+                    <div class="row suggestion-section d-none d-md-flex align-items-center justify-content-center mt-3 my-md-3 mx-md-1">
+                        <h5 class="col-12 py-2 mt-3">Te podría interesar</h5>
+                        <div class="col-6 col-md-12 suggestion-card d-flex flex-column align-items-center justify-content-center">
+                            <div class="img-container">
+                                <img src="../images/imagenes-menu/Cafes/Capuccino.png" class="img-fluid">
+                             </div>
+                             <button class="my-3"> Agregar a carrito </button>
+                        </div>
+                        <div class="col-6 col-md-12 suggestion-card d-flex flex-column align-items-center justify-content-center">
+                            <div class="img-container">
+                                <img src="../images/imagenes-menu/Cafes/Dirty-chai.png" class="img-fluid">
+                             </div>
+                             <button class="my-3"> Agregar a carrito </button>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="col-sm-12 col-md-8 order-md-first">
                     <div id="img-empty-car" class="flex-column justify-content-center align-items-center">

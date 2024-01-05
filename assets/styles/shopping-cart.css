@@ -209,7 +209,31 @@ button.cantity-control{
 #totals-container button:hover{
     transform: scale(1.05);
 }
-
+.suggestion-section{
+    background-color: #F6EACC;
+    max-width:75vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    color: #361c12;
+    font-family: 'Imprima', sans-serif;
+}
+.suggestion-card img {
+    border-radius: 1em;
+    max-width: 125px;
+    height: auto;
+}
+.suggestion-card button {
+    background-color: #361c12;
+    color: #F6EACC;
+    border-radius: 1em;
+    text-align: center;
+    border: none;
+    padding: 0.5em 0.75em;
+    font-family: 'arial', 'sans-serif';
+}
+.suggestion-card button:hover {
+    transform: scale(1.05);
+}
 /*================================ Footer Styles ================================*/
 footer {
     background-color: #361c12;

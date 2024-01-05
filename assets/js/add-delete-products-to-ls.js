@@ -331,7 +331,7 @@ function updateQuantityAndSubtotalInnerHtml(arrayOfProductObjectsToBuyWithQuanti
             // asignamos el valor del span que contiene la cantidad, la actual cantidad del producto
             // y al h6 el subtotal real
             spanWithProductQuantity.innerHTML = product.quantity;
-            h6WithSubtotalPrice.innerHTML = `Subtotal(${product.quantity} ) Producto(s) : $ ${product.price * product.quantity}`
+            h6WithSubtotalPrice.innerHTML = `Subtotal( ${product.quantity} ) Producto(s) : $ ${product.price * product.quantity}`
         }
     });
 }

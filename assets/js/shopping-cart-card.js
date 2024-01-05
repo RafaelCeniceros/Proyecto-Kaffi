@@ -84,7 +84,7 @@ class ShoppingCard {
                                     <button id="btn-del-product-${this.#id}" class="cantity-control">
                                     <i class="fa-solid fa-minus"></i>
                                     </button>
-                                    <span id="span-with-product-quantity-${this.#id}" class="d-flex"> ${this.#quantity} </span>
+                                    <span id="span-with-product-quantity-${this.#id}" class="d-flex">${this.#quantity}</span>
                                     <button id="btn-add-product-${this.#id}" class="cantity-control">
                                     <i class="fa-solid fa-plus"></i>
                                     </button>
