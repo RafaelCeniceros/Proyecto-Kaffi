@@ -79,8 +79,8 @@ class ShoppingCard {
                         </div>
                         <div class="col-4 d-flex flex-column align-items-start justify-content-center flex-grow-1 h-100">
                             <div id="cantity-container" class="row d-flex align-items-center justify-content-center w-100 py-1">
-                                <h6 class="col-md-6 d-flex justify-content-center align-items-start">Cantidad:</h6>
-                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <h6 class="col-lg-6 d-flex justify-content-center align-items-start">Cantidad:</h6>
+                                <div class="col-lg-6 d-flex align-items-center justify-content-center">
                                     <button id="btn-del-product-${this.#id}" class="cantity-control">
                                     <i class="fa-solid fa-minus"></i>
                                     </button>
@@ -91,8 +91,8 @@ class ShoppingCard {
                                 </div>
                             </div>
                             <div id="price-container" class="row d-flex align-items-center justify-content-center w-100">
-                                <h6 class="col-md-6 d-flex justify-content-center align-items-start">Precio:</h6>
-                                <div class="col-md-6 d-flex w-50 align-items-center justify-content-center">
+                                <h6 class="col-lg-6 d-flex justify-content-center align-items-start">Precio:</h6>
+                                <div class="col-lg-6 d-flex w-50 align-items-center justify-content-center">
                                     <h6 id="product-price" class="d-flex align-items-center justify-content-center w-100">
                                     ${this.price}
                                     </h6>

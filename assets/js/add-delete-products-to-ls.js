@@ -39,7 +39,7 @@ const updateTotalPriceProducts = () => {
                 }
             }
         }
-        totalPriceCar.textContent = "$: " + sumaSubtotales;
+        totalPriceCar.textContent = "$" + sumaSubtotales + ".00";
     }
 };
 

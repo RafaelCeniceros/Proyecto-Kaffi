@@ -28,7 +28,7 @@ const updateTotalPriceProducts = () => {
   });
 
   // Paso 3: Muestra el resultado de la suma
-  totalPriceCar.textContent = "$: " + sumaSubtotales;
+  totalPriceCar.textContent = "$ " + sumaSubtotales +".00";
 };
 
 const updateTotalProducts = () => {

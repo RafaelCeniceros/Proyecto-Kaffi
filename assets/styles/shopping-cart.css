@@ -104,7 +104,7 @@ header nav{
 
 .product-card{
     background-color: #F6EACC;
-    max-width:80vw ;
+    max-width:80vw;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 1em;
     font-family: 'arial', 'sans-serif';
@@ -188,6 +188,26 @@ button.cantity-control{
     text-align: center;
     border: none;
     padding: 0.5em 0.5em;
+}
+#totals-container{
+    background-color: #F6EACC;
+    max-width:75vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    color: #361c12;
+    font-family: 'inter', sans-serif;
+}
+#totals-container button{
+    background-color: #361c12;
+    color: #F6EACC;
+    border-radius: 1em;
+    text-align: center;
+    border: none;
+    padding: 0.5em 0.75em;
+    font-family: 'arial', 'sans-serif';
+}
+#totals-container button:hover{
+    transform: scale(1.05);
 }
 
 /*================================ Footer Styles ================================*/

@@ -106,20 +106,24 @@
         
         <section id="shopping-products-container"
             class="container d-flex align-items-center text-center justify-content-center">
-            <div id="img-empty-car" class="flex-column justify-content-center align-items-center">
-                <h3 class="pt-3">Parece que tu carrito esta vacio</h3>
-                <p>Regresa al menú para agregar productos</p>
-                <a href="../pages/menu.html">
-                    <button>Volver al menú</button>
-                </a>
-                <img src="../images/carrito vacio.png" class="img-fluid w-75 py-5">
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <h6 id="total-products-car">Total : (X Productos)</h6>
-                    <h6 id="total-price-car">$</h6>
+            
+            <div class="row d-flex align-items-start justify-content-center">
+                <div id="totals-container" class="col-sm-12 col-md-4 my-2 ">
+                    <div class="row py-3">
+                        <h6 id="total-products-car" class="col-8 col-md-12">Total : (0 Productos)</h6>
+                        <h6 id="total-price-car" class="col-4 col-md-12">$0.00</h6>
+                    </div>
+                    <button class="mb-3"> Proceder a Pagar </button>
                 </div>
                 <div class="col-sm-12 col-md-8 order-md-first">
+                    <div id="img-empty-car" class="flex-column justify-content-center align-items-center">
+                        <h3 class="pt-3">Parece que tu carrito esta vacio</h3>
+                        <p>Regresa al menú para agregar productos</p>
+                        <a href="../pages/menu.html">
+                            <button>Volver al menú</button>
+                        </a>
+                        <img src="../images/carrito vacio.png" class="img-fluid w-75 py-5">
+                    </div>
                     <div id="products-to-buy" class="row d-flex align-items-center justify-content-center">
                     </div>
                 </div>
