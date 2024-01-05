@@ -104,7 +104,7 @@ class ShoppingCard {
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center align-items-center w-100 pt-3 pt-md-0">
-                        <h6 class="product-subtotal" id="product-subtotal-${this.#id}">Subtotal: (${this.#quantity}) Producto(s) : $${this.price * this.#quantity}</h6>
+                        <h6 class="product-subtotal" id="product-subtotal-${this.#id}">Subtotal: ( ${this.#quantity} ) Producto(s) : $${this.price * this.#quantity}</h6>
                     </div>
                 </div>
                 </div>

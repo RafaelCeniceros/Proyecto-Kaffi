@@ -7,7 +7,50 @@
  En el script de shpping-cart se utilizan todas las funciones.
  
 */
+/* Funcion para actualizar el DOM del carrito para mostrar el precio total */
+const updateTotalPriceProducts = () => {
+    const totalPriceCar = document.getElementById("total-price-car");
 
+    // Verifica si totalPriceCar es diferente de null antes de continuar
+    if (totalPriceCar !== null) {
+        const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
+        const fileJsonToLocalStorage = JSON.parse(localStorage.getItem("fileJsonToLocalStorage"));
+        let sumaSubtotales = 0;
+
+        // Recorre las categorías en fileJsonToLocalStorage
+        for (const category in fileJsonToLocalStorage) {
+            if (fileJsonToLocalStorage.hasOwnProperty(category)) {
+                // Obtén la lista de productos en la categoría
+                const productsInCategory = fileJsonToLocalStorage[category];
+    
+                // Itera sobre los productos en la categoría
+                for (const product of productsInCategory) {
+                    const productId = product.id;
+    
+                    // Verifica si el producto está en listOfProducts
+                    if (listOfProducts.hasOwnProperty(productId)) {
+                        
+                        const cantidad = listOfProducts[productId];
+                        const precio = product.price || 0;
+    
+                        // Calcula el subtotal y suma al total
+                        sumaSubtotales += cantidad * precio;
+                    } 
+                }
+            }
+        }
+        totalPriceCar.textContent = "$: " + sumaSubtotales;
+    }
+};
+
+/* Funcion para actualizar el DOM del carrito para mostrar la cantidad de productos totales */
+const updateTotalProducts = () => {
+    const totalProductsCar = document.getElementById("total-products-car");
+    if (totalProductsCar !== null) {
+        totalProductsCar.textContent = "Total de Productos : " + document.getElementById("total-number-items").textContent;
+    }
+
+};
 /**
  *  Agrega al objeto shoppingCartlocalStorage (en nuestro caso, 
  *  siempre es "listOfProducts") el id del producto y su cantidad {id:cantidad},
@@ -34,6 +77,8 @@ export async function addProductsToShoppingCart(element, shoppingCartlocalStorag
             shoppingCartlocalStorage[element.id] = quantity;
             localStorage.setItem("listOfProducts", JSON.stringify(shoppingCartlocalStorage));
             showQuantityOfItems();
+            updateTotalPriceProducts();
+            updateTotalProducts();
             // en caso de que si exista un item llamado listOfProducts en el local storage
             // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
             // en una variable llamda listOfProductsJS
@@ -58,6 +103,8 @@ export async function addProductsToShoppingCart(element, shoppingCartlocalStorag
             listOfProductsJS[element.id] = quantity;
             localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
             showQuantityOfItems();
+            updateTotalPriceProducts();
+            updateTotalProducts();
         }
         // Si estando en el carrito, se pulsa el boton + del producto (se incrementó en uno el quantity
         // del producto en listOfProducts por el código anterior)
@@ -91,9 +138,13 @@ export async function deleteProductsOfShoppingCart(element) {
     // evento asociado al click en el boton de -
     buttonDel.addEventListener("click", function (event) {
         event.preventDefault();
+        updateTotalPriceProducts();
+        updateTotalProducts();
         // Si no hay un item llamado listOfProducts en el local storage o es un objeto vacío
         if (localStorage.getItem("listOfProducts") == null || JSON.parse(localStorage.getItem("listOfProducts")) == {}) {
             showQuantityOfItems();
+            updateTotalPriceProducts();
+            updateTotalProducts();
             // en caso de que si exista un item llamado listOfProducts en el local storage
             // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
             // en una variable llamda listOfProductsJS.
@@ -136,6 +187,8 @@ export async function deleteProductsOfShoppingCart(element) {
                 localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
 
                 showQuantityOfItems();
+                updateTotalPriceProducts();
+                updateTotalProducts();
             }
         }
         // Si estando en el carrito, se pulsa el boton - del producto (se decrementó en uno el quantity
@@ -192,6 +245,8 @@ export function deleteAllItemsOfProductClickedFromShoppingCart(element) {
 
 
         showQuantityOfItems();
+        updateTotalPriceProducts();
+        updateTotalProducts();
     });
 
 }

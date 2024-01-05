@@ -7,7 +7,42 @@ import { productsToBuy } from "./products-to-buy-object.js";
 
 await showProductsToBuyFromLocalStorage("listOfProducts", "fileJsonToLocalStorage");
 
+const updateTotalPriceProducts = () => {
+  const totalPriceCar = document.getElementById("total-price-car");
 
+  // Paso 1: Selecciona todos los elementos con la clase product-subtotal
+  let elementos = document.querySelectorAll('.product-subtotal');
+
+  // Paso 2: Itera sobre los elementos y obtén la parte después del "$"
+  let sumaSubtotales = 0;
+  elementos.forEach(elemento => {
+    // Divide la cadena usando "$" como separador y obtén la segunda parte
+    let partes = elemento.textContent.split('$');
+    if (partes.length === 2) {
+      let valor = parseInt(partes[1], 10);
+      // Asegúrate de que el valor sea un número antes de sumarlo
+      if (!isNaN(valor)) {
+        sumaSubtotales += valor;
+      }
+    }
+  });
+
+  // Paso 3: Muestra el resultado de la suma
+  totalPriceCar.textContent = "$: " + sumaSubtotales;
+};
+
+const updateTotalProducts = () => {
+  const totalProductsCar = document.getElementById("total-products-car");
+  if (totalProductsCar !== null) {
+      totalProductsCar.textContent = "Total de Productos : " + document.getElementById("total-number-items").textContent;
+  }
+
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  updateTotalPriceProducts();
+  updateTotalProducts();
+});
 
 /**
  * Muestra en el HTML las tarjetas con los productos que seleccionó en el Menú.
@@ -25,7 +60,6 @@ async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, name
     const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart(nameOfListOfProductsToBuy, nameOfItemOfProducts);
     showInDOM(arrayOfProductsWithQuantityToBuy);
     showQuantityOfItems();
-
     // además checa constantement si se cliquea en el botón +,- o eliminar de cada producto del carrtio
     arrayOfProductsWithQuantityToBuy.forEach(element => {
       addProductsToShoppingCart(element, productsToBuy);
@@ -55,3 +89,5 @@ function showInDOM(products) {
 
   productsContainer.innerHTML = productsTitle.join("");
 }
+
+
