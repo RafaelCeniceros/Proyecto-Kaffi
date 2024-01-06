@@ -2,7 +2,7 @@ console.log("menu.js");
 
 import MenuCard from "./menu-card-class.js";
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
-import {addProductsToShoppingCart,deleteProductsOfShoppingCart,showQuantityOfItems} from "./add-delete-products-to-ls.js";
+import {addProductsToShoppingCart,deleteProductsOfShoppingCart,showQuantityOfItems,updateQuantityCardMenu} from "./add-delete-products-to-ls.js";
 import { productsToBuy } from "./products-to-buy-object.js";
 
 const url = '../../productos-menu.json';
@@ -94,7 +94,8 @@ async function addAndDeleteShoppingCartProduct(arrayOfObjectsProducts,category) 
     addProductsToShoppingCart(element, productsToBuy);
     showQuantityOfItems();
     deleteProductsOfShoppingCart(element);
-    showQuantityOfItems();   
+    showQuantityOfItems();  
+    updateQuantityCardMenu(element);
   })
 }
 
@@ -103,7 +104,9 @@ function imprimirEnDOM(products) {
 
   const productsTitle = products.map(
     (element) => new MenuCard(element.id, element.name, element.price, element.description, element.image).kaffiCard());
-
+  
   productsContainer.innerHTML = productsTitle.join("");
+
+
 }
 

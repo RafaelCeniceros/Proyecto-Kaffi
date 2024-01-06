@@ -79,6 +79,7 @@ export async function addProductsToShoppingCart(element, shoppingCartlocalStorag
             showQuantityOfItems();
             updateTotalPriceProducts();
             updateTotalProducts();
+            updateQuantityCardMenu(element);
             // en caso de que si exista un item llamado listOfProducts en el local storage
             // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
             // en una variable llamda listOfProductsJS
@@ -105,6 +106,7 @@ export async function addProductsToShoppingCart(element, shoppingCartlocalStorag
             showQuantityOfItems();
             updateTotalPriceProducts();
             updateTotalProducts();
+            updateQuantityCardMenu(element);
         }
         // Si estando en el carrito, se pulsa el boton + del producto (se incrementó en uno el quantity
         // del producto en listOfProducts por el código anterior)
@@ -145,6 +147,7 @@ export async function deleteProductsOfShoppingCart(element) {
             showQuantityOfItems();
             updateTotalPriceProducts();
             updateTotalProducts();
+            updateQuantityCardMenu(element);
             // en caso de que si exista un item llamado listOfProducts en el local storage
             // obtiene ese objeto JSON, lo transforma a un objeto de JS y lo almacena 
             // en una variable llamda listOfProductsJS.
@@ -189,6 +192,7 @@ export async function deleteProductsOfShoppingCart(element) {
                 showQuantityOfItems();
                 updateTotalPriceProducts();
                 updateTotalProducts();
+                updateQuantityCardMenu(element);
             }
         }
         // Si estando en el carrito, se pulsa el boton - del producto (se decrementó en uno el quantity
@@ -362,3 +366,26 @@ function findObjectById(jsonData, itemId) {
     // de lo contrario retornamos null
     return null;
 }
+
+/* 
+Funcion para actualizar la cantidad de las tarjetas de los productos del menu
+*/
+export function updateQuantityCardMenu(element) {
+    
+    // obtenemos las referencias de las etiquetas span del menu del producto pulsado
+    let spanWithProductQuantity = document.getElementById(`span-menu-product-quantity-${element.id}`);
+    if(spanWithProductQuantity != null)
+    {
+    // utilizando el arreglo que contiene objetos, cada uno con información del producto incluyendo la 
+    // cantidad
+    const listOfProductstoBuy = localStorage.getItem("listOfProducts");
+    const listOfProductstoBuyJS = JSON.parse(listOfProductstoBuy);
+    const productIDsOnShoppingCart = Object.keys(listOfProductstoBuyJS);
+     if(productIDsOnShoppingCart.includes((element.id).toString())){
+         spanWithProductQuantity.textContent=listOfProductstoBuyJS[element.id];
+     }
+     else{
+        spanWithProductQuantity.textContent="0";
+     }
+    }
+};

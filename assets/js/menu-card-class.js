@@ -71,7 +71,7 @@ class MenuCard {
 
                                 <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
                                     <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill quantity-control">-</button>
-                                    <button type="button" class="btn ">Agregar</button>
+                                    <span id="span-menu-product-quantity-${this.#id}" class="d-flex span-quantity-product px-2 align-items-center justify-content-center">0</span>
                                     <button id="btn-add-product-${this.#id}" type="button" class="btn quantity-control">+</button>
                                     <button type="button" class="btn rounded-end-pill">$ ${this.price}</button>
                                 </div>
