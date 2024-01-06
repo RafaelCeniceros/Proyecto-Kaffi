@@ -38,12 +38,30 @@ const updateTotalProducts = () => {
   }
 
 };
+/* Se declaran globalmente los IDs de las sugerencias */
+let randomID1, randomID2;
 
 document.addEventListener("DOMContentLoaded", function() {
   updateTotalPriceProducts();
   updateTotalProducts();
+  showSuggestions();
 });
 
+
+/* Codigo del boton "Proceder a Pagar" */
+/* 
+Si hay elementos en el carrito, se redirige al formulario y se guarda el precio total en el localStorage
+*/
+const payButton = document.getElementById("pay-button");
+payButton.addEventListener('click', event => {
+  event.preventDefault();
+  const totalItemsInCar = document.getElementById("total-number-items").textContent;
+  const totalPriceCar = document.getElementById("total-price-car");
+  if (parseInt(totalItemsInCar)!=0){
+    localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
+    window.location.href = "../pages/payment-form.html";
+  }
+})
 /**
  * Muestra en el HTML las tarjetas con los productos que seleccionó en el Menú.
  * Adicionalmente, puede agregar o eliminar cantidad de cada producto o eliminarlo completamente
@@ -90,4 +108,106 @@ function showInDOM(products) {
   productsContainer.innerHTML = productsTitle.join("");
 }
 
+/* Obtener un array con los IDs de los todos los productos existentes */
+function getListOfProductIDs() {
+    const productsInLocalStorageJSON = localStorage.getItem("fileJsonToLocalStorage");
+    const objectProductsJS = JSON.parse(productsInLocalStorageJSON);
 
+    if (!objectProductsJS) {
+        console.error('No hay datos en el almacenamiento local.');
+        return [];
+    }
+
+    // Obtener todos los productos de todas las categorías en un solo arreglo
+    const allProducts = Object.values(objectProductsJS).reduce((accumulator, category) => {
+        return accumulator.concat(category);
+    }, []);
+
+    // Obtener todos los productos ID en un arreglo
+    const ProductIDs = allProducts.map(product => product.id);
+
+    return ProductIDs;
+
+}
+/* Obtener un ID aleatorio de la lista de Products IDs */
+function getRandomID(arrayWithIDs) {
+  // Check if the input array is not empty
+  if (arrayWithIDs.length === 0) {
+    return null; // or any other appropriate value
+  }
+
+  // Generate a random index within the length of the array
+  const randomIndex = Math.floor(Math.random() * arrayWithIDs.length);
+
+  // Return the random ID from the array
+  return arrayWithIDs[randomIndex];
+}
+// Función para obtener la información del producto por ID
+function getProductById(productId) {
+  const productsInLocalStorageJSON = JSON.parse(localStorage.getItem("fileJsonToLocalStorage"));
+  for (let category in productsInLocalStorageJSON) {
+      let products = productsInLocalStorageJSON[category];
+      let product = products.find(p => p.id === productId);
+      if (product) {
+          return product;
+      }
+  }
+  return null;
+}
+/* Obtener un array con los IDs de los productos que estan en el carrito */
+function getListOfProductIDsOnShoppingCart(listOfProducts) {
+  // Inicializa una lista para almacenar los IDs de productos
+  const productIDs = [];
+
+  // Recorre las claves del objeto listOfProducts
+  for (const productID in listOfProducts) {
+      // Verifica si la clave es propia del objeto (no heredada)
+      if (listOfProducts.hasOwnProperty(productID)) {
+          // Agrega el ID del producto a la lista
+          productIDs.push(productID);
+      }
+  }
+
+  // Retorna la lista de IDs de productos
+  return productIDs;
+}
+
+function showSuggestions(){
+const imgSuggestion1 = document.getElementById("img-suggestion-1");
+const imgSuggestion2 = document.getElementById("img-suggestion-2");
+const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
+
+const productIDsOnShoppingCart = getListOfProductIDsOnShoppingCart(listOfProducts);
+do {
+    // Obtén dos IDs aleatorios
+    randomID1 = getRandomID(getListOfProductIDs());
+    randomID2 = getRandomID(getListOfProductIDs());
+
+    // Verifica que los IDs sean diferentes y ninguno esté en el carrito de compras
+} while (randomID1 === randomID2 || productIDsOnShoppingCart.includes(randomID1) || productIDsOnShoppingCart.includes(randomID2));
+// randomID1 y randomID2 son dos IDs diferentes y ninguno está en el carrito de compras
+
+
+// Obtener la información del producto para los dos números aleatorios
+let infoProduct1 = getProductById(randomID1);
+let infoProduct2 = getProductById(randomID2);
+
+// Obtener las imágenes de los productos
+let imageSuggestedProduct1 = infoProduct1 ? infoProduct1.image : null;
+let imageSuggestedProduct2 = infoProduct2 ? infoProduct2.image : null;
+// Ahora image1 y image2 contienen las rutas de las imágenes correspondientes a los números aleatorios
+imgSuggestion1.src=imageSuggestedProduct1;
+imgSuggestion2.src=imageSuggestedProduct2;
+}
+
+const addSuggestion1= document.getElementById("add-suggestion-1")
+addSuggestion1.addEventListener('click', event => {
+event.preventDefault();
+console.log(randomID1);
+})
+
+const addSuggestion2= document.getElementById("add-suggestion-2")
+addSuggestion2.addEventListener('click', event => {
+event.preventDefault();
+console.log(randomID2);
+})

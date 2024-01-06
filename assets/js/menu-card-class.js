@@ -67,7 +67,7 @@ class MenuCard {
                             <div class="card-body">
                                 <h6>${this.#name}</h6>
 
-                                <p class="font-weight-light text-gray">${this.#description}</p>
+                                <p class="font-weight-light">${this.#description}</p>
 
                                 <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
                                     <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill quantity-control">-</button>
