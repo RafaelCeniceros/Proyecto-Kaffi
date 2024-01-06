@@ -203,11 +203,62 @@ imgSuggestion2.src=imageSuggestedProduct2;
 const addSuggestion1= document.getElementById("add-suggestion-1")
 addSuggestion1.addEventListener('click', event => {
 event.preventDefault();
-console.log(randomID1);
+if (localStorage.getItem("listOfProducts") == null) {
+  let quantity = 0;
+  quantity += 1;
+  productsToBuy[randomID1] = quantity;
+  localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+  showQuantityOfItems();
+  updateTotalPriceProducts();
+  updateTotalProducts();
+} else {
+  const listOfProductsJSON = localStorage.getItem("listOfProducts");
+  const listOfProductsJS = JSON.parse(listOfProductsJSON);
+  let quantity = listOfProductsJS[randomID1];
+  if (quantity == undefined || quantity == null) {
+      quantity = 1;
+  } else {
+      quantity += 1;
+  }
+  listOfProductsJS[randomID1] = quantity;
+  localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+  showQuantityOfItems();
+  updateTotalPriceProducts();
+  updateTotalProducts();
+}
+
+const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+showInDOM(arrayOfProductsWithQuantityToBuy);
+showSuggestions();
 })
 
 const addSuggestion2= document.getElementById("add-suggestion-2")
 addSuggestion2.addEventListener('click', event => {
 event.preventDefault();
-console.log(randomID2);
+if (localStorage.getItem("listOfProducts") == null) {
+  let quantity = 0;
+  quantity += 1;
+  productsToBuy[randomID2] = quantity;
+  localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+  showQuantityOfItems();
+  updateTotalPriceProducts();
+  updateTotalProducts();
+} else {
+  const listOfProductsJSON = localStorage.getItem("listOfProducts");
+  const listOfProductsJS = JSON.parse(listOfProductsJSON);
+  let quantity = listOfProductsJS[randomID2];
+  if (quantity == undefined || quantity == null) {
+      quantity = 1;
+  } else {
+      quantity += 1;
+  }
+  listOfProductsJS[randomID2] = quantity;
+  localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+  showQuantityOfItems();
+  updateTotalPriceProducts();
+  updateTotalProducts();
+}
+const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+showInDOM(arrayOfProductsWithQuantityToBuy);
+showSuggestions();
 })
