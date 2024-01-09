@@ -202,7 +202,6 @@ imgSuggestion2.src=imageSuggestedProduct2;
 
 const addSuggestion1= document.getElementById("add-suggestion-1")
 addSuggestion1.addEventListener('click', event => {
-event.preventDefault();
 if (localStorage.getItem("listOfProducts") == null) {
   let quantity = 0;
   quantity += 1;
@@ -229,7 +228,7 @@ if (localStorage.getItem("listOfProducts") == null) {
 
 const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
 showInDOM(arrayOfProductsWithQuantityToBuy);
-showSuggestions();
+location.reload();
 })
 
 const addSuggestion2= document.getElementById("add-suggestion-2")
@@ -260,5 +259,5 @@ if (localStorage.getItem("listOfProducts") == null) {
 }
 const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
 showInDOM(arrayOfProductsWithQuantityToBuy);
-showSuggestions();
+location.reload();
 })
