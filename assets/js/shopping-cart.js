@@ -1,7 +1,7 @@
 console.log("shoopingcart.js");
 
 import ShoppingCard from "./shopping-cart-card.js";
-import { addProductsToShoppingCart, deleteProductsOfShoppingCart, showQuantityOfItems, deleteAllItemsOfProductClickedFromShoppingCart, arrayOfProductsWithQuantityInShoppingCart} from "./add-delete-products-to-ls.js";
+import { addProductsToShoppingCart, deleteProductsOfShoppingCart, showQuantityOfItems, deleteAllItemsOfProductClickedFromShoppingCart, arrayOfProductsWithQuantityInShoppingCart } from "./add-delete-products-to-ls.js";
 import { productsToBuy } from "./products-to-buy-object.js";
 
 
@@ -28,20 +28,20 @@ const updateTotalPriceProducts = () => {
   });
 
   // Paso 3: Muestra el resultado de la suma
-  totalPriceCar.textContent = "$ " + sumaSubtotales +".00";
+  totalPriceCar.textContent = "$ " + sumaSubtotales + ".00";
 };
 
 const updateTotalProducts = () => {
   const totalProductsCar = document.getElementById("total-products-car");
   if (totalProductsCar !== null) {
-      totalProductsCar.textContent = "Total de Productos : " + document.getElementById("total-number-items").textContent;
+    totalProductsCar.textContent = "Total de Productos : " + document.getElementById("total-number-items").textContent;
   }
 
 };
 /* Se declaran globalmente los IDs de las sugerencias */
 let randomID1, randomID2;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   updateTotalPriceProducts();
   updateTotalProducts();
   showSuggestions();
@@ -57,7 +57,7 @@ payButton.addEventListener('click', event => {
   event.preventDefault();
   const totalItemsInCar = document.getElementById("total-number-items").textContent;
   const totalPriceCar = document.getElementById("total-price-car");
-  if (parseInt(totalItemsInCar)!=0){
+  if (parseInt(totalItemsInCar) != 0) {
     localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
     window.location.href = "../pages/payment-form.html";
   }
@@ -72,7 +72,7 @@ async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, name
   // si existe listOfProducts en el localStorage y además no es un objeto vacío
   const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
   if (listOfProducts && Object.keys(listOfProducts).length > 0) {
-    document.getElementById("img-empty-car").style.display="none";
+    document.getElementById("img-empty-car").style.display = "none";
     // obtenemos un arreglo con todos los productos a comprar y su cantidad y con dicho arreglo, 
     // mostramos las trajetas en el HTML
     const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart(nameOfListOfProductsToBuy, nameOfItemOfProducts);
@@ -85,7 +85,7 @@ async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, name
       deleteAllItemsOfProductClickedFromShoppingCart(element);
     });
   } else {
-    document.getElementById("img-empty-car").style.display="flex";
+    document.getElementById("img-empty-car").style.display = "flex";
   }
 };
 
@@ -110,23 +110,23 @@ function showInDOM(products) {
 
 /* Obtener un array con los IDs de los todos los productos existentes */
 function getListOfProductIDs() {
-    const productsInLocalStorageJSON = localStorage.getItem("fileJsonToLocalStorage");
-    const objectProductsJS = JSON.parse(productsInLocalStorageJSON);
+  const productsInLocalStorageJSON = localStorage.getItem("fileJsonToLocalStorage");
+  const objectProductsJS = JSON.parse(productsInLocalStorageJSON);
 
-    if (!objectProductsJS) {
-        console.error('No hay datos en el almacenamiento local.');
-        return [];
-    }
+  if (!objectProductsJS) {
+    console.error('No hay datos en el almacenamiento local.');
+    return [];
+  }
 
-    // Obtener todos los productos de todas las categorías en un solo arreglo
-    const allProducts = Object.values(objectProductsJS).reduce((accumulator, category) => {
-        return accumulator.concat(category);
-    }, []);
+  // Obtener todos los productos de todas las categorías en un solo arreglo
+  const allProducts = Object.values(objectProductsJS).reduce((accumulator, category) => {
+    return accumulator.concat(category);
+  }, []);
 
-    // Obtener todos los productos ID en un arreglo
-    const ProductIDs = allProducts.map(product => product.id);
+  // Obtener todos los productos ID en un arreglo
+  const ProductIDs = allProducts.map(product => product.id);
 
-    return ProductIDs;
+  return ProductIDs;
 
 }
 /* Obtener un ID aleatorio de la lista de Products IDs */
@@ -146,11 +146,11 @@ function getRandomID(arrayWithIDs) {
 function getProductById(productId) {
   const productsInLocalStorageJSON = JSON.parse(localStorage.getItem("fileJsonToLocalStorage"));
   for (let category in productsInLocalStorageJSON) {
-      let products = productsInLocalStorageJSON[category];
-      let product = products.find(p => p.id === productId);
-      if (product) {
-          return product;
-      }
+    let products = productsInLocalStorageJSON[category];
+    let product = products.find(p => p.id === productId);
+    if (product) {
+      return product;
+    }
   }
   return null;
 }
@@ -161,103 +161,103 @@ function getListOfProductIDsOnShoppingCart(listOfProducts) {
 
   // Recorre las claves del objeto listOfProducts
   for (const productID in listOfProducts) {
-      // Verifica si la clave es propia del objeto (no heredada)
-      if (listOfProducts.hasOwnProperty(productID)) {
-          // Agrega el ID del producto a la lista
-          productIDs.push(productID);
-      }
+    // Verifica si la clave es propia del objeto (no heredada)
+    if (listOfProducts.hasOwnProperty(productID)) {
+      // Agrega el ID del producto a la lista
+      productIDs.push(productID);
+    }
   }
 
   // Retorna la lista de IDs de productos
   return productIDs;
 }
 
-function showSuggestions(){
-const imgSuggestion1 = document.getElementById("img-suggestion-1");
-const imgSuggestion2 = document.getElementById("img-suggestion-2");
-const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
+function showSuggestions() {
+  const imgSuggestion1 = document.getElementById("img-suggestion-1");
+  const imgSuggestion2 = document.getElementById("img-suggestion-2");
+  const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
 
-const productIDsOnShoppingCart = getListOfProductIDsOnShoppingCart(listOfProducts);
-do {
+  const productIDsOnShoppingCart = getListOfProductIDsOnShoppingCart(listOfProducts);
+  do {
     // Obtén dos IDs aleatorios
     randomID1 = getRandomID(getListOfProductIDs());
     randomID2 = getRandomID(getListOfProductIDs());
 
     // Verifica que los IDs sean diferentes y ninguno esté en el carrito de compras
-} while (randomID1 === randomID2 || productIDsOnShoppingCart.includes(randomID1) || productIDsOnShoppingCart.includes(randomID2));
-// randomID1 y randomID2 son dos IDs diferentes y ninguno está en el carrito de compras
+  } while (randomID1 === randomID2 || productIDsOnShoppingCart.includes(randomID1) || productIDsOnShoppingCart.includes(randomID2));
+  // randomID1 y randomID2 son dos IDs diferentes y ninguno está en el carrito de compras
 
 
-// Obtener la información del producto para los dos números aleatorios
-let infoProduct1 = getProductById(randomID1);
-let infoProduct2 = getProductById(randomID2);
+  // Obtener la información del producto para los dos números aleatorios
+  let infoProduct1 = getProductById(randomID1);
+  let infoProduct2 = getProductById(randomID2);
 
-// Obtener las imágenes de los productos
-let imageSuggestedProduct1 = infoProduct1 ? infoProduct1.image : null;
-let imageSuggestedProduct2 = infoProduct2 ? infoProduct2.image : null;
-// Ahora image1 y image2 contienen las rutas de las imágenes correspondientes a los números aleatorios
-imgSuggestion1.src=imageSuggestedProduct1;
-imgSuggestion2.src=imageSuggestedProduct2;
+  // Obtener las imágenes de los productos
+  let imageSuggestedProduct1 = infoProduct1 ? infoProduct1.image : null;
+  let imageSuggestedProduct2 = infoProduct2 ? infoProduct2.image : null;
+  // Ahora image1 y image2 contienen las rutas de las imágenes correspondientes a los números aleatorios
+  imgSuggestion1.src = imageSuggestedProduct1;
+  imgSuggestion2.src = imageSuggestedProduct2;
 }
 
-const addSuggestion1= document.getElementById("add-suggestion-1")
+const addSuggestion1 = document.getElementById("add-suggestion-1")
 addSuggestion1.addEventListener('click', event => {
-if (localStorage.getItem("listOfProducts") == null) {
-  let quantity = 0;
-  quantity += 1;
-  productsToBuy[randomID1] = quantity;
-  localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
-  showQuantityOfItems();
-  updateTotalPriceProducts();
-  updateTotalProducts();
-} else {
-  const listOfProductsJSON = localStorage.getItem("listOfProducts");
-  const listOfProductsJS = JSON.parse(listOfProductsJSON);
-  let quantity = listOfProductsJS[randomID1];
-  if (quantity == undefined || quantity == null) {
-      quantity = 1;
+  if (localStorage.getItem("listOfProducts") == null) {
+    let quantity = 0;
+    quantity += 1;
+    productsToBuy[randomID1] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
   } else {
+    const listOfProductsJSON = localStorage.getItem("listOfProducts");
+    const listOfProductsJS = JSON.parse(listOfProductsJSON);
+    let quantity = listOfProductsJS[randomID1];
+    if (quantity == undefined || quantity == null) {
+      quantity = 1;
+    } else {
       quantity += 1;
+    }
+    listOfProductsJS[randomID1] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
   }
-  listOfProductsJS[randomID1] = quantity;
-  localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
-  showQuantityOfItems();
-  updateTotalPriceProducts();
-  updateTotalProducts();
-}
 
-const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
-showInDOM(arrayOfProductsWithQuantityToBuy);
-location.reload();
+  const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+  showInDOM(arrayOfProductsWithQuantityToBuy);
+  location.reload();
 })
 
-const addSuggestion2= document.getElementById("add-suggestion-2")
+const addSuggestion2 = document.getElementById("add-suggestion-2")
 addSuggestion2.addEventListener('click', event => {
-event.preventDefault();
-if (localStorage.getItem("listOfProducts") == null) {
-  let quantity = 0;
-  quantity += 1;
-  productsToBuy[randomID2] = quantity;
-  localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
-  showQuantityOfItems();
-  updateTotalPriceProducts();
-  updateTotalProducts();
-} else {
-  const listOfProductsJSON = localStorage.getItem("listOfProducts");
-  const listOfProductsJS = JSON.parse(listOfProductsJSON);
-  let quantity = listOfProductsJS[randomID2];
-  if (quantity == undefined || quantity == null) {
-      quantity = 1;
+  event.preventDefault();
+  if (localStorage.getItem("listOfProducts") == null) {
+    let quantity = 0;
+    quantity += 1;
+    productsToBuy[randomID2] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
   } else {
+    const listOfProductsJSON = localStorage.getItem("listOfProducts");
+    const listOfProductsJS = JSON.parse(listOfProductsJSON);
+    let quantity = listOfProductsJS[randomID2];
+    if (quantity == undefined || quantity == null) {
+      quantity = 1;
+    } else {
       quantity += 1;
+    }
+    listOfProductsJS[randomID2] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
   }
-  listOfProductsJS[randomID2] = quantity;
-  localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
-  showQuantityOfItems();
-  updateTotalPriceProducts();
-  updateTotalProducts();
-}
-const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
-showInDOM(arrayOfProductsWithQuantityToBuy);
-location.reload();
+  const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+  showInDOM(arrayOfProductsWithQuantityToBuy);
+  location.reload();
 })

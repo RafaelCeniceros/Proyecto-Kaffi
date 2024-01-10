@@ -60,7 +60,7 @@ const updateTotalProducts = () => {
  * @param {Object} element 
  * @param {Object} shoppingCartlocalStorage 
  */
-export async function addProductsToShoppingCart(element, shoppingCartlocalStorage) {
+export function addProductsToShoppingCart(element, shoppingCartlocalStorage) {
     // variable que obtiene la referencia del boton + creado por MenuCard.kaffiCard()
     let buttonAdd = document.getElementById(`btn-add-product-${element.id}`);
     // evento asociado al click en el boton de +.
@@ -134,7 +134,7 @@ export async function addProductsToShoppingCart(element, shoppingCartlocalStorag
  * @param {Object} element 
  * @param {Object} shoppingCartlocalStorage 
  */
-export async function deleteProductsOfShoppingCart(element) {
+export function deleteProductsOfShoppingCart(element) {
     // variable que obtiene la referencia del boton - creado por MenuCard.kaffiCard()
     let buttonDel = document.getElementById(`btn-del-product-${element.id}`);
     // evento asociado al click en el boton de -
@@ -374,8 +374,7 @@ export function updateQuantityCardMenu(element) {
     
     // obtenemos las referencias de las etiquetas span del menu del producto pulsado
     let spanWithProductQuantity = document.getElementById(`span-menu-product-quantity-${element.id}`);
-    if(spanWithProductQuantity != null)
-    {
+    if(spanWithProductQuantity != null) {
     // utilizando el arreglo que contiene objetos, cada uno con información del producto incluyendo la 
     // cantidad
     const listOfProductstoBuy = localStorage.getItem("listOfProducts");
@@ -383,8 +382,7 @@ export function updateQuantityCardMenu(element) {
     const productIDsOnShoppingCart = Object.keys(listOfProductstoBuyJS);
      if(productIDsOnShoppingCart.includes((element.id).toString())){
          spanWithProductQuantity.textContent=listOfProductstoBuyJS[element.id];
-     }
-     else{
+     } else {
         spanWithProductQuantity.textContent="0";
      }
     }
