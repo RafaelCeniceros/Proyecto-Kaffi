@@ -38,6 +38,7 @@ const updateTotalProducts = () => {
   }
 
 };
+
 /* Se declaran globalmente los IDs de las sugerencias */
 let randomID1, randomID2;
 
@@ -175,6 +176,8 @@ function getListOfProductIDsOnShoppingCart(listOfProducts) {
 function showSuggestions() {
   const imgSuggestion1 = document.getElementById("img-suggestion-1");
   const imgSuggestion2 = document.getElementById("img-suggestion-2");
+  const imgSuggestion1sm = document.getElementById("img-suggestion-1-sm");
+  const imgSuggestion2sm = document.getElementById("img-suggestion-2-sm");
   const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
 
   const productIDsOnShoppingCart = getListOfProductIDsOnShoppingCart(listOfProducts);
@@ -197,7 +200,9 @@ function showSuggestions() {
   let imageSuggestedProduct2 = infoProduct2 ? infoProduct2.image : null;
   // Ahora image1 y image2 contienen las rutas de las imágenes correspondientes a los números aleatorios
   imgSuggestion1.src = imageSuggestedProduct1;
+  imgSuggestion1sm.src=imageSuggestedProduct1;
   imgSuggestion2.src = imageSuggestedProduct2;
+  imgSuggestion2sm.src = imageSuggestedProduct2;
 }
 
 const addSuggestion1 = document.getElementById("add-suggestion-1")
@@ -233,6 +238,68 @@ addSuggestion1.addEventListener('click', event => {
 
 const addSuggestion2 = document.getElementById("add-suggestion-2")
 addSuggestion2.addEventListener('click', event => {
+  event.preventDefault();
+  if (localStorage.getItem("listOfProducts") == null) {
+    let quantity = 0;
+    quantity += 1;
+    productsToBuy[randomID2] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
+  } else {
+    const listOfProductsJSON = localStorage.getItem("listOfProducts");
+    const listOfProductsJS = JSON.parse(listOfProductsJSON);
+    let quantity = listOfProductsJS[randomID2];
+    if (quantity == undefined || quantity == null) {
+      quantity = 1;
+    } else {
+      quantity += 1;
+    }
+    listOfProductsJS[randomID2] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
+  }
+  const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+  showInDOM(arrayOfProductsWithQuantityToBuy);
+  location.reload();
+})
+
+const addSuggestion1sm = document.getElementById("add-suggestion-1-sm")
+addSuggestion1sm.addEventListener('click', event => {
+  if (localStorage.getItem("listOfProducts") == null) {
+    let quantity = 0;
+    quantity += 1;
+    productsToBuy[randomID1] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(productsToBuy));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
+  } else {
+    const listOfProductsJSON = localStorage.getItem("listOfProducts");
+    const listOfProductsJS = JSON.parse(listOfProductsJSON);
+    let quantity = listOfProductsJS[randomID1];
+    if (quantity == undefined || quantity == null) {
+      quantity = 1;
+    } else {
+      quantity += 1;
+    }
+    listOfProductsJS[randomID1] = quantity;
+    localStorage.setItem("listOfProducts", JSON.stringify(listOfProductsJS));
+    showQuantityOfItems();
+    updateTotalPriceProducts();
+    updateTotalProducts();
+  }
+
+  const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
+  showInDOM(arrayOfProductsWithQuantityToBuy);
+  location.reload();
+})
+
+const addSuggestion2sm = document.getElementById("add-suggestion-2-sm")
+addSuggestion2sm.addEventListener('click', event => {
   event.preventDefault();
   if (localStorage.getItem("listOfProducts") == null) {
     let quantity = 0;
