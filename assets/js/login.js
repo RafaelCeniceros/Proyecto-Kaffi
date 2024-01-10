@@ -33,7 +33,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
       if (email === userDataJS.emails[i]) { // Cambio de 'usuarios' a 'emails'
         userFound = true;
         if (password === userDataJS.contrasenas[i]) {
-          window.location.href = '../../admin-profile.html';
+          window.location.href = "../pages/admin-profile.html"
           return;
         } else {
           document.getElementById('error').innerText = 'Email o contraseña incorrectos.';
