@@ -80,6 +80,7 @@ function showProductsFromLocalStorage(nameOfItemInLocalStorage, category) {
   // agrega o elimina productos en el objeto productsToBuy y lo almacena en el 
   // localStorage con nombre "listOfProducts"
   addAndDeleteShoppingCartProduct(productsJS, category);
+  
 }
 
 await saveProductsInLocalStorage(url);
@@ -89,14 +90,17 @@ showProductsFromLocalStorage("fileJsonToLocalStorage","Cafes");
 // incrementa o decrementa en una unidad la cantidad asociado a un producto en el
 // objeto productsToBuy al pulsar sobre el boton +/-
 // Además, muestra en en el header la cantidad total de items que se quieren comprar
-async function addAndDeleteShoppingCartProduct(arrayOfObjectsProducts,category) {
+function addAndDeleteShoppingCartProduct(arrayOfObjectsProducts,category) {
   arrayOfObjectsProducts[category].forEach(element => {
     addProductsToShoppingCart(element, productsToBuy);
     showQuantityOfItems();
     deleteProductsOfShoppingCart(element);
-    showQuantityOfItems();  
-    updateQuantityCardMenu(element);
+    showQuantityOfItems(); 
+    if (localStorage.getItem("listOfProducts") != null) {
+      updateQuantityCardMenu(element);
+    }
   })
+  
 }
 
 function imprimirEnDOM(products) {
