@@ -14,9 +14,11 @@ searchButton.addEventListener('click', event => {
 
     if(isNumber){
         showProductFromLocalStorageWithID(parseInt(productSearched));
+        searchProductInput.value="";
     }
     else{
         showProductFromLocalStorageWithName(productSearched);
+        searchProductInput.value="";
     }
 })
 

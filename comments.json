@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "date": "2024-01-10",
+    "comment": "Late demasiado caliente",
+    "user": { "id": "5", "name":"Axel"}
+  },
+  {
+    "id": "2",
+    "date": "2024-01-10",
+    "comment": "Late muy caliente",
+    "user": { "id": "7" }
+  },
+  {
+    "id": "3",
+    "date": "2024-01-11",
+    "comment": "Late muy rico",
+    "user": { "id": "6", "name":"Diego"}
+  },
+  {
+    "id": "4",
+    "date": "2024-01-11",
+    "comment": "Late demasiado agrio",
+    "user": { "id": "6", "name":"Diego"}
+  },
+  {
+    "id": "5",
+    "date": "2024-01-12",
+    "comment": "Late muy delicioso",
+    "user": { "id": "7" }
+  },
+  {
+    "id": "6",
+    "date": "2024-01-14",
+    "comment": "Tardaron en atenderme",
+    "user": { "id": "6", "name":"Diego"}
+  }
+  
+]
