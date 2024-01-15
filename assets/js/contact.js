@@ -137,15 +137,16 @@ userLoginButton.addEventListener("click", event => {
   event.preventDefault();
   const accessToken = JSON.parse(localStorage.getItem('accessToken'));
   if (accessToken) {
-    console.log("Inicio de sesion detectado")
+    console.log("Inicio de sesion detectado");
     console.log("UserType:" + accessToken.userType);
     if (accessToken.userType === 1) {
       window.location.href = "../pages/admin-profile.html";
     } else if (accessToken.userType === 2) {
-      window.location.href = "../pages/user-profile.html";
-    }
-    else {
-      window.location.href = "../pages/login.html#login-container";
+      window.location.href = "../pages/profile.html";
     }
   }
+  else {
+    console.log("Inicio de sesion no detectado");
+      window.location.href = "../pages/login.html#login-container";
+    }
 })

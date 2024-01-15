@@ -79,6 +79,9 @@ body{
     font-size: 1em;
 }
 
+.fa-mug-saucer, .fa-bag-shopping, .fa-comments{
+    color:#361c12;
+}
 
 .searchbar{
     background-color: white;
@@ -116,6 +119,28 @@ input[type="search"]::-webkit-search-clear-button {
     border-style: none;
 }
 .option-button button:hover{
+    text-decoration: underline;
+}
+
+.fa-right-from-bracket{
+    color:rgb(246, 234, 204);
+}
+
+.option-button-dark {
+    background-color: #361c12; 
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    min-height: 10vh;
+    cursor: pointer;
+}
+.option-button-dark button{
+    background-color: #361c12; 
+    border-color: none;
+    border-style: none;
+    color:rgb(246, 234, 204);
+    font-weight: 500;
+}
+.option-button-dark button:hover{
     text-decoration: underline;
 }
 
@@ -178,10 +203,9 @@ input[type="search"]::-webkit-search-clear-button {
 
 .comment-icon{
     background-color: #361c12;
-    margin: 1.75em 0;
-    padding: 0em 0.5em;
     color:#FAF4E5;
     border-radius: 50%;
+    padding: 2em 0.5em;
 }
 
 .comment-card{
@@ -212,6 +236,7 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: #361c12;
     color:#FAF4E5;
     border-radius: 50%;
+    padding: 1.75em 1em;
 }
 
 .order-card{
@@ -219,14 +244,13 @@ input[type="search"]::-webkit-search-clear-button {
     border-radius: 0.5em;
     box-shadow: 0px 0.5px 0.25px rgba(0, 0, 0, 0.25);
 }
-.order-card h5{
-    font-weight: bold;
-    font-family: 'Imprima', sans-serif;
-    color: #996229;
+.order-card h6.order-number{
+    font-family: 'inter', sans-serif;    color: #996229;
 }
 
 .order-card h6{
-    font-family: 'inter', sans-serif;
+    font-weight: bold;
+    font-family: 'Imprima', sans-serif;
     color: #361c12;
 }
 

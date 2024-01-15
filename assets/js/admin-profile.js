@@ -1,6 +1,23 @@
 console.log("Estoy conectado al HTML");
 const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
 
+const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+const welcomeHTML = document.getElementById("welcome-name");
+  if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("NombreUsuario:" + accessToken.userName);
+    welcomeHTML.textContent="Bienvenido, "+ accessToken.userName;
+    if (accessToken.userType === 1) {
+        window.location.href = "../pages/admin-profile.html";
+      } else if (accessToken.userType === 2) {
+        window.location.href = "../pages/profile.html";
+    }
+  }
+  else {
+    window.location.href = "../pages/login.html#login-container";
+  }
+  
+
 /* 
 Get Comments from Api
 */
@@ -81,7 +98,7 @@ function generateCommentCard({ date, comment, user }) {
     });
 
     return `
-        <div class="col-12 d-flex my-2">
+        <div class="col-12 d-flex my-2 align-items-center">
             <div class="comment-icon d-flex align-items-center justify-content-center mx-2">
                 <i class="fa-solid fa-user fa-xl mx-1"></i>
                 <i class="fa-solid fa-comment-dots fa-xl"></i>
@@ -202,15 +219,15 @@ function generateOrderCard({id, date, price, user }) {
     });
 
     return `
-        <div class="col-12 d-flex my-2">
+        <div class="col-12 d-flex my-2 align-items-center">
             <div class="order-card w-75 d-flex flex-column p-2">
-                <h5 class="my-2 d-flex">Orden No. ${id}</h5>
+                <h6 class="my-2 d-flex order-number">Orden No. ${id}</h6>
                 <h6 class="my-1 d-flex">${formattedDate}</h6>
                 <h6 class="my-2 d-flex">${userInfo}</h6>
                 <p class="d-flex">$: ${price} MXN</p>
                 <button class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
             </div>
-            <div class="order-icon d-flex align-items-center justify-content-center mx-2 my-5 px-3">
+            <div class="order-icon d-flex align-items-center justify-content-center mx-2">
                 <i class="fa-solid fa-file-invoice-dollar fa-2xl"></i>
             </div>
         </div>
@@ -333,15 +350,31 @@ userLoginButton.addEventListener("click", event => {
   event.preventDefault();
   const accessToken = JSON.parse(localStorage.getItem('accessToken'));
   if (accessToken) {
-    console.log("Inicio de sesion detectado")
+    console.log("Inicio de sesion detectado");
     console.log("UserType:" + accessToken.userType);
     if (accessToken.userType === 1) {
       window.location.href = "../pages/admin-profile.html";
     } else if (accessToken.userType === 2) {
-      window.location.href = "../pages/user-profile.html";
-    }
-    else {
-      window.location.href = "../pages/login.html#login-container";
+      window.location.href = "../pages/profile.html";
     }
   }
+  else {
+    console.log("Inicio de sesion no detectado");
+      window.location.href = "../pages/login.html#login-container";
+    }
 })
+
+const buttonLogOutlg = document.getElementById('option-logout-button-lg');
+buttonLogOutlg.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+const buttonLogOut = document.getElementById('option-logout-button');
+buttonLogOutlg.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+
+
