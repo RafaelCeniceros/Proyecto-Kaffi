@@ -1,15 +1,13 @@
+console.log("Estoy conectado al HTML");
+const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
 
 /* 
 Get Comments from Api
 */
-
-console.log("Estoy conectado al HTML");
-
 const urlAPIcomments = "../../comments.json";
-const localStorageKey = "commentsData";
-const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
 
 function getComments(url) {
+    const localStorageKey = "commentsData";
     //document.getElementById("preloader").style.display = "flex";
     // Limpiar el contenido del DOM
     clearDOMComments();
@@ -61,33 +59,39 @@ function getComments(url) {
     });
 };
 
-function generateCommentCard({date, comment, user }) {
-
+function generateCommentCard({ date, comment, user }) {
     let userInfo;
-    if(user.id != null){
-        userInfo = user.name;
-        if(user.name == null){
-            userInfo = "Anónimo"
-        }
-        else{
-            userInfo = user.name;
-        }
-    }
-    else{
+
+    if (user && user.id != null) {
+        // Combine firstName and lastName if user is not null
+        userInfo = `${user.firtName} ${user.lastName}`;
+    } else {
+        // Display "Anónimo" if user is null
         userInfo = "Anónimo";
     }
+
+    // Convert the date string to a Date object
+    const commentDate = new Date(date);
+
+    // Format the date as "day month year"
+    const formattedDate = commentDate.toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
     return `
-    <div class="col-12 d-flex my-2">
-        <div class="comment-icon d-flex align-items-center justify-content-center mx-2">
-            <i class="fa-solid fa-user fa-xl mx-1"></i>
-            <i class="fa-solid fa-comment-dots fa-xl"></i>
+        <div class="col-12 d-flex my-2">
+            <div class="comment-icon d-flex align-items-center justify-content-center mx-2">
+                <i class="fa-solid fa-user fa-xl mx-1"></i>
+                <i class="fa-solid fa-comment-dots fa-xl"></i>
+            </div>
+            <div class="comment-card w-75 d-flex flex-column p-2">
+                <h6 class="my-1 d-flex">${formattedDate}</h6>
+                <h5 class="my-2 d-flex">${userInfo}</h5>
+                <p class="d-flex">${comment}</p>
+            </div>
         </div>
-        <div class="comment-card w-75 d-flex flex-column  p-2">
-            <h6 class="my-1 d-flex">${date} </h6>
-            <h5 class="my-2 d-flex">${userInfo}</h5>
-            <p class="d-flex">${comment}</p>
-        </div>
-    </div>
     `;
 }
 function clearDOMComments() {
@@ -119,6 +123,126 @@ function printOnDOMComments(comments) {
 }
 
 
+/* 
+Get Orders from Api
+*/
+
+const urlAPIorders = "../../orders.json";
+
+function getOrders(url) {
+    const localStorageKey = "ordersData";
+    //document.getElementById("preloader").style.display = "flex";
+    // Limpiar el contenido del DOM
+    clearDOMOrders();
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+    if(storedData)
+    {
+    //tiempo que ha transcurrido desde que se presionó el botón
+    const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
+    //si hay informacion en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor tiempo de vida limite del localStorage en segundos 
+    if (storedData && (timeSince < localStorageTimeLimit_s)) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        console.log("Recuperando datos desde el Local Storage");
+        console.log("Tiempo transcurrido: " + timeSince + " segundos");
+        printOnDOMOrders(storedData.data);
+        /// Mantener el preloader oculto.
+        //document.getElementById("preloader").style.display = "none";
+        return;
+    }
+    }
+    // Realizando solicitud GET
+    fetch(url)
+    .then((response) => {
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+            return response.json();
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    })
+    .then((orders) => {
+        // Log the entire orders object to inspect its structure
+        console.log("Orders received:", orders);
+
+        // Guardar en el Local Storage con la marca de tiempo
+        const timestamp = Date.now();
+        const dataToStore = { data: orders, timestamp: timestamp };
+        localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+        // Ocultar el preloader después de recibir la respuesta
+        //document.getElementById("preloader").style.display = "none";
+        console.table(dataToStore); // array con comentarios
+        printOnDOMOrders(orders);
+    })
+    .catch((error) => {
+        console.log("Error in the request:", error);
+        // Handle the error or log additional information if needed
+    });
+};
+
+function generateOrderCard({id, date, price, user }) {
+    let userInfo;
+
+    if (user && user.id != null) {
+        // Combine firstName and lastName if user is not null
+        userInfo = `${user.firtName} ${user.lastName}`;
+    } else {
+        // Display "Anónimo" if user is null
+        userInfo = "Anónimo";
+    }
+
+    // Convert the date string to a Date object
+    const orderDate = new Date(date);
+
+    // Format the date as "day month year"
+    const formattedDate = orderDate.toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    return `
+        <div class="col-12 d-flex my-2">
+            <div class="order-card w-75 d-flex flex-column p-2">
+                <h5 class="my-2 d-flex">Orden No. ${id}</h5>
+                <h6 class="my-1 d-flex">${formattedDate}</h6>
+                <h6 class="my-2 d-flex">${userInfo}</h6>
+                <p class="d-flex">$: ${price} MXN</p>
+                <button class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
+            </div>
+            <div class="order-icon d-flex align-items-center justify-content-center mx-2 my-5 px-3">
+                <i class="fa-solid fa-file-invoice-dollar fa-2xl"></i>
+            </div>
+        </div>
+    `;
+}
+function clearDOMOrders() {
+    // Obtener el contenedor de usuarios y establecer su contenido en blanco
+    const ordersContainer = document.getElementById("orders");
+    if (ordersContainer) {
+        ordersContainer.innerHTML = "";
+    }
+}
+
+function printOnDOMOrders(orders) {
+    const ordersContainer = document.getElementById("orders");
+    const noOrdersContainer = document.getElementById("no-orders");
+    if (!ordersContainer) {
+        console.error("Contenedor de comentarios no encontrado");
+        return;
+    }
+
+    if (Array.isArray(orders) && orders.length > 0) {
+        const ordersHTML = orders.map(generateOrderCard);
+        ordersContainer.style.display="flex";
+        noOrdersContainer.style.display="none";
+        ordersContainer.innerHTML = ordersHTML.join("");
+    } else {
+        console.log("No hay comentarios");
+        ordersContainer.style.display="none";
+        noOrdersContainer.style.display="flex";
+    }
+}
 
 
 
@@ -177,6 +301,7 @@ productsButton.addEventListener('click', () => {
 ordersButton.addEventListener('click', () => {
     hideAllContainers();
     ordersContainer.style.display = 'flex';
+    getOrders(urlAPIorders);
 });
 
 commentsButton.addEventListener('click', () =>{
@@ -194,6 +319,7 @@ productsButtonLateralMenu.addEventListener('click', () => {
 ordersButtonLateralMenu.addEventListener('click', () => {
     hideAllContainers();
     ordersContainer.style.display = 'flex';
+    getOrders(urlAPIorders);
 });
 
 commentsButtonLateralMenu.addEventListener('click', () =>{

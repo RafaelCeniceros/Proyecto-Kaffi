@@ -1,39 +1,42 @@
 [
   {
-    "id": "1",
-    "date": "2024-01-10",
-    "comment": "Late demasiado caliente",
-    "user": { "id": "5", "name":"Axel"}
+      "id": 1,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Americano delicioso",
+      "user": null
   },
   {
-    "id": "2",
-    "date": "2024-01-10",
-    "comment": "Late muy caliente",
-    "user": { "id": "7" }
+      "id": 2,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Muy buen servicio",
+      "user": {
+          "id": 6,
+          "firtName": "Andrés Manuel",
+          "lastName": "López Obrador",
+          "email": "AMLO_4T@gmail.com",
+          "password": "Code_Titans123",
+          "address": "Palacio Nacional CDMX",
+          "idUserType": 2
+      }
   },
   {
-    "id": "3",
-    "date": "2024-01-11",
-    "comment": "Late muy rico",
-    "user": { "id": "6", "name":"Diego"}
+      "id": 3,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Late delicioso",
+      "user": null
   },
   {
-    "id": "4",
-    "date": "2024-01-11",
-    "comment": "Late demasiado agrio",
-    "user": { "id": "6", "name":"Diego"}
-  },
-  {
-    "id": "5",
-    "date": "2024-01-12",
-    "comment": "Late muy delicioso",
-    "user": { "id": "7" }
-  },
-  {
-    "id": "6",
-    "date": "2024-01-14",
-    "comment": "Tardaron en atenderme",
-    "user": { "id": "6", "name":"Diego"}
+      "id": 4,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Tardaron un poco en atenderme",
+      "user": {
+          "id": 7,
+          "firtName": "Isaac",
+          "lastName": "Newton",
+          "email": "fisicomuerto@gmail.com",
+          "password": "Code_Titans123",
+          "address": "Woolsthorpe Manor Hous",
+          "idUserType": 2
+      }
   }
-  
 ]
