@@ -5,7 +5,7 @@
         "date": "2023-12-01T06:00:00.000+00:00",
         "user": {
             "id": 6,
-            "firtName": "Andrés Manuel",
+            "firstName": "Andrés Manuel",
             "lastName": "López Obrador",
             "email": "AMLO_4T@gmail.com",
             "password": "Code_Titans123",
@@ -19,7 +19,7 @@
         "date": "2023-12-02T06:00:00.000+00:00",
         "user": {
             "id": 7,
-            "firtName": "Isaac",
+            "firstName": "Isaac",
             "lastName": "Newton",
             "email": "fisicomuerto@gmail.com",
             "password": "Code_Titans123",
@@ -33,7 +33,7 @@
         "date": "2023-12-03T06:00:00.000+00:00",
         "user": {
             "id": 5,
-            "firtName": "Cristiano Ronaldo",
+            "firstName": "Cristiano Ronaldo",
             "lastName": "Dos Santos Aveiro",
             "email": "CR7_oficial@gmail.com",
             "password": "Code_Titans123",
@@ -47,7 +47,7 @@
         "date": "2023-12-04T06:00:00.000+00:00",
         "user": {
             "id": 5,
-            "firtName": "Cristiano Ronaldo",
+            "firstName": "Cristiano Ronaldo",
             "lastName": "Dos Santos Aveiro",
             "email": "CR7_oficial@gmail.com",
             "password": "Code_Titans123",
@@ -61,7 +61,7 @@
         "date": "2023-12-05T06:00:00.000+00:00",
         "user": {
             "id": 7,
-            "firtName": "Isaac",
+            "firstName": "Isaac",
             "lastName": "Newton",
             "email": "fisicomuerto@gmail.com",
             "password": "Code_Titans123",

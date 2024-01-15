@@ -1,0 +1,466 @@
+[
+    {
+        "id": 1,
+        "name": "Café Americano",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 50,
+        "description": "Café espresso mezclado con agua caliente",
+        "image": "../images/imagenes-menu/Cafes/cafe_americano.png"
+    },
+    {
+        "id": 2,
+        "name": "Espresso",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 25,
+        "description": "Un tiro de café concentrado",
+        "image": "../images/imagenes-menu/Cafes/cafe_espresso.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Doble",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 30,
+        "description": "Doble tiro de café espresso",
+        "image": "../images/imagenes-menu/Cafes/Doble.png"
+    },
+    {
+        "id": 4,
+        "name": "Café latte",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 50,
+        "description": "Café espresso con una generosa cantidad de leche vaporizada",
+        "image": "../images/imagenes-menu/Cafes/Cafe-latte.png"
+    },
+    {
+        "id": 5,
+        "name": "Capuccino",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 50,
+        "description": "Mezcla equilibrada de café espresso, leche vaporizada y espuma de leche",
+        "image": "../images/imagenes-menu/Cafes/Capuccino.png"
+    },
+    {
+        "id": 6,
+        "name": "Café de olla",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 39,
+        "description": "Café infusionado con especias y piloncillo",
+        "image": "../images/imagenes-menu/Cafes/Cafe-olla.png"
+    },
+    {
+        "id": 7,
+        "name": "Mocha",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 55,
+        "description": "Café espresso con jarabe de chocolate y leche vaporizada",
+        "image": "../images/imagenes-menu/Cafes/Mocha.png"
+    },
+    {
+        "id": 8,
+        "name": "Mocha blanco",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 55,
+        "description": "Café espresso con jarabe de vainilla, chocolate blanco y leche vaporizada",
+        "image": "../images/imagenes-menu/Cafes/Mocha-blanco.png"
+    },
+    {
+        "id": 9,
+        "name": "Nutellate",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 55,
+        "description": "Café con leche infusionado con deliciosa crema de avellanas Nutella",
+        "image": "../images/imagenes-menu/Cafes/Nutellate.png"
+    },
+    {
+        "id": 10,
+        "name": "Dirty chai",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 60,
+        "description": "Chai latte con un toque de espresso",
+        "image": "../images/imagenes-menu/Cafes/Dirty-chai.png"
+    },
+    {
+        "id": 11,
+        "name": "Affogato",
+        "category": {"id":1, "name": "Cafes"},
+        "price": 40,
+        "description": "Bola de helado cubierta con un shot caliente de espresso",
+        "image": "../images/imagenes-menu/Cafes/cafe_affogato.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Matcha latte",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor Matcha",
+        "price": 50,
+        "image": "../images/imagenes-menu/Bebidas/matcha_latte.png"
+    },
+    {
+        "id": 13,
+        "name": "Chai latte",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor chai",
+        "price": 55,
+        "image": "../images/imagenes-menu/Bebidas/chai-latte.png"
+    },
+    {
+        "id": 14,
+        "name": "Chocolate",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor chocolate",
+        "price": 45,
+        "image": "../images/imagenes-menu/Bebidas/bebidas_chocolate.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Smoothie (mango/fresa)",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor mango o fresa",
+        "price": 55,
+        "image": "../images/imagenes-menu/Bebidas/bebidas_smoothiemango.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Licuado de frutos rojos",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor frutos rojos, fresa, frambuesa y arándano",
+        "price": 58,
+        "image": "../images/imagenes-menu/Bebidas/bebidas_licuado.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Curacao azul",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida con alcohol de cáscaras de naranja amarga con jarabe de azúcar refinada",
+        "price": 45,
+        "image": "../images/imagenes-menu/Bebidas/bebidas_curacaoazul.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Soda italiana",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida con agua gasificada y jarabe de fruta natural",
+        "price": 45,
+        "image": "../images/imagenes-menu/Bebidas/Soda-italiana.png"
+    },
+    {
+        "id": 19,
+        "name": "Tisanas",
+        "category": {"id":2, "name": "Bebidas"},
+        "description": "Bebida sabor frutas deshidratadas",
+        "price": 45,
+        "image": "../images/imagenes-menu/Bebidas/bebidas_tisana.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Café",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a café",
+        "image": "../images/imagenes-menu/Frappes/Cafe.png"
+    },
+    {
+        "id": 21,
+        "name": "Oreo",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe hecho con un rico sabor a chocolate, un toque de café y trozos de galleta oreo",
+        "image": "../images/imagenes-menu/Frappes/frappes_oreo.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Mocha",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a chocolate y café",
+        "image": "../images/imagenes-menu/Frappes/frappes_mocha.jpg"
+    },
+    {
+        "id": 23,
+        "name": "Mocha blanco",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a chocolate blanco y café",
+        "image": "../images/imagenes-menu/Frappes/frappes_mochablanco.jpg"
+    },
+    {
+        "id": 24,
+        "name": "Chai cream",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a chai y crema",
+        "image": "../images/imagenes-menu/Frappes/Chai-cream.png"
+    },
+    {
+        "id": 25,
+        "name": "Irlandés",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con un toque irlandés y café",
+        "image": "../images/imagenes-menu/Frappes/Irlandes.png"
+    },
+    {
+        "id": 26,
+        "name": "Nuez",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a nuez",
+        "image": "../images/imagenes-menu/Frappes/frappes_nuez.jpg"
+    },
+    {
+        "id": 27,
+        "name": "Caramelo",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a caramelo",
+        "image": "../images/imagenes-menu/Frappes/frappes_caramelo.jpg"
+    },
+    {
+        "id": 28,
+        "name": "Kinder bueno",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 70,
+        "description": "Frappe con sabor a Kinder Bueno",
+        "image": "../images/imagenes-menu/Frappes/frappes_kinderbueno.jpg"
+    },
+    {
+        "id": 29,
+        "name": "Nutella",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 70,
+        "description": "Frappe con sabor a Nutella",
+        "image": "../images/imagenes-menu/Frappes/Nutella.png"
+    },
+    {
+        "id": 30,
+        "name": "Chocoberry",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a chocolate y bayas",
+        "image": "../images/imagenes-menu/Frappes/frappes_chocoberry.jpg"
+    },
+    {
+        "id": 31,
+        "name": "Fresas con crema",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 70,
+        "description": "Frappe con sabor a fresas y crema",
+        "image": "../images/imagenes-menu/Frappes/Fresas-con-crema.png"
+    },
+    {
+        "id": 32,
+        "name": "Chocomenta",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 70,
+        "description": "Frappe con sabor a chocolate y menta",
+        "image": "../images/imagenes-menu/Frappes/frappes_chocomenta.jpg"
+    },
+    {
+        "id": 33,
+        "name": "Green matcha",
+        "category": {"id":3, "name": "Frappes"},
+        "price": 65,
+        "description": "Frappe con sabor a matcha verde",
+        "image": "../images/imagenes-menu/Frappes/Green.matcha.png"
+    },
+    {
+        "id": 34,
+        "name": "Sea Salt Caramel",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Delicioso dulce de caramelo con chocolate con un toque de sal",
+        "price": 60,
+        "image": "../images/imagenes-menu/Especialidades/Sea-salt-caramel.png"
+    },
+    {
+        "id": 35,
+        "name": "Dark horchata ice",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Horchata con trozos de canela y un toque de café",
+        "price": 55,
+        "image": "../images/imagenes-menu/Especialidades/Dark-horchata-ice.png"
+    },
+    {
+        "id": 36,
+        "name": "Tonicoffee",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Una capa de café y agua con una temperatura fría",
+        "price": 55,
+        "image": "../images/imagenes-menu/Especialidades/tonicoffee.png"
+    },
+    {
+        "id": 37,
+        "name": "Chocolate bomb",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Bomba de chocolate con explosión de sabor",
+        "price": 65,
+        "image": "../images/imagenes-menu/Especialidades/Chocolate-bomb.png"
+    },
+    {
+        "id": 38,
+        "name": "Vainilla Macchiato",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Café con leche y un toque de vainilla",
+        "price": 60,
+        "image": "../images/imagenes-menu/Especialidades/Vainilla-macchiato.png"
+    },
+    {
+        "id": 39,
+        "name": "Cinnamon Latte",
+        "category": {"id":4, "name": "Especialidades"},
+        "description": "Café con leche y canela para un toque especiado",
+        "price": 60,
+        "image": "../images/imagenes-menu/Especialidades/Cinnamon-latte.png"
+    },
+    {
+        "id": 40,
+        "name": "Bagel clásico",
+        "category": {"id":5, "name": "Bagels"},
+        "description": "Bagel tostado con jamón, queso, lechuga, tomate y aderezada con mayonesa",
+        "price": 65,
+        "image": "../images/imagenes-menu/Bagels/clasico.jpg"
+    },
+    {
+        "id": 41,
+        "name": "Bagel serrano",
+        "category": {"id":5, "name": "Bagels"},
+        "description": "Bagel tostado de parmesano con jamón serrano, queso manchego, tomate cherry, arúgula y aceite balsámico",
+        "price": 80,
+        "image": "../images/imagenes-menu/Bagels/serrano.png"
+    },
+    {
+        "id": 42,
+        "name": "Bagel dulce/salado",
+        "category": {"id":5, "name": "Bagels"},
+        "description": "Bagel tostado con queso crema y mermelada de fresa",
+        "price": 40,
+        "image": "../images/imagenes-menu/Bagels/dulce-salado.png"
+    },
+    {
+        "id": 43,
+        "name": "Bagel pizza",
+        "category": {"id":5, "name": "Bagels"},
+        "description": "Bagel tostado con salsa de tomate, peperoni, salami, queso mozzarella y orégano",
+        "price": 65,
+        "image": "../images/imagenes-menu/Bagels/pizza.png"
+    },
+    {
+        "id": 44,
+        "name": "Panini italiano",
+        "category": {"id":6, "name": "Paninis"},
+        "description": "Pan artesanal con salami, queso, lechuga, tomate, aderezo, con mayonesa y aceite balsámico",
+        "price": 70,
+        "image": "../images/imagenes-menu/Paninis/panini_italiano.jpg"
+    },
+    {
+        "id": 45,
+        "name": "Pizanini",
+        "category": {"id":6, "name": "Paninis"},
+        "description": "Pan artesanal con salsa de tomate, peperoni, salami, queso mozzarella y una pisca de orégano",
+        "price": 70,
+        "image": "../images/imagenes-menu/Paninis/paninis_pizzanini.jpg"
+    },
+    {
+        "id": 46,
+        "name": "Panini vegetariano",
+        "category": {"id":6, "name": "Paninis"},
+        "description": "Pan artesanal con lechuga, espinaca, tomate, champiñones, y aderezado con mayonesa de aguacate",
+        "price": 70,
+        "image": "../images/imagenes-menu/Paninis/panini_vegetariano.jpg"
+    },
+    {
+        "id": 47,
+        "name": "Cuernito clásico",
+        "category": {"id":7, "name": "Cuernitos"},
+        "description": "Croissant hojaldrado con jamón, queso, alfalfa, aderezado con mayonesa",
+        "price": 65,
+        "image": "../images/imagenes-menu/Cuernitos/cuernitos_clasico.jpg"
+    },
+    {
+        "id": 48,
+        "name": "Cuernito italiano",
+        "category": {"id":7, "name": "Cuernitos"},
+        "description": "Croissant hojaldrado con jamón, queso, lechuga, tomate y aderezado con mayonesa",
+        "price": 65,
+        "image": "../images/imagenes-menu/Cuernitos/cuernito_italiano.jpg"
+    },
+    {
+        "id": 49,
+        "name": "Waffle tradicional",
+        "category": {"id":8, "name": "Waffles"},
+        "description": "Waffle con nuez, chocolate líquido y crema batida",
+        "price": 80,
+        "image": "../images/imagenes-menu/Waffles/waffle-tradicional.png"
+    },
+    {
+        "id": 50,
+        "name": "Waffle c/helado",
+        "category": {"id":8, "name": "Waffles"},
+        "description": "Waffle con nuez, chocolate líquido, helado de vainilla o fresas",
+        "price": 90,
+        "image": "../images/imagenes-menu/Waffles/waffle-con-helado-o-fresas.png"
+    },
+    {
+        "id": 51,
+        "name": "Brownie",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Bizcocho de chocolate pequeño con nueces",
+        "price": 20,
+        "image": "../images/imagenes-menu/Panes/panes_brownie.jpg"
+    },
+    {
+        "id": 52,
+        "name": "Rol de canela",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Delicioso rollo de masa con canela y glaseado",
+        "price": 45,
+        "image": "../images/imagenes-menu/Panes/pan_rolcanela.jpg"
+    },
+    {
+        "id": 53,
+        "name": "Pan de zanahoria",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Pan esponjoso con zanahoria rallada y nueces",
+        "price": 45,
+        "image": "../images/imagenes-menu/Panes/pan_zanahoria.jpg"
+    },
+    {
+        "id": 54,
+        "name": "Pan de elote",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Pan suave y esponjoso con granos de elote",
+        "price": 45,
+        "image": "../images/imagenes-menu/Panes/pan_elote.jpg"
+    },
+    {
+        "id": 55,
+        "name": "Galleta de chispas",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Galleta crujiente con deliciosas chispas de chocolate",
+        "price": 40,
+        "image": "../images/imagenes-menu/Panes/galleta-de-chispas.png"
+    },
+    {
+        "id": 56,
+        "name": "Galleta de M&M's",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Galleta con coloridas y sabrosas M&M's",
+        "price": 40,
+        "image": "../images/imagenes-menu/Panes/galletas-m&m's.png"
+    },
+    {
+        "id": 57,
+        "name": "Croissant",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Clásico croissant hojaldrado y delicioso",
+        "price": 37,
+        "image": "../images/imagenes-menu/Panes/croissants.png"
+    },
+    {
+        "id": 58,
+        "name": "Brownie con helado",
+        "category": {"id":9, "name": "Panes"},
+        "description": "Brownie acompañado de una bola de helado",
+        "price": 55,
+        "image": "../images/imagenes-menu/Panes/brownie-con-helado.png"
+    }
+]

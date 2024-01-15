@@ -64,7 +64,7 @@ function generateCommentCard({ date, comment, user }) {
 
     if (user && user.id != null) {
         // Combine firstName and lastName if user is not null
-        userInfo = `${user.firtName} ${user.lastName}`;
+        userInfo = `${user.firstName} ${user.lastName}`;
     } else {
         // Display "Anónimo" if user is null
         userInfo = "Anónimo";
@@ -185,7 +185,7 @@ function generateOrderCard({id, date, price, user }) {
 
     if (user && user.id != null) {
         // Combine firstName and lastName if user is not null
-        userInfo = `${user.firtName} ${user.lastName}`;
+        userInfo = `${user.firstName} ${user.lastName}`;
     } else {
         // Display "Anónimo" if user is null
         userInfo = "Anónimo";
@@ -327,3 +327,21 @@ commentsButtonLateralMenu.addEventListener('click', () =>{
     commentsContainer.style.display = 'flex';
     getComments(urlAPIcomments);
 });
+
+const userLoginButton = document.getElementById("enlace-login-header");
+userLoginButton.addEventListener("click", event => {
+  event.preventDefault();
+  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+  if (accessToken) {
+    console.log("Inicio de sesion detectado")
+    console.log("UserType:" + accessToken.userType);
+    if (accessToken.userType === 1) {
+      window.location.href = "../pages/admin-profile.html";
+    } else if (accessToken.userType === 2) {
+      window.location.href = "../pages/user-profile.html";
+    }
+    else {
+      window.location.href = "../pages/login.html#login-container";
+    }
+  }
+})

@@ -3,7 +3,7 @@
         {
             "id": 1,
             "nombre": "Café Americano",
-            "categoryId": "Cafes",
+            "categoria": "Cafes",
             "precio": 50,
             "descripcion": "Café espresso mezclado con agua caliente",
             "imagen": "../images/imagenes-menu/Cafes/cafe_americano.png"

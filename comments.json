@@ -11,7 +11,7 @@
       "comment": "Muy buen servicio",
       "user": {
           "id": 6,
-          "firtName": "Andrés Manuel",
+          "firstName": "Andrés Manuel",
           "lastName": "López Obrador",
           "email": "AMLO_4T@gmail.com",
           "password": "Code_Titans123",
@@ -31,7 +31,7 @@
       "comment": "Tardaron un poco en atenderme",
       "user": {
           "id": 7,
-          "firtName": "Isaac",
+          "firstName": "Isaac",
           "lastName": "Newton",
           "email": "fisicomuerto@gmail.com",
           "password": "Code_Titans123",
