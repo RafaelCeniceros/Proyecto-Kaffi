@@ -92,6 +92,7 @@
     <main>
         <section class="d-flex flex-column mx-auto my-3" id="profile-section-container">
             <div class="row">
+
                 <!-- Menu lateral Opciones (pantallas grandes) -->
                 <div id="options-lateral-menu"
                     class="col-md-4 d-md-flex flex-column justify-content-start align-items-center">
@@ -152,6 +153,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Columna Contenedores (pantallas grandes) y opcs+cont(pantallas pequeñas) -->
                 <div class="col-md-8">
                     <!-- Contenedor Imagen -->
@@ -160,6 +162,7 @@
                             <img src="../images/logo kaffi colores.png" class="img-fluid w-25 my-2">
                         </div>
                     </div>
+
                     <!-- Seccion Cuenta -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
                         <!-- columna para boton  -->
@@ -167,18 +170,155 @@
                             <i class="fa-solid fa-user-pen fa-xl"></i>
                         </div>
                         <div id="option-account-container" class="col-4 d-flex justify-content-center">
-                            <button id="option-account-button">Productos</button>
+                            <button id="option-account-button">Cuenta</button>
                         </div>
                         <div class="col-4  d-flex justify-content-center">
                             <i class="fa-solid fa-caret-down fa-xl"></i>
                         </div>
                     </div>
+
+                    <!-- columna para contenedor  -->
                     <div id="container-account" class="row align-items-center justify-content-center">
-                        <!-- columna para contenedor  -->
-                        <div class="container-forms col-md-10 d-flex justify-content-center m-2">
-                            Contenedor Cuenta
+
+                        <div class="col-md-10 mt-4">
+                            <h4 style="font-weight:bold;">Informacion de usuario</h4>
                         </div>
+
+                        <!-- tarjeta para actualizacion de nombre -->
+                        <div class="container-forms col-md-10 d-flex justify-content-between m-2">
+                            <form id="user-name-form" class="row d-flex justify-content-between p-3">
+
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="text-start col-6">
+                                        <p>Nombre actual</p>
+                                        <p>"Nombre actual del usuario"</p>
+                                    </div>
+                                    <div class="text-start col-6">
+                                        <label for="Name-Input" class="form-label">Nombre</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="Name-Input" placeholder="Cosme">
+                                            <i id="invalid-name-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-name" class="error-message"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div id="name-success-message-container" class="pt-2 d-flex align-items-center text-success">
+                                        <span class="text-start">Nombre de usuario actualizado</span>
+                                        <i class="fa-solid fa-circle-check fa-beat m-3"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-end">
+                                        <button class="btn rounded-pill" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+                                    
+                            </form>          
+                        </div>
+
+                        <!-- tarjeta para actualizacion de apellido -->
+                        <div class="container-forms col-md-10 d-flex justify-content-between m-2">
+                            <form id="user-lastName-form" class="row d-flex justify-content-between p-3">
+
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="text-start col-6">
+                                        <p>Apellido actual</p>
+                                        <p>"Apellido actual del usuario"</p>
+                                    </div>
+                                    <div class="text-start col-6">
+                                        <label for="LastName-Input" class="form-label">Apellido</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="LastName-Input" placeholder="Fulanito">
+                                            <i id="invalid-lastName-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-name" class="error-message"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div id="lastName-success-message-container" class="pt-2 d-flex align-items-center text-success">
+                                        <span class="text-start">Apellido de usuario actualizado</span>
+                                        <i class="fa-solid fa-circle-check fa-beat m-3"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-end">
+                                        <button class="btn rounded-pill" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- tarjeta para actualizacion de email -->
+                        <div class="container-forms col-md-10 d-flex justify-content-between m-2">
+                            <form id="user-email-form" class="row d-flex justify-content-between p-3">
+
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="text-start col-6">
+                                        <p>E-mail actual</p>
+                                        <p>"Email actual del usuario"</p>
+                                    </div>
+                                    <div class="text-start col-6">
+                                        <label for="E-Mail-Input" class="form-label">E-mail</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="E-Mail-Input" placeholder="Nombre@gamil.com">
+                                            <i id="invalid-email-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-email" class="error-message"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div id="email-success-message-container" class="pt-2 d-flex align-items-center text-success">
+                                        <span class="text-start">E-mail de usuario actualizado</span>
+                                        <i class="fa-solid fa-circle-check fa-beat m-3"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-end">
+                                        <button class="btn rounded-pill" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+
+                        <!-- tarjeta para actualizacion de contraseña -->
+                        <div class="container-forms col-md-10 d-flex justify-content-between m-2">
+                            <form id="user-password-form" class="row d-flex justify-content-between p-3">
+
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="text-start col-6">
+                                        <label for="OldPassword-Input" class="form-label">Contraseña Actual</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="OldPassword-Input" placeholder="Contraseña123">
+                                            <i id="invalid-oldPassword-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-oldPassword" class="error-message"> </p>
+                                    </div>
+                                    <div class="text-start col-6">
+                                        <label for="NewPasswor-Input" class="form-label">Nueva contraseña</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="NewPasswor-Input" placeholder="NuevaContraseña123">
+                                            <i id="invalid-newPassword-sign" class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-newPassword" class="error-message"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div id="password-success-message-container" class="pt-2 d-flex align-items-center text-success">
+                                        <span class="text-start">Contraseña altualizada</span>
+                                        <i class="fa-solid fa-circle-check fa-beat m-3"></i>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-end">
+                                        <button class="btn rounded-pill" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
                     </div>
+
                     <!-- Seccion Informacion Pago -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
                         <!-- columna para boton  -->
@@ -198,6 +338,7 @@
                             Contenedor Informacion Pago
                         </div>
                     </div>
+
                     <!-- Seccion Dirección -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
                         <!-- columna para boton  -->
@@ -214,9 +355,89 @@
                     <div id="container-address" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
                         <div class="container-forms col-md-10 d-flex justify-content-center m-2">
-                            Contenedor Dirección
+                            <div class="col-md-10 d-flex justify-content-center p-3">
+
+                                <form id="address-form" class="row g-3">
+
+                                    <div class="col-10 pt-2">
+                                        <h4 style="font-weight:bold;">Dirección de envío</h4>
+                                    </div>
+
+                                    <div id="address-success-message-container" class="mt-3 d-flex align-items-center justify-content-center text-success">
+                                        <i class="fa-solid fa-circle-check fa-beat fa-2xl m-3"></i>
+                                        <h5 id="success-message" class="mt-4 text-center">Tu infotmación ha sido actualizada</h5>
+                                    </div>
+
+                                    <div class="mb-3 text-start col-8">
+                                        <label for="inputStreet" class="form-label">Calle</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputStreet">
+                                            <i id="invalid-street-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-street" class="error-message pt-1"> </p>
+                                    </div>
+                                    <div class="mb-3 text-start col-4">
+                                        <label for="inputOutsideNum" class="form-label">No.Exterior</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputOutsideNum">
+                                            <i id="invalid-outsideNum-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-outsideNum" class="error-message pt-1"> </p>
+                                    </div>
+
+                                    <div class="mb-3 text-start col-4">
+                                        <label for="inputInseideNum" class="form-label">No.Interior</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputInseideNum">
+                                            <i id="invalid-insideNum-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-insideNum" class="error-message pt-1"> </p>
+                                    </div>
+                                    <div class="mb-3 text-start col-8">
+                                        <label for="inputColony" class="form-label">Colonia</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputColony">
+                                            <i id="invalid-colony-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-colony" class="error-message pt-1"> </p>
+                                    </div>
+
+                                    <div class="mb-3 text-start col-8">
+                                        <label for="inputMunicipality" class="form-label">Municipio</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputMunicipality">
+                                            <i id="invalid-municipality-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-municipality" class="error-message pt-1"> </p>
+                                    </div>
+                                    <div class="mb-3 text-start col-4">
+                                        <label for="inputZip" class="form-label">CP</label>
+                                        <div class="input-container d-flex align-items-center justify-content-center">
+                                            <input type="text" class="form-control rounded-pill" id="inputZip">
+                                            <i id="invalid-zip-sign" class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        </div>
+                                        <p id="error-message-zip" class="error-message pt-1"> </p>
+                                    </div>
+
+                                    <div class="col-12">
+                                      <label for="inputStore" class="form-label">Sucursal de preferencia</label>
+                                      <select id="inputStore" class="rounded-pill form-select">
+                                        <option>Sucursal Fco. de Montejo</option>
+                                        <option>Sucursal Caucel</option>
+                                      </select>
+                                    </div>
+
+                                    <div class="pt-2 d-flex justify-content-end">
+                                        <button id="edit-address-button" type="button" class="btn me-2 rounded-pill">Editar</button>
+                                        <button class="btn rounded-pill" type="submit">Guardar</button>
+                                    </div>
+
+                                </form>
+
+                            </div>            
                         </div>
                     </div>
+
                     <!-- Seccion Pedidos -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
                         <!-- columna para boton  -->
@@ -236,6 +457,7 @@
                             Contenedor Pedidos
                         </div>
                     </div>
+                    
                     <!-- Seccion Comentarios -->
                     <div class="option-button row d-flex align-items-center justify-content-center d-md-none my-2">
                         <!-- columna para boton  -->
