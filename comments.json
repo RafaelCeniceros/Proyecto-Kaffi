@@ -1,0 +1,42 @@
+[
+  {
+      "id": 1,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Americano delicioso",
+      "user": null
+  },
+  {
+      "id": 2,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Muy buen servicio",
+      "user": {
+          "id": 6,
+          "firstName": "Andrés Manuel",
+          "lastName": "López Obrador",
+          "email": "AMLO_4T@gmail.com",
+          "password": "Code_Titans123",
+          "address": "Palacio Nacional CDMX",
+          "idUserType": 2
+      }
+  },
+  {
+      "id": 3,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Late delicioso",
+      "user": null
+  },
+  {
+      "id": 4,
+      "date": "2024-01-14T06:00:00.000+00:00",
+      "comment": "Tardaron un poco en atenderme",
+      "user": {
+          "id": 7,
+          "firstName": "Isaac",
+          "lastName": "Newton",
+          "email": "fisicomuerto@gmail.com",
+          "password": "Code_Titans123",
+          "address": "Woolsthorpe Manor Hous",
+          "idUserType": 2
+      }
+  }
+]

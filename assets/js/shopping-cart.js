@@ -59,8 +59,35 @@ payButton.addEventListener('click', event => {
   const totalItemsInCar = document.getElementById("total-number-items").textContent;
   const totalPriceCar = document.getElementById("total-price-car");
   if (parseInt(totalItemsInCar) != 0) {
-    localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
-    window.location.href = "../pages/payment-form.html";
+    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+    if (accessToken) {
+      console.log("Inicio de sesion detectado");
+      if (accessToken.userType === 2) {
+        localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
+        window.location.href = "../pages/payment-form.html";
+      }
+      else{
+      console.log("Usuario Administrador no puede realizar compras")
+      }
+    }else{
+      const modal = document.getElementById('myModal');
+      const closeModalSpan = document.getElementsByClassName('close')[0];
+      modal.style.display = 'block';
+      closeModalSpan.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
+    }
+
+
+
+
+
+
   }
 })
 /**
@@ -327,4 +354,23 @@ addSuggestion2sm.addEventListener('click', event => {
   const arrayOfProductsWithQuantityToBuy = arrayOfProductsWithQuantityInShoppingCart("listOfProducts", "fileJsonToLocalStorage");
   showInDOM(arrayOfProductsWithQuantityToBuy);
   location.reload();
+})
+
+const userLoginButton = document.getElementById("enlace-login-header");
+userLoginButton.addEventListener("click", event => {
+  event.preventDefault();
+  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+  if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("UserType:" + accessToken.userType);
+    if (accessToken.userType === 1) {
+      window.location.href = "../pages/admin-profile.html";
+    } else if (accessToken.userType === 2) {
+      window.location.href = "../pages/profile.html";
+    }
+  }
+  else {
+    console.log("Inicio de sesion no detectado");
+      window.location.href = "../pages/login.html#login-container";
+    }
 })

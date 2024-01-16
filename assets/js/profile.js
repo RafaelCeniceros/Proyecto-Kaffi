@@ -1,3 +1,15 @@
+
+const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+const welcomeHTML = document.getElementById("welcome-name");
+if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("NombreUsuario:" + accessToken.userName);
+    welcomeHTML.textContent = "Bienvenido, " + accessToken.userName;
+}
+if (!accessToken) {
+    window.location.href = "../pages/login.html#login-container";
+}
+
 // Obtener botones y contenedores
 const accountButton = document.getElementById('option-account-button');
 const paymethodButton = document.getElementById('option-paymethod-button');
@@ -84,3 +96,36 @@ commentsButtonLateralMenu.addEventListener('click', () =>{
     hideAllContainers();
     commentsContainer.style.display = 'flex';
 });
+
+const userLoginButton = document.getElementById("enlace-login-header");
+userLoginButton.addEventListener("click", event => {
+  event.preventDefault();
+  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+  if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("UserType:" + accessToken.userType);
+    if (accessToken.userType === 1) {
+      window.location.href = "../pages/admin-profile.html";
+    } else if (accessToken.userType === 2) {
+      window.location.href = "../pages/profile.html";
+    }
+  }
+  else {
+    console.log("Inicio de sesion no detectado");
+      window.location.href = "../pages/login.html#login-container";
+    }
+})
+
+const buttonLogOutlg = document.getElementById('option-logout-button-lg');
+buttonLogOutlg.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+const buttonLogOut = document.getElementById('option-logout-button');
+buttonLogOut.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+

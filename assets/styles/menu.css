@@ -114,7 +114,7 @@ html{
 
 #menu-container nav{
     background-color:  #faf6ec;
-    width: 80vw;
+    max-width: 85vw;
 }
 
 #menu-container ul {
@@ -169,18 +169,17 @@ html{
     }
 }
 
-#products-container{
-    max-width: 80vw;
-}
+
 #products {
     font-size: 1rem;
+    max-width: 85vw;
 }
 
 #products .product-cards{
     /* border: 1.2px solid #361c12; */
     background-color: #F6EACC;
     min-height: 20vh;
-    max-width:80vw ;
+    max-width:85vw ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -201,8 +200,8 @@ html{
 }
 
 #products img{
-    min-width: 120px;
-    min-height: 120px;
+    min-width: 100%;
+    height: auto;
     box-sizing: border-box;
     margin: 0 auto;
 }

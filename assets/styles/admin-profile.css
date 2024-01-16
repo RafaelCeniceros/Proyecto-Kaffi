@@ -79,6 +79,10 @@ body{
     font-size: 1em;
 }
 
+.option-button .fa-solid{
+    color:#361c12;
+}
+
 
 .searchbar{
     background-color: white;
@@ -116,6 +120,28 @@ input[type="search"]::-webkit-search-clear-button {
     border-style: none;
 }
 .option-button button:hover{
+    text-decoration: underline;
+}
+
+.fa-right-from-bracket{
+    color:rgb(246, 234, 204);
+}
+
+.option-button-dark {
+    background-color: #361c12; 
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+    min-height: 10vh;
+    cursor: pointer;
+}
+.option-button-dark button{
+    background-color: #361c12; 
+    border-color: none;
+    border-style: none;
+    color:rgb(246, 234, 204);
+    font-weight: 500;
+}
+.option-button-dark button:hover{
     text-decoration: underline;
 }
 
@@ -168,6 +194,73 @@ input[type="search"]::-webkit-search-clear-button {
 
 #options-lateral-menu{
     display: none;
+}
+
+/* Inicio Comments */
+
+#comments, #no-comments{
+    display: none;
+}
+
+.comment-icon{
+    background-color: #361c12;
+    color:#FAF4E5;
+    border-radius: 50%;
+    padding: 2em 0.5em;
+}
+
+.comment-card{
+    background-color: #ffffff7e;
+    border-radius: 0.5em;
+    box-shadow: 0px 0.5px 0.25px rgba(0, 0, 0, 0.25);
+}
+.comment-card h5{
+    font-weight: bold;
+    font-family: 'Imprima', sans-serif;
+    color: #996229;
+}
+
+.comment-card h6{
+    font-family: 'inter', sans-serif;
+    color: #361c12;
+}
+
+/* Fin Comments */
+
+/* Inicio Orders */
+
+#orders, #no-orders{
+    display: none;
+}
+
+.order-icon{
+    background-color: #361c12;
+    color:#FAF4E5;
+    border-radius: 50%;
+    padding: 1.75em 1em;
+}
+
+.order-card{
+    background-color: #ffffff7e;
+    border-radius: 0.5em;
+    box-shadow: 0px 0.5px 0.25px rgba(0, 0, 0, 0.25);
+}
+.order-card h6.order-number{
+    font-family: 'inter', sans-serif;    color: #996229;
+}
+
+.order-card h6{
+    font-weight: bold;
+    font-family: 'Imprima', sans-serif;
+    color: #361c12;
+}
+
+.order-card button{
+    background-color: #361c12;
+    border-color: none;
+    border-style: none;
+    color: #FAF4E5;
+    border-radius: 0.5em;
 }
 /* estilos del footer */
 

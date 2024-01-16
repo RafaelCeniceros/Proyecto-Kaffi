@@ -55,8 +55,7 @@
                         </a>
                     </li>
                     <li class="nav-item p-0 d-flex align-items-center">
-                        <a id="enlace-login-header" class="nav-link active text-white px-2"
-                            href="../pages/login.html#login-container">
+                        <a id="enlace-login-header" class="nav-link active text-white px-2" href="">
                             <i class="fa-solid fa-user p-2 header-icons-link"></i>
                         </a>
                     </li>
@@ -80,10 +79,11 @@
 
         <section id="introduction-container" class="row d-flex align-items-center justify-content-center p-2">
             <div class="col-12 col-md-6 d-flex justify-content-md-end justify-content-center">
-                <img class="img-fluid py-2" src="../images/imagenusuario.png" alt="logo_kaffi_2" id="img-logo-blanco" />
+                <img class="img-fluid rounded-circle py-2" src="../images/imagenusuario.png" alt="logo_kaffi_2"
+                    id="img-logo-blanco" />
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-md-start justify-content-center">
-                <h3 class="description text-center text-white">"Hola, NombreUsuario."</h3>
+                <h3 id="welcome-name" class="description text-center text-white">"Hola, NombreUsuario."</h3>
             </div>
         </section>
     </header>
@@ -150,6 +150,16 @@
                         </div>
                         <div id="option-comments-container" class="mx-0 col d-flex justify-content-start m-2">
                             <button id="option-comments-button-lg">Comentarios</button>
+                        </div>
+                    </div>
+                    <!-- Cerrar Sesion -->
+                    <div class="option-button-dark row d-flex align-items-center justify-content-start my-2 w-100">
+                        <!-- columna para boton  -->
+                        <div class="col-2 d-flex justify-content-center ms-3">
+                            <i class="fa-solid fa-right-from-bracket fa-xl"></i>
+                        </div>
+                        <div class="mx-0 col d-flex justify-content-start m-2">
+                            <button id="option-logout-button-lg">Cerrar Sesión</button>
                         </div>
                     </div>
                 </div>
@@ -475,6 +485,16 @@
                         <!-- columna para contenedor  -->
                         <div class="container-forms col-md-10 d-flex justify-content-center m-2">
                             Contenedor Comentarios
+                        </div>
+                    </div>
+                    <!-- Cerrar Sesion -->
+                    <div class="option-button-dark row d-flex align-items-center justify-content-start d-md-none my-2">
+                        <!-- columna para boton  -->
+                        <div class="col-4 d-flex justify-content-center">
+                            <i class="fa-solid fa-right-from-bracket fa-xl"></i>
+                        </div>
+                        <div class="col-4 d-flex justify-content-start">
+                            <button id="option-logout-button">Cerrar Sesión</button>
                         </div>
                     </div>
                 </div>

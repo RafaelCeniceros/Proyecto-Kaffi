@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "firstName": "Oswaldo",
+        "lastName": "Fonseca Mejia",
+        "email": "leonNeumann.26121990@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Beberly Hills 90210",
+        "UserType": {"id":1}
+    },
+    {
+        "id": 2,
+        "firstName": "Fernando",
+        "lastName": "Juarez Sanchez",
+        "email": "juarezsfw@outlook.com",
+        "password": "Code_Titans123",
+        "address": "Fondo de bikin No.154",
+        "UserType": {"id":1}
+    },
+    {
+        "id": 3,
+        "firstName": "Alan",
+        "lastName": "Villa Ocampo",
+        "email": "zailancoc@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Fondo de bikin No.897",
+        "UserType": {"id":1}
+    },
+    {
+        "id": 4,
+        "firstName": "Rafael",
+        "lastName": "Ceniceros Ceballos",
+        "email": "rrafa7114@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Fondo de bikin No.897",
+        "UserType": {"id":1}
+    },
+    {
+        "id": 5,
+        "firstName": "Cristiano Ronaldo",
+        "lastName": "Dos Santos Aveiro",
+        "email": "CR7_oficial@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Al Nassir 15432 Arabia SAudita",
+        "UserType": {"id":2}
+    },
+    {
+        "id": 6,
+        "firstName": "Andrés Manuel",
+        "lastName": "López Obrador",
+        "email": "AMLO_4T@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Palacio Nacional CDMX",
+        "UserType": {"id":2}
+    },
+    {
+        "id": 7,
+        "firstName": "Isaac",
+        "lastName": "Newton",
+        "email": "fisicomuerto@gmail.com",
+        "password": "Code_Titans123",
+        "address": "Woolsthorpe Manor Hous",
+        "UserType": {"id":2}
+    }
+]

@@ -126,5 +126,5 @@ formulario.inputCCV.addEventListener('keyup', () => {
 	// Eliminar las letras
 	.replace(/\D/g, '');
 
-	ccv.textContent = formulario.inputCCV.value;
+	ccv.textContent = "*".repeat(formulario.inputCCV.value.length);
 });

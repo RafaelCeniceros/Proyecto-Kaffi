@@ -107,7 +107,7 @@ header #introduction-container {
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     margin: 0 auto; 
-    max-width: 400px; 
+    max-width: 330px; 
 }
 
 #enlace-recuperacion {
@@ -121,6 +121,12 @@ header #introduction-container {
 #enlace-recuperacion:hover{
     color: #361c12;
     text-decoration: underline;
+}
+
+.error-input{
+    color:#a70606;
+    font-size:large;
+    text-align: center;
 }
 
 @media only screen and (min-width: 767px) {

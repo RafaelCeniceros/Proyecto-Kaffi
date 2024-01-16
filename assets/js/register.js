@@ -25,13 +25,13 @@ errorMessageCheckPassword.style.display="none";
 const successMessageContainer = document.getElementById("success-message-container");
 
 
-const dataCheckout = (user) => {
+const dataCheckout = async (user) => {
 
     resetValues();
 
     const isNameValid = validateName(user.name, nameInput, invalidNameSign);
     const isLastNameValid = validateLastName(user.lastName, lastNameInput, invalidLastNameSign);
-    const isEmailValid = validateEmail(user.email, emailInput, invalidEmailSign);
+    const isEmailValid = await validateEmail(user.email, emailInput, invalidEmailSign);
     const isPasswordValid = validatePassword(user.password, passwordInput, invalidPasswordSign);
     const isCheckPasswordValid = validateCheckPassword(user.password, user.checkPassword, checkPasswordInput, invalidCheckPasswordSign);
 
@@ -73,20 +73,44 @@ const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
     }
 };
 
-const validateEmail = (email, emailInput, invalidEmailSign) => {
+const validateEmail = async (email, emailInput, invalidEmailSign) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
     if (!regex.test(email)) {
-        errorMessageEmail.style.display="block";
+        errorMessageEmail.style.display = "block";
         errorMessage("Introduzca un correo electrónico válido", errorMessageEmail);
         emailInput.classList.add("invalid");
         invalidEmailSign.style.display = "block";
         return false;
     } else {
-        errorMessageEmail.style.display="none";
+        errorMessageEmail.style.display = "none";
         errorMessage("", errorMessageEmail);
         emailInput.classList.remove("invalid");
         invalidEmailSign.style.display = "none";
-        return true;
+
+        // Fetch data from the local JSON file
+        const apiUrl = "../../users.json"; // Reemplaza esto con la ruta correcta de tu archivo JSON
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Verifica si el correo electrónico ya existe en los datos del usuario
+        const emailExists = data.some(user => user.email === email);
+
+        if (emailExists) {
+            // Si el correo ya existe
+            errorMessageEmail.style.display = "block";
+            errorMessage("Este correo electrónico ya está registrado", errorMessageEmail);
+            emailInput.classList.add("invalid");
+            invalidEmailSign.style.display = "block";
+            return false;
+        } else {
+            // Si el correo no existe
+            errorMessageEmail.style.display = "none";
+            errorMessage("", errorMessageEmail);
+            emailInput.classList.remove("invalid");
+            invalidEmailSign.style.display = "none";
+            return true;
+        }
     }
 };
 
@@ -131,7 +155,7 @@ const validateCheckPassword = (password, checkPassword, checkPasswordInput, inva
 //Referencia del formulario de contacto
 const registerForm = document.forms["register-form"];
 
-registerForm.addEventListener("submit", (event) => {
+registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const user = {
         name: registerForm.elements["Name-Input"].value,
@@ -142,7 +166,7 @@ registerForm.addEventListener("submit", (event) => {
     };
 
     // Validar el formulario
-    const isFormValid = dataCheckout(user);
+    const isFormValid = await dataCheckout(user);
 
     // Enviar datos solo si el formulario es válido
     if (isFormValid) {
@@ -153,7 +177,15 @@ registerForm.addEventListener("submit", (event) => {
         passwordInput.classList.add("valid");
         checkPasswordInput.classList.add("valid");
         
-        sendData(user);
+        const userToJSON= {
+            firstName: user.name,
+            lastName: user.lastName,
+            email: user.email,
+            password: user.password,
+            address: null,
+            UserType: {id:2}
+        }
+        sendData(userToJSON);
     }
 });
 
@@ -205,3 +237,23 @@ const sendData = (user) => {
     window.location.href = "../pages/login.html#login-title"
 
 };
+
+
+const userLoginButton = document.getElementById("enlace-login-header");
+userLoginButton.addEventListener("click", event => {
+  event.preventDefault();
+  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+  if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("UserType:" + accessToken.userType);
+    if (accessToken.userType === 1) {
+      window.location.href = "../pages/admin-profile.html";
+    } else if (accessToken.userType === 2) {
+      window.location.href = "../pages/profile.html";
+    }
+  }
+  else {
+    console.log("Inicio de sesion no detectado");
+      window.location.href = "../pages/login.html#login-container";
+    }
+})

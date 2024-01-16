@@ -60,14 +60,14 @@ class MenuCard {
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="product-cards rounded-4 row mx-auto my-3 text-center">
                         <div class="col-4 p-1 d-flex align-items-center justify-content-center">
-                            <img class="rounded-4 img-fluid w-100" src=${this.#image} alt="product-image">
+                            <img class="rounded-4 img-fluid" src=${this.#image} alt="product-image">
                         </div>
 
                          <div class="col-8 p-1 d-flex align-items-center justify-content-between">
-                            <div class="card-body">
+                            <div class="card-body px-3">
                                 <h6>${this.#name}</h6>
 
-                                <p class="font-weight-light">${this.#description}</p>
+                                <p class="font-weight-light ">${this.#description}</p>
 
                                 <div class="btn-group  btn-group-sm g-0" role="group" aria-label="Basic mixed styles example">
                                     <button id="btn-del-product-${this.#id}" type="button" class="btn rounded-start-pill quantity-control">-</button>
