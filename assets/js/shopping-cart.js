@@ -59,8 +59,35 @@ payButton.addEventListener('click', event => {
   const totalItemsInCar = document.getElementById("total-number-items").textContent;
   const totalPriceCar = document.getElementById("total-price-car");
   if (parseInt(totalItemsInCar) != 0) {
-    localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
-    window.location.href = "../pages/payment-form.html";
+    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+    if (accessToken) {
+      console.log("Inicio de sesion detectado");
+      if (accessToken.userType === 2) {
+        localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
+        window.location.href = "../pages/payment-form.html";
+      }
+      else{
+      console.log("Usuario Administrador no puede realizar compras")
+      }
+    }else{
+      const modal = document.getElementById('myModal');
+      const closeModalSpan = document.getElementsByClassName('close')[0];
+      modal.style.display = 'block';
+      closeModalSpan.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+          modal.style.display = 'none';
+      }
+  });
+    }
+
+
+
+
+
+
   }
 })
 /**

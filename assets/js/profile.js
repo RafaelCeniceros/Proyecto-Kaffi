@@ -1,3 +1,15 @@
+
+const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+const welcomeHTML = document.getElementById("welcome-name");
+if (accessToken) {
+    console.log("Inicio de sesion detectado");
+    console.log("NombreUsuario:" + accessToken.userName);
+    welcomeHTML.textContent = "Bienvenido, " + accessToken.userName;
+}
+if (!accessToken) {
+    window.location.href = "../pages/login.html#login-container";
+}
+
 // Obtener botones y contenedores
 const accountButton = document.getElementById('option-account-button');
 const paymethodButton = document.getElementById('option-paymethod-button');
@@ -103,3 +115,17 @@ userLoginButton.addEventListener("click", event => {
       window.location.href = "../pages/login.html#login-container";
     }
 })
+
+const buttonLogOutlg = document.getElementById('option-logout-button-lg');
+buttonLogOutlg.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+const buttonLogOut = document.getElementById('option-logout-button');
+buttonLogOut.addEventListener('click', () => {
+localStorage.removeItem("accessToken"); 
+window.location.href = "../pages/login.html#login-container";
+});
+
+

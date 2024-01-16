@@ -7,11 +7,6 @@ const welcomeHTML = document.getElementById("welcome-name");
     console.log("Inicio de sesion detectado");
     console.log("NombreUsuario:" + accessToken.userName);
     welcomeHTML.textContent="Bienvenido, "+ accessToken.userName;
-    if (accessToken.userType === 1) {
-        window.location.href = "../pages/admin-profile.html";
-      } else if (accessToken.userType === 2) {
-        window.location.href = "../pages/profile.html";
-    }
   }
   else {
     window.location.href = "../pages/login.html#login-container";
@@ -371,7 +366,7 @@ window.location.href = "../pages/login.html#login-container";
 });
 
 const buttonLogOut = document.getElementById('option-logout-button');
-buttonLogOutlg.addEventListener('click', () => {
+buttonLogOut.addEventListener('click', () => {
 localStorage.removeItem("accessToken"); 
 window.location.href = "../pages/login.html#login-container";
 });

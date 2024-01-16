@@ -11,12 +11,12 @@ const url = '../../productos-menu.json';
 await saveProductsInLocalStorage(url);
 
 // Función principal para validar el formulario
-const dataCheckout = (user) => {
+const dataCheckout = (newComment) => {
 
     resetValues();
-    const isNameValid = validateName(user.name, nameInput, invalidNameSign);
-    const isEmailValid = validateEmail(user.email, emailInput, invalidEmailSign);
-    const isCommentValid = validateComment(user.commentary, commentInput, invalidCommentSign);
+    const isNameValid = validateName(newComment.name, nameInput, invalidNameSign);
+    const isEmailValid = validateEmail(newComment.email, emailInput, invalidEmailSign);
+    const isCommentValid = validateComment(newComment.commentary, commentInput, invalidCommentSign);
 
     return isNameValid && isEmailValid && isCommentValid;
 };
@@ -79,29 +79,69 @@ const errorMessage = (message, messageContainer) => {
     }
 };
 
+const getActualDate = () => {
+// Obtener la fecha actual
+const currentDate = new Date();
+
+// Obtener los componentes de la fecha
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Ajustar el mes para que tenga dos dígitos
+const day = String(currentDate.getDate()).padStart(2, '0'); // Ajustar el día para que tenga dos dígitos
+
+// Formatear la fecha en el formato deseado (YYYY-MM-DD)
+const formattedDate = `${year}-${month}-${day}`;
+
+return formattedDate;
+}
+
+const checkUserInfo = async (email) => {
+    // Fetch data from the local JSON file
+    const apiUrl = "../../users.json"; // Reemplaza esto con la ruta correcta de tu archivo JSON
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    // Busca el usuario con el correo electrónico proporcionado
+    const user = data.find(user => user.email === email);
+
+    // Si se encuentra un usuario con el correo electrónico, devuélvelo, de lo contrario, devuelve null
+    if (user) {
+        console.log(user);
+        return user;
+    } else {
+        return null;
+    }
+};
+
 //Referencia del formulario de contacto
 const contactForm = document.forms["contact-form"];
 const errorMessageName = document.getElementById("error-message-name");
 const errorMessageEmail = document.getElementById("error-message-email");
 const errorMessageComment = document.getElementById("error-message-comment");
 
-contactForm.addEventListener("submit", (event) => {
+contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const user = {
+    const newComment = {
         name: contactForm.elements["Name-Input"].value,
         email: contactForm.elements["E-Mail-Input"].value,
         commentary: contactForm.elements["Commentary-Input"].value
     };
 
     // Validar el formulario
-    const isFormValid = dataCheckout(user);
+    const isFormValid = dataCheckout(newComment);
 
     // Enviar datos solo si el formulario es válido
     if (isFormValid) {
         nameInput.classList.add("valid");
         emailInput.classList.add("valid");
         commentInput.classList.add("valid");
-        sendData(user);
+
+       const commentToJSON = {
+        date: getActualDate(),
+        comment: newComment.commentary,
+        user: await checkUserInfo(newComment.email)
+       }
+
+        sendData(commentToJSON);
     }
 });
 
