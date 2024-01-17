@@ -128,6 +128,36 @@ body{
 #options-lateral-menu{
     display: none;
 }
+
+.error-message{
+    font-family:'inter', Bold;
+    font-size: 0.8em;
+    color: rgb(219, 34, 34);
+}
+
+#user-success-message-container{
+    display: none;
+}
+
+#Name-Input.invalid, #E-Mail-Input.invalid, #LastName-Input.invalid, #Password-Input.invalid, #Check-Password-Input.invalid{
+    border-color: lightcoral;
+}
+    
+#Name-Input.valid, #E-Mail-Input.valid, #LastName-Input.valid, #Password-Input.valid, #Check-Password-Input.valid{
+    border-color: lightgreen;
+}
+    
+#invalid-name-sign, #invalid-lastName-sign, #invalid-email-sign, #invalid-oldPassword-sign, #invalid-newPassword-sign, #invalid-check-password-sign,
+#invalid-street-sign, #invalid-outsideNum-sign, #invalid-insideNum-sign, #invalid-colony-sign, #invalid-zip-sign, #invalid-municipality-sign{
+    display: none;
+    color: red;
+}
+
+#address-form button, #user-name-form button, #user-lastName-form button, #user-email-form button , #user-password-form button{
+    background-color: #361C12;
+    color: #F6EACC;
+}
+
 /* estilos del footer */
 
 footer{

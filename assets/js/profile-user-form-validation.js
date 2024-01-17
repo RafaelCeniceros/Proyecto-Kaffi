@@ -1,3 +1,6 @@
+
+//Valdo: se va a rehacer el scipt
+
 const nameInput = document.getElementById("Name-Input");
 const lastNameInput = document.getElementById("LastName-Input");
 const emailInput = document.getElementById("E-Mail-Input");
@@ -22,18 +25,18 @@ errorMessageEmail.style.display="none";
 errorMessagePassword.style.display="none";
 errorMessageCheckPassword.style.display="none";
 
-const successMessageContainer = document.getElementById("success-message-container");
+const successMessageContainer = document.getElementById("user-success-message-container");
 
 
-const dataCheckout = async (user) => {
+const dataCheckout = (userUpdate) => {
 
     resetValues();
 
-    const isNameValid = validateName(user.name, nameInput, invalidNameSign);
-    const isLastNameValid = validateLastName(user.lastName, lastNameInput, invalidLastNameSign);
-    const isEmailValid = await validateEmail(user.email, emailInput, invalidEmailSign);
-    const isPasswordValid = validatePassword(user.password, passwordInput, invalidPasswordSign);
-    const isCheckPasswordValid = validateCheckPassword(user.password, user.checkPassword, checkPasswordInput, invalidCheckPasswordSign);
+    const isNameValid = validateName(userUpdate.name, nameInput, invalidNameSign);
+    const isLastNameValid = validateLastName(userUpdate.lastName, lastNameInput, invalidLastNameSign);
+    const isEmailValid = validateEmail(userUpdate.email, emailInput, invalidEmailSign);
+    const isPasswordValid = validatePassword(userUpdate.password, passwordInput, invalidPasswordSign);
+    const isCheckPasswordValid = validateCheckPassword(userUpdate.password, userUpdate.checkPassword, checkPasswordInput, invalidCheckPasswordSign);
 
     return isNameValid && isLastNameValid && isEmailValid && isPasswordValid && isCheckPasswordValid;
 };
@@ -73,44 +76,20 @@ const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
     }
 };
 
-const validateEmail = async (email, emailInput, invalidEmailSign) => {
+const validateEmail = (email, emailInput, invalidEmailSign) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
     if (!regex.test(email)) {
-        errorMessageEmail.style.display = "block";
+        errorMessageEmail.style.display="block";
         errorMessage("Introduzca un correo electrónico válido", errorMessageEmail);
         emailInput.classList.add("invalid");
         invalidEmailSign.style.display = "block";
         return false;
     } else {
-        errorMessageEmail.style.display = "none";
+        errorMessageEmail.style.display="none";
         errorMessage("", errorMessageEmail);
         emailInput.classList.remove("invalid");
         invalidEmailSign.style.display = "none";
-
-        // Fetch data from the local JSON file
-        const apiUrl = "../../users.json"; // Reemplaza esto con la ruta correcta de tu archivo JSON
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        // Verifica si el correo electrónico ya existe en los datos del usuario
-        const emailExists = data.some(user => user.email === email);
-
-        if (emailExists) {
-            // Si el correo ya existe
-            errorMessageEmail.style.display = "block";
-            errorMessage("Este correo electrónico ya está registrado", errorMessageEmail);
-            emailInput.classList.add("invalid");
-            invalidEmailSign.style.display = "block";
-            return false;
-        } else {
-            // Si el correo no existe
-            errorMessageEmail.style.display = "none";
-            errorMessage("", errorMessageEmail);
-            emailInput.classList.remove("invalid");
-            invalidEmailSign.style.display = "none";
-            return true;
-        }
+        return true;
     }
 };
 
@@ -153,11 +132,11 @@ const validateCheckPassword = (password, checkPassword, checkPasswordInput, inva
 
 
 //Referencia del formulario de contacto
-const registerForm = document.forms["register-form"];
+const registerForm = document.forms["user-form"];
 
-registerForm.addEventListener("submit", async (event) => {
+registerForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const user = {
+    const userUpdate = {
         name: registerForm.elements["Name-Input"].value,
         lastName: registerForm.elements["LastName-Input"].value,
         email: registerForm.elements["E-Mail-Input"].value,
@@ -166,7 +145,7 @@ registerForm.addEventListener("submit", async (event) => {
     };
 
     // Validar el formulario
-    const isFormValid = await dataCheckout(user);
+    const isFormValid = dataCheckout(userUpdate);
 
     // Enviar datos solo si el formulario es válido
     if (isFormValid) {
@@ -177,15 +156,9 @@ registerForm.addEventListener("submit", async (event) => {
         passwordInput.classList.add("valid");
         checkPasswordInput.classList.add("valid");
         
-        const userToJSON= {
-            firstName: user.name,
-            lastName: user.lastName,
-            email: user.email,
-            password: user.password,
-            address: null,
-            UserType: {id:2}
-        }
-        sendData(userToJSON);
+        sendData(userUpdate);
+
+        disableEditing();
     }
 });
 
@@ -202,68 +175,55 @@ const errorMessage = (message, messageContainer) => {
 };
 
 
-const resetValues =()=>{
+// Función para inhabilitar la edición
+function disableEditing() {
+    nameInput.setAttribute("readonly",true);
+    lastNameInput.setAttribute("readonly",true);
+    emailInput.setAttribute("readonly",true);
+    passwordInput.setAttribute("readonly",true);
+    checkPasswordInput.setAttribute("readonly",true);
+}
+
+// Función para restablecer valores y deshabilitar edición
+const resetValues = () => {
+
+    successMessageContainer.style.display = "none";
+
     nameInput.classList.remove("invalid");
     lastNameInput.classList.remove("invalid");
     emailInput.classList.remove("invalid");
     passwordInput.classList.remove("invalid");
     checkPasswordInput.classList.remove("invalid");
-    
+
     nameInput.classList.remove("valid");
     lastNameInput.classList.remove("valid");
     emailInput.classList.remove("valid");
     passwordInput.classList.remove("valid");
     checkPasswordInput.classList.remove("valid");
-    
+
     invalidNameSign.style.display = "none";
     invalidLastNameSign.style.display = "none";
     invalidEmailSign.style.display = "none";
     invalidPasswordSign.style.display = "none";
     invalidCheckPasswordSign.style.display = "none";
-}
-
-
-const sendData = (user) => {
-    //Gurdado de datos de usuario en localstorage (Se reemplazara el codigo para questos sean enviados a una api en un futuro)
-
-    console.table(user);
-
-    // Convertir el objeto user a una cadena JSON
-    const userJSON = JSON.stringify(user);
-
-    // Guardar en el localStorage
-    localStorage.setItem("userData", userJSON);
-
-    window.location.href = "../pages/login.html#login-title"
 
 };
 
+const showSuccessMessage = () => {
+    successMessageContainer.style.display = "flex"; // Mostrar el contenedor de mensaje de éxito
+};
 
-const userLoginButton = document.getElementById("enlace-login-header");
-userLoginButton.addEventListener("click", event => {
-  event.preventDefault();
-  // Obtener el accessToken encriptado desde el localStorage
-  const encryptedAccessToken = localStorage.getItem('accessToken');
 
-  if (encryptedAccessToken) {
-    // Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
-    const secretWord = "CodeTitansRafaFerValdoAlan";
-    // Desencriptar el accessToken con CryptoJS
-    const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
-    // Convertir los bytes desencriptados a cadena JSON
-    const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
-    // Parsear la cadena JSON a un objeto JavaScript
-    const accessToken = JSON.parse(decryptedAccessTokenJSON);
-    if (accessToken) {
-      console.log("Inicio de sesion detectado")
-      console.log("UserType:" + accessToken.userType);
-      if (accessToken.userType === 1) {
-        window.location.href = "../pages/admin-profile.html";
-      } else if (accessToken.userType === 2) {
-        window.location.href = "../pages/profile.html";
-      }
-    }
-  } else {
-    window.location.href = "../pages/login.html#login-container";
-  }
-});
+const sendData = (userUpdate) => {
+    //Gurdado de datos de usuario en localstorage (Se reemplazara el codigo para questos sean enviados a una api en un futuro)
+
+    console.table(userUpdate);
+
+    setTimeout(() => {showSuccessMessage();}, 1500);
+
+    // Convertir el objeto user a una cadena JSON
+    const userJSON = JSON.stringify(userUpdate);
+
+    // Guardar en el localStorage
+    localStorage.setItem("userData", userJSON);
+};
