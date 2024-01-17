@@ -135,15 +135,17 @@ body{
     color: rgb(219, 34, 34);
 }
 
-#user-success-message-container{
+#user-success-message-container, #address-success-message-container{
     display: none;
 }
 
-#Name-Input.invalid, #E-Mail-Input.invalid, #LastName-Input.invalid, #Password-Input.invalid, #Check-Password-Input.invalid{
+#Name-Input.invalid, #E-Mail-Input.invalid, #LastName-Input.invalid, #Password-Input.invalid, #Check-Password-Input.invalid.container-forms,
+#inputStreet.invalid, #inputOutsideNum.invalid, #inputInsideNum.invalid, #inputColony.invalid, #inputMunicipality.invalid, #inputZip.invalid{
     border-color: lightcoral;
 }
     
-#Name-Input.valid, #E-Mail-Input.valid, #LastName-Input.valid, #Password-Input.valid, #Check-Password-Input.valid{
+#Name-Input.valid, #E-Mail-Input.valid, #LastName-Input.valid, #Password-Input.valid, #Check-Password-Input.valid,
+#inputStreet.valid, #inputOutsideNum.valid, #inputInsideNum.valid, #inputColony.valid, #inputMunicipality.valid, #inputZip.valid{
     border-color: lightgreen;
 }
     
