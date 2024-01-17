@@ -119,7 +119,7 @@ body{
 }
 
 /* Contenedores opciones */
-.container-forms {
+.container-forms, .order-card{
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
@@ -148,14 +148,28 @@ body{
 }
     
 #invalid-name-sign, #invalid-lastName-sign, #invalid-email-sign, #invalid-oldPassword-sign, #invalid-newPassword-sign, #invalid-check-password-sign,
-#invalid-street-sign, #invalid-outsideNum-sign, #invalid-insideNum-sign, #invalid-colony-sign, #invalid-zip-sign, #invalid-municipality-sign{
+#invalid-street-sign, #invalid-outsideNum-sign, #invalid-insideNum-sign, #invalid-colony-sign, #invalid-zip-sign, #invalid-municipality-sign,
+#invalid-comment-sign{
     display: none;
     color: red;
 }
 
-#address-form button, #user-name-form button, #user-lastName-form button, #user-email-form button , #user-password-form button{
+#address-form button, #user-name-form button, #user-lastName-form button, #user-email-form button , #user-password-form button, #credit-card-form button{
     background-color: #361C12;
     color: #F6EACC;
+}
+
+.order-card h5{
+    font-weight: bold;
+}
+
+.order-info {
+    display: inline-block;
+    padding: 0.20rem 0.2rem; /* Reducido padding */
+    color: #F6EACC;
+    background-color: #361C12;
+    width: 100%;
+    border-radius: 0.25rem; /* Bordes redondeados */
 }
 
 /* estilos del footer */
