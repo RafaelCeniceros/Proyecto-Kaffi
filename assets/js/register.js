@@ -242,18 +242,28 @@ const sendData = (user) => {
 const userLoginButton = document.getElementById("enlace-login-header");
 userLoginButton.addEventListener("click", event => {
   event.preventDefault();
-  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-  if (accessToken) {
-    console.log("Inicio de sesion detectado");
-    console.log("UserType:" + accessToken.userType);
-    if (accessToken.userType === 1) {
-      window.location.href = "../pages/admin-profile.html";
-    } else if (accessToken.userType === 2) {
-      window.location.href = "../pages/profile.html";
+  // Obtener el accessToken encriptado desde el localStorage
+  const encryptedAccessToken = localStorage.getItem('accessToken');
+
+  if (encryptedAccessToken) {
+    // Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+    const secretWord = "CodeTitansRafaFerValdoAlan";
+    // Desencriptar el accessToken con CryptoJS
+    const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+    // Convertir los bytes desencriptados a cadena JSON
+    const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+    // Parsear la cadena JSON a un objeto JavaScript
+    const accessToken = JSON.parse(decryptedAccessTokenJSON);
+    if (accessToken) {
+      console.log("Inicio de sesion detectado")
+      console.log("UserType:" + accessToken.userType);
+      if (accessToken.userType === 1) {
+        window.location.href = "../pages/admin-profile.html";
+      } else if (accessToken.userType === 2) {
+        window.location.href = "../pages/profile.html";
+      }
     }
+  } else {
+    window.location.href = "../pages/login.html#login-container";
   }
-  else {
-    console.log("Inicio de sesion no detectado");
-      window.location.href = "../pages/login.html#login-container";
-    }
-})
+});

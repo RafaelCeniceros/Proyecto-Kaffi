@@ -1,17 +1,32 @@
 const url = '../../users.json';
 
-const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-  if (accessToken) {
-    console.log("Inicio de sesion detectado")
-    console.log("UserType:" + accessToken.userType);
-    if (accessToken.userType === 1) {
-      window.location.href = "../pages/admin-profile.html";
-    } else if (accessToken.userType === 2) {
-      window.location.href = "../pages/profile.html";
+const checkifAccessToken = () => {
+  const encryptedAccessToken = localStorage.getItem('accessToken');
+
+  if (encryptedAccessToken) {
+    // Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+    const secretWord = "CodeTitansRafaFerValdoAlan";
+    // Desencriptar el accessToken con CryptoJS
+    const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+    // Convertir los bytes desencriptados a cadena JSON
+    const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+    // Parsear la cadena JSON a un objeto JavaScript
+    const accessToken = JSON.parse(decryptedAccessTokenJSON);
+    if (accessToken) {
+      console.log("Inicio de sesion detectado")
+      console.log("UserType:" + accessToken.userType);
+      if (accessToken.userType === 1) {
+        window.location.href = "../pages/admin-profile.html";
+      } else if (accessToken.userType === 2) {
+        window.location.href = "../pages/profile.html";
+      }
     }
-  }else {
+  } else {
     window.location.href = "../pages/login.html#login-container";
   }
+}
+
+
 
 const saveUsersLocalStorage = async (url) => {
   try {
@@ -28,68 +43,111 @@ const saveUsersLocalStorage = async (url) => {
 const userLoginButton = document.getElementById("enlace-login-header");
 userLoginButton.addEventListener("click", event => {
   event.preventDefault();
-  const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-  if (accessToken) {
-    console.log("Inicio de sesion detectado")
-    console.log("UserType:" + accessToken.userType);
-    if (accessToken.userType === 1) {
-      window.location.href = "../pages/admin-profile.html";
-    } else if (accessToken.userType === 2) {
-      window.location.href = "../pages/profile.html";
+  // Obtener el accessToken encriptado desde el localStorage
+  const encryptedAccessToken = localStorage.getItem('accessToken');
+
+  if (encryptedAccessToken) {
+    // Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+    const secretWord = "CodeTitansRafaFerValdoAlan";
+    // Desencriptar el accessToken con CryptoJS
+    const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+    // Convertir los bytes desencriptados a cadena JSON
+    const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+    // Parsear la cadena JSON a un objeto JavaScript
+    const accessToken = JSON.parse(decryptedAccessTokenJSON);
+    if (accessToken) {
+      console.log("Inicio de sesion detectado")
+      console.log("UserType:" + accessToken.userType);
+      if (accessToken.userType === 1) {
+        window.location.href = "../pages/admin-profile.html";
+      } else if (accessToken.userType === 2) {
+        window.location.href = "../pages/profile.html";
+      }
     }
-  }
-  else {
+  } else {
     window.location.href = "../pages/login.html#login-container";
   }
-})
+});
 
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
   event.preventDefault();
-  saveUsersLocalStorage(url);
+
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  
+
   if (!email || !password) {
     document.getElementById('error').innerText = 'Por favor, complete todos los campos.';
     return;
   }
-  
-  const storedUsers = JSON.parse(localStorage.getItem('userData'));
-  
-  if (storedUsers) {
-    let userFound = false;
-    
-    for (let i = 0; i < storedUsers.length; i++) {
-      if (email === storedUsers[i].email) {
-        userFound = true;
-        if (password === storedUsers[i].password) {
-          // Crear un objeto accessToken con la información necesaria
-          const accessToken = {
-            userId: storedUsers[i].id,
-            userName: storedUsers[i].firstName,
-            userType: storedUsers[i].UserType.id
-          };
 
-          // Almacenar el accessToken en el localStorage
-          localStorage.setItem('accessToken', JSON.stringify(accessToken));
-          localStorage.removeItem("userData"); //Remover la informacion de los usuarios
-          // Cambiar la redirección dependiendo del UserType (tipo de usuario)
-          if (storedUsers[i].UserType.id === 1) {
-            window.location.href = "../pages/admin-profile.html";
-          } else if (storedUsers[i].UserType.id === 2) {
-            window.location.href = "../pages/profile.html";
-          }
-          return;
-        } else {
-          document.getElementById('error').innerText = 'Email o contraseña incorrectos.';
-          return;
-        }
+  saveUsersLocalStorage(url);
+  const storedUsers = getStoredUsers();
+
+  if (storedUsers) {
+    const user = findUserByEmail(storedUsers, email);
+
+    if (user) {
+      if (password === user.password) {
+        handleSuccessfulLogin(user);
+      } else {
+        displayError('Email o contraseña incorrectos.');
       }
-    }
-    
-    if (!userFound) {
-      document.getElementById('error').innerText = 'Email no encontrado.';
+    } else {
+      displayError('Email no encontrado.');
     }
   }
 });
+
+function getStoredUsers() {
+  return JSON.parse(localStorage.getItem('userData')) || [];
+}
+
+function findUserByEmail(users, email) {
+  return users.find(user => user.email === email);
+}
+
+function handleSuccessfulLogin(user) {
+  const accessToken = createAccessToken(user);
+
+  // Almacenar el accessToken en el localStorage
+  storeAccessToken(accessToken);
+
+  // Eliminar la información de los usuarios del localStorage
+  removeAllUsersFromLocalStorage();
+  console.log('Informacion de usuarios eliminada');
+
+  // Redireccionar al usuario
+  redirectToProfilePage(accessToken.userType);
+}
+
+function createAccessToken(user) {
+  const { id, firstName, UserType } = user;
+  return {
+    userId: id,
+    userName: firstName,
+    userType: UserType.id
+  };
+}
+
+function storeAccessToken(accessToken) {
+  const secretWord = 'CodeTitansRafaFerValdoAlan';
+  const accessTokenJSON = JSON.stringify(accessToken);
+  const encryptedAccessToken = CryptoJS.AES.encrypt(accessTokenJSON, secretWord).toString();
+  localStorage.setItem('accessToken', encryptedAccessToken);
+}
+
+function removeAllUsersFromLocalStorage() {
+  localStorage.removeItem('userData');
+}
+
+function displayError(message) {
+  document.getElementById('error').innerText = message;
+}
+
+function redirectToProfilePage(userType) {
+  const redirectUrl = userType === 1 ? '../pages/admin-profile.html' : '../pages/profile.html';
+  window.location.href = redirectUrl;
+}
+
+checkifAccessToken();
