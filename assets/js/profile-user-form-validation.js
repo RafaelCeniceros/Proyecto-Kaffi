@@ -1,6 +1,4 @@
 
-//Valdo: se va a rehacer el scipt
-
 const nameInput = document.getElementById("Name-Input");
 const lastNameInput = document.getElementById("LastName-Input");
 const emailInput = document.getElementById("E-Mail-Input");
