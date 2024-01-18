@@ -70,7 +70,7 @@ userLoginButton.addEventListener("click", event => {
 });
 
 
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
   event.preventDefault();
 
   const email = document.getElementById('email').value;
@@ -81,7 +81,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     return;
   }
 
-  saveUsersLocalStorage(url);
+  await saveUsersLocalStorage(url);
   const storedUsers = getStoredUsers();
 
   if (storedUsers) {

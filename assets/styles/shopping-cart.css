@@ -127,7 +127,7 @@ header nav{
     color: #7E4F25;
 }
 
-.close {
+.close, .closeModal2 {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -144,6 +144,12 @@ header nav{
     cursor: pointer;
 }
 
+.closeModal2:hover,
+.closeModal2:focus {
+    color: #361c12;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 .product-card{

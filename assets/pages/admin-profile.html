@@ -167,19 +167,19 @@
                         <div class="row d-flex justify-content-center align-items-center w-100">
                             <!-- Search bar -->
                             <nav class="col-12 col-md-10 d-flex align-items-center justify-content-center mx-0" id="search-bar-container">
-                                <form class="d-flex flex-column align-items-center py-2" role="search">
-                                    <label for="search-product-input">ID/Nombre del Producto:</label>
-                                    <div class="d-flex align-items-center justify-content-between text-center">
-                                        <button id="previous-product-button" class="product-form-button mx-2">
+                                <form class="d-flex flex-column align-items-center py-2 w-100" role="search">
+                                    <label class ="d-flex align-items-center justify-content-center" for="search-product-input">ID/Nombre del Producto:</label>
+                                    <div class="d-flex align-items-center justify-content-between text-center w-100">
+                                        <button id="previous-product-button" class="product-form-button mx-2 d-flex">
                                             <i class="fa-solid fa-arrow-left fa-sm"></i>
                                         </button>
-                                        <div class="d-flex searchbar">
-                                            <input class="px-5" type="search" placeholder="Buscar" id="search-product-input">
+                                        <div class="d-flex searchbar w-75">
+                                            <input class="d-flex w-100" type="search" placeholder="Buscar" id="search-product-input">
                                             <button class="product-form-button ms-2" type="submit" id="search-button">
                                                 <i class="fa-solid fa-magnifying-glass fa-flip-horizontal fa-lg"></i>
                                             </button>
                                         </div>
-                                        <button id="next-product-button" class="product-form-button mx-2">
+                                        <button id="next-product-button" class="product-form-button mx-2 d-flex">
                                             <i class="fa-solid fa-arrow-right fa-sm"></i>
                                         </button>
                                     </div>
@@ -231,15 +231,7 @@
                                                     <img id="product-img" src="../images/imagen desconocida producto.png"
                                                         class="img-fluid w-100 rounded-circle">
                                                 </div>
-                                                <div class="row mt-2" id="change-img-container">
-                                                    <div class="col d-flex flex-column">
-                                                        <label for="fileUpload">
-                                                        <p class="change-img-button text-center p-1">Agregar Archivo</p>
-                                                        <input disabled type="file" id="fileUpload" class="d-none">
-                                                        </label>
-                                                        <button id="change-img-button" class="change-img-button">Cambiar Imagen</button>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <!-- Boton Editar y Guardar Producto -->
@@ -296,11 +288,27 @@
                     <div id="container-orders" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
                         <div class="col-md-10 d-flex flex-column justify-content-center m-2">
-                            <h4 class="mt-4 d-flex justify-content-start ms-4">Pedidos</h4>
+                            <h4 class="mt-4 d-flex justify-content-center">Pedidos</h4>
+                            <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg"> <!-- modal-lg para un modal más grande -->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="orderDetailsModalLabel">Detalles de la Orden</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Aquí se insertará dinámicamente el contenido del modal -->
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div id="no-orders" class="row w-100 align-items-center justify-content-center p-5">
                                 <h6 class="text-center">No hay pedidos disponibles</h6>
                             </div>
-                            <div id="orders" class="row align-items-center justify-content-end w-100 pb-3 ms-3">
+                            <div id="orders" class="row align-items-center justify-content-center w-100 pb-3 ms-3">
                             </div>
                         </div>
                     </div>
@@ -320,11 +328,11 @@
                     <div id="container-comments" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
                         <div class="col-md-10 d-flex flex-column justify-content-center m-2">
-                            <h4 class="mt-4 d-flex justify-content-start ms-4">Comentarios</h4>
+                            <h4 class="mt-4 d-flex justify-content-center">Comentarios</h4>
                             <div id="no-comments" class="row w-100 align-items-center justify-content-center p-5">
                                 <h6 class="text-center">No hay comentarios disponibles</h6>
                             </div>
-                            <div id="comments" class="row align-items-center justify-content-start w-100 py-3">
+                            <div id="comments" class="row align-items-center justify-content-center w-100 py-3">
                             </div>
                         </div>
                     </div>
