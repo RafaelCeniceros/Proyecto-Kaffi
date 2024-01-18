@@ -1,45 +1,69 @@
 
+// Constantes para el formulario de actualización de nombre
+const userNameForm = document.forms["user-name-form"];
 const nameInput = document.getElementById("Name-Input");
-const lastNameInput = document.getElementById("LastName-Input");
-const emailInput = document.getElementById("E-Mail-Input");
-const passwordInput = document.getElementById("Password-Input");
-const checkPasswordInput = document.getElementById("Check-Password-Input");
-
 const invalidNameSign = document.getElementById("invalid-name-sign");
-const invalidLastNameSign = document.getElementById("invalid-lastName-sign");
-const invalidEmailSign = document.getElementById("invalid-email-sign");
-const invalidPasswordSign = document.getElementById("invalid-password-sign");
-const invalidCheckPasswordSign = document.getElementById("invalid-check-password-sign");
-
 const errorMessageName = document.getElementById("error-message-name");
-const errorMessageLastName = document.getElementById("error-message-lastName")
+const successMessageNameContainer = document.getElementById("name-success-message-container");
+
+// Constantes para el formulario de actualización de apellido
+const userLastNameForm = document.forms["user-lastName-form"];
+const lastNameInput = document.getElementById("LastName-Input");
+const invalidLastNameSign = document.getElementById("invalid-lastName-sign");
+const errorMessageLastName = document.getElementById("error-message-lastName");
+const successMessageLastNameContainer = document.getElementById("lastName-success-message-container");
+
+// Constantes para el formulario de actualización de email
+const userEmailForm = document.forms["user-email-form"];
+const emailInput = document.getElementById("E-Mail-Input");
+const invalidEmailSign = document.getElementById("invalid-email-sign");
 const errorMessageEmail = document.getElementById("error-message-email");
-const errorMessagePassword = document.getElementById("error-message-password");
-const errorMessageCheckPassword = document.getElementById("error-message-check-password");
+const successMessageEmailContainer = document.getElementById("email-success-message-container");
 
-errorMessageName.style.display="none";
-errorMessageLastName.style.display="none";
-errorMessageEmail.style.display="none";
-errorMessagePassword.style.display="none";
-errorMessageCheckPassword.style.display="none";
+// Constantes para el formulario de actualización de contraseña
+const userPasswordForm = document.forms["user-password-form"];
+const oldPasswordInput = document.getElementById("OldPassword-Input");
+const newPasswordInput = document.getElementById("NewPasswor-Input");
+const invalidOldPasswordSign = document.getElementById("invalid-oldPassword-sign");
+const invalidNewPasswordSign = document.getElementById("invalid-newPassword-sign");
+const errorMessageOldPassword = document.getElementById("error-message-oldPassword");
+const errorMessageNewPassword = document.getElementById("error-message-newPassword");
+const successMessagePasswordContainer = document.getElementById("password-success-message-container");
 
-const successMessageContainer = document.getElementById("user-success-message-container");
 
 
-const dataCheckout = (userUpdate) => {
-
-    resetValues();
-
-    const isNameValid = validateName(userUpdate.name, nameInput, invalidNameSign);
-    const isLastNameValid = validateLastName(userUpdate.lastName, lastNameInput, invalidLastNameSign);
-    const isEmailValid = validateEmail(userUpdate.email, emailInput, invalidEmailSign);
-    const isPasswordValid = validatePassword(userUpdate.password, passwordInput, invalidPasswordSign);
-    const isCheckPasswordValid = validateCheckPassword(userUpdate.password, userUpdate.checkPassword, checkPasswordInput, invalidCheckPasswordSign);
-
-    return isNameValid && isLastNameValid && isEmailValid && isPasswordValid && isCheckPasswordValid;
+//Funcion de validacion de formulario de nombre
+const dataNameCheckout = (nameUpdate) => {
+    resetValues(nameInput,invalidNameSign,successMessageNameContainer);
+    const isNameValid = validateName(nameUpdate.name, nameInput, invalidNameSign);
+    return isNameValid 
 };
 
+//Funcion de validacion de formulario de apellido
+const dataLastNameCheckout = (lastNameUpdate) => {
+    resetValues(lastNameInput,invalidLastNameSign,successMessageLastNameContainer);
+    const isLastNameValid = validateLastName(lastNameUpdate.lastName, lastNameInput, invalidLastNameSign);
+    return isLastNameValid;
+};
 
+//Funcion de validacion de formulario de email
+const dataEmailCheckout = (emailUpdate) => {
+    resetValues(emailInput,invalidEmailSign,successMessageEmailContainer);
+    const isEmailValid = validateEmail(emailUpdate.email, emailInput, invalidEmailSign);
+    return isEmailValid;
+};
+
+//Funcion de validacion de formulario de email
+const dataPasswordCheckout = (passwordUpdate) => {
+    resetPasswordValues();
+    //const isOldPasswordValid = validateOldPassword(passwordUpdate.oldPassword, oldPasswordInput, invalidOldPasswordSign);
+    const isNewPasswordValid = validateNewPassword(passwordUpdate.newPassword, newPasswordInput, invalidNewPasswordSign);
+    //return isOldPasswordValid && isNewPasswordValid;
+    return isNewPasswordValid;
+
+};
+
+//Validacion de nombre
 const validateName = (name, nameInput, invalidNameSign) => {
     const regex = /^[a-zA-ZñÑ\s]+$/;
     if (name === "" || name.length > 25 || name.length < 2 || !regex.test(name)) {
@@ -57,6 +81,7 @@ const validateName = (name, nameInput, invalidNameSign) => {
     }
 };
 
+//Validacion de apellido
 const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
     const regex = /^[a-zA-ZñÑ\s]+$/;
     if (lastName === "" || lastName.length > 25 || lastName.length < 2 || !regex.test(lastName)) {
@@ -74,6 +99,7 @@ const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
     }
 };
 
+//Validacion de email
 const validateEmail = (email, emailInput, invalidEmailSign) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!regex.test(email)) {
@@ -91,72 +117,90 @@ const validateEmail = (email, emailInput, invalidEmailSign) => {
     }
 };
 
-const validatePassword = (password, passwordInput, invalidPasswordSign) => {
+//Validacion de la nueva contraseña
+const validateNewPassword = (newPassword, newPasswordInput, invalidNewPasswordSign) => {
     const hasUppercase = /[A-Z]/;
     const hasLowercase = /[a-z]/;
     const hasNumber = /\d/;
 
-    if (!(hasUppercase.test(password) && hasLowercase.test(password) && hasNumber.test(password) && password.length >= 8)) {
-        errorMessagePassword.style.display="block";
-        errorMessage("La contraseña debe tener al menos una mayúscula, una minúscula, un número y ser de al menos 8 caracteres de longitud", errorMessagePassword);
-        passwordInput.classList.add("invalid");
-        invalidPasswordSign.style.display = "block";
+    if (!(hasUppercase.test(newPassword) && hasLowercase.test(newPassword) && hasNumber.test(newPassword) && newPassword.length >= 8)) {
+        errorMessageNewPassword.style.display="block";
+        errorMessage("La contraseña debe tener al menos una mayúscula, una minúscula, un número y ser de al menos 8 caracteres de longitud", errorMessageNewPassword);
+        newPasswordInput.classList.add("invalid");
+        invalidNewPasswordSign.style.display = "block";
         return false;
     } else {
-        errorMessagePassword.style.display="none";
-        errorMessage("", errorMessagePassword);
-        passwordInput.classList.remove("invalid");
-        invalidPasswordSign.style.display = "none";
-        return true;
-    }
-};
-
-const validateCheckPassword = (password, checkPassword, checkPasswordInput, invalidCheckPasswordSign) => {
-    if (password !== checkPassword) {
-        errorMessageCheckPassword.style.display="block";
-        errorMessage("Las contraseñas no coinciden", errorMessageCheckPassword);
-        checkPasswordInput.classList.add("invalid");
-        invalidCheckPasswordSign.style.display = "block";
-        return false;
-    } else {
-        errorMessageCheckPassword.style.display="none";
-        errorMessage("", errorMessageCheckPassword);
-        checkPasswordInput.classList.remove("invalid");
-        invalidCheckPasswordSign.style.display = "none";
+        errorMessageNewPassword.style.display="none";
+        errorMessage("", errorMessageNewPassword);
+        newPasswordInput.classList.remove("invalid");
+        invalidNewPasswordSign.style.display = "none";
         return true;
     }
 };
 
 
-
-//Referencia del formulario de contacto
-const registerForm = document.forms["user-form"];
-
-registerForm.addEventListener("submit", (event) => {
+userNameForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const userUpdate = {
-        name: registerForm.elements["Name-Input"].value,
-        lastName: registerForm.elements["LastName-Input"].value,
-        email: registerForm.elements["E-Mail-Input"].value,
-        password: registerForm.elements["Password-Input"].value,
-        checkPassword: registerForm.elements["Check-Password-Input"].value
-    };
+    const nameUpdate = {name: userNameForm.elements["Name-Input"].value};
+    const isNameFormValid = dataNameCheckout(nameUpdate);
+    
+    // Enviar datos solo si el formulario es válido
+    if (isNameFormValid) {
+        
+        nameInput.classList.add("valid");
 
-    // Validar el formulario
-    const isFormValid = dataCheckout(userUpdate);
+        sendNameData(nameUpdate);
+        disableEditing(nameInput);
+    }
+});
+
+userLastNameForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const lastNameUpdate = { lastName: userLastNameForm.elements["LastName-Input"].value };
+    const isLastNameFormValid = dataLastNameCheckout(lastNameUpdate);
 
     // Enviar datos solo si el formulario es válido
-    if (isFormValid) {
+    if (isLastNameFormValid) {
 
-        nameInput.classList.add("valid");
         lastNameInput.classList.add("valid");
-        emailInput.classList.add("valid");
-        passwordInput.classList.add("valid");
-        checkPasswordInput.classList.add("valid");
-        
-        sendData(userUpdate);
 
-        disableEditing();
+        sendLastNameData(lastNameUpdate);
+        disableEditing(lastNameInput);
+    }
+});
+
+userEmailForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const emailUpdate = { email: userEmailForm.elements["E-Mail-Input"].value };
+    const isEmailFormValid = dataEmailCheckout(emailUpdate);
+
+    // Enviar datos solo si el formulario es válido
+    if (isEmailFormValid) {
+
+        emailInput.classList.add("valid");
+
+        sendEmailData(emailUpdate);
+        disableEditing(emailInput);
+    }
+});
+
+userPasswordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const passwordUpdate = {
+        oldPassword: userPasswordForm.elements["OldPassword-Input"].value,
+        newPassword: userPasswordForm.elements["NewPasswor-Input"].value
+    };
+    const isPasswordFormValid = dataPasswordCheckout(passwordUpdate);
+
+    // Enviar datos solo si el formulario es válido
+    if (isPasswordFormValid) {
+
+        oldPasswordInput.classList.add("valid");
+        newPasswordInput.classList.add("valid");
+
+        sendPasswordData(passwordUpdate);
+        disableEditing(oldPasswordInput);
+        disableEditing(newPasswordInput);
     }
 });
 
@@ -164,64 +208,91 @@ registerForm.addEventListener("submit", (event) => {
 //Imprimir mensaje de error en DOM
 const errorMessage = (message, messageContainer) => {
     messageContainer.innerHTML = message;
-
     if (message === "") {
         messageContainer.style.display = "none";
     } else {
-        messageContainer.style.display = "block"; // Mostrar el contenedor de mensaje de error si hay un mensaje
+        messageContainer.style.display = "block";
     }
+};
+
+//Imprimir mensaje de exito en el DOM
+const successMessage = (messageContainer) => {
+    messageContainer.style.display = "flex";
 };
 
 
 // Función para inhabilitar la edición
-function disableEditing() {
-    nameInput.setAttribute("readonly",true);
-    lastNameInput.setAttribute("readonly",true);
-    emailInput.setAttribute("readonly",true);
-    passwordInput.setAttribute("readonly",true);
-    checkPasswordInput.setAttribute("readonly",true);
+const disableEditing = (fieldInput) => {
+    fieldInput.setAttribute("readonly",true);
 }
 
+
+
 // Función para restablecer valores y deshabilitar edición
-const resetValues = () => {
-
-    successMessageContainer.style.display = "none";
-
-    nameInput.classList.remove("invalid");
-    lastNameInput.classList.remove("invalid");
-    emailInput.classList.remove("invalid");
-    passwordInput.classList.remove("invalid");
-    checkPasswordInput.classList.remove("invalid");
-
-    nameInput.classList.remove("valid");
-    lastNameInput.classList.remove("valid");
-    emailInput.classList.remove("valid");
-    passwordInput.classList.remove("valid");
-    checkPasswordInput.classList.remove("valid");
-
-    invalidNameSign.style.display = "none";
-    invalidLastNameSign.style.display = "none";
-    invalidEmailSign.style.display = "none";
-    invalidPasswordSign.style.display = "none";
-    invalidCheckPasswordSign.style.display = "none";
-
+const resetValues = (fieldInput,sign,successMessage) => {
+    fieldInput.classList.remove("invalid");
+    fieldInput.classList.remove("valid");
+    sign.style.display = "none";
+    successMessage.style.display = "none";
 };
 
-const showSuccessMessage = () => {
-    successMessageContainer.style.display = "flex"; // Mostrar el contenedor de mensaje de éxito
+const resetPasswordValues = () =>{
+    oldPasswordInput.classList.remove("invalid");
+    newPasswordInput.classList.remove("invalid");
+    oldPasswordInput.classList.remove("valid");
+    newPasswordInput.classList.remove("valid");
+    invalidNewPasswordSign.style.display = "none";
+    invalidOldPasswordSign.style.display = "none";
+    successMessagePasswordContainer.style.display = "none";
+}
+
+
+//Funcion para enviar datos de actualizacion de nombre
+const sendNameData = (nameUpdate) => {
+    console.table(nameUpdate);
+
+    setTimeout(() => {
+        successMessage(successMessageNameContainer);
+    }, 1500);
+
+    const nameJSON = JSON.stringify(nameUpdate);
+    localStorage.setItem("nameData", nameJSON);
 };
 
 
-const sendData = (userUpdate) => {
-    //Gurdado de datos de usuario en localstorage (Se reemplazara el codigo para questos sean enviados a una api en un futuro)
+// Función para enviar datos de actualización de apellido
+const sendLastNameData = (lastNameUpdate) => {
+    console.table(lastNameUpdate);
 
-    console.table(userUpdate);
+    setTimeout(() => {
+        successMessage(successMessageLastNameContainer);
+    }, 1500);
 
-    setTimeout(() => {showSuccessMessage();}, 1500);
+   
+    const lastNameJSON = JSON.stringify(lastNameUpdate);
+    localStorage.setItem("lastNameData", lastNameJSON);
+};
 
-    // Convertir el objeto user a una cadena JSON
-    const userJSON = JSON.stringify(userUpdate);
+// Función para enviar datos de actualización de email
+const sendEmailData = (emailUpdate) => {
+    console.table(emailUpdate);
 
-    // Guardar en el localStorage
-    localStorage.setItem("userData", userJSON);
+    setTimeout(() => {
+        successMessage(successMessageEmailContainer);
+    }, 1500);
+
+    const emailJSON = JSON.stringify(emailUpdate);
+    localStorage.setItem("emailData", emailJSON);
+};
+
+// Función para enviar datos de actualización de contraseña
+const sendPasswordData = (passwordUpdate) => {
+    console.table(passwordUpdate);
+
+    setTimeout(() => {
+        successMessage(successMessagePasswordContainer);
+    }, 1500);
+
+    const passwordJSON = JSON.stringify(passwordUpdate);
+    localStorage.setItem("passwordData", passwordJSON);
 };
