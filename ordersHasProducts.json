@@ -1,0 +1,258 @@
+[
+    {
+        "order": {
+            "id": 1,
+            "price": 0.00,
+            "date": "2023-12-01T06:00:00.000+00:00",
+            "user": {
+                "id": 6,
+                "active": true,
+                "firstName": "Isaac",
+                "lastName": "Newton",
+                "email": "fisicomuerto@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Woolsthorpe Manor Hous",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 2,
+            "name": "Espresso",
+            "price": 25.00,
+            "description": "Un tiro de café concentrado",
+            "image": "../images/imagenes-menu/Cafes/cafe_espresso.jpg",
+            "categoryId": 1
+        },
+        "quantity": 1,
+        "unitaryPrice": 25.00,
+        "totalPrice": 25.00
+    },
+    {
+        "order": {
+            "id": 1,
+            "price": 0.00,
+            "date": "2023-12-01T06:00:00.000+00:00",
+            "user": {
+                "id": 6,
+                "active": true,
+                "firstName": "Isaac",
+                "lastName": "Newton",
+                "email": "fisicomuerto@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Woolsthorpe Manor Hous",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 40,
+            "name": "Bagel clásico",
+            "price": 65.00,
+            "description": "Bagel tostado con jamón, queso, lechuga, tomate y aderezada con mayonesa",
+            "image": "../images/imagenes-menu/Bagels/clasico.jpg",
+            "categoryId": 5
+        },
+        "quantity": 1,
+        "unitaryPrice": 65.00,
+        "totalPrice": 65.00
+    },
+    {
+        "order": {
+            "id": 2,
+            "price": 0.00,
+            "date": "2023-12-02T06:00:00.000+00:00",
+            "user": {
+                "id": 4,
+                "active": true,
+                "firstName": "Cristiano Ronaldo",
+                "lastName": "Dos Santos Aveiro",
+                "email": "CR7_oficial@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Al Nassir 15432 Arabia SAudita",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 24,
+            "name": "Chai cream",
+            "price": 65.00,
+            "description": "Frappe con sabor a chai y crema",
+            "image": "../images/imagenes-menu/Frappes/Chai-cream.png",
+            "categoryId": 3
+        },
+        "quantity": 4,
+        "unitaryPrice": 65.00,
+        "totalPrice": 260.00
+    },
+    {
+        "order": {
+            "id": 3,
+            "price": 0.00,
+            "date": "2023-12-03T06:00:00.000+00:00",
+            "user": {
+                "id": 5,
+                "active": true,
+                "firstName": "Andrés Manuel",
+                "lastName": "López Obrador",
+                "email": "AMLO_4T@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Palacio Nacional CDMX",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 35,
+            "name": "Dark horchata ice",
+            "price": 55.00,
+            "description": "Horchata con trozos de canela y un toque de café",
+            "image": "../images/imagenes-menu/Especialidades/Dark-horchata-ice.png",
+            "categoryId": 4
+        },
+        "quantity": 1,
+        "unitaryPrice": 55.00,
+        "totalPrice": 55.00
+    },
+    {
+        "order": {
+            "id": 3,
+            "price": 0.00,
+            "date": "2023-12-03T06:00:00.000+00:00",
+            "user": {
+                "id": 5,
+                "active": true,
+                "firstName": "Andrés Manuel",
+                "lastName": "López Obrador",
+                "email": "AMLO_4T@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Palacio Nacional CDMX",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 38,
+            "name": "Vainilla Macchiato",
+            "price": 60.00,
+            "description": "Café con leche y un toque de vainilla",
+            "image": "../images/imagenes-menu/Especialidades/Vainilla-macchiato.png",
+            "categoryId": 4
+        },
+        "quantity": 1,
+        "unitaryPrice": 60.00,
+        "totalPrice": 60.00
+    },
+    {
+        "order": {
+            "id": 3,
+            "price": 0.00,
+            "date": "2023-12-03T06:00:00.000+00:00",
+            "user": {
+                "id": 5,
+                "active": true,
+                "firstName": "Andrés Manuel",
+                "lastName": "López Obrador",
+                "email": "AMLO_4T@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Palacio Nacional CDMX",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 45,
+            "name": "Pizanini",
+            "price": 70.00,
+            "description": "Pan artesanal con salsa de tomate, peperoni, salami, queso mozzarella y una pisca de orégano",
+            "image": "../images/imagenes-menu/Paninis/paninis_pizzanini.jpg",
+            "categoryId": 6
+        },
+        "quantity": 2,
+        "unitaryPrice": 70.00,
+        "totalPrice": 140.00
+    },
+    {
+        "order": {
+            "id": 4,
+            "price": 0.00,
+            "date": "2023-12-04T06:00:00.000+00:00",
+            "user": {
+                "id": 5,
+                "active": true,
+                "firstName": "Andrés Manuel",
+                "lastName": "López Obrador",
+                "email": "AMLO_4T@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Palacio Nacional CDMX",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 2,
+            "name": "Espresso",
+            "price": 25.00,
+            "description": "Un tiro de café concentrado",
+            "image": "../images/imagenes-menu/Cafes/cafe_espresso.jpg",
+            "categoryId": 1
+        },
+        "quantity": 4,
+        "unitaryPrice": 25.00,
+        "totalPrice": 100.00
+    },
+    {
+        "order": {
+            "id": 5,
+            "price": 0.00,
+            "date": "2023-12-05T06:00:00.000+00:00",
+            "user": {
+                "id": 4,
+                "active": true,
+                "firstName": "Cristiano Ronaldo",
+                "lastName": "Dos Santos Aveiro",
+                "email": "CR7_oficial@gmail.com",
+                "password": "Code_Titans123",
+                "address": "Al Nassir 15432 Arabia SAudita",
+                "userType": {
+                    "idUserType": 2,
+                    "typeName": "Cliente",
+                    "description": "Usuario con cuenta creada en Kaffi-Ecommerce"
+                }
+            }
+        },
+        "product": {
+            "id": 40,
+            "name": "Bagel clásico",
+            "price": 65.00,
+            "description": "Bagel tostado con jamón, queso, lechuga, tomate y aderezada con mayonesa",
+            "image": "../images/imagenes-menu/Bagels/clasico.jpg",
+            "categoryId": 5
+        },
+        "quantity": 2,
+        "unitaryPrice": 65.00,
+        "totalPrice": 130.00
+    }
+]

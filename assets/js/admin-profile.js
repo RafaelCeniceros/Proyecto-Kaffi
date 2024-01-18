@@ -33,58 +33,63 @@ Get Comments from Api
 */
 const urlAPIcomments = "../../comments.json";
 
-function getComments(url) {
+async function getComments(url) {
     const localStorageKey = "commentsData";
     //document.getElementById("preloader").style.display = "flex";
+    
     // Limpiar el contenido del DOM
     clearDOMComments();
+    
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
     const storedData = JSON.parse(localStorage.getItem(localStorageKey));
-    if(storedData)
-    {
-    //tiempo que ha transcurrido desde que se presionó el botón
-    const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
-    //si hay informacion en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor tiempo de vida limite del localStorage en segundos 
-    if (storedData && (timeSince < localStorageTimeLimit_s)) {
-        // Leer desde el Local Storage si está dentro del límite de tiempo
-        console.log("Recuperando datos desde el Local Storage");
-        console.log("Tiempo transcurrido: " + timeSince + " segundos");
-        printOnDOMComments(storedData.data);
-        /// Mantener el preloader oculto.
-        //document.getElementById("preloader").style.display = "none";
-        return;
+    
+    if (storedData) {
+        // Tiempo que ha transcurrido desde que se presionó el botón
+        const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
+        
+        // Si hay información en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor al tiempo de vida límite del localStorage en segundos
+        if (timeSince < localStorageTimeLimit_s) {
+            // Leer desde el Local Storage si está dentro del límite de tiempo
+            console.log("Recuperando datos desde el Local Storage");
+            console.log("Tiempo transcurrido: " + timeSince + " segundos");
+            printOnDOMComments(storedData.data);
+            /// Mantener el preloader oculto.
+            //document.getElementById("preloader").style.display = "none";
+            return;
+        }
     }
-    }
-    // Realizando solicitud GET
-    fetch(url)
-    .then((response) => {
+
+    try {
+        // Realizando solicitud GET
+        const response = await fetch(url);
+
         if (response.status === 200) {
             console.log("Estado de la solicitud: OK");
             console.log("primer then");
-            return response.json();
+
+            const comments = await response.json();
+            
+            // Log the entire comments object to inspect its structure
+            console.log("Comments received:", comments);
+
+            // Guardar en el Local Storage con la marca de tiempo
+            console.log("segundo then");
+            const timestamp = Date.now();
+            const dataToStore = { data: comments, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            
+            // Ocultar el preloader después de recibir la respuesta
+            //document.getElementById("preloader").style.display = "none";
+            console.table(dataToStore); // array con comentarios
+            printOnDOMComments(comments);
         } else {
             throw new Error(`Error in fetch. Status: ${response.status}`);
         }
-    })
-    .then((comments) => {
-        // Log the entire comments object to inspect its structure
-        console.log("Comments received:", comments);
-
-        // Guardar en el Local Storage con la marca de tiempo
-        console.log("segundo then");
-        const timestamp = Date.now();
-        const dataToStore = { data: comments, timestamp: timestamp };
-        localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
-        // Ocultar el preloader después de recibir la respuesta
-        //document.getElementById("preloader").style.display = "none";
-        console.table(dataToStore); // array con comentarios
-        printOnDOMComments(comments);
-    })
-    .catch((error) => {
+    } catch (error) {
         console.log("Error in the request:", error);
         // Handle the error or log additional information if needed
-    });
-};
+    }
+}
 
 function generateCommentCard({ date, comment, user }) {
     let userInfo;
@@ -108,8 +113,8 @@ function generateCommentCard({ date, comment, user }) {
     });
 
     return `
-        <div class="col-12 d-flex my-2 align-items-center">
-            <div class="comment-icon d-flex align-items-center justify-content-center mx-2">
+        <div class="col-12 d-flex my-2 align-items-center justify-content-center">
+            <div class="comment-icon d-flex align-items-center justify-content-center me-2">
                 <i class="fa-solid fa-user fa-xl mx-1"></i>
                 <i class="fa-solid fa-comment-dots fa-xl"></i>
             </div>
@@ -156,55 +161,60 @@ Get Orders from Api
 
 const urlAPIorders = "../../orders.json";
 
-function getOrders(url) {
+async function getOrders(url) {
     const localStorageKey = "ordersData";
     //document.getElementById("preloader").style.display = "flex";
+    
     // Limpiar el contenido del DOM
     clearDOMOrders();
+    
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
     const storedData = JSON.parse(localStorage.getItem(localStorageKey));
-    if(storedData)
-    {
-    //tiempo que ha transcurrido desde que se presionó el botón
-    const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
-    //si hay informacion en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor tiempo de vida limite del localStorage en segundos 
-    if (storedData && (timeSince < localStorageTimeLimit_s)) {
-        // Leer desde el Local Storage si está dentro del límite de tiempo
-        console.log("Recuperando datos desde el Local Storage");
-        console.log("Tiempo transcurrido: " + timeSince + " segundos");
-        printOnDOMOrders(storedData.data);
-        /// Mantener el preloader oculto.
-        //document.getElementById("preloader").style.display = "none";
-        return;
+    
+    if (storedData) {
+        // Tiempo que ha transcurrido desde que se presionó el botón
+        const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
+        
+        // Si hay información en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor al tiempo de vida límite del localStorage en segundos
+        if (timeSince < localStorageTimeLimit_s) {
+            // Leer desde el Local Storage si está dentro del límite de tiempo
+            console.log("Recuperando datos desde el Local Storage");
+            console.log("Tiempo transcurrido: " + timeSince + " segundos");
+            printOnDOMOrders(storedData.data);
+            /// Mantener el preloader oculto.
+            //document.getElementById("preloader").style.display = "none";
+            return;
+        }
     }
-    }
-    // Realizando solicitud GET
-    fetch(url)
-    .then((response) => {
+
+    try {
+        // Realizando solicitud GET
+        const response = await fetch(url);
+
         if (response.status === 200) {
             console.log("Estado de la solicitud: OK");
-            return response.json();
+
+            const orders = await response.json();
+            
+            // Log the entire orders object to inspect its structure
+            console.log("Orders received:", orders);
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: orders, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            
+            // Ocultar el preloader después de recibir la respuesta
+            //document.getElementById("preloader").style.display = "none";
+            console.table(dataToStore); // array con comentarios
+            printOnDOMOrders(orders);
         } else {
             throw new Error(`Error in fetch. Status: ${response.status}`);
         }
-    })
-    .then((orders) => {
-        // Log the entire orders object to inspect its structure
-        console.log("Orders received:", orders);
-
-        // Guardar en el Local Storage con la marca de tiempo
-        const timestamp = Date.now();
-        const dataToStore = { data: orders, timestamp: timestamp };
-        localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
-        // Ocultar el preloader después de recibir la respuesta
-        //document.getElementById("preloader").style.display = "none";
-        console.table(dataToStore); // array con comentarios
-        printOnDOMOrders(orders);
-    })
-    .catch((error) => {
+    } catch (error) {
         console.log("Error in the request:", error);
         // Handle the error or log additional information if needed
-    });
+    }
 };
 
 function generateOrderCard({id, date, price, user }) {
@@ -229,15 +239,15 @@ function generateOrderCard({id, date, price, user }) {
     });
 
     return `
-        <div class="col-12 d-flex my-2 align-items-center">
+        <div class="col-12 d-flex my-2 align-items-center justify-content-center">
             <div class="order-card w-75 d-flex flex-column p-2">
                 <h6 class="my-2 d-flex order-number">Orden No. ${id}</h6>
                 <h6 class="my-1 d-flex">${formattedDate}</h6>
                 <h6 class="my-2 d-flex">${userInfo}</h6>
                 <p class="d-flex">$: ${price} MXN</p>
-                <button class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
+                <button onclick="showOrderDetails(${id})" "class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
             </div>
-            <div class="order-icon d-flex align-items-center justify-content-center mx-2">
+            <div class="order-icon d-flex align-items-center justify-content-center ms-2">
                 <i class="fa-solid fa-file-invoice-dollar fa-2xl"></i>
             </div>
         </div>
@@ -270,24 +280,6 @@ function printOnDOMOrders(orders) {
         noOrdersContainer.style.display="flex";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* 
 
@@ -325,16 +317,16 @@ productsButton.addEventListener('click', () => {
     productsContainer.style.display = 'flex';
 });
 
-ordersButton.addEventListener('click', () => {
+ordersButton.addEventListener('click', async () => {
     hideAllContainers();
     ordersContainer.style.display = 'flex';
-    getOrders(urlAPIorders);
+    await getOrders(urlAPIorders);
 });
 
-commentsButton.addEventListener('click', () =>{
+commentsButton.addEventListener('click', async () =>{
     hideAllContainers();
     commentsContainer.style.display = 'flex';
-    getComments(urlAPIcomments);
+    await getComments(urlAPIcomments);
 });
 
 // Agregar eventos de clic a los botones del menu lateral
@@ -343,16 +335,16 @@ productsButtonLateralMenu.addEventListener('click', () => {
     productsContainer.style.display = 'flex';
 });
 
-ordersButtonLateralMenu.addEventListener('click', () => {
+ordersButtonLateralMenu.addEventListener('click', async () => {
     hideAllContainers();
     ordersContainer.style.display = 'flex';
-    getOrders(urlAPIorders);
+    await getOrders(urlAPIorders);
 });
 
-commentsButtonLateralMenu.addEventListener('click', () =>{
+commentsButtonLateralMenu.addEventListener('click', async () =>{
     hideAllContainers();
     commentsContainer.style.display = 'flex';
-    getComments(urlAPIcomments);
+    await getComments(urlAPIcomments);
 });
 
 const userLoginButton = document.getElementById("enlace-login-header");
@@ -403,3 +395,54 @@ window.location.href = "../pages/login.html#login-container";
 
 
 checkifAccessToken();
+
+async function showOrderDetails(orderId) {
+    try {
+        // Realiza una consulta a la API para obtener la información detallada de la orden
+        // Puedes usar fetch, axios u otra biblioteca para realizar la consulta
+
+        // Por ahora, asumamos que obtienes los detalles de la orden de un archivo JSON
+        const allOrdersHasProducts = await fetch("../../ordersHasProducts.json");
+
+        if (!allOrdersHasProducts.ok) {
+            throw new Error('Error al obtener detalles de la orden');
+        }
+
+        const allOrdersDetails = await allOrdersHasProducts.json();
+
+        // Filtra las órdenes por su ID
+        const ordersWithId = allOrdersDetails.filter(orderDetails => parseInt(orderDetails.order.id) === parseInt(orderId));
+
+        displayOrderModal(ordersWithId);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+}
+
+
+function displayOrderModal(orderDetailsArray) {
+    const modal = document.getElementById('orderDetailsModal');
+    const modalBody = modal.querySelector('.modal-body');
+    modalBody.innerHTML = ''; // Limpiar el contenido anterior del modal
+
+    orderDetailsArray.forEach(orderDetails => {
+        const productDetails = orderDetails.product;
+        const quantity = orderDetails.quantity;
+        const totalPrice = orderDetails.totalPrice;
+
+        // Crear elementos HTML para mostrar la información
+        const productInfo = `<p class="mb-2"><strong>Producto:</strong> ${productDetails.name}</p>`;
+        const quantityInfo = `<p class="mb-2"><strong>Cantidad:</strong> ${quantity}</p>`;
+        const totalPriceInfo = `<p class="mb-4"><strong>Total:</strong> $${totalPrice} MXN</p>`;
+
+        // Agregar información al modal
+        const productContainer = document.createElement('div');
+        productContainer.classList.add('border-bottom', 'pb-3');
+        productContainer.innerHTML = productInfo + quantityInfo + totalPriceInfo;
+        modalBody.appendChild(productContainer);
+    });
+
+    // Mostrar el modal
+    const bootstrapModal = new bootstrap.Modal(modal);
+    bootstrapModal.show();
+}

@@ -59,32 +59,58 @@ payButton.addEventListener('click', event => {
   event.preventDefault();
 
   const totalItemsInCar = parseInt(document.getElementById("total-number-items").textContent);
-  const totalPriceCar = document.getElementById("total-price-car");
+
 
   if (totalItemsInCar !== 0) {
-    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
 
-    if (accessToken) {
-      console.log("Inicio de sesión detectado");
-      
-      if (accessToken.userType === 2) {
-        localStorage.setItem("PaymentTotalInfo", totalPriceCar.textContent);
-        window.location.href = "../pages/payment-form.html";
-      } else {
-        console.log("Usuario Administrador no puede realizar compras");
+    const encryptedAccessToken = localStorage.getItem('accessToken');
+
+    if (encryptedAccessToken) {
+      // Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+      const secretWord = "CodeTitansRafaFerValdoAlan";
+      // Desencriptar el accessToken con CryptoJS
+      const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+      // Convertir los bytes desencriptados a cadena JSON
+      const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+      // Parsear la cadena JSON a un objeto JavaScript
+      const accessToken = JSON.parse(decryptedAccessTokenJSON);
+      if (accessToken) {
+        console.log("Inicio de sesión detectado");
+
+        if (accessToken.userType === 2) {
+          window.location.href = "../pages/payment-form.html";
+        } else {
+          console.log("Usuario Administrador no puede realizar compras");
+          const modal = document.getElementById('myModal2');
+          const closeModalSpan = document.getElementsByClassName('closeModal2')[0];
+          modal.style.display = 'block';
+
+          closeModalSpan.addEventListener('click', function () {
+            modal.style.display = 'none';
+          });
+
+          window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+              modal.style.display = 'none';
+            }
+          });
+        }
       }
-    } else {
+    }
+    else {
       const modal = document.getElementById('myModal');
       const closeModalSpan = document.getElementsByClassName('close')[0];
       modal.style.display = 'block';
 
-      closeModalSpan.addEventListener('click', function() {
+      closeModalSpan.addEventListener('click', function () {
         modal.style.display = 'none';
+        window.location.href = "../pages/login.html";
       });
 
-      window.addEventListener('click', function(event) {
+      window.addEventListener('click', function (event) {
         if (event.target === modal) {
           modal.style.display = 'none';
+          window.location.href = "../pages/login.html";
         }
       });
     }

@@ -229,6 +229,23 @@ input[type="search"]::-webkit-search-clear-button {
 
 /* Inicio Orders */
 
+#orderDetailsModal .modal-dialog {
+    max-width: 60vw;
+    margin: auto; /* Esto centrará horizontalmente el modal */
+}
+
+#orderDetailsModal .modal-content {
+    width: 100%; /* Asegura que el contenido del modal tenga el 100% de ancho */
+}
+
+.modal-footer button{
+ background-color: #8d8a89;
+}
+
+.modal-footer button:hover{
+    background-color: #361c12;
+   }
+
 #orders, #no-orders{
     display: none;
 }

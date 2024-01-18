@@ -1,8 +1,3 @@
-const totalToPay = document.getElementById("total-to-pay");
-const storedtotal = localStorage.getItem('PaymentTotalInfo');
-totalToPay.textContent = "Total a Pagar: "+storedtotal;
-
-
 const tarjeta = document.querySelector('#tarjeta'),
 	  btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
 	  formulario = document.querySelector('#formulario-tarjeta'),
@@ -11,7 +6,7 @@ const tarjeta = document.querySelector('#tarjeta'),
 	  logoMarca = document.querySelector('#logo-marca'),
 	  firma = document.querySelector('#tarjeta .firma p'),
 	  mesExpiracion = document.querySelector('#tarjeta .mes'),
-	  yearExpiracion = document.querySelector('#tarjeta .year');
+	  yearExpiracion = document.querySelector('#tarjeta .year'),
 	  ccv = document.querySelector('#tarjeta .ccv');
 
 // * Volteamos la tarjeta para mostrar el frente.
@@ -128,3 +123,281 @@ formulario.inputCCV.addEventListener('keyup', () => {
 
 	ccv.textContent = "*".repeat(formulario.inputCCV.value.length);
 });
+
+
+
+async function getProducts() {
+    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageKey = "ProductsData";
+
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+
+    if (storedData && (Date.now() - storedData.timestamp) / 1000 < localStorageTimeLimit_s) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        //console.log("Recuperando datos desde el Local Storage");
+        //console.log(`Tiempo transcurrido: ${(Date.now() - storedData.timestamp) / 1000} segundos`);
+        return storedData.data;
+    }
+
+    try {
+        // Realizar solicitud GET con async/await
+		const url = '../../productos-api.json';
+        const response = await fetch(url);
+
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+
+            // Convertir la respuesta a JSON con async/await
+            const products = await response.json();
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: products, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            //console.table(dataToStore); // Mostrar datos almacenados en la consola
+            return products;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Manejar el error o registrar información adicional si es necesario
+        throw error; // Propagar el error para que pueda ser manejado por la función que llama a getProducts
+    }
+}
+
+async function getTotalPriceOrder(){
+	const listOfProductsToBuy = JSON.parse(localStorage.getItem("listOfProducts"));
+        const listOfProducts = await getProducts();
+        let sumaSubtotales = 0;
+
+        // Itera sobre los productos en listOfProductsToBuy
+        for (const productId in listOfProductsToBuy) {
+            if (listOfProductsToBuy.hasOwnProperty(productId)) {
+                const cantidad = listOfProductsToBuy[productId];
+
+                // Busca el producto en listOfProducts por su id
+                const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
+
+                // Verifica si se encontró el producto
+                if (product) {
+                    const precio = product.price || 0;
+
+                    // Calcula el subtotal y suma al total
+                    sumaSubtotales += cantidad * precio;
+                }
+            }
+        }
+		return sumaSubtotales;
+}
+
+const updateTotalPriceProducts = async () => {
+    const totalToPay = document.getElementById("total-to-pay");
+    const loadingMessage = document.getElementById("loading-message");
+
+    // Mostrar mensaje de carga
+    if (loadingMessage !== null) {
+        loadingMessage.textContent = "Cargando...";
+    }
+
+    // Verifica si totalToPay es diferente de null antes de continuar
+    if (totalToPay !== null) {
+        try {
+            // Obtener el total con await y actualizar el contenido
+            const totalPrice = await getTotalPriceOrder();
+            totalToPay.textContent = "Total a pagar: $" + totalPrice.toFixed(2) + " MXN";
+        } catch (error) {
+            console.error("Error al obtener el total:", error);
+            // Manejar el error si es necesario
+            totalToPay.textContent = "Error al obtener el total";
+        } finally {
+            // Ocultar mensaje de carga
+            if (loadingMessage !== null) {
+                loadingMessage.textContent = "";
+            }
+        }
+    }
+};
+
+await updateTotalPriceProducts();
+
+function getActualDate() {
+    const currentDate = new Date();
+    
+    // Obtiene componentes de la fecha y hora
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String(currentDate.getUTCHours()).padStart(2, '0');
+    const minutes = String(currentDate.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getUTCSeconds()).padStart(2, '0');
+
+    // Construye la cadena de fecha y hora en el formato deseado
+    const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000+00:00`;
+
+    return formattedDate;
+}
+
+function getUserID() {
+	const encryptedAccessToken = localStorage.getItem('accessToken');
+
+	if (encryptedAccessToken) {
+		// Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+		const secretWord = "CodeTitansRafaFerValdoAlan";
+		// Desencriptar el accessToken con CryptoJS
+		const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+		// Convertir los bytes desencriptados a cadena JSON
+		const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+		// Parsear la cadena JSON a un objeto JavaScript
+		const accessToken = JSON.parse(decryptedAccessTokenJSON);
+		if (accessToken) {
+			return accessToken.userId;
+		}
+		else {
+			console.error("No se obtuvo el user id");
+		}
+	}
+}
+
+async function getNewOrderObj(){
+
+	const totalPrice = await getTotalPriceOrder();
+	const actualDate = getActualDate();
+	const userId = getUserID();
+	const newOrder = {
+        price: totalPrice,
+        date: actualDate,
+        user: {  id: userId }
+    }
+
+	return newOrder;
+}
+
+async function getOrders() {
+	const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
+    const localStorageKey = "ordersData";
+    //document.getElementById("preloader").style.display = "flex";
+        
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+    
+    if (storedData) {
+        // Tiempo que ha transcurrido desde que se presionó el botón
+        const timeSince = Math.round((Date.now() - storedData.timestamp) / 1000);
+        
+        // Si hay información en el localStorage y el tiempo que ha transcurrido desde que se presionó el botón es menor al tiempo de vida límite del localStorage en segundos
+        if (timeSince < localStorageTimeLimit_s) {
+            // Leer desde el Local Storage si está dentro del límite de tiempo
+            console.log("Recuperando datos desde el Local Storage");
+            /// Mantener el preloader oculto.
+            //document.getElementById("preloader").style.display = "none";
+            return storedData.data;
+        }
+    }
+
+    try {
+        // Realizando solicitud GET
+		const urlAPIorders = "../../orders.json";
+        const response = await fetch(urlAPIorders);
+
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+
+            const orders = await response.json();
+            
+            // Log the entire orders object to inspect its structure
+            console.log("Orders received:", orders);
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: orders, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            
+            // Ocultar el preloader después de recibir la respuesta
+            //document.getElementById("preloader").style.display = "none";
+            //console.table(dataToStore); // array con comentarios
+            return orders;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Handle the error or log additional information if needed
+    }
+};
+
+
+async function getLastOrderOfUser() {
+    const ordersList = await getOrders();
+    const userId = getUserID();
+
+    // Filtra las órdenes del usuario actual
+    const userOrders = ordersList.filter(order => order.user.id === userId);
+
+    // Verifica si hay órdenes para el usuario
+    if (userOrders.length > 0) {
+        // Ordena las órdenes por fecha de manera descendente
+        userOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Devuelve el ID de la última orden del usuario
+        return userOrders[0].id;
+    } else {
+        // No hay órdenes para el usuario
+        console.log("El usuario no tiene órdenes.");
+        return null;
+    }
+}
+
+async function getListOfOrderHasProductsToPost(lastOrderId) {
+    const listOfProductsToBuy = JSON.parse(localStorage.getItem("listOfProducts"));
+    const listOfProducts = await getProducts();
+
+    const orderHasProductsList = [];
+
+    for (const productId in listOfProductsToBuy) {
+        if (listOfProductsToBuy.hasOwnProperty(productId)) {
+            const quantity = listOfProductsToBuy[productId];
+
+            // Busca el producto en listOfProducts por su id
+            const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
+
+            // Verifica si se encontró el producto
+            if (product) {
+                const newOrderHasProduct = {
+                    order: { id: lastOrderId },
+                    product: { id: product.id },
+                    quantity: quantity,
+                    unitaryPrice: product.price,
+                    totalPrice: quantity * product.price
+                };
+
+                orderHasProductsList.push(newOrderHasProduct);
+            }
+        }
+    }
+
+    return orderHasProductsList;
+}
+
+// Ejemplo de uso
+//const lastOrderId = 5; // Supongamos que ya obtuviste el último ID de orden
+//const newOrderHasProducts = await getListOfOrderHasProductsToPost(lastOrderId);
+//console.log(newOrderHasProducts);
+
+
+async function postAllOrderHasProducts() {
+    const lastOrderId = await getLastOrderOfUser(); // último ID de orden del usuario
+	console.log("ID de la última orden del usuario:", lastOrderId);
+    const ListOfOrderHasProducts = await getListOfOrderHasProductsToPost(lastOrderId);
+	let cont = 0 ; 
+    // Itera sobre la lista de objetos e imprime cada uno
+    for (const orderHasProduct of ListOfOrderHasProducts) {
+		cont++;
+		console.log("OrderHasProduct: "+ cont);
+		console.log(orderHasProduct);
+		console.log("-------------------")
+    }
+}
+
+await postAllOrderHasProducts();
