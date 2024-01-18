@@ -248,6 +248,7 @@ const resetValues = () => {
 
 };
 
+
 const sendData = (addressUpdate) => {
     
     setTimeout(() => {showSuccessMessage();}, 1500);

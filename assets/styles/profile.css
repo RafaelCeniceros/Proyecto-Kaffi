@@ -135,12 +135,13 @@ body{
     color: rgb(219, 34, 34);
 }
 
-#user-success-message-container, #address-success-message-container{
+#comments-success-message-container, #address-success-message-container, #name-success-message-container, #lastName-success-message-container, #email-success-message-container, #password-success-message-container{
     display: none;
 }
 
 #Name-Input.invalid, #E-Mail-Input.invalid, #LastName-Input.invalid, #Password-Input.invalid, #Check-Password-Input.invalid.container-forms,
-#inputStreet.invalid, #inputOutsideNum.invalid, #inputInsideNum.invalid, #inputColony.invalid, #inputMunicipality.invalid, #inputZip.invalid{
+#inputStreet.invalid, #inputOutsideNum.invalid, #inputInsideNum.invalid, #inputColony.invalid, #inputMunicipality.invalid, #inputZip.invalid,
+#Commentary-Input.invalid{
     border-color: lightcoral;
 }
     
@@ -156,7 +157,8 @@ body{
     color: red;
 }
 
-#address-form button, #user-name-form button, #user-lastName-form button, #user-email-form button , #user-password-form button, #credit-card-form button{
+#address-form button, #user-name-form button, #user-lastName-form button, #user-email-form button , #user-password-form button, #credit-card-form button,
+#commentary-form button{
     background-color: #361C12;
     color: #F6EACC;
 }
