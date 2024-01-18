@@ -5,7 +5,7 @@ import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
 import {addProductsToShoppingCart,deleteProductsOfShoppingCart,showQuantityOfItems,updateQuantityCardMenu} from "./add-delete-products-to-ls.js";
 import { productsToBuy } from "./products-to-buy-object.js";
 
-const url = '../../productos-menu.json';
+const url = '../../productos-menu-api.json';
 
 
 const JSON_item = "fileJsonToLocalStorage";
@@ -76,6 +76,7 @@ function showProductsFromLocalStorage(nameOfItemInLocalStorage, category) {
   const productsInLocalStorageJSON = localStorage.getItem(nameOfItemInLocalStorage);
   const productsJS = JSON.parse(productsInLocalStorageJSON);
   // muestra en el DOM las tarjetas creadas por el metodo kaffiCard de la clase MenuCard
+  //console.log(productsJS);
   imprimirEnDOM(productsJS[category]);
   // agrega o elimina productos en el objeto productsToBuy y lo almacena en el 
   // localStorage con nombre "listOfProducts"

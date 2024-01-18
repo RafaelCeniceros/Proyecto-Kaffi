@@ -31,7 +31,7 @@ botonValores.addEventListener("click", () => {
 
 
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
-const url = '../../productos-menu.json';
+const url = '../../productos-menu-api.json';
 await saveProductsInLocalStorage(url);
 
 const userLoginButton = document.getElementById("enlace-login-header");

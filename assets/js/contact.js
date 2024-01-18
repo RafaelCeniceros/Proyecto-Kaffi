@@ -7,7 +7,7 @@ const invalidEmailSign = document.getElementById("invalid-email-sign");
 const invalidCommentSign = document.getElementById("invalid-comment-sign");
 
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
-const url = '../../productos-menu.json';
+const url = '../../productos-menu-api.json';
 await saveProductsInLocalStorage(url);
 
 // Función principal para validar el formulario
