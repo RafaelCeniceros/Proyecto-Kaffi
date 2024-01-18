@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Cafes",
+        "description": "Variedades de café caliente"
+    },
+    {
+        "id": 2,
+        "name": "Bebidas",
+        "description": "Refrescos y bebidas frías"
+    },
+    {
+        "id": 3,
+        "name": "Frappes",
+        "description": "Bebidas frías y espumosas"
+    },
+    {
+        "id": 4,
+        "name": "Especialidades",
+        "description": "Productos especiales del chef"
+    },
+    {
+        "id": 5,
+        "name": "Bagels",
+        "description": "Panecillos de bagel con diversos rellenos"
+    },
+    {
+        "id": 6,
+        "name": "Paninis",
+        "description": "Sandwiches calientes prensados"
+    },
+    {
+        "id": 7,
+        "name": "Cuernitos",
+        "description": "Productos de panadería en forma de cuerno"
+    },
+    {
+        "id": 8,
+        "name": "Waffles",
+        "description": "Waffles dulces y salados"
+    },
+    {
+        "id": 9,
+        "name": "Panes",
+        "description": "Variedades de pan fresco"
+    }
+]
