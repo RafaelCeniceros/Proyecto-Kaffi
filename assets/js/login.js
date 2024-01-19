@@ -1,3 +1,6 @@
+import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
+showQuantityOfItems();
+
 const url = '../../users.json';
 
 const checkifAccessToken = () => {

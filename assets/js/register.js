@@ -1,3 +1,7 @@
+import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
+showQuantityOfItems();
+
+
 const nameInput = document.getElementById("Name-Input");
 const lastNameInput = document.getElementById("LastName-Input");
 const emailInput = document.getElementById("E-Mail-Input");

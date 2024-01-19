@@ -7,8 +7,13 @@ const invalidEmailSign = document.getElementById("invalid-email-sign");
 const invalidCommentSign = document.getElementById("invalid-comment-sign");
 
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
+import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
 const url = '../../productos-menu-api.json';
+
 await saveProductsInLocalStorage(url);
+showQuantityOfItems();
+
+
 
 // Función principal para validar el formulario
 const dataCheckout = (newComment) => {

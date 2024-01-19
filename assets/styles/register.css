@@ -40,6 +40,30 @@ header #introduction-container {
     background-color: #9c846a8e;
 }
 
+/* inicia estilos de numero de items en icono de carrito */
+#shopping-cart{
+    position: relative;
+    width: 60px;
+}
+
+#shopping-cart #cart-counter{
+    position: absolute;
+    text-align: center;
+    right:0px;
+    top: 3px;
+    font-size: 1em;
+    width: 1.5em;
+    background-color: #7E4F25;
+}
+
+#shopping-cart #cart-icon{
+    position: absolute;
+    text-align: center;
+    top:8px;
+}
+
+/* termina estilos de numero de items en icono de carrito */
+
 #navegation-bar-logo {
     max-width: 100px;
 }
