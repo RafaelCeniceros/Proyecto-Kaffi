@@ -8,6 +8,7 @@ export default async function saveProductsInLocalStorage(url) {
     console.log("Los productos han sido encontrados en el LocalStorage")
   }
   else {
+
     const categoriesArray = await getCategoriesArray("https://kaffi-ecommerce.onrender.com/api/v1/categories");
     console.log(categoriesArray);
 

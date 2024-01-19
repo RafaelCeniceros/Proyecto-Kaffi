@@ -1,8 +1,8 @@
 
-const url = '../../productos-api.json';
+const url = 'https://kaffi-ecommerce.onrender.com/api/v1/products';
 
 async function getProducts(url) {
-    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 10; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "ProductsData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
@@ -45,7 +45,7 @@ async function getProducts(url) {
 async function showProductFromLocalStorageWithName(productName) {
     const objectProductsJS = await getProducts(url);
     console.log(objectProductsJS);
-     await actualizarListaDesplegable(objectProductsJS);
+     await actualizarListaDesplegable();
 
     const productFinded = await findProductNameInLocalStorage(productName, objectProductsJS);
 
@@ -69,7 +69,7 @@ function findProductNameInLocalStorage(productName, objectProductsJS) {
 /* Funcion para mostrar el producto con el ID */
 async function showProductFromLocalStorageWithID(productId) {
     const objectProductsJS = await getProducts(url);
-    await actualizarListaDesplegable(objectProductsJS);
+    await actualizarListaDesplegable();
 
     const productFinded = await findProductIDInLocalStorage(productId, objectProductsJS);
 
@@ -90,14 +90,36 @@ function findProductIDInLocalStorage(productId, objectProductsJS) {
     return productoEncontrado || null;
 }
 
-function updateForm(product) {
+
+async function getCategoryName(categoryId) {
+    try {
+        const productsCategories = await getProductsCategories();
+
+        // Buscar la categoría con el categoryId proporcionado
+        const foundCategory = productsCategories.find(category => category.id === categoryId);
+
+        if (foundCategory) {
+            return foundCategory.name; // Devolver el nombre de la categoría encontrada
+        } else {
+            console.error(`No se encontró la categoría con el ID: ${categoryId}`);
+            return null; // O puedes devolver un valor predeterminado o lanzar una excepción según tus necesidades
+        }
+    } catch (error) {
+        console.error("Error al obtener las categorías:", error.message);
+        return null; // Manejar el error según tus necesidades
+    }
+}
+
+async function updateForm(product) {
     // Aquí puedes actualizar los campos del formulario con la información del producto
+
+    const categoryName = await getCategoryName(product.category.id);
     document.getElementById('product-name').value = product.name;
-    document.getElementById('product-category').value = product.category.name;
+    document.getElementById('product-category').value = categoryName;
     document.getElementById('product-price').value = product.price;
     document.getElementById('product-description').value = product.description;
     document.getElementById('product-ID').value = product.id;
-    document.getElementById('product-category-selector').value=product.category.name;
+    document.getElementById('product-category-selector').value=categoryName;
     // Cambiar la imagen del producto si está disponible
     if (product.image) {
         document.getElementById('product-img').src = product.image;
@@ -184,22 +206,66 @@ previousProductButton.addEventListener('click',async event => {
     showProductFromLocalStorageWithID(productIDs.previousID);
 });
 
-// Función para actualizar la lista desplegable con las categorías disponibles
-async function actualizarListaDesplegable(productsInfo) {
-    const productCategorySelect = document.getElementById('product-category-selector');
 
+async function getProductsCategories(){
+    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageKey = "CategoriesData";
+
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+
+    if (storedData && (Date.now() - storedData.timestamp) / 1000 < localStorageTimeLimit_s) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        //console.log("Recuperando datos desde el Local Storage");
+        //console.log(`Tiempo transcurrido: ${(Date.now() - storedData.timestamp) / 1000} segundos`);
+        return storedData.data;
+    }
+
+    try {
+        // Realizar solicitud GET con async/await
+		const url = 'https://kaffi-ecommerce.onrender.com/api/v1/categories';
+        const response = await fetch(url);
+
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+
+            // Convertir la respuesta a JSON con async/await
+            const categories = await response.json();
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: categories, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            //console.table(dataToStore); // Mostrar datos almacenados en la consola
+            return categories;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Manejar el error o registrar información adicional si es necesario
+        throw error; // Propagar el error para que pueda ser manejado por la función que llama a getProducts
+    }
+}
+
+
+// Función para actualizar la lista desplegable con las categorías disponibles
+async function actualizarListaDesplegable() {
+    const productCategorySelect = document.getElementById('product-category-selector');
+    
+    const productsCategories = await getProductsCategories();
     // Limpiar las opciones actuales
     productCategorySelect.innerHTML = '';
 
     // Verificar si productsInfo es un array antes de usar map
-    if (!Array.isArray(productsInfo)) {
-        console.error('no es un array productsInfo.');
+    if (!Array.isArray(productsCategories)) {
+        console.error('No es un array productsInfo.');
         return;
     }
 
     // Obtener todas las categorías únicas
-    const categoriasUnicas = [...new Set(productsInfo.map(product => product.category.name))];
-
+    const categoriasUnicas = [...new Set(productsCategories.map(categories => categories.name))];
+    console.log(categoriasUnicas);
     // Llenar la lista desplegable con las categorías
     categoriasUnicas.forEach(categoria => {
         const option = document.createElement('option');
@@ -299,10 +365,11 @@ saveProductButton.addEventListener('click', async event => {
         const ProductToPut ={
             name: productNameInput.value,
             price: parseFloat(productPriceInput.value),
-            description: productDescriptionInput.value ,
+            description: productDescriptionInput.value,
+            category: {id:productoEncontrado.category.id},
+            image:productoEncontrado.image
         }
-        console.log("Product To Put:");
-        console.log(ProductToPut);
+        await updateProduct(ProductToPut,productId );
 
     } else {
         // Si no se encuentra el producto, crear uno nuevo y agregarlo a la categoría
@@ -314,8 +381,7 @@ saveProductButton.addEventListener('click', async event => {
             description: productDescriptionInput.value,
             image : "../images/imagen desconocida producto.png"
         };
-        console.log("Product To Post:");
-        console.log(ProductToPost);
+        await sendProduct(ProductToPost);
     }
 
     // Guardar la información actualizada en el localStorage
@@ -359,8 +425,7 @@ deleteProductButton.addEventListener('click', async event => {
     // Obtener el ID del producto a eliminar
     const productIdToDelete = document.getElementById('product-ID').value;
 
-    console.log("ProductID a eliminar:");
-    console.log(productIdToDelete);
+    await deleteProduct(productIdToDelete);
 
     // Desactivar y ocultar elementos
     disableAndHideElements();
@@ -375,3 +440,87 @@ deleteProductButton.addEventListener('click', async event => {
 
 const FirstProductID = (await getSortedProductIDs())[0];
 await showProductFromLocalStorageWithID(FirstProductID);
+
+
+
+async function updateProduct(ProductToPut,productId){
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/products/"+productId;
+
+        const response = await fetch(apiUrl, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(ProductToPut)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        alert("Producto actualizado");
+        // Limpiar el campo de entrada después de enviar el comentario
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+}
+
+async function sendProduct(ProductToPost){
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/products";
+
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(ProductToPost)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        alert("Producto nuevo guardado");
+        // Limpiar el campo de entrada después de enviar el comentario
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+}
+
+async function deleteProduct(productIdToDelete){
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/products/"+productIdToDelete;
+
+        const response = await fetch(apiUrl, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            //body: JSON.stringify(ProductToPost)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        alert("Producto eliminado");
+        // Limpiar el campo de entrada después de enviar el comentario
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+
+}

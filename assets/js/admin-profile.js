@@ -1,6 +1,6 @@
 console.log("Estoy conectado al HTML");
 localStorage.removeItem('userData');
-const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
+const localStorageTimeLimit_s = 10; //tiempo de vida limite del localStorage en segundos
 
 const checkifAccessToken = () => {
     // Obtener el accessToken encriptado desde el localStorage
@@ -31,7 +31,7 @@ const checkifAccessToken = () => {
 /* 
 Get Comments from Api
 */
-const urlAPIcomments = "../../comments.json";
+const urlAPIcomments = "https://kaffi-ecommerce.onrender.com/api/v1/comments";
 
 async function getComments(url) {
     const localStorageKey = "commentsData";
@@ -159,7 +159,7 @@ function printOnDOMComments(comments) {
 Get Orders from Api
 */
 
-const urlAPIorders = "../../orders.json";
+const urlAPIorders = "https://kaffi-ecommerce.onrender.com/api/v1/orders";
 
 async function getOrders(url) {
     const localStorageKey = "ordersData";
@@ -404,7 +404,7 @@ async function showOrderDetails(orderId) {
         // Puedes usar fetch, axios u otra biblioteca para realizar la consulta
 
         // Por ahora, asumamos que obtienes los detalles de la orden de un archivo JSON
-        const allOrdersHasProducts = await fetch("../../ordersHasProducts.json");
+        const allOrdersHasProducts = await fetch("https://kaffi-ecommerce.onrender.com/api/v1/ordersHasProducts");
 
         if (!allOrdersHasProducts.ok) {
             throw new Error('Error al obtener detalles de la orden');

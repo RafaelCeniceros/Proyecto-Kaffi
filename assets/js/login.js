@@ -1,7 +1,7 @@
 import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
 showQuantityOfItems();
 
-const url = '../../users.json';
+const url = 'https://kaffi-ecommerce.onrender.com/api/v1/users/query?email=';
 
 const checkifAccessToken = () => {
   const encryptedAccessToken = localStorage.getItem('accessToken');
@@ -84,30 +84,28 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     return;
   }
 
-  await saveUsersLocalStorage(url);
-  const storedUsers = getStoredUsers();
+  await saveUsersLocalStorage(url + email);
+  const storedUser = getStoredUsers();
+  const isUser = findUserByEmail(storedUser, email);
 
-  if (storedUsers) {
-    const user = findUserByEmail(storedUsers, email);
-
-    if (user) {
-      if (password === user.password) {
-        handleSuccessfulLogin(user);
-      } else {
-        displayError('Email o contraseña incorrectos.');
-      }
+  if (isUser) {
+    if (password === storedUser.password) {
+      handleSuccessfulLogin(storedUser);
     } else {
-      displayError('Email no registrado.');
+      displayError('Email o contraseña incorrectos.');
     }
+  } else {
+    displayError('Email no registrado.');
   }
+
 });
 
 function getStoredUsers() {
   return JSON.parse(localStorage.getItem('userData')) || [];
 }
 
-function findUserByEmail(users, email) {
-  return users.find(user => user.email === email);
+function findUserByEmail(user, email) {
+  return (user.email == email);
 }
 
 function handleSuccessfulLogin(user) {
@@ -125,11 +123,11 @@ function handleSuccessfulLogin(user) {
 }
 
 function createAccessToken(user) {
-  const { id, firstName, UserType } = user;
+  const { id, firstName, userType } = user;
   return {
     userId: id,
     userName: firstName,
-    userType: UserType.id
+    userType: userType.id
   };
 }
 

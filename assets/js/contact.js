@@ -101,7 +101,7 @@ return formattedDate;
 
 const checkUserInfo = async (email) => {
     // Fetch data from the local JSON file
-    const apiUrl = "../../users.json"; // Reemplaza esto con la ruta correcta de tu archivo JSON
+    const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/users"; // Reemplaza esto con la ruta correcta de tu archivo JSON
     const response = await fetch(apiUrl);
     const data = await response.json();
 
@@ -151,13 +151,32 @@ contactForm.addEventListener("submit", async (event) => {
 });
 
 //Envio de datos a correo electronico o a API
-const sendData = (user) => {
-    // Simulación de envío exitoso (puedes reemplazar esto con tu lógica real de envío)
-    setTimeout(() => {
-        console.table(user);
-        // Mostrar el mensaje de éxito después de un tiempo (por ejemplo, 2 segundos)
+const sendData = async (newComment) => {
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/comments";
+        
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(newComment)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
         showSuccessMessage();
-    }, 1500);
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+
 };
 
 const showSuccessMessage = () => {
