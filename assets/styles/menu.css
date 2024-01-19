@@ -178,7 +178,7 @@ html{
 #products .product-cards{
     /* border: 1.2px solid #361c12; */
     background-color: #F6EACC;
-    min-height: 20vh;
+    min-height: 160px;
     max-width:85vw ;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -210,6 +210,31 @@ html{
     color:white;
     background-color: #361c12;
 }
+
+/* Circulo de Carga */
+
+    /* Estilo para el contenedor del círculo de carga */
+    #loading-container {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        height: 40vh; /* Ajusta la altura según tus necesidades */
+      }
+  
+      /* Estilo para el círculo de carga */
+      .loading-circle {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #7E4F25; /* Puedes cambiar el color según tus preferencias */
+        border-top: 4px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite; /* Animación para hacer girar el círculo */
+      }
+  
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
 
 /*================================ Footer Styles ================================*/
 footer {

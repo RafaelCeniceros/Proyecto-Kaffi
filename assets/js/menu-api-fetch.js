@@ -84,9 +84,29 @@ function showProductsFromLocalStorage(nameOfItemInLocalStorage, category) {
   
 }
 
-await saveProductsInLocalStorage(url);
+await getProducts(url);
 showProductsFromLocalStorage("fileJsonToLocalStorage","Cafes");
 
+
+async function getProducts(url) {
+  try {
+      // Mostrar la barra de carga antes de la operación
+      const loadigContainer = document.getElementById("loading-container");
+      loadigContainer.style.display="flex";
+
+      await saveProductsInLocalStorage(url);
+      // Mostrar los productos
+      showProductsFromLocalStorage("fileJsonToLocalStorage", "Cafes");
+
+      // Ocultar la barra de carga después de la operación
+      loadigContainer.style.display="none";
+  } catch (error) {
+      console.error("Error al obtener o guardar productos:", error);
+      // Puedes manejar el error aquí, por ejemplo, mostrando un mensaje de error o haciendo alguna otra acción necesaria
+      // También deberías ocultar la barra de carga en caso de error
+      loadigContainer.style.display="none";
+  }
+}
 
 // incrementa o decrementa en una unidad la cantidad asociado a un producto en el
 // objeto productsToBuy al pulsar sobre el boton +/-
