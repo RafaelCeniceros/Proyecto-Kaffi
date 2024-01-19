@@ -351,33 +351,41 @@ async function getLastOrderOfUser() {
 
 async function getListOfOrderHasProductsToPost(lastOrderId) {
     const listOfProductsToBuy = JSON.parse(localStorage.getItem("listOfProducts"));
-    const listOfProducts = await getProducts();
+    if(listOfProductsToBuy!=null ){
+        const listOfProducts = await getProducts();
 
-    const orderHasProductsList = [];
-
-    for (const productId in listOfProductsToBuy) {
-        if (listOfProductsToBuy.hasOwnProperty(productId)) {
-            const quantity = listOfProductsToBuy[productId];
-
-            // Busca el producto en listOfProducts por su id
-            const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
-
-            // Verifica si se encontró el producto
-            if (product) {
-                const newOrderHasProduct = {
-                    order: { id: lastOrderId },
-                    product: { id: product.id },
-                    quantity: quantity,
-                    unitaryPrice: product.price,
-                    totalPrice: quantity * product.price
-                };
-
-                orderHasProductsList.push(newOrderHasProduct);
+        const orderHasProductsList = [];
+    
+        for (const productId in listOfProductsToBuy) {
+            if (listOfProductsToBuy.hasOwnProperty(productId)) {
+                const quantity = listOfProductsToBuy[productId];
+    
+                // Busca el producto en listOfProducts por su id
+                const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
+    
+                // Verifica si se encontró el producto
+                if (product) {
+                    const newOrderHasProduct = {
+                        order: { id: lastOrderId },
+                        product: { id: product.id },
+                        quantity: quantity,
+                        unitaryPrice: product.price,
+                        totalPrice: quantity * product.price
+                    };
+    
+                    orderHasProductsList.push(newOrderHasProduct);
+                }
             }
         }
+    
+        return orderHasProductsList;
+    }
+    else{
+        alert("No hay informacion de carrito")
+        window.location.href = "../pages/menu.html";
+        return "";
     }
 
-    return orderHasProductsList;
 }
 
 async function postAllOrderHasProducts() {
@@ -445,31 +453,39 @@ async function getUserData(){
 
 async function getProductInfoString() {
     const listOfProductsToBuy = JSON.parse(localStorage.getItem("listOfProducts"));
-    const listOfProducts = await getProducts();
-    const productInfoArray = [];
-  
-    // Itera sobre los productos en listOfProductsToBuy
-    for (const productId in listOfProductsToBuy) {
-      if (listOfProductsToBuy.hasOwnProperty(productId)) {
-        const cantidad = listOfProductsToBuy[productId];
-  
-        // Busca el producto en listOfProducts por su id
-        const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
-  
-        // Verifica si se encontró el producto
-        if (product) {
-          const productName = product.name || 'Unknown Product';
-  
-          // Agrega la información del producto al array
-          productInfoArray.push(`${cantidad} ${productName}`);
+    if(listOfProductsToBuy){
+        const listOfProducts = await getProducts();
+        const productInfoArray = [];
+      
+        // Itera sobre los productos en listOfProductsToBuy
+        for (const productId in listOfProductsToBuy) {
+          if (listOfProductsToBuy.hasOwnProperty(productId)) {
+            const cantidad = listOfProductsToBuy[productId];
+      
+            // Busca el producto en listOfProducts por su id
+            const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
+      
+            // Verifica si se encontró el producto
+            if (product) {
+              const productName = product.name || 'Unknown Product';
+      
+              // Agrega la información del producto al array
+              productInfoArray.push(`${cantidad} ${productName}`);
+            }
+          }
         }
-      }
+      
+        // Convierte el array en una cadena separada por comas
+        const productInfoString = productInfoArray.join(', ');
+      
+        return productInfoString;
     }
-  
-    // Convierte el array en una cadena separada por comas
-    const productInfoString = productInfoArray.join(', ');
-  
-    return productInfoString;
+    else{
+        alert("No hay informacion de Productos")
+        window.location.href = "../pages/menu.html";
+        return "";
+    }
+
   }
 
 async function sendEmail() {
@@ -630,3 +646,12 @@ async function sendDataOrderHasProduct(orderHasProduct){
         // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
     }
 }
+
+const checkifAccessToken = () => {
+    const encryptedAccessToken = localStorage.getItem('accessToken');
+  
+    if (!encryptedAccessToken) {
+        window.location.href = "../pages/login.html#login-container";
+  }
+}
+  checkifAccessToken();
