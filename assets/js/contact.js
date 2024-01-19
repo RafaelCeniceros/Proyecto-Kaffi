@@ -8,7 +8,7 @@ const invalidCommentSign = document.getElementById("invalid-comment-sign");
 
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
 import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
-const url = '../../productos-menu-api.json';
+const url = 'https://kaffi-data.onrender.com/api/v1/products';
 
 await saveProductsInLocalStorage(url);
 showQuantityOfItems();
