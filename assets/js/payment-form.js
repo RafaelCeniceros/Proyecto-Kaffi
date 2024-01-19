@@ -307,7 +307,7 @@ async function getOrders() {
             const orders = await response.json();
             
             // Log the entire orders object to inspect its structure
-            console.log("Orders received:", orders);
+            //console.log("Orders received:", orders);
 
             // Guardar en el Local Storage con la marca de tiempo
             const timestamp = Date.now();

@@ -119,10 +119,19 @@ body{
 }
 
 /* Contenedores opciones */
-.container-forms, .order-card{
+.container-forms{
     background-color: rgb(246, 234, 204);
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+
+.order-card {
+    background-color: #F6EACC;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */ /* Ajusta los valores según tu preferencia */
+    color: #361C12;
+    border-bottom: #361C12;
+    border-bottom-style: dotted;
+    border-bottom-width: thick;
 }
 
 #options-lateral-menu{
@@ -166,15 +175,45 @@ body{
 .order-card h5{
     font-weight: bold;
 }
+.order-card button{
+    background-color: #361c12;
+    border-color: none;
+    border-style: none;
+    color: #F6EACC;
+    border-radius: 0.5em;
+}
+.order-card button:hover{
+    transform: scale(1.05);
+}
 
 .order-info {
     display: inline-block;
     padding: 0.20rem 0.2rem; /* Reducido padding */
-    color: #F6EACC;
-    background-color: #361C12;
+    color: #361C12;
+    background-color: #FAF4E5;
     width: 100%;
     border-radius: 0.25rem; /* Bordes redondeados */
 }
+
+/* Inicio Orders */
+
+#orderDetailsModal .modal-dialog {
+    max-width: 60vw;
+    margin: auto; /* Esto centrará horizontalmente el modal */
+}
+
+#orderDetailsModal .modal-content {
+    width: 100%; /* Asegura que el contenido del modal tenga el 100% de ancho */
+}
+
+.modal-footer button{
+ background-color: #996229;
+ border-color: #996229;
+}
+
+.modal-footer button:hover{
+    background-color: #361c12;
+   }
 
 /* estilos del footer */
 

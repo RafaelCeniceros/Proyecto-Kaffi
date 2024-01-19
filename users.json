@@ -41,7 +41,7 @@
         "lastName": "Dos Santos Aveiro",
         "email": "CR7_oficial@gmail.com",
         "password": "Code_Titans123",
-        "address": "Al Nassir 15432 Arabia SAudita",
+        "address": "Calle de la Amistad, No. 123, , Colonia Bella Vista, Ciudad Ejemplo, C.P. 54321, Sucursal Fco. de Montejo",
         "UserType": {"id":2}
     },
     {
@@ -50,7 +50,7 @@
         "lastName": "López Obrador",
         "email": "AMLO_4T@gmail.com",
         "password": "Code_Titans123",
-        "address": "Palacio Nacional CDMX",
+        "address": "Calle de los Sueños, No. 101, Int 456, Colonia Esperanza, Ciudad Fantástica, C.P. 67890, Sucursal Caucel",
         "UserType": {"id":2}
     },
     {
@@ -59,7 +59,9 @@
         "lastName": "Newton",
         "email": "fisicomuerto@gmail.com",
         "password": "Code_Titans123",
-        "address": "Woolsthorpe Manor Hous",
+        "address": "Calle del Encanto, No. 101, , Colonia Encantada, Ciudad Asombrosa, C.P. 24680 , Sucursal Caucel",
         "UserType": {"id":2}
     }
 ]
+
+

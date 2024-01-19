@@ -94,7 +94,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         displayError('Email o contraseña incorrectos.');
       }
     } else {
-      displayError('Email no encontrado.');
+      displayError('Email no registrado.');
     }
   }
 });
