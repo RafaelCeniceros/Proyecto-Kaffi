@@ -5,7 +5,7 @@ import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
 import {addProductsToShoppingCart,deleteProductsOfShoppingCart,showQuantityOfItems,updateQuantityCardMenu} from "./add-delete-products-to-ls.js";
 import { productsToBuy } from "./products-to-buy-object.js";
 
-const url = 'https://kaffi-data.onrender.com/api/v1/products';
+const url = 'https://kaffi-ecommerce.onrender.com/api/v1/products';
 
 
 const JSON_item = "fileJsonToLocalStorage";

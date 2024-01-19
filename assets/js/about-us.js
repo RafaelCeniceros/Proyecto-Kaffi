@@ -32,7 +32,7 @@ botonValores.addEventListener("click", () => {
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
 import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
 
-const url = 'https://kaffi-data.onrender.com/api/v1/products';
+const url = 'https://kaffi-ecommerce.onrender.com/api/v1/products';
 await saveProductsInLocalStorage(url);
 showQuantityOfItems();
 
