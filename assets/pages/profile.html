@@ -195,33 +195,35 @@
                         
                         <!-- tarjeta para actualizacion de nombre -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
-                            <form id="user-name-form" class="row d-flex justify-content-between p-3">
+                            <form id="user-name-form" class="row d-flex justify-content-between p-3 w-100">
                                 
-                                <div id="name-success-message-container" class="row pb-2 text-success">
-                                    <div class="d-flex align-items-center">
+                                <div id="name-success-message-container" class="col-12 pb-2 text-success">
+                                    <div class="d-flex justify-content-start align-items-center">
                                         <span class="text-start">Nombre de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
                                     </div>
                                 </div>
 
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="text-start col-6">
-                                        <p>Nombre actual</p>
-                                        <p id="actual-name">"Nombre actual del usuario"</p>
-                                    </div>
-                                    <div class="text-start col-6">
-                                        <label for="Name-Input" class="form-label">Nombre</label>
-                                        <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="Name-Input"
-                                                placeholder="Cosme">
-                                            <i id="invalid-name-sign"
-                                                class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                <div class="col-12 d-flex align-items-center justify-content-between">
+                                    <div class="row d-flex align-items-start justify-content-between mb-2 w-100">
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <h6 class="">Nombre actual:</h6>
+                                            <p id="actual-name">"Nombre actual del usuario"</p>
                                         </div>
-                                        <p id="error-message-name" class="error-message"> </p>
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <label for="Name-Input" class="form-label">Modificar nombre:</label>
+                                            <div class="input-container d-flex align-items-center justify-content-center">
+                                                <input type="text" class="form-control rounded-pill" id="Name-Input"
+                                                    placeholder="Cosme">
+                                                <i id="invalid-name-sign"
+                                                    class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                            </div>
+                                            <p id="error-message-name" class="error-message"> </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row d-flex align-items-center justify-content-between">
+                                <div class="col-12 d-flex align-items-center justify-content-end me-4">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <button class="btn rounded-pill" type="submit">Guardar</button>
                                     </div>
@@ -232,33 +234,36 @@
 
                         <!-- tarjeta para actualizacion de apellido -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
-                            <form id="user-lastName-form" class="row d-flex justify-content-between p-3">
+                            <form id="user-lastName-form" class="row d-flex justify-content-between p-3 w-100">
 
-                                <div id="lastName-success-message-container" class="row pb-2 text-success">
-                                    <div class="d-flex align-items-center">
+                                <div id="lastName-success-message-container" class="col-12 pb-2 text-success">
+                                    <div class="d-flex align-items-center justify-content-start">
                                         <span class="text-start">Apellido de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
                                     </div>
                                 </div>
 
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="text-start col-6">
-                                        <p>Apellido actual</p>
-                                        <p id="actual-lastName">"Apellido actual del usuario"</p>
-                                    </div>
-                                    <div class="text-start col-6">
-                                        <label for="LastName-Input" class="form-label">Apellido</label>
-                                        <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="LastName-Input"
-                                                placeholder="Fulanito">
-                                            <i id="invalid-lastName-sign"
-                                                class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                <div class="col-12 d-flex align-items-center justify-content-between">
+                                    <div class="row d-flex align-items-start justify-content-between mb-2 w-100">
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <h6>Apellido actual:</h6>
+                                            <p id="actual-lastName">"Apellido actual del usuario"</p>
                                         </div>
-                                        <p id="error-message-lastName" class="error-message"> </p>
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <label for="LastName-Input" class="form-label">Modificar apellido:</label>
+                                            <div class="input-container d-flex align-items-center justify-content-center">
+                                                <input type="text" class="form-control rounded-pill" id="LastName-Input"
+                                                    placeholder="Fulanito">
+                                                <i id="invalid-lastName-sign"
+                                                    class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                            </div>
+                                            <p id="error-message-lastName" class="error-message"> </p>
+                                        </div>
                                     </div>
                                 </div>
+                                
 
-                                <div class="row d-flex align-items-center justify-content-between">
+                                <div class="col-12 d-flex align-items-center justify-content-end me-4">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <button class="btn rounded-pill" type="submit">Guardar</button>
                                     </div>
@@ -269,33 +274,37 @@
 
                         <!-- tarjeta para actualizacion de email -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
-                            <form id="user-email-form" class="row d-flex justify-content-between p-3">
+                            <form id="user-email-form" class="row d-flex justify-content-between p-3 w-100">
 
-                                <div id="email-success-message-container" class="pb-2 row">
-                                    <div class="d-flex align-items-center text-success">
+                                <div id="email-success-message-container" class="pb-2 col-12 text-success">
+                                    <div class="d-flex align-items-center justify-content-start ">
                                         <span class="text-start">E-mail de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
                                     </div>
                                 </div>
 
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="text-start col-6">
-                                        <p>E-mail actual</p>
-                                        <p id="actual-email">"Email actual del usuario"</p>
-                                    </div>
-                                    <div class="text-start col-6">
-                                        <label for="E-Mail-Input" class="form-label">E-mail</label>
-                                        <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="E-Mail-Input"
-                                                placeholder="Nombre@gmail.com">
-                                            <i id="invalid-email-sign"
-                                                class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                <div class="col-12 d-flex align-items-center justify-content-between">
+                                    <div class="row d-flex align-items-start justify-content-between mb-2 w-100">
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <h6>E-mail actual:</h6>
+                                            <p id="actual-email">"Email actual del usuario"</p>
                                         </div>
-                                        <p id="error-message-email" class="error-message"> </p>
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <label for="E-Mail-Input" class="form-label">Modificar e-mail:</label>
+                                            <div class="input-container d-flex align-items-center justify-content-center">
+                                                <input type="text" class="form-control rounded-pill" id="E-Mail-Input"
+                                                    placeholder="Nombre@gmail.com">
+                                                <i id="invalid-email-sign"
+                                                    class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                            </div>
+                                            <p id="error-message-email" class="error-message"> </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row d-flex align-items-center justify-content-between">
+                                
+
+                                <div class="col-12 d-flex align-items-center justify-content-end me-4">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <button class="btn rounded-pill" type="submit">Guardar</button>
                                     </div>
@@ -307,39 +316,43 @@
 
                         <!-- tarjeta para actualizacion de contraseña -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
-                            <form id="user-password-form" class="row d-flex justify-content-between p-3">
+                            <form id="user-password-form" class="row d-flex justify-content-between p-3 w-100">
 
-                                <div id="password-success-message-container" class="row pb-2">
-                                    <div class="d-flex align-items-center text-success">
+                                <div id="password-success-message-container" class="col-12 pb-2">
+                                    <div class="d-flex align-items-start text-success">
                                         <span class="text-start">Contraseña altualizada</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
                                     </div>
                                 </div>
 
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="text-start col-6">
-                                        <label for="OldPassword-Input" class="form-label">Contraseña Actual</label>
-                                        <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="OldPassword-Input"
-                                                placeholder="Contraseña123">
-                                            <i id="invalid-oldPassword-sign"
-                                                class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                <div class="col-12 d-flex align-items-start justify-content-between">
+                                    <div class="row d-flex align-items-start justify-content-between mb-2 w-100">
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <label for="OldPassword-Input" class="form-label actual-data">Contraseña Actual:</label>
+                                            <div class="input-container d-flex align-items-start justify-content-start">
+                                                <input type="password" class="form-control rounded-pill" id="OldPassword-Input"
+                                                    placeholder="Contraseña123">
+                                                <i id="invalid-oldPassword-sign"
+                                                    class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                            </div>
+                                            <p id="error-message-oldPassword" class="error-message"> </p>
                                         </div>
-                                        <p id="error-message-oldPassword" class="error-message"> </p>
-                                    </div>
-                                    <div class="text-start col-6">
-                                        <label for="NewPasswor-Input" class="form-label">Nueva contraseña</label>
-                                        <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="NewPasswor-Input"
-                                                placeholder="NuevaContraseña123">
-                                            <i id="invalid-newPassword-sign"
-                                                class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                        <div class="text-start col-12 col-lg-6 pt-3">
+                                            <label for="NewPasswor-Input" class="form-label">Nueva contraseña:</label>
+                                            <div class="input-container d-flex align-items-start justify-content-start">
+                                                <input type="password" class="form-control rounded-pill" id="NewPasswor-Input"
+                                                    placeholder="NuevaContraseña123">
+                                                <i id="invalid-newPassword-sign"
+                                                    class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
+                                            </div>
+                                            <p id="error-message-newPassword" class="error-message"> </p>
                                         </div>
-                                        <p id="error-message-newPassword" class="error-message"> </p>
                                     </div>
+
                                 </div>
 
-                                <div class="row d-flex align-items-center justify-content-between">
+
+                                <div class="col-12 d-flex align-items-center justify-content-end">
                                     <div class="d-flex align-items-center justify-content-end">
                                         <button class="btn rounded-pill" type="submit">Guardar</button>
                                     </div>
@@ -399,7 +412,7 @@
                                     </div>
 
                                     <div class="pt-2 d-flex justify-content-end">
-                                        <button id="submit-credit-card-button" type="button"
+                                        <button disabled id="submit-credit-card-button" type="button"
                                             class="btn rounded-pill">Enviar</button>
                                     </div>
 
@@ -590,14 +603,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 pt-2 text-center">
+                                    <div class="col-12 pt-2 text-justify">
                                         <p style="font-weight:bold;">En Kaffi nos interesa conocer las opiniones, quejas
                                             o sugerencias de nuestros clientes. Tu retroalimentación nos ayuda a mejorar
                                         </p>
                                     </div>
 
                                     <div class="mb-2 text-start">
-                                        <label for="Commentary-Input" class="form-label">Escribe tu comentario</label>
+                                        <label for="Commentary-Input" class="form-label">Escribe tu comentario:</label>
                                         <p id="error-message-comment" class="error-message"> </p>
                                         <div class="input-container d-flex align-items-center justify-content-center">
                                             <textarea type="text" class="form-control" id="Commentary-Input" rows="4"

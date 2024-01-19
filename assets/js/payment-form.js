@@ -380,12 +380,6 @@ async function getListOfOrderHasProductsToPost(lastOrderId) {
     return orderHasProductsList;
 }
 
-// Ejemplo de uso
-//const lastOrderId = 5; // Supongamos que ya obtuviste el último ID de orden
-//const newOrderHasProducts = await getListOfOrderHasProductsToPost(lastOrderId);
-//console.log(newOrderHasProducts);
-
-
 async function postAllOrderHasProducts() {
     const lastOrderId = await getLastOrderOfUser(); // último ID de orden del usuario
 	console.log("ID de la última orden del usuario:", lastOrderId);
@@ -400,4 +394,163 @@ async function postAllOrderHasProducts() {
     }
 }
 
-await postAllOrderHasProducts();
+async function getUsers (){
+    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageKey = "UsersData";
+
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+
+    if (storedData && (Date.now() - storedData.timestamp) / 1000 < localStorageTimeLimit_s) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        //console.log("Recuperando datos desde el Local Storage");
+        //console.log(`Tiempo transcurrido: ${(Date.now() - storedData.timestamp) / 1000} segundos`);
+        return storedData.data;
+    }
+
+    try {
+        // Realizar solicitud GET con async/await
+		const url = '../../users.json';
+        const response = await fetch(url);
+
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+
+            // Convertir la respuesta a JSON con async/await
+            const users = await response.json();
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: users, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            //console.table(dataToStore); // Mostrar datos almacenados en la consola
+            return users;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Manejar el error o registrar información adicional si es necesario
+        throw error; // Propagar el error para que pueda ser manejado por la función que llama a getProducts
+    }
+
+}
+
+async function getUserData(){
+    const userId = getUserID();
+    const users = await getUsers();
+    const userFound = users.find(user => userId === user.id);
+    return userFound || null; // Devolver null si no se encuentra ningún usuario con el ID proporcionado
+}
+
+async function getProductInfoString() {
+    const listOfProductsToBuy = JSON.parse(localStorage.getItem("listOfProducts"));
+    const listOfProducts = await getProducts();
+    const productInfoArray = [];
+  
+    // Itera sobre los productos en listOfProductsToBuy
+    for (const productId in listOfProductsToBuy) {
+      if (listOfProductsToBuy.hasOwnProperty(productId)) {
+        const cantidad = listOfProductsToBuy[productId];
+  
+        // Busca el producto en listOfProducts por su id
+        const product = listOfProducts.find((prod) => prod.id === parseInt(productId));
+  
+        // Verifica si se encontró el producto
+        if (product) {
+          const productName = product.name || 'Unknown Product';
+  
+          // Agrega la información del producto al array
+          productInfoArray.push(`${cantidad} ${productName}`);
+        }
+      }
+    }
+  
+    // Convierte el array en una cadena separada por comas
+    const productInfoString = productInfoArray.join(', ');
+  
+    return productInfoString;
+  }
+
+async function sendEmail() {
+
+    const userData = await getUserData();
+    const orderNumber = await getLastOrderOfUser();
+    const productsInfo = await getProductInfoString();
+    const totalPrice = await getTotalPriceOrder();
+    // Después de que la orden se haya procesado exitosamente, envía un correo de confirmación al usuario
+    const templateParams = {
+        from_name: "ordenes kaffi",
+        userFirstName: userData.firstName +" "+ userData.lastName,
+        orderId: orderNumber,
+        productNames: productsInfo,
+        totalAmount: totalPrice,
+        userEmail: userData.email
+    };
+    console.log(templateParams);
+    try {
+        //const response = await emailjs.send("service_gr2ei9l", "template_vkvlh29", templateParams);
+        //console.log(response);
+        console.log("Orden realizada con éxito. Se ha enviado un correo de confirmación al usuario.");
+    } catch (error) {
+        console.error(error);
+        console.log("Error en el proceso de orden. No se pudo enviar el correo de confirmación.");
+    }
+};
+
+
+formulario.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const isFormValid =  ValidateForm();
+    if(isFormValid){
+        console.log(await getNewOrderObj());
+        await postAllOrderHasProducts();
+        await sendEmail();
+    }
+
+});
+
+ function ValidateForm(){
+    // Obtener los valores de los campos
+    const cardNumber = document.querySelector('#tarjeta .numero').textContent;
+    const cardName = document.querySelector('#tarjeta .nombre').textContent;
+    const mesExpiracion = document.querySelector('#tarjeta .mes').textContent;
+    const yearExpiracion = document.querySelector('#tarjeta .year').textContent;
+    const ccv = document.querySelector('#tarjeta .ccv').textContent;
+
+    // Validar que todos los campos no sean null
+    if (cardNumber === null || cardName === null || mesExpiracion === null || yearExpiracion === null || ccv === null) {
+        alert('Por favor, completa todos los campos del formulario de pago.');
+        return false;
+    }
+
+    // Validar que el número de tarjeta tenga 16 dígitos
+    if (cardNumber.length != 19) {
+        alert('El número de tarjeta debe contener exactamente 16 dígitos.');
+        return false;
+    }
+
+    // Validar que el mes tenga dos dígitos
+    if (mesExpiracion.length < 1) {
+        alert('El mes de expiración debe contener exactamente dos dígitos.');
+        return false;
+    }
+
+    // Validar que el año tenga cuatro dígitos
+    if (yearExpiracion.length > 2) {
+        alert('El año de expiración debe contener exactamente cuatro dígitos.');
+        return false;
+    }
+
+    // Validar que el CCV tenga tres dígitos
+    if (ccv.length !=3) {
+        alert('El CCV debe contener exactamente tres dígitos.');
+        return false;
+    }
+
+    return true;
+
+}
+
+

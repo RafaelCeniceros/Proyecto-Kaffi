@@ -191,7 +191,7 @@ userNameForm.addEventListener("submit", async (event) => {
         
         nameInput.classList.add("valid");
         const objNewName = await editData("firstName", nameUpdate);
-        sendData(objNewName);
+        sendData(objNewName, successMessageNameContainer);
         disableEditing(nameInput);
         printOnDOMUserData();
     }
@@ -207,7 +207,7 @@ userLastNameForm.addEventListener("submit", async (event) => {
 
         lastNameInput.classList.add("valid");
         const objNewLastName = await editData("lastName", lastNameUpdate);
-        sendData(objNewLastName);
+        sendData(objNewLastName, successMessageLastNameContainer);
         disableEditing(lastNameInput);
         printOnDOMUserData();
     }
@@ -223,7 +223,7 @@ userEmailForm.addEventListener("submit", async (event) => {
 
         emailInput.classList.add("valid");
         const objNewEmail = await editData("email", emailUpdate);
-        sendData(objNewEmail);
+        sendData(objNewEmail, successMessageEmailContainer);
         disableEditing(emailInput);
         printOnDOMUserData();
     }
@@ -242,7 +242,7 @@ userPasswordForm.addEventListener("submit", async (event) => {
         oldPasswordInput.classList.add("valid");
         newPasswordInput.classList.add("valid");
         const objNewPassword = await editData("password", passwordUpdate.newPassword);
-        sendData(objNewPassword);
+        sendData(objNewPassword,successMessagePasswordContainer);
         disableEditing(oldPasswordInput);
         disableEditing(newPasswordInput);
         printOnDOMUserData();
@@ -293,11 +293,11 @@ const resetPasswordValues = () =>{
 
 
 //Funcion para enviar datos de actualizacion
-const sendData = (UpdatedInfo) => {
+const sendData = (UpdatedInfo, successContainer) => {
     console.table(UpdatedInfo);
-
+    
     setTimeout(() => {
-        successMessage(successMessageNameContainer);
+        successMessage(successContainer);
     }, 1500);
 
 };

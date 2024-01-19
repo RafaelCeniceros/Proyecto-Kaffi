@@ -77,6 +77,7 @@ body{
     background-color: #faf6ec;
     font-family: 'Imprima', sans-serif;
     font-size: 1em;
+    color: #361C12;
 }
 .option-button .fa-solid{
     color:#361c12;
@@ -124,7 +125,14 @@ body{
     border-radius: 0.5em;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
 }
+.container-forms h6, .actual-data{
+    font-weight: bold;
+    font-family: 'inter', sans-serif;
+}
 
+#actual-name, #actual-lastName, #actual-email{
+    font-weight: bold;
+}
 .order-card {
     background-color: #F6EACC;
     /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */ /* Ajusta los valores según tu preferencia */
