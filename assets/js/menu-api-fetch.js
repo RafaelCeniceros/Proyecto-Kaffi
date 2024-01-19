@@ -85,8 +85,6 @@ function showProductsFromLocalStorage(nameOfItemInLocalStorage, category) {
 }
 
 await getProducts(url);
-showProductsFromLocalStorage("fileJsonToLocalStorage","Cafes");
-
 
 async function getProducts(url) {
   try {

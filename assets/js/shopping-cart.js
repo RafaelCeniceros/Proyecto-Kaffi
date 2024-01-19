@@ -5,7 +5,26 @@ import { addProductsToShoppingCart, deleteProductsOfShoppingCart, showQuantityOf
 import { productsToBuy } from "./products-to-buy-object.js";
 
 
-await showProductsToBuyFromLocalStorage("listOfProducts", "fileJsonToLocalStorage");
+
+
+
+
+try {
+  // Mostrar la barra de carga antes de la operación
+  const loadigContainer = document.getElementById("loading-container");
+  loadigContainer.style.display="flex";
+
+  // Mostrar los productos
+  await showProductsToBuyFromLocalStorage("listOfProducts", "fileJsonToLocalStorage");
+
+  // Ocultar la barra de carga después de la operación
+  loadigContainer.style.display="none";
+} catch (error) {
+  console.error("Error al obtener o guardar productos:", error);
+  // Puedes manejar el error aquí, por ejemplo, mostrando un mensaje de error o haciendo alguna otra acción necesaria
+  // También deberías ocultar la barra de carga en caso de error
+  loadigContainer.style.display="none";
+}
 
 const updateTotalPriceProducts = () => {
   const totalPriceCar = document.getElementById("total-price-car");
