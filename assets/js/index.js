@@ -1,5 +1,7 @@
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
-const url = '../../productos-menu-api.json';
+import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
+
+const url = 'http://localhost:8080/api/v1/products';
 
 await saveProductsInLocalStorage(url);
 
@@ -31,5 +33,8 @@ userLoginButton.addEventListener("click", event => {
     window.location.href = "./assets/pages/login.html#login-container";
   }
 });
+
+
+showQuantityOfItems();
 
 

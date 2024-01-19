@@ -1,3 +1,6 @@
+import { showQuantityOfItems } from "./add-delete-products-to-ls";
+showQuantityOfItems();
+
 localStorage.removeItem('userData');
 
 const checkifAccessToken = () => {

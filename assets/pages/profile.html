@@ -48,10 +48,20 @@
             <!-- Iconos de carrito y usuario a la derecha, siempre en la esquina superior derecha -->
             <div id="iconos-carrito-y-usuario" class="ms-auto order-lg-last">
                 <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item p-0 d-flex align-items-center">
+                    <li class="nav-item p-0 d-flex align-items-center" id="shopping-cart">
                         <a id="enlace-carrito-header" class="nav-link active text-white px-2"
-                            href="../pages/shopping-cart.html">
-                            <i class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link"></i>
+                            href="./assets/pages/shopping-cart.html">
+                            <!-- Icono Carrito -->
+                            <i id="cart-icon"
+                                class="fa-solid fa-cart-shopping py-2 px-1 header-icons-link d-flex align-items-center justify-content-center"></i>
+                            <!-- inicia icono de numero de productos -->
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div id="cart-counter"
+                                    class="rounded-circle d-flex align-items-center justify-content-center">
+                                    <span id="total-number-items">0</span>
+                                </div>
+                            </div>
+                            <!-- termina icono de numero -->
                         </a>
                     </li>
                     <li class="nav-item p-0 d-flex align-items-center">
@@ -61,6 +71,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- Menú desplegable, visible en pantallas pequeñas -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
@@ -192,11 +203,11 @@
                         <div class="col-md-10 mt-4">
                             <h4 style="font-weight:bold;">Informacion de usuario</h4>
                         </div>
-                        
+
                         <!-- tarjeta para actualizacion de nombre -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
                             <form id="user-name-form" class="row d-flex justify-content-between p-3">
-                                
+
                                 <div id="name-success-message-container" class="row p-2 text-success">
                                     <div class="d-flex align-items-center">
                                         <span class="text-start">Nombre de usuario actualizado</span>

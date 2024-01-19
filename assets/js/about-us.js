@@ -4,7 +4,6 @@ const textoHistoria = document.getElementById("history-text");
 const textoValores = document.getElementById("values-text");
 
 
-
 // Ocultar el texto al principio
 textoHistoria.style.display = "none";
 textoValores.style.display = "none";
@@ -31,8 +30,12 @@ botonValores.addEventListener("click", () => {
 
 
 import saveProductsInLocalStorage from "./saveProductsInLocalStorage.js";
+import { showQuantityOfItems } from "./add-delete-products-to-ls.js";
+
 const url = '../../productos-menu-api.json';
 await saveProductsInLocalStorage(url);
+showQuantityOfItems();
+
 
 const userLoginButton = document.getElementById("enlace-login-header");
 userLoginButton.addEventListener("click", event => {

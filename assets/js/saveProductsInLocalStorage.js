@@ -28,21 +28,23 @@ export default async function saveProductsInLocalStorage(url) {
         const productsArray = [];
 
         for (let i = 0; i < products.length; i++) {
-          let categoryId = products[i]["category"]["id"]
-          let categoryName = getNameOfCategoryId(categoryId, categoriesArray);
-          const newProduct = new Producto(
-            products[i].id,
-            products[i].name,
-            categoryName,
-            products[i]["price"],
-            products[i]["description"],
-            products[i]["image"]
-          )
-          productsArray.push(newProduct);
+          if (products[i]["active"] == true) {
+            let categoryId = products[i]["category"]["id"]
+            let categoryName = getNameOfCategoryId(categoryId, categoriesArray);
+            const newProduct = new Producto(
+              products[i].id,
+              products[i].name,
+              categoryName,
+              products[i]["price"],
+              products[i]["description"],
+              products[i]["image"]
+            )
+            productsArray.push(newProduct);
+          }
         }
 
 
-        sortProductsInCategories(productsArray,objectToJSON);
+        sortProductsInCategories(productsArray, objectToJSON);
 
         //console.log(objectToJSON);
         localStorage.setItem("fileJsonToLocalStorage", JSON.stringify(objectToJSON));
