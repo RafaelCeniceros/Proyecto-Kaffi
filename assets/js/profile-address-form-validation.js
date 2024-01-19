@@ -271,7 +271,7 @@ const getNewAddress = (addressUpdate) => {
 
 
 async function getUsers (){
-    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 1; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "UsersData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos

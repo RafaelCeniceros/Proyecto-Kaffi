@@ -1,59 +1,56 @@
 import Producto from "./product-class.js";
 
 export default async function saveProductsInLocalStorage(url) {
+  
+  const categoriesArray = await getCategoriesArray("https://kaffi-ecommerce.onrender.com/api/v1/categories");
+  console.log(categoriesArray);
 
-  const storedProducts = JSON.parse(localStorage.getItem('fileJsonToLocalStorage'));
+  await fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((products) => {
+      console.log("entre aqui");
+      const objectToJSON = {};
 
-  if (storedProducts) {
-    console.log("Los productos han sido encontrados en el LocalStorage")
-  }
-  else {
+      for (let j = 0; j < categoriesArray.length; j++) {
+        objectToJSON[categoriesArray[j]["name"]] = [];
+      }
 
-    const categoriesArray = await getCategoriesArray("https://kaffi-ecommerce.onrender.com/api/v1/categories");
-    console.log(categoriesArray);
+      // [{},{},{}]
+      const productsArray = [];
 
-    await fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((products) => {
-        console.log("entre aqui");
-        const objectToJSON = {};
-
-        for (let j = 0; j < categoriesArray.length; j++) {
-          objectToJSON[categoriesArray[j]["name"]] = [];
+      for (let i = 0; i < products.length; i++) {
+        if (products[i]["active"] == true) {
+          let categoryId = products[i]["category"]["id"]
+          let categoryName = getNameOfCategoryId(categoryId, categoriesArray);
+          const newProduct = new Producto(
+            products[i].id,
+            products[i].name,
+            categoryName,
+            products[i]["price"],
+            products[i]["description"],
+            products[i]["image"]
+          )
+          productsArray.push(newProduct);
         }
-
-        // [{},{},{}]
-        const productsArray = [];
-
-        for (let i = 0; i < products.length; i++) {
-          if (products[i]["active"] == true) {
-            let categoryId = products[i]["category"]["id"]
-            let categoryName = getNameOfCategoryId(categoryId, categoriesArray);
-            const newProduct = new Producto(
-              products[i].id,
-              products[i].name,
-              categoryName,
-              products[i]["price"],
-              products[i]["description"],
-              products[i]["image"]
-            )
-            productsArray.push(newProduct);
-          }
-        }
+      }
 
 
-        sortProductsInCategories(productsArray, objectToJSON);
+      sortProductsInCategories(productsArray, objectToJSON);
 
-        //console.log(objectToJSON);
-        localStorage.setItem("fileJsonToLocalStorage", JSON.stringify(objectToJSON));
+      //console.log(objectToJSON);
+      if(localStorage.getItem("fileJsonToLocalStorage")){
+        localStorage.removeItem("fileJsonToLocalStorage");
+      }
 
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
+      localStorage.setItem("fileJsonToLocalStorage", JSON.stringify(objectToJSON));
+
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
 
 }
 

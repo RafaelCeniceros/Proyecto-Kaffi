@@ -220,7 +220,7 @@ Get Orders from Api
 
 async function getOrders() {
     const url = "https://kaffi-ecommerce.onrender.com/api/v1/orders";
-    const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
+    const localStorageTimeLimit_s = 2; //tiempo de vida limite del localStorage en segundos
     const localStorageKey = "ordersData";
     //document.getElementById("preloader").style.display = "flex";
     

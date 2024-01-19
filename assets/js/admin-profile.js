@@ -1,6 +1,6 @@
 console.log("Estoy conectado al HTML");
 localStorage.removeItem('userData');
-const localStorageTimeLimit_s = 10; //tiempo de vida limite del localStorage en segundos
+const localStorageTimeLimit_s = 1; //tiempo de vida limite del localStorage en segundos
 
 const checkifAccessToken = () => {
     // Obtener el accessToken encriptado desde el localStorage
@@ -17,7 +17,7 @@ const checkifAccessToken = () => {
 
         if (accessToken) {
             console.log("Inicio de sesion detectado");
-            console.log("NombreUsuario:" + accessToken.userName);
+            //console.log("NombreUsuario:" + accessToken.userName);
             const welcomeHTML = document.getElementById("welcome-name");
             welcomeHTML.textContent = "Bienvenido, " + accessToken.userName;
         }

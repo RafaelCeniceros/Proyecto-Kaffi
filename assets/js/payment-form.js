@@ -127,7 +127,7 @@ formulario.inputCCV.addEventListener('keyup', () => {
 
 
 async function getProducts() {
-    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 0; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "ProductsData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
@@ -275,7 +275,7 @@ async function getNewOrderObj(){
 }
 
 async function getOrders() {
-	const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
+	const localStorageTimeLimit_s = 0; //tiempo de vida limite del localStorage en segundos
     const localStorageKey = "ordersData";
     //document.getElementById("preloader").style.display = "flex";
         
@@ -395,7 +395,7 @@ async function postAllOrderHasProducts() {
 }
 
 async function getUsers (){
-    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 1; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "UsersData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
@@ -489,9 +489,9 @@ async function sendEmail() {
     };
     console.log(templateParams);
     try {
-        //const response = await emailjs.send("service_gr2ei9l", "template_vkvlh29", templateParams);
-        //console.log(response);
-        console.log("Orden realizada con éxito. Se ha enviado un correo de confirmación al usuario.");
+        const response = await emailjs.send("service_gr2ei9l", "template_vkvlh29", templateParams);
+        console.log(response);
+        //console.log("Orden realizada con éxito. Se ha enviado un correo de confirmación al usuario.");
     } catch (error) {
         console.error(error);
         console.log("Error en el proceso de orden. No se pudo enviar el correo de confirmación.");

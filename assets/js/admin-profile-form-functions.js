@@ -2,7 +2,7 @@
 const url = 'https://kaffi-ecommerce.onrender.com/api/v1/products';
 
 async function getProducts(url) {
-    const localStorageTimeLimit_s = 10; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 1; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "ProductsData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
@@ -44,14 +44,14 @@ async function getProducts(url) {
 /* Funcion para mostrar el producto con el nombre */
 async function showProductFromLocalStorageWithName(productName) {
     const objectProductsJS = await getProducts(url);
-    console.log(objectProductsJS);
+    //console.log(objectProductsJS);
      await actualizarListaDesplegable();
 
     const productFinded = await findProductNameInLocalStorage(productName, objectProductsJS);
 
     // Verificar si se encontró el producto antes de actualizar el formulario
     if (productFinded !== null) {
-        console.log(productFinded);
+        //console.log(productFinded);
         updateForm(productFinded);
     } else {
         console.error('El producto con el ID especificado no fue encontrado.');
@@ -75,7 +75,7 @@ async function showProductFromLocalStorageWithID(productId) {
 
     // Verificar si se encontró el producto antes de actualizar el formulario
     if (productFinded !== null) {
-        console.log(productFinded);
+        //console.log(productFinded);
         updateForm(productFinded);
     } else {
         console.error('El producto con el ID especificado no fue encontrado.');
@@ -144,7 +144,7 @@ async function getSortedProductIDs() {
         const sortedProductIDs = products
             .map(product => product.id)
             .sort((a, b) => a - b);
-
+        //console.log(sortedProductIDs);
         return sortedProductIDs;
     } catch (error) {
         console.error('Error al obtener productos:', error);
@@ -265,7 +265,7 @@ async function actualizarListaDesplegable() {
 
     // Obtener todas las categorías únicas
     const categoriasUnicas = [...new Set(productsCategories.map(categories => categories.name))];
-    console.log(categoriasUnicas);
+    //console.log(categoriasUnicas);
     // Llenar la lista desplegable con las categorías
     categoriasUnicas.forEach(categoria => {
         const option = document.createElement('option');
@@ -369,26 +369,45 @@ saveProductButton.addEventListener('click', async event => {
             category: {id:productoEncontrado.category.id},
             image:productoEncontrado.image
         }
+        //console.log("PUT PRODUCT",ProductToPut );
+        // Desactivar y ocultar elementos
+        console.log(ProductToPut);
+        disableAndHideElements();
         await updateProduct(ProductToPut,productId );
 
     } else {
+
+        const categoriesProducts = await getProductsCategories();
+        // Buscar la categoría en la lista de categorías
+        const selectedCategoryId = (categoriesProducts.find(category => category.name === selectedCategory) || {}).id;
+
+        // Verificar si se encontró la categoría y obtener su ID
+        if (selectedCategoryId !== undefined) {
+            console.log(`El ID de la categoría "${selectedCategory}" es: ${selectedCategoryId}`);
+        } else {
+            console.log(`La categoría "${selectedCategory}" no fue encontrada.`);
+        }
+
         // Si no se encuentra el producto, crear uno nuevo y agregarlo a la categoría
         const ProductToPost = {
-            id: parseInt(productId),
+            id: null,
             name: productNameInput.value,
-            category: productCategoryInput.value,
+            category: {id:selectedCategoryId},
             price: parseFloat(productPriceInput.value),
             description: productDescriptionInput.value,
             image : "../images/imagen desconocida producto.png"
         };
+        //console.log("POST NEW PRODUCT", ProductToPost);
+            // Desactivar y ocultar elementos
+        disableAndHideElements();
+        //console.log(ProductToPost);
         await sendProduct(ProductToPost);
     }
 
     // Guardar la información actualizada en el localStorage
    // localStorage.setItem(nameOfItemInLocalStorage, JSON.stringify(storedProducts));
 
-    // Desactivar y ocultar elementos
-    disableAndHideElements();
+
 
 });
 
@@ -399,11 +418,12 @@ newProductButton.addEventListener('click', async event => {
     event.preventDefault();
 
     // Encontrar el último ID
-    let lastId = (await getSortedProductIDs()).length -1;
-
+    const listOfIds = (await getSortedProductIDs());
+    let lastId = listOfIds[(listOfIds.length)-1];
     // Incrementar el último ID para obtener uno nuevo
+    //console.log(lastId);
     const newProductId = lastId + 1;
-
+    
     // Establecer el nuevo ID como el valor del product-ID input
     document.getElementById('product-ID').value = newProductId;
 
@@ -463,6 +483,9 @@ async function updateProduct(ProductToPut,productId){
         const responseData = await response.json();
         console.log("Respuesta del servidor:", responseData);
         alert("Producto actualizado");
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
         // Limpiar el campo de entrada después de enviar el comentario
     } catch (error) {
         console.error("Error:", error.message);
@@ -490,6 +513,9 @@ async function sendProduct(ProductToPost){
         const responseData = await response.json();
         console.log("Respuesta del servidor:", responseData);
         alert("Producto nuevo guardado");
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
         // Limpiar el campo de entrada después de enviar el comentario
     } catch (error) {
         console.error("Error:", error.message);

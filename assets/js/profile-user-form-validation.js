@@ -314,6 +314,9 @@ const sendData = async (UpdatedInfo, successContainer) => {
         const responseData = await response.json();
         console.log("Respuesta del servidor:", responseData);
         successMessage(successContainer);
+        setTimeout(function() {
+            location.reload();
+        }, 2000);
         // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
     } catch (error) {
         console.error("Error:", error.message);
@@ -324,7 +327,7 @@ const sendData = async (UpdatedInfo, successContainer) => {
 
 
 async function getUsers (){
-    const localStorageTimeLimit_s = 5; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 1; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "UsersData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
