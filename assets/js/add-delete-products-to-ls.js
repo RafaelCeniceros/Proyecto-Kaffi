@@ -283,40 +283,32 @@ export function showQuantityOfItems() {
  * @returns 
  */
 export function arrayOfProductsWithQuantityInShoppingCart(nameOfListOfProductsToBuy, nameOfItemOfProducts) {
-    // obtenemos del local storage el objeto listOfProducts que contiene los id's como atributos y 
-    // la cantidad de éstos para comprar, 
-    // lo convertimos a un objeto JS con parse y lo guardamos en la variable productsToBuy
     const idOfProductsToBuyInLocalStorageJSON = localStorage.getItem(nameOfListOfProductsToBuy);
     const productsToBuyJS = JSON.parse(idOfProductsToBuyInLocalStorageJSON);
-    // también obtenemos del local storage el item que contiene objetos de la clase
-    // product, lo convertimos en un objeto de JS y lo almacenamos en una variable 
-    // llamada objectsProductJS 
+    
     const objectsProductJSON = localStorage.getItem(nameOfItemOfProducts);
     const objectsProductJS = JSON.parse(objectsProductJSON);
 
-    // areglo que contendrá todos los objetos de tipo producto que el usuario eligió para llevar
     const arrayOfProductObjectsToBuyWithQuantity = [];
 
-    // si hay elementos en el item de listOfProducts (productsToBuyJS), procedemos a realizar lo siguiente
-    if (productsToBuyJS != null) {
+    if (productsToBuyJS && objectsProductJS) {
         const arrayOfKeys = Object.keys(productsToBuyJS);
+
         for (let i = 0; i < arrayOfKeys.length; i++) {
-            // por cada elemento que este en local storage en el item de listOfProducts (productsToBuyJS),
-            // si la cantidad a comprar de ese elemento es distinta de cero,
-            // obtemos del local storage el objeto de la clase producto con el mismo id y lo guardamos 
-            // en el arreglo arrayOfProductObjectsToBuyWithQuantity
-            arrayOfProductObjectsToBuyWithQuantity.push(findObjectById(objectsProductJS, parseInt(arrayOfKeys[i])));
-            // a cada objeto dentro del arreglo arrayOfProductsWithQuantityToBuy le agregamos un atributo 
-            // llamado cantidad
-            arrayOfProductObjectsToBuyWithQuantity[i]["quantity"] = parseInt(productsToBuyJS[(arrayOfKeys[i])]);
+            const productId = parseInt(arrayOfKeys[i]);
+            const productObject = findObjectById(objectsProductJS, productId);
+
+            if (productObject) {
+                productObject["quantity"] = parseInt(productsToBuyJS[productId]);
+                arrayOfProductObjectsToBuyWithQuantity.push(productObject);
+            }
         }
 
-        // retorna el arreglo
         showQuantityOfItems();
-        return arrayOfProductObjectsToBuyWithQuantity;
     }
-}
 
+    return arrayOfProductObjectsToBuyWithQuantity;
+}
 /**
  * Después de haber pulsado el botón + o - en cierto producto, actualiza
  * las etiquetas span y h6 del producto a los valores actualies de cantidad y subtotal

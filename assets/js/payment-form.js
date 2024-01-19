@@ -505,6 +505,7 @@ async function sendEmail() {
     };
     console.log(templateParams);
     try {
+        emailjs.init("PlD9I-ES-M7Di5x-v");
         const response = await emailjs.send("service_gr2ei9l", "template_vkvlh29", templateParams);
         console.log(response);
         //console.log("Orden realizada con éxito. Se ha enviado un correo de confirmación al usuario.");

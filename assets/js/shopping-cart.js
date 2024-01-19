@@ -8,10 +8,10 @@ import { productsToBuy } from "./products-to-buy-object.js";
 
 
 
-
+const loadigContainer = document.getElementById("loading-container");
 try {
   // Mostrar la barra de carga antes de la operación
-  const loadigContainer = document.getElementById("loading-container");
+ 
   loadigContainer.style.display="flex";
 
   // Mostrar los productos
@@ -143,7 +143,7 @@ payButton.addEventListener('click', event => {
  */
 async function showProductsToBuyFromLocalStorage(nameOfListOfProductsToBuy, nameOfItemOfProducts) {
   // si existe listOfProducts en el localStorage y además no es un objeto vacío
-  const listOfProducts = JSON.parse(localStorage.getItem("listOfProducts"));
+  const listOfProducts = JSON.parse(localStorage.getItem(nameOfListOfProductsToBuy)) || {}; // Use an empty object if null
   if (listOfProducts && Object.keys(listOfProducts).length > 0) {
     document.getElementById("img-empty-car").style.display = "none";
     // obtenemos un arreglo con todos los productos a comprar y su cantidad y con dicho arreglo, 

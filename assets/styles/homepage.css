@@ -47,6 +47,7 @@ header #introduction-container {
     font-size: 1em;
     width: 1.5em;
     background-color: #7E4F25;
+    font-size: small;
 }
 
 #shopping-cart #cart-icon{
