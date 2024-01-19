@@ -133,18 +133,33 @@ const getActualDateTime = () => {
 }
 
 
-// Envío de datos
-const sendData = (commentary) => {
-    
-    // Convertir el objeto user a una cadena JSON
-    const commentJSON = JSON.stringify(commentary);
 
-    console.log(commentJSON);
-    // Limpiar el campo de entrada después de enviar el comentario
-    commentaryForm.elements["Commentary-Input"].value = '';
+const sendData = async (newComment) => {
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/comments";
 
-    // Mostrar mensaje de éxito
-    setTimeout(() => {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(newComment)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        // Limpiar el campo de entrada después de enviar el comentario
+        commentaryForm.elements["Commentary-Input"].value = '';
         showSuccessMessage();
-    }, 1500);
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+
 };

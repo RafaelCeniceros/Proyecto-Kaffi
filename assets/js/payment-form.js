@@ -142,7 +142,7 @@ async function getProducts() {
 
     try {
         // Realizar solicitud GET con async/await
-		const url = '../../productos-api.json';
+		const url = 'https://kaffi-ecommerce.onrender.com/api/v1/products';
         const response = await fetch(url);
 
         if (response.status === 200) {
@@ -298,7 +298,7 @@ async function getOrders() {
 
     try {
         // Realizando solicitud GET
-		const urlAPIorders = "../../orders.json";
+		const urlAPIorders = "https://kaffi-ecommerce.onrender.com/api/v1/orders";
         const response = await fetch(urlAPIorders);
 
         if (response.status === 200) {
@@ -389,7 +389,7 @@ async function postAllOrderHasProducts() {
     for (const orderHasProduct of ListOfOrderHasProducts) {
 		cont++;
 		console.log("OrderHasProduct: "+ cont);
-		console.log(orderHasProduct);
+		await sendDataOrderHasProduct(orderHasProduct);
 		console.log("-------------------")
     }
 }
@@ -410,7 +410,7 @@ async function getUsers (){
 
     try {
         // Realizar solicitud GET con async/await
-		const url = '../../users.json';
+		const url = 'https://kaffi-ecommerce.onrender.com/api/v1/users';
         const response = await fetch(url);
 
         if (response.status === 200) {
@@ -499,14 +499,39 @@ async function sendEmail() {
 };
 
 
+function showMessage() {
+    const modal = document.getElementById('myModal');
+    const closeModalSpan = document.getElementsByClassName('close')[0];
+    modal.style.display = 'block';
+
+    closeModalSpan.addEventListener('click', function () {
+        modal.style.display = 'none';
+        window.location.href = "../pages/menu.html";
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            window.location.href = "../pages/menu.html";
+        }
+    });
+}
+
 formulario.addEventListener("submit", async event => {
     event.preventDefault();
 
     const isFormValid =  ValidateForm();
     if(isFormValid){
-        console.log(await getNewOrderObj());
+        const newOrder = await getNewOrderObj();
+        console.log(newOrder);
+        console.log("generando orden...");
+        await sendDataOrder(newOrder);
+        console.log("NUEVA ORDEN GENERADA");
+        console.log("generando orden has products...");
         await postAllOrderHasProducts();
         await sendEmail();
+        localStorage.removeItem("listOfProducts");
+        showMessage();
     }
 
 });
@@ -553,4 +578,55 @@ formulario.addEventListener("submit", async event => {
 
 }
 
+async function sendDataOrder(order){
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/orders";
+        
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(order)
+        });
 
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+}
+
+
+async function sendDataOrderHasProduct(orderHasProduct){
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/ordersHasProducts";
+        
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(orderHasProduct)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+}

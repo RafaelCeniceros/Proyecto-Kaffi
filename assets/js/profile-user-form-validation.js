@@ -191,7 +191,7 @@ userNameForm.addEventListener("submit", async (event) => {
         
         nameInput.classList.add("valid");
         const objNewName = await editData("firstName", nameUpdate);
-        sendData(objNewName, successMessageNameContainer);
+        await sendData(objNewName, successMessageNameContainer);
         disableEditing(nameInput);
         printOnDOMUserData();
     }
@@ -207,7 +207,7 @@ userLastNameForm.addEventListener("submit", async (event) => {
 
         lastNameInput.classList.add("valid");
         const objNewLastName = await editData("lastName", lastNameUpdate);
-        sendData(objNewLastName, successMessageLastNameContainer);
+        await sendData(objNewLastName, successMessageLastNameContainer);
         disableEditing(lastNameInput);
         printOnDOMUserData();
     }
@@ -223,7 +223,7 @@ userEmailForm.addEventListener("submit", async (event) => {
 
         emailInput.classList.add("valid");
         const objNewEmail = await editData("email", emailUpdate);
-        sendData(objNewEmail, successMessageEmailContainer);
+        await sendData(objNewEmail, successMessageEmailContainer);
         disableEditing(emailInput);
         printOnDOMUserData();
     }
@@ -242,7 +242,7 @@ userPasswordForm.addEventListener("submit", async (event) => {
         oldPasswordInput.classList.add("valid");
         newPasswordInput.classList.add("valid");
         const objNewPassword = await editData("password", passwordUpdate.newPassword);
-        sendData(objNewPassword,successMessagePasswordContainer);
+        await sendData(objNewPassword,successMessagePasswordContainer);
         disableEditing(oldPasswordInput);
         disableEditing(newPasswordInput);
         printOnDOMUserData();
@@ -293,18 +293,38 @@ const resetPasswordValues = () =>{
 
 
 //Funcion para enviar datos de actualizacion
-const sendData = (UpdatedInfo, successContainer) => {
-    console.table(UpdatedInfo);
-    
-    setTimeout(() => {
+const sendData = async (UpdatedInfo, successContainer) => {
+    console.log(UpdatedInfo);
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/users/"+getUserID();
+        
+        const response = await fetch(apiUrl, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(UpdatedInfo)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
         successMessage(successContainer);
-    }, 1500);
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
 
 };
 
 
 async function getUsers (){
-    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageTimeLimit_s = 5; // Tiempo de vida límite del localStorage en segundos
     const localStorageKey = "UsersData";
 
     // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
@@ -319,7 +339,7 @@ async function getUsers (){
 
     try {
         // Realizar solicitud GET con async/await
-		const url = '../../users.json';
+		const url = 'https://kaffi-ecommerce.onrender.com/api/v1/users';
         const response = await fetch(url);
 
         if (response.status === 200) {
@@ -374,6 +394,7 @@ async function getUserData(userId) {
 
 async function printOnDOMUserData(){
 
+    const welcomeHTML = document.getElementById("welcome-name");
     const actualName = document.getElementById("actual-name");
     const actualLastname = document.getElementById("actual-lastName");
     const actualEmail = document.getElementById("actual-email");
@@ -382,7 +403,7 @@ async function printOnDOMUserData(){
         actualName.textContent = userInfo.firstName;
         actualLastname.textContent = userInfo.lastName;
         actualEmail.textContent = userInfo.email;
-    
+        welcomeHTML.textContent = "Bienvenido, " + userInfo.firstName;
 }
 
 await printOnDOMUserData();

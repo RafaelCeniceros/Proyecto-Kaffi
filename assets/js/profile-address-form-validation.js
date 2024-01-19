@@ -170,7 +170,7 @@ const validateZip = (zip, zipInput, invalidZipSign) => {
 };
 
 //Almacenamiento de datos
-addressForm.addEventListener("submit", (event) => {
+addressForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const addressUpdate = {
@@ -196,8 +196,11 @@ addressForm.addEventListener("submit", (event) => {
         municipalityInput.classList.add("valid");
         zipInput.classList.add("valid");
         storeInput.classList.add("valid");
-        
-        sendData(addressUpdate);
+        const newAddress = getNewAddress(addressUpdate);
+        console.log(newAddress);
+        const updatedInfo = await editData("address", newAddress);
+        await sendData(updatedInfo);
+
         // Obtener los elementos de input y select
         const inputElements = addressForm.querySelectorAll("input:not([type='submit']), select");
         // Función para habilitar los elementos
@@ -254,25 +257,17 @@ const resetValues = () => {
 };
 
 
-const sendData = (addressUpdate) => {
-    
-    setTimeout(() => {showSuccessMessage();}, 1500);
-    
-    //Convertir el objeto en un string
-    const addressJSONConcatenation = (addressUpdate) => {
-        let concatenatedString = "";
-        
-        for (const key in addressUpdate) {
-            if (addressUpdate.hasOwnProperty(key)) {
-                concatenatedString += addressUpdate[key] + ', ';
-            }
-        }
-        return concatenatedString.trim();
-    }
-    //Mostar en la consola la direccion para pruebas 
-    console.log(addressJSONConcatenation(addressUpdate));
-};
+const getNewAddress = (addressUpdate) => {
 
+    let concatenatedString = "";
+
+    for (const key in addressUpdate) {
+        if (addressUpdate.hasOwnProperty(key)) {
+            concatenatedString += addressUpdate[key] + ', ';
+        }
+    }
+    return concatenatedString.trim();
+};
 
 
 async function getUsers (){
@@ -291,7 +286,7 @@ async function getUsers (){
 
     try {
         // Realizar solicitud GET con async/await
-		const url = '../../users.json';
+		const url = 'https://kaffi-ecommerce.onrender.com/api/v1/users';
         const response = await fetch(url);
 
         if (response.status === 200) {
@@ -414,3 +409,52 @@ editAddressButton.addEventListener("click", function () {
         element.removeAttribute("disabled");
     }
 });
+
+async function editData(clave, nuevoValor) {
+    // Obtener la información actual del usuario
+    const actualUserInfo = await getUserData(getUserID());
+  
+    // Verificar si se encontró el usuario
+    if (actualUserInfo) {
+      // Modificar el valor de la clave proporcionada
+      actualUserInfo[clave] = nuevoValor;
+  
+      // Aquí puedes guardar la información actualizada si es necesario
+      // Puedes implementar una función para guardar los cambios en tu base de datos
+  
+      // Devolver la información actualizada
+      return actualUserInfo;
+    } else {
+      // Devolver null si no se encuentra el usuario
+      return null;
+    }
+  }
+
+const sendData = async (UpdatedInfo) => {
+    console.log(UpdatedInfo);
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/users/" + getUserID();
+
+        const response = await fetch(apiUrl, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(UpdatedInfo)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        showSuccessMessage();
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+
+};

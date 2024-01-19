@@ -93,7 +93,7 @@ const validateEmail = async (email, emailInput, invalidEmailSign) => {
         invalidEmailSign.style.display = "none";
 
         // Fetch data from the local JSON file
-        const apiUrl = "../../users.json"; // Reemplaza esto con la ruta correcta de tu archivo JSON
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/users"; // Reemplaza esto con la ruta correcta de tu archivo JSON
         const response = await fetch(apiUrl);
         const data = await response.json();
 
@@ -187,7 +187,7 @@ registerForm.addEventListener("submit", async (event) => {
             email: user.email,
             password: user.password,
             address: null,
-            UserType: {id:2}
+            userType: {id:2}
         }
         sendData(userToJSON);
     }
@@ -226,21 +226,32 @@ const resetValues =()=>{
     invalidCheckPasswordSign.style.display = "none";
 }
 
+async function sendData(user) {
+    try {
+        const apiUrl = "https://kaffi-ecommerce.onrender.com/api/v1/users";
+        
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+                // Puedes agregar más encabezados según sea necesario
+            },
+            body: JSON.stringify(user)
+        });
 
-const sendData = (user) => {
-    //Gurdado de datos de usuario en localstorage (Se reemplazara el codigo para questos sean enviados a una api en un futuro)
+        if (!response.ok) {
+            throw new Error(`Error al realizar la solicitud. Código de estado: ${response.status}`);
+        }
 
-    console.table(user);
-
-    // Convertir el objeto user a una cadena JSON
-    const userJSON = JSON.stringify(user);
-
-    // Guardar en el localStorage
-    localStorage.setItem("userData", userJSON);
-
-    window.location.href = "../pages/login.html#login-title"
-
-};
+        const responseData = await response.json();
+        console.log("Respuesta del servidor:", responseData);
+        window.location.href = "../pages/login.html#login-title";
+        // Puedes realizar acciones adicionales aquí después de recibir una respuesta exitosa
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Puedes manejar errores aquí, por ejemplo, mostrar un mensaje al usuario
+    }
+}
 
 
 const userLoginButton = document.getElementById("enlace-login-header");

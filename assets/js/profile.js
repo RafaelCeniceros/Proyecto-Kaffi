@@ -18,9 +18,6 @@ const checkifAccessToken = () => {
 
         if (accessToken) {
             console.log("Inicio de sesion detectado");
-            console.log("NombreUsuario:" + accessToken.userName);
-            const welcomeHTML = document.getElementById("welcome-name");
-            welcomeHTML.textContent = "Bienvenido, " + accessToken.userName;
         }
     }
     else {
@@ -30,13 +27,14 @@ const checkifAccessToken = () => {
 checkifAccessToken();
 
 
+
 async function showOrderDetails(orderId) {
     try {
         // Realiza una consulta a la API para obtener la información detallada de la orden
         // Puedes usar fetch, axios u otra biblioteca para realizar la consulta
 
         // Por ahora, asumamos que obtienes los detalles de la orden de un archivo JSON
-        const allOrdersHasProducts = await fetch("../../ordersHasProducts.json");
+        const allOrdersHasProducts = await fetch("https://kaffi-ecommerce.onrender.com/api/v1/ordersHasProducts");
 
         if (!allOrdersHasProducts.ok) {
             throw new Error('Error al obtener detalles de la orden');
@@ -221,7 +219,7 @@ Get Orders from Api
 */
 
 async function getOrders() {
-    const url = "../../orders.json";
+    const url = "https://kaffi-ecommerce.onrender.com/api/v1/orders";
     const localStorageTimeLimit_s = 60; //tiempo de vida limite del localStorage en segundos
     const localStorageKey = "ordersData";
     //document.getElementById("preloader").style.display = "flex";
