@@ -90,19 +90,28 @@ const validateOutsideNum = (outsideNum, outsideNumInput, invalidOutsideNumSign) 
 
 //validacion de numero interior
 const validateInsideNum = (insideNum, insideNumInput, invalidInsideNumSign) => {
-    const regex = /^[a-zA-Z0-9\s]+$/;
-    if (insideNum === "" || insideNum.length > 10 || !regex.test(insideNum)) {
-        errorMessageInsideNum.style.display = "block";
-        errorMessage("Introduzca un número interior válido", errorMessageInsideNum);
-        insideNumInput.classList.add("invalid");
-        invalidInsideNumSign.style.display = "block";
-        return false;
-    } else {
+    if(insideNum==""||insideNum == null){
         errorMessageInsideNum.style.display = "none";
         errorMessage("", errorMessageInsideNum);
         insideNumInput.classList.remove("invalid");
         invalidInsideNumSign.style.display = "none";
         return true;
+    }
+    else{
+        const regex = /^[a-zA-Z0-9\s]+$/;
+        if (insideNum.length > 10 || !regex.test(insideNum)) {
+            errorMessageInsideNum.style.display = "block";
+            errorMessage("Introduzca un número interior válido", errorMessageInsideNum);
+            insideNumInput.classList.add("invalid");
+            invalidInsideNumSign.style.display = "block";
+            return false;
+        } else {
+            errorMessageInsideNum.style.display = "none";
+            errorMessage("", errorMessageInsideNum);
+            insideNumInput.classList.remove("invalid");
+            invalidInsideNumSign.style.display = "none";
+            return true;
+        }   
     }
 };
 
@@ -189,7 +198,12 @@ addressForm.addEventListener("submit", (event) => {
         storeInput.classList.add("valid");
         
         sendData(addressUpdate);
-        disableEditing();
+        // Obtener los elementos de input y select
+        const inputElements = addressForm.querySelectorAll("input:not([type='submit']), select");
+        // Función para habilitar los elementos
+        for (const element of inputElements) {
+            element.setAttribute("disabled", "true");
+        }
     }
 });
 
@@ -209,16 +223,7 @@ const showSuccessMessage = () => {
     successMessageContainer.style.display = "flex";
 };
 
-// Función para inhabilitar la edición
-const disableEditing = () => {
-    streetInput.setAttribute("readonly",true);
-    outsideNumInput.setAttribute("readonly",true);
-    insideNumInput.setAttribute("readonly",true);
-    colonyInput.setAttribute("readonly",true);
-    municipalityInput.setAttribute("readonly",true);
-    zipInput.setAttribute("readonly",true);
-    storeInput.setAttribute("disabled", true); 
-}
+
 
 // Función para restablecer valores y deshabilitar edición
 const resetValues = () => {
@@ -264,12 +269,148 @@ const sendData = (addressUpdate) => {
         }
         return concatenatedString.trim();
     }
-    
-    console.table(addressUpdate);
-
     //Mostar en la consola la direccion para pruebas 
     console.log(addressJSONConcatenation(addressUpdate));
 };
 
 
 
+async function getUsers (){
+    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageKey = "UsersData";
+
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
+
+    if (storedData && (Date.now() - storedData.timestamp) / 1000 < localStorageTimeLimit_s) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        //console.log("Recuperando datos desde el Local Storage");
+        //console.log(`Tiempo transcurrido: ${(Date.now() - storedData.timestamp) / 1000} segundos`);
+        return storedData.data;
+    }
+
+    try {
+        // Realizar solicitud GET con async/await
+		const url = '../../users.json';
+        const response = await fetch(url);
+
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
+
+            // Convertir la respuesta a JSON con async/await
+            const users = await response.json();
+
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: users, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            //console.table(dataToStore); // Mostrar datos almacenados en la consola
+            return users;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Manejar el error o registrar información adicional si es necesario
+        throw error; // Propagar el error para que pueda ser manejado por la función que llama a getProducts
+    }
+
+}
+
+function getUserID() {
+	const encryptedAccessToken = localStorage.getItem('accessToken');
+
+	if (encryptedAccessToken) {
+		// Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+		const secretWord = "CodeTitansRafaFerValdoAlan";
+		// Desencriptar el accessToken con CryptoJS
+		const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+		// Convertir los bytes desencriptados a cadena JSON
+		const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+		// Parsear la cadena JSON a un objeto JavaScript
+		const accessToken = JSON.parse(decryptedAccessTokenJSON);
+		if (accessToken) {
+			return accessToken.userId;
+		}
+		else {
+			console.error("No se obtuvo el user id");
+		}
+	}
+}
+
+async function getUserData(userId) {
+    const users = await getUsers();
+    const userFound = users.find(user => userId === user.id);
+    return userFound || null; // Devolver null si no se encuentra ningún usuario con el ID proporcionado
+  }
+
+async function printOnDOMUserAddress() {
+    // Obtener los elementos del formulario
+    const street = addressForm.elements["inputStreet"];
+    const outsideNum = addressForm.elements["inputOutsideNum"];
+    const insideNum = addressForm.elements["inputInsideNum"];
+    const colony = addressForm.elements["inputColony"];
+    const municipality = addressForm.elements["inputMunicipality"];
+    const zip = addressForm.elements["inputZip"];
+    const storeSelect = addressForm.elements["inputStore"];
+
+    // Función para obtener solo la parte numérica de una cadena
+    function getNumericPart(str) {
+        return str.replace(/\D/g, ''); // Filtra los dígitos
+    }
+
+    // Obtener la información del usuario
+    const userInfo = await getUserData(getUserID());
+    console.log(userInfo);
+
+    // Verificar si se encontró la información del usuario
+    if (userInfo && userInfo.address) {
+        // Utilizar split para dividir la dirección
+        const addressParts = userInfo.address.split(',').map(part => part.trim());
+
+        // Asignar las partes a los campos correspondientes del formulario
+        street.value = addressParts[0] || "";
+
+        // Filtrar dígitos para obtener solo la parte numérica
+        outsideNum.value = getNumericPart(addressParts[1]);
+        insideNum.value = getNumericPart(addressParts[2]);
+
+        colony.value = addressParts[3] || "";
+        municipality.value = addressParts[4] || "";
+
+        // Filtrar dígitos para obtener solo la parte numérica
+        zip.value = getNumericPart(addressParts[5]);
+
+        // Asignar el valor seleccionado en el select (store)
+        for (let option of storeSelect.options) {
+            if (option.value === addressParts[6]) {
+                option.selected = true;
+                break;
+            }
+        }
+    } else {
+        // Si no se encuentra la información del usuario, asignar valores por defecto o vacíos
+        street.value = "";
+        outsideNum.value = "";
+        insideNum.value = "";
+        colony.value = "";
+        municipality.value = "";
+        zip.value = "";
+        storeSelect.value = ""; // Puedes establecer el valor seleccionado en el select como vacío
+    }
+}
+
+await printOnDOMUserAddress();
+
+
+
+const editAddressButton = document.getElementById("edit-address-button");
+// Evento clic para el botón de edición
+editAddressButton.addEventListener("click", function () {
+    // Obtener los elementos de input y select
+    const inputElements = addressForm.querySelectorAll("input[disabled], select[disabled]");
+    // Función para habilitar los elementos
+    for (const element of inputElements) {
+        element.removeAttribute("disabled");
+    }
+});

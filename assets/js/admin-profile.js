@@ -245,7 +245,7 @@ function generateOrderCard({id, date, price, user }) {
                 <h6 class="my-1 d-flex">${formattedDate}</h6>
                 <h6 class="my-2 d-flex">${userInfo}</h6>
                 <p class="d-flex">$: ${price} MXN</p>
-                <button onclick="showOrderDetails(${id})" "class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
+                <button onclick="showOrderDetails(${id})" class="d-flex align-items-center justify-content-center mx-3 my-1"> Ver detalles </button>
             </div>
             <div class="order-icon d-flex align-items-center justify-content-center ms-2">
                 <i class="fa-solid fa-file-invoice-dollar fa-2xl"></i>
@@ -382,6 +382,7 @@ buttonLogOutlg.addEventListener('click', () => {
 localStorage.removeItem("accessToken"); 
 localStorage.removeItem("commentsData");
 localStorage.removeItem("ordersData");
+localStorage.removeItem("ProductsData");
 window.location.href = "../pages/login.html#login-container";
 });
 
@@ -389,7 +390,8 @@ const buttonLogOut = document.getElementById('option-logout-button');
 buttonLogOut.addEventListener('click', () => {
 localStorage.removeItem("accessToken");
 localStorage.removeItem("commentsData");
-localStorage.removeItem("ordersData"); 
+localStorage.removeItem("ordersData");
+localStorage.removeItem("ProductsData");
 window.location.href = "../pages/login.html#login-container";
 });
 
@@ -446,3 +448,5 @@ function displayOrderModal(orderDetailsArray) {
     const bootstrapModal = new bootstrap.Modal(modal);
     bootstrapModal.show();
 }
+
+

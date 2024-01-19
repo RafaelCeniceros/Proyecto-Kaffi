@@ -35,31 +35,56 @@ const successMessagePasswordContainer = document.getElementById("password-succes
 //Funcion de validacion de formulario de nombre
 const dataNameCheckout = (nameUpdate) => {
     resetValues(nameInput,invalidNameSign,successMessageNameContainer);
-    const isNameValid = validateName(nameUpdate.name, nameInput, invalidNameSign);
+    const isNameValid = validateName(nameUpdate, nameInput, invalidNameSign);
     return isNameValid 
 };
 
 //Funcion de validacion de formulario de apellido
 const dataLastNameCheckout = (lastNameUpdate) => {
     resetValues(lastNameInput,invalidLastNameSign,successMessageLastNameContainer);
-    const isLastNameValid = validateLastName(lastNameUpdate.lastName, lastNameInput, invalidLastNameSign);
+    const isLastNameValid = validateLastName(lastNameUpdate, lastNameInput, invalidLastNameSign);
     return isLastNameValid;
 };
 
 //Funcion de validacion de formulario de email
-const dataEmailCheckout = (emailUpdate) => {
+const dataEmailCheckout = async (emailUpdate) => {
     resetValues(emailInput,invalidEmailSign,successMessageEmailContainer);
-    const isEmailValid = validateEmail(emailUpdate.email, emailInput, invalidEmailSign);
+    const isEmailValid = await validateEmail(emailUpdate, emailInput, invalidEmailSign);
     return isEmailValid;
 };
 
+async function checkIfEmailExists(email){
+
+    const userData = await getUsers();
+
+    // Verifica si el correo electrónico ya existe en los datos del usuario
+    const emailExists = userData.some(userData => userData.email === email);
+
+    if (emailExists) {
+        // Si el correo ya existe
+        return true;
+    } else {
+        // Si el correo no existe
+        return false;
+    }
+}
+
 //Funcion de validacion de formulario de email
-const dataPasswordCheckout = (passwordUpdate) => {
+const dataPasswordCheckout = async (passwordUpdate) => {
     resetPasswordValues();
-    //const isOldPasswordValid = validateOldPassword(passwordUpdate.oldPassword, oldPasswordInput, invalidOldPasswordSign);
-    const isNewPasswordValid = validateNewPassword(passwordUpdate.newPassword, newPasswordInput, invalidNewPasswordSign);
-    //return isOldPasswordValid && isNewPasswordValid;
-    return isNewPasswordValid;
+    const isOldPasswordCorrect = await PasswordValidation(passwordUpdate.oldPassword);
+    if (isOldPasswordCorrect){
+        const isNewPasswordValid = validateNewPassword(passwordUpdate.newPassword, newPasswordInput, invalidNewPasswordSign);
+        //return isOldPasswordValid && isNewPasswordValid;
+        return isNewPasswordValid;
+    }
+    else{
+        errorMessageNewPassword.style.display="block";
+        errorMessage("Tu contraseña actual es incorrecta", errorMessageNewPassword);
+        newPasswordInput.classList.add("invalid");
+        invalidNewPasswordSign.style.display = "block";
+        return false;
+    } 
 
 };
 
@@ -100,7 +125,7 @@ const validateLastName = (lastName, lastNameInput, invalidLastNameSign) => {
 };
 
 //Validacion de email
-const validateEmail = (email, emailInput, invalidEmailSign) => {
+const validateEmail = async (email, emailInput, invalidEmailSign) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!regex.test(email)) {
         errorMessageEmail.style.display="block";
@@ -109,11 +134,20 @@ const validateEmail = (email, emailInput, invalidEmailSign) => {
         invalidEmailSign.style.display = "block";
         return false;
     } else {
-        errorMessageEmail.style.display="none";
-        errorMessage("", errorMessageEmail);
-        emailInput.classList.remove("invalid");
-        invalidEmailSign.style.display = "none";
-        return true;
+        const isExistingEmail= await checkIfEmailExists (email);
+        if(isExistingEmail){
+            errorMessageEmail.style.display="block";
+            errorMessage("Email ingresado ya esta registrado", errorMessageEmail);
+            emailInput.classList.add("invalid");
+            invalidEmailSign.style.display = "block";
+        }
+        else{
+            errorMessageEmail.style.display="none";
+            errorMessage("", errorMessageEmail);
+            emailInput.classList.remove("invalid");
+            invalidEmailSign.style.display = "none";
+            return true;
+        }
     }
 };
 
@@ -138,69 +172,80 @@ const validateNewPassword = (newPassword, newPasswordInput, invalidNewPasswordSi
     }
 };
 
+async function PasswordValidation(oldPasswordInput){
+    const userInfo = await getUserData(getUserID());
+    if (userInfo.password == oldPasswordInput){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
-userNameForm.addEventListener("submit", (event) => {
+userNameForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const nameUpdate = {name: userNameForm.elements["Name-Input"].value};
+    const nameUpdate = userNameForm.elements["Name-Input"].value;
     const isNameFormValid = dataNameCheckout(nameUpdate);
-    
     // Enviar datos solo si el formulario es válido
     if (isNameFormValid) {
         
         nameInput.classList.add("valid");
-
-        sendNameData(nameUpdate);
+        const objNewName = await editData("firstName", nameUpdate);
+        sendData(objNewName);
         disableEditing(nameInput);
+        printOnDOMUserData();
     }
 });
 
-userLastNameForm.addEventListener("submit", (event) => {
+userLastNameForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const lastNameUpdate = { lastName: userLastNameForm.elements["LastName-Input"].value };
+    const lastNameUpdate = userLastNameForm.elements["LastName-Input"].value;
     const isLastNameFormValid = dataLastNameCheckout(lastNameUpdate);
 
     // Enviar datos solo si el formulario es válido
     if (isLastNameFormValid) {
 
         lastNameInput.classList.add("valid");
-
-        sendLastNameData(lastNameUpdate);
+        const objNewLastName = await editData("lastName", lastNameUpdate);
+        sendData(objNewLastName);
         disableEditing(lastNameInput);
+        printOnDOMUserData();
     }
 });
 
-userEmailForm.addEventListener("submit", (event) => {
+userEmailForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const emailUpdate = { email: userEmailForm.elements["E-Mail-Input"].value };
-    const isEmailFormValid = dataEmailCheckout(emailUpdate);
+    const emailUpdate = userEmailForm.elements["E-Mail-Input"].value;
+    const isEmailFormValid = await dataEmailCheckout(emailUpdate);
 
     // Enviar datos solo si el formulario es válido
     if (isEmailFormValid) {
 
         emailInput.classList.add("valid");
-
-        sendEmailData(emailUpdate);
+        const objNewEmail = await editData("email", emailUpdate);
+        sendData(objNewEmail);
         disableEditing(emailInput);
+        printOnDOMUserData();
     }
 });
 
-userPasswordForm.addEventListener("submit", (event) => {
+userPasswordForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const passwordUpdate = {
         oldPassword: userPasswordForm.elements["OldPassword-Input"].value,
         newPassword: userPasswordForm.elements["NewPasswor-Input"].value
     };
-    const isPasswordFormValid = dataPasswordCheckout(passwordUpdate);
-
+    const isPasswordFormValid = await dataPasswordCheckout(passwordUpdate);
     // Enviar datos solo si el formulario es válido
     if (isPasswordFormValid) {
 
         oldPasswordInput.classList.add("valid");
         newPasswordInput.classList.add("valid");
-
-        sendPasswordData(passwordUpdate);
+        const objNewPassword = await editData("password", passwordUpdate.newPassword);
+        sendData(objNewPassword);
         disableEditing(oldPasswordInput);
         disableEditing(newPasswordInput);
+        printOnDOMUserData();
     }
 });
 
@@ -247,52 +292,118 @@ const resetPasswordValues = () =>{
 }
 
 
-//Funcion para enviar datos de actualizacion de nombre
-const sendNameData = (nameUpdate) => {
-    console.table(nameUpdate);
+//Funcion para enviar datos de actualizacion
+const sendData = (UpdatedInfo) => {
+    console.table(UpdatedInfo);
 
     setTimeout(() => {
         successMessage(successMessageNameContainer);
     }, 1500);
 
-    const nameJSON = JSON.stringify(nameUpdate);
-    localStorage.setItem("nameData", nameJSON);
 };
 
 
-// Función para enviar datos de actualización de apellido
-const sendLastNameData = (lastNameUpdate) => {
-    console.table(lastNameUpdate);
+async function getUsers (){
+    const localStorageTimeLimit_s = 60; // Tiempo de vida límite del localStorage en segundos
+    const localStorageKey = "UsersData";
 
-    setTimeout(() => {
-        successMessage(successMessageLastNameContainer);
-    }, 1500);
+    // Verificar si hay datos en el Local Storage y si han pasado más de 60 segundos
+    const storedData = JSON.parse(localStorage.getItem(localStorageKey));
 
-   
-    const lastNameJSON = JSON.stringify(lastNameUpdate);
-    localStorage.setItem("lastNameData", lastNameJSON);
-};
+    if (storedData && (Date.now() - storedData.timestamp) / 1000 < localStorageTimeLimit_s) {
+        // Leer desde el Local Storage si está dentro del límite de tiempo
+        //console.log("Recuperando datos desde el Local Storage");
+        //console.log(`Tiempo transcurrido: ${(Date.now() - storedData.timestamp) / 1000} segundos`);
+        return storedData.data;
+    }
 
-// Función para enviar datos de actualización de email
-const sendEmailData = (emailUpdate) => {
-    console.table(emailUpdate);
+    try {
+        // Realizar solicitud GET con async/await
+		const url = '../../users.json';
+        const response = await fetch(url);
 
-    setTimeout(() => {
-        successMessage(successMessageEmailContainer);
-    }, 1500);
+        if (response.status === 200) {
+            console.log("Estado de la solicitud: OK");
 
-    const emailJSON = JSON.stringify(emailUpdate);
-    localStorage.setItem("emailData", emailJSON);
-};
+            // Convertir la respuesta a JSON con async/await
+            const users = await response.json();
 
-// Función para enviar datos de actualización de contraseña
-const sendPasswordData = (passwordUpdate) => {
-    console.table(passwordUpdate);
+            // Guardar en el Local Storage con la marca de tiempo
+            const timestamp = Date.now();
+            const dataToStore = { data: users, timestamp: timestamp };
+            localStorage.setItem(localStorageKey, JSON.stringify(dataToStore));
+            //console.table(dataToStore); // Mostrar datos almacenados en la consola
+            return users;
+        } else {
+            throw new Error(`Error in fetch. Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.log("Error in the request:", error);
+        // Manejar el error o registrar información adicional si es necesario
+        throw error; // Propagar el error para que pueda ser manejado por la función que llama a getProducts
+    }
 
-    setTimeout(() => {
-        successMessage(successMessagePasswordContainer);
-    }, 1500);
+}
 
-    const passwordJSON = JSON.stringify(passwordUpdate);
-    localStorage.setItem("passwordData", passwordJSON);
-};
+function getUserID() {
+	const encryptedAccessToken = localStorage.getItem('accessToken');
+
+	if (encryptedAccessToken) {
+		// Clave secreta para desencriptar (debería ser la misma que usaste para encriptar)
+		const secretWord = "CodeTitansRafaFerValdoAlan";
+		// Desencriptar el accessToken con CryptoJS
+		const decryptedBytes = CryptoJS.AES.decrypt(encryptedAccessToken, secretWord);
+		// Convertir los bytes desencriptados a cadena JSON
+		const decryptedAccessTokenJSON = decryptedBytes.toString(CryptoJS.enc.Utf8);
+		// Parsear la cadena JSON a un objeto JavaScript
+		const accessToken = JSON.parse(decryptedAccessTokenJSON);
+		if (accessToken) {
+			return accessToken.userId;
+		}
+		else {
+			console.error("No se obtuvo el user id");
+		}
+	}
+}
+
+async function getUserData(userId) {
+    const users = await getUsers();
+    const userFound = users.find(user => userId === user.id);
+    return userFound || null; // Devolver null si no se encuentra ningún usuario con el ID proporcionado
+  }
+
+async function printOnDOMUserData(){
+
+    const actualName = document.getElementById("actual-name");
+    const actualLastname = document.getElementById("actual-lastName");
+    const actualEmail = document.getElementById("actual-email");
+    const userInfo = await getUserData(getUserID());
+
+        actualName.textContent = userInfo.firstName;
+        actualLastname.textContent = userInfo.lastName;
+        actualEmail.textContent = userInfo.email;
+    
+}
+
+await printOnDOMUserData();
+
+async function editData(clave, nuevoValor) {
+    // Obtener la información actual del usuario
+    const actualUserInfo = await getUserData(getUserID());
+  
+    // Verificar si se encontró el usuario
+    if (actualUserInfo) {
+      // Modificar el valor de la clave proporcionada
+      actualUserInfo[clave] = nuevoValor;
+  
+      // Aquí puedes guardar la información actualizada si es necesario
+      // Puedes implementar una función para guardar los cambios en tu base de datos
+  
+      // Devolver la información actualizada
+      return actualUserInfo;
+    } else {
+      // Devolver null si no se encuentra el usuario
+      return null;
+    }
+  }
+

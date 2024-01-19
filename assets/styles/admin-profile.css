@@ -239,8 +239,10 @@ input[type="search"]::-webkit-search-clear-button {
 }
 
 .modal-footer button{
- background-color: #8d8a89;
-}
+    background-color: #996229;
+    border-color: #996229;
+   }
+   
 
 .modal-footer button:hover{
     background-color: #361c12;

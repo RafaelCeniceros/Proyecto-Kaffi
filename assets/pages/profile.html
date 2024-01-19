@@ -207,8 +207,8 @@
                         <!-- tarjeta para actualizacion de nombre -->
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
                             <form id="user-name-form" class="row d-flex justify-content-between p-3">
-
-                                <div id="name-success-message-container" class="row p-2 text-success">
+                                
+                                <div id="name-success-message-container" class="row pb-2 text-success">
                                     <div class="d-flex align-items-center">
                                         <span class="text-start">Nombre de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
@@ -218,7 +218,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <div class="text-start col-6">
                                         <p>Nombre actual</p>
-                                        <p>"Nombre actual del usuario"</p>
+                                        <p id="actual-name">"Nombre actual del usuario"</p>
                                     </div>
                                     <div class="text-start col-6">
                                         <label for="Name-Input" class="form-label">Nombre</label>
@@ -245,7 +245,7 @@
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
                             <form id="user-lastName-form" class="row d-flex justify-content-between p-3">
 
-                                <div id="lastName-success-message-container" class="row p-2 text-success">
+                                <div id="lastName-success-message-container" class="row pb-2 text-success">
                                     <div class="d-flex align-items-center">
                                         <span class="text-start">Apellido de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
@@ -255,7 +255,7 @@
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <div class="text-start col-6">
                                         <p>Apellido actual</p>
-                                        <p>"Apellido actual del usuario"</p>
+                                        <p id="actual-lastName">"Apellido actual del usuario"</p>
                                     </div>
                                     <div class="text-start col-6">
                                         <label for="LastName-Input" class="form-label">Apellido</label>
@@ -282,7 +282,7 @@
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
                             <form id="user-email-form" class="row d-flex justify-content-between p-3">
 
-                                <div id="email-success-message-container" class="p-2 row">
+                                <div id="email-success-message-container" class="pb-2 row">
                                     <div class="d-flex align-items-center text-success">
                                         <span class="text-start">E-mail de usuario actualizado</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
@@ -292,13 +292,13 @@
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <div class="text-start col-6">
                                         <p>E-mail actual</p>
-                                        <p>"Email actual del usuario"</p>
+                                        <p id="actual-email">"Email actual del usuario"</p>
                                     </div>
                                     <div class="text-start col-6">
                                         <label for="E-Mail-Input" class="form-label">E-mail</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
                                             <input type="text" class="form-control rounded-pill" id="E-Mail-Input"
-                                                placeholder="Nombre@gamil.com">
+                                                placeholder="Nombre@gmail.com">
                                             <i id="invalid-email-sign"
                                                 class="fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -320,7 +320,7 @@
                         <div class="container-forms col-md-10 d-flex justify-content-between m-2">
                             <form id="user-password-form" class="row d-flex justify-content-between p-3">
 
-                                <div id="password-success-message-container" class="row p-2">
+                                <div id="password-success-message-container" class="row pb-2">
                                     <div class="d-flex align-items-center text-success">
                                         <span class="text-start">Contraseña altualizada</span>
                                         <i class="fa-solid fa-circle-check fa-beat m-3"></i>
@@ -426,7 +426,7 @@
                         <div class="col-4 d-flex justify-content-center">
                             <i class="fa-solid fa-house-user fa-xl"></i>
                         </div>
-                        <div id="option-address-container" class="col-4 d-flex justify-content-start">
+                        <div id="option-address-container" class="col-4 d-flex justify-content-center">
                             <button id="option-address-button">Dirección</button>
                         </div>
                         <div class="col-4  d-flex justify-content-center">
@@ -447,7 +447,7 @@
                                     <div id="address-success-message-container" class="mt-3 text-success">
                                         <div class="d-flex align-items-center justify-content-center">
                                             <i class="fa-solid fa-circle-check fa-beat fa-2xl m-3"></i>
-                                            <h5 id="success-message" class="mt-4 text-center">Tu infotmación ha sido
+                                            <h5 id="success-message" class="mt-4 text-center">Tu información ha sido
                                                 actualizada</h5>
                                         </div>
                                     </div>
@@ -455,7 +455,7 @@
                                     <div class="mb-2 text-start col-8">
                                         <label for="inputStreet" class="form-label">Calle</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputStreet">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputStreet">
                                             <i id="invalid-street-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -464,7 +464,7 @@
                                     <div class="mb-2 text-start col-4">
                                         <label for="inputOutsideNum" class="form-label">No.Exterior</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputOutsideNum">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputOutsideNum">
                                             <i id="invalid-outsideNum-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -474,7 +474,7 @@
                                     <div class="mb-2 text-start col-4">
                                         <label for="inputInsideNum" class="form-label">No.Interior</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputInsideNum">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputInsideNum">
                                             <i id="invalid-insideNum-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -483,7 +483,7 @@
                                     <div class="mb-2 text-start col-8">
                                         <label for="inputColony" class="form-label">Colonia</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputColony">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputColony">
                                             <i id="invalid-colony-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -493,7 +493,7 @@
                                     <div class="mb-2 text-start col-8">
                                         <label for="inputMunicipality" class="form-label">Municipio</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputMunicipality">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputMunicipality">
                                             <i id="invalid-municipality-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -502,7 +502,7 @@
                                     <div class="mb-2 text-start col-4">
                                         <label for="inputZip" class="form-label">CP</label>
                                         <div class="input-container d-flex align-items-center justify-content-center">
-                                            <input type="text" class="form-control rounded-pill" id="inputZip">
+                                            <input disabled type="text" class="form-control rounded-pill" id="inputZip">
                                             <i id="invalid-zip-sign"
                                                 class="alert-icon fa-solid fa-circle-exclamation fa-shake ms-1"></i>
                                         </div>
@@ -511,7 +511,7 @@
 
                                     <div class="col-12">
                                         <label for="inputStore" class="form-label">Sucursal de preferencia</label>
-                                        <select id="inputStore" class="rounded-pill form-select">
+                                        <select disabled id="inputStore" class="rounded-pill form-select">
                                             <option>Sucursal Fco. de Montejo</option>
                                             <option>Sucursal Caucel</option>
                                         </select>
@@ -535,7 +535,7 @@
                         <div class="col-4 d-flex justify-content-center">
                             <i class="fa-solid fa-bag-shopping fa-xl"></i>
                         </div>
-                        <div id="option-orders-container" class="col-4 d-flex justify-content-start">
+                        <div id="option-orders-container" class="col-4 d-flex justify-content-center">
                             <button id="option-orders-button">Pedidos</button>
                         </div>
                         <div class="col-4  d-flex justify-content-center">
@@ -544,54 +544,30 @@
                     </div>
                     <div id="container-orders" class="row align-items-center justify-content-center">
                         <!-- columna para contenedor  -->
-                        <div id="container-account" class="row align-items-center justify-content-center">
-                            <div class="col-md-10 mt-4">
-                                <h4 style="font-weight:bold;">Información de pedidos</h4>
-                            </div>
-                            <!-- tarjeta para informacion de Pedidos -->
-                            <div class="order-card col-md-10 m-2">
-                                <div class="p-3 mb-2">
-
-                                    <div class="text-start row mb-2">
-                                        <h5>Pedido</h5>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="text-start col-lg-6 p-2">
-                                            <div class="row text-start">
-
-                                                <div class="col-6">
-                                                    <p>Fecha de pedido</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <i class="order-info">08/11/2023</i>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <p>No. de pedido</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <i class="order-info">152735</i>
-                                                </div>
+                            <div class="col-md-10 container-forms d-flex flex-column align-items-center justify-content-center">
+                                <h4 class ="mt-4" style="font-weight:bold;">Información de pedidos</h4>
+                                <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg"> <!-- modal-lg para un modal más grande -->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="orderDetailsModalLabel">Detalles de la Orden</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        </div>
-
-                                        <div class="text-start col-lg-6 p-lg-2">
-                                            <div class="row text-start">
-                                                <div class="col-6">
-                                                    <p class="ps-lg-3">Total</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <i class="order-info">$ 1500 MXN</i>
-                                                </div>
+                                            <div class="modal-body">
+                                                <!-- Aquí se insertará dinámicamente el contenido del modal -->
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div id="no-orders" class="row w-100 align-items-center justify-content-center p-5">
+                                    <h6 class="text-center">No hay pedidos disponibles</h6>
+                                </div>
+                                <div id="orders" class="row align-items-center justify-content-center w-100 pb-3">
                                 </div>
                             </div>
-
-                        </div>
                     </div>
 
                     <!-- Seccion Comentarios -->
@@ -600,7 +576,7 @@
                         <div class="col-4 d-flex justify-content-center">
                             <i class="fa-solid fa-comments fa-xl"></i>
                         </div>
-                        <div id="option-comments-container" class="col-4 d-flex justify-content-start">
+                        <div id="option-comments-container" class="col-4 d-flex justify-content-center">
                             <button id="option-comments-button">Comentarios</button>
                         </div>
                         <div class="col-4  d-flex justify-content-center">
@@ -656,7 +632,7 @@
                         <div class="col-4 d-flex justify-content-center">
                             <i class="fa-solid fa-right-from-bracket fa-xl"></i>
                         </div>
-                        <div class="col-4 d-flex justify-content-start">
+                        <div class="col-4 d-flex justify-content-center">
                             <button id="option-logout-button">Cerrar Sesión</button>
                         </div>
                     </div>
@@ -740,7 +716,7 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f430a0c40.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <script type="module" src="../js/profile-pruebas.js"></script>
+    <script type="module" src="../js/profile.js"></script>
     <script type="module" src="../js/profile-user-form-validation.js"></script>
     <script type="module" src="../js/profile-address-form-validation.js"></script>
     <script type="module" src="../js/profile-comments-validation.js"></script>
